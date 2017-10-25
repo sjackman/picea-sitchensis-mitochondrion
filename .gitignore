@@ -1,0 +1,18 @@
+*.bam
+*.bam.bai
+*.fa
+*.fa.fai
+*.fastq
+*.log
+*.mmi
+*.orig
+*.paf
+*.sam.gz
+*.time
+
+# BWA
+*.fa.amb
+*.fa.ann
+*.fa.bwt
+*.fa.pac
+*.fa.sa
