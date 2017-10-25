@@ -19,14 +19,21 @@ all: miniasm
 
 miniasm: \
 	FAH26843.minimap2.miniasm.gfa.png \
-	FAH26843.minimap2.miniasm.minimap2.psitchensiscpmt_8.sort.bam.bai
+	FAH26843.minimap2.miniasm.minimap2.psitchensiscpmt_8.sort.bam.bai \
+	FAH26843.minimap2.miniasm.minimap2.Q903_ARCS.paf.gz
 
 ifndef ref
-psitchensiscpmt_8.%.paf.gz:
+%.psitchensiscpmt_8.paf.gz:
 	$(MAKE) ref=psitchensiscpmt_8 $@
 
 %.psitchensiscpmt_8.sam.gz:
 	$(MAKE) ref=psitchensiscpmt_8 $@
+
+%.Q903_ARCS.paf.gz:
+	$(MAKE) ref=Q903_ARCS $@
+
+%.Q903_ARCS.sam.gz:
+	$(MAKE) ref=Q903_ARCS $@
 endif
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
@@ -53,25 +60,13 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 %.fq.mmi: %.fq.gz
 	$(time) minimap2 -d $@ $<
 
-# Align a FASTA file to the reference genome and produce a SAM file.
-%.minimap2.$(ref).sam.gz: $(ref).fa %.fa
-	minimap2 -a -xmap-ont $^ | $(gzip) >$@
+# Align a FASTA file to the indexed reference genome and produce a PAF file.
+%.minimap2.$(ref).paf.gz: $(ref).fa.mmi %.fa
+	$(time) minimap2 -xmap-ont $^ | $(gzip) >$@
 
-# Align a FASTA file to a FASTQ file and produce a PAF file.
-$(ref).%.paf.gz: $(ref).fq.mmi %.fa
-	$(time) minimap2 $^ | $(gzip) >$@
-
-# Align a FASTA file to a FASTQ file and produce a SAM file.
-$(ref).%.sam.gz: $(ref).fq.mmi %.fa
-	$(time) minimap2 -a $^ | $(gzip) >$@
-
-# Align a FASTQ file to a FASTA file and produce a PAF file.
-$(ref).%.paf.gz: $(ref).fa.mmi %.fq.gz
-	$(time) minimap2 $^ | $(gzip) >$@
-
-# Align a FASTQ file to a FASTA file and produce a SAM file.
-$(ref).%.sam.gz: $(ref).fa.mmi %.fq.gz
-	$(time) minimap2 -a $^ | $(gzip) >$@
+# Align a FASTA file to the indexed reference genome and produce a SAM file.
+%.minimap2.$(ref).sam.gz: $(ref).fa.mmi %.fa
+	$(time) minimap2 -a -xmap-ont $^ | $(gzip) >$@
 
 # Overlap reads with Minimap2 and produce a PAF file.
 %.minimap2.paf.gz: %.fq.gz
