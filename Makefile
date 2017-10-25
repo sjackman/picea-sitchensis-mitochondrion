@@ -17,16 +17,31 @@ time=command time -v -o $@.time
 
 all: miniasm
 
-miniasm: FAH26843.minimap2.miniasm.gfa.png
+miniasm: \
+	FAH26843.minimap2.miniasm.gfa.png \
+	FAH26843.minimap2.miniasm.minimap2.psitchensiscpmt_8.sort.bam.bai
 
 ifndef ref
 psitchensiscpmt_8.%.paf.gz:
+	$(MAKE) ref=psitchensiscpmt_8 $@
+
+%.psitchensiscpmt_8.sam.gz:
 	$(MAKE) ref=psitchensiscpmt_8 $@
 endif
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
 Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 	sed 's/,/ /' $< >$@
+
+# BWA
+
+# Index the target genome.
+%.fa.bwt: %.fa
+	bwa index $<
+
+# Align a FASTA file to the reference genome using BWA-MEM.
+%.bwa.$(ref).sam.gz: %.fa $(ref).fa.bwt
+	bwa mem $(ref).fa $< | $(gzip) >$@
 
 # minimap2
 
@@ -37,6 +52,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 # Index a FASTQ file.
 %.fq.mmi: %.fq.gz
 	$(time) minimap2 -d $@ $<
+
+# Align a FASTA file to the reference genome and produce a SAM file.
+%.minimap2.$(ref).sam.gz: $(ref).fa %.fa
+	minimap2 -a -xmap-ont $^ | $(gzip) >$@
 
 # Align a FASTA file to a FASTQ file and produce a PAF file.
 $(ref).%.paf.gz: $(ref).fq.mmi %.fa
@@ -65,7 +84,7 @@ $(ref).%.sam.gz: $(ref).fa.mmi %.fq.gz
 	samtools faidx $<
 
 # Sort a SAM file and produce a sorted BAM file.
-%.sort.bam: %.sam
+%.sort.bam: %.sam.gz
 	samtools sort -@$t -o $@ $<
 
 # Index a BAM file.
