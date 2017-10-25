@@ -2,12 +2,15 @@
 *.bam.bai
 *.fa
 *.fa.fai
-*.fastq
+*.fq.gz
+*.gfa
 *.log
 *.mmi
 *.orig
-*.paf
+*.paf.gz
+*.png
 *.sam.gz
+*.svg
 *.time
 
 # BWA
