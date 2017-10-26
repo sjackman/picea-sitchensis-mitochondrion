@@ -105,3 +105,19 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 # Render a GFA file to SVG using Bandage.
 %.gfa.svg: %.gfa
 	Bandage image $< $@
+
+# Racon
+
+# The draft assembly to correct.
+draft=FAH26843.minimap2.miniasm
+
+# Add fake quality values to a SAM file.
+%.q.sam.gz: %.sam.gz
+	gunzip -c $< \
+		| awk -vOFS='\t' '/^@/ { print; next } { $$11 = $$10; gsub(".", "I", $$11); print }' \
+		| $(gzip) >$@
+
+# Call the consensus sequence using Racon.
+# Add fake quality values for Racon.
+$(draft).%.racon.fa: $(draft).%.q.sam.gz $(draft).fa
+	racon --sam NA $< $(draft).fa $@
