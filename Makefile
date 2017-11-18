@@ -111,6 +111,14 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 # The draft assembly to correct.
 draft=FAH26843.minimap2.miniasm
 
+# Align a FASTA file to the indexed draft genome and produce a SAM file.
+$(draft).minimap2.%.sam.gz: $(draft).fa.mmi %.fa
+	$(time) minimap2 -a -xmap-ont $^ | samtools view -h -F4 | $(gzip) >$@
+
+# Align a FASTQ file to the indexed draft genome and produce a SAM file.
+$(draft).minimap2.%.sam.gz: $(draft).fa.mmi %.fq.gz
+	$(time) minimap2 -a -xmap-ont $^ | samtools view -h -F4 | $(gzip) >$@
+
 # Add fake quality values to a SAM file.
 %.q.sam.gz: %.sam.gz
 	gunzip -c $< \
