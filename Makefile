@@ -168,3 +168,9 @@ $(draft).%.racon.fa: $(draft).%.q.sam.gz $(draft).fa
 		then rename p25,Depth_p25,p50,Depth_p50,p75,Depth_p75 \
 		then put '$$Depth_IQR = $$Depth_p75 - $$Depth_p25' \
 		$< >$@
+
+# Compute the depth of coverage in bedgraph format.
+%.paf.bedgraph: %.paf.gz $(ref).fa.fai
+	gunzip -c $< | cut -f 6,8,9 \
+	| bedtools sort \
+	| bedtools genomecov -bga -g $(ref).fa.fai -i - >$@
