@@ -18,8 +18,8 @@ time=command time -v -o $@.time
 all: miniasm
 
 miniasm: \
-	Q903_4.minimap2.miniasm.gfa.png \
-	Q903_4.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.gz
+	Q903_5.minimap2.miniasm.gfa.png \
+	Q903_5.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.gz
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -40,7 +40,7 @@ endif
 	$(gzip) -c $< >$@
 
 # Concatenate and compress the data.
-Q903_4.fq.gz: data/FAH26226-cleaned.fastq data/FAH26689-cleaned.fastq data/FAH26719-cleaned.fastq data/FAH26843-cleaned.fastq
+Q903_5.fq.gz: data/FAH26226-cleaned.fastq data/FAH26689-cleaned.fastq data/FAH26719-cleaned.fastq data/FAH26768-cleaned.fastq data/FAH26843-cleaned.fastq
 	$(gzip) -c $^ >$@
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
