@@ -47,6 +47,10 @@ Q903_5.fq.gz: data/FAH26226-cleaned.fastq data/FAH26689-cleaned.fastq data/FAH26
 Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 	sed 's/,/ /' $< >$@
 
+# Convert FASTA to FASTQ.
+%.fa.fq: %.fa
+	bioawk -cfastx '{ $$qual = $$seq; gsub(".", "I", $$qual); print "@" $$name "\n" $$seq "\n+\n" $$qual }' $< >$@
+
 # BWA
 
 # Index the target genome.
