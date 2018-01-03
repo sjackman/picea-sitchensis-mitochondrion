@@ -81,11 +81,11 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 
 # Align a FASTQ file to the indexed reference genome and produce a PAF file.
 %.minimap2.$(ref).paf.gz: $(ref).fa.mmi %.fq.gz
-	$(time) minimap2 -xmap-ont $^ | $(gzip) >$@
+	$(time) minimap2 -xmap-ont -r50000 $^ | $(gzip) >$@
 
 # Align a FASTQ file to the indexed reference genome and produce a SAM file.
 %.minimap2.$(ref).sam.gz: $(ref).fa.mmi %.fq.gz
-	$(time) minimap2 -xmap-ont -a $^ | $(gzip) >$@
+	$(time) minimap2 -xmap-ont -r50000 -a $^ | $(gzip) >$@
 
 # Overlap reads with Minimap2 and produce a PAF file.
 %.minimap2.paf.gz: %.fq.gz
