@@ -109,7 +109,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 
 # Assemble reads with Miniasm
 %.minimap2.miniasm.gfa: %.fq.gz %.minimap2.paf.gz
-	$(time) miniasm -f $^ >$@
+	$(time) miniasm -c1 -f $^ >$@
 
 # Convert GFA to FASTA.
 %.fa: %.gfa
