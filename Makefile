@@ -178,3 +178,9 @@ $(draft).%.racon.fa: $(draft).%.q.sam.gz $(draft).fa
 	gunzip -c $< | cut -f 6,8,9 \
 	| bedtools sort \
 	| bedtools genomecov -bga -g $(ref).fa.fai -i - >$@
+
+# GraphViz
+
+# Render a graph to PDF using dot.
+%.gv.dot.pdf: %.gv
+	dot -Tpdf -o $@ $<
