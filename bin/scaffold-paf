@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+mlr -p --fs tab \
+	then label Qname,Qlength,Qstart,Qend,Ori,Tname,Tlength,Tstart,Tend,Score,Length,Mapq \
+	then cut -f Qname,Qstart,Ori,Tname,Tlength,Score,Mapq \
+	then filter '$Tlength >= 10000 && $Score >= 100 && $Mapq >= 50' \
+	then sort -f Qname -n Qstart \
+	then step -a shift -g Qname -f Tname,Ori \
+	then filter '$Tname_shift != "" && $Tname != $Tname_shift' \
+	then put -q '
+		func rc(s) { return sub(sub(sub(s, "[+]$", "x"), "-$", "+"), "x$", "-") }
+		@U = $Tname_shift . $Ori_shift;
+		@V = $Tname . $Ori;
+		emitf @U, @V;
+		@Ux = rc(@U);
+		@Vx = rc(@V);
+		@U = @Vx;
+		@V = @Ux;
+		emitf @U, @V;
+		' \
+	then count-distinct -f U,V -o n \
+	then filter '$n >= 5' \
+	then put -q '
+		begin { print "digraph links {" }
+		print "\"" . $U . "\" -> \"" . $V . "\" [n=" . $n . " label=\"n=" . $n . "\"]";
+		end { print "}" }'
