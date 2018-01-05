@@ -1,5 +1,8 @@
 # Correct Nanopore reads using assembled contigs.
 
+# The long reads
+reads=Q903_7
+
 # Number of threads.
 t=16
 
@@ -127,27 +130,13 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 
 # Racon
 
-# The draft assembly to correct.
-draft=FAH26843.minimap2.miniasm
+# Align the reads to the draft genome and produce a PAF file.
+%.minimap2.$(reads).paf.gz: %.fa $(reads).fq.gz
+	$(time) minimap2 -xmap-ont -w5 $^ | $(gzip) >$@
 
-# Align a FASTA file to the indexed draft genome and produce a SAM file.
-$(draft).minimap2.%.sam.gz: $(draft).fa.mmi %.fa
-	$(time) minimap2 -a -xmap-ont $^ | samtools view -h -F4 | $(gzip) >$@
-
-# Align a FASTQ file to the indexed draft genome and produce a SAM file.
-$(draft).minimap2.%.sam.gz: $(draft).fa.mmi %.fq.gz
-	$(time) minimap2 -a -xmap-ont $^ | samtools view -h -F4 | $(gzip) >$@
-
-# Add fake quality values to a SAM file.
-%.q.sam.gz: %.sam.gz
-	gunzip -c $< \
-		| awk -vOFS='\t' '/^@/ { print; next } { $$11 = $$10; gsub(".", "I", $$11); print }' \
-		| $(gzip) >$@
-
-# Call the consensus sequence using Racon.
-# Add fake quality values for Racon.
-$(draft).%.racon.fa: $(draft).%.q.sam.gz $(draft).fa
-	racon --sam NA $< $(draft).fa $@
+# Polish the assembly using Racon.
+%.racon.fa: %.minimap2.$(reads).paf.gz $(reads).fq.gz %.fa
+	gunzip -c $< | $(time) racon $(reads).fq.gz - $*.fa $@
 
 # Bedtools
 
