@@ -1,13 +1,25 @@
 # Correct Nanopore reads using assembled contigs.
 
-# The long reads
+# Long reads
 reads=Q903_7
+
+# Linked reads
+lr=HYN5VCCXX_4
 
 # Number of threads.
 t=16
 
 # Parallel compression with pigz.
 gzip=pigz -p$t
+
+# Parameters of ARCS
+c=5
+e=30000
+r=0.05
+
+# Parameters of LINKS
+a=0.1
+l=10
 
 # Report run time and memory usage
 export SHELL=zsh -opipefail
@@ -18,7 +30,14 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: miniasm
+all: miniasm racon arcs
+
+racon: Q903_7.minimap2.miniasm.racon.racon.fa
+
+Q903_7.minimap2.miniasm.racon.racon.arcs.fa: Q903_7.minimap2.miniasm.racon.racon.HYN5VCCXX_4.c5_e30000_r0.05.arcs.a0.1_l10.links.fa
+	ln -sf $< $@
+
+arcs: Q903_7.minimap2.miniasm.racon.racon.arcs.fa
 
 miniasm: \
 	Q903_7.minimap2.miniasm.gfa.png \
@@ -63,6 +82,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 # Align a FASTA file to the reference genome using BWA-MEM.
 %.bwa.$(ref).sam.gz: %.fa $(ref).fa.bwt
 	bwa mem $(ref).fa $< | $(gzip) >$@
+
+# Align linked reads to the draft genome and do not sort.
+%.$(lr).bx.sortn.bam: %.fa.bwt $(lr).bx.fq.gz
+	bwa mem -t$t -pC $*.fa $(lr).bx.fq.gz | samtools view -@$t -h -F4 -o $@
 
 # minimap2
 
@@ -137,6 +160,31 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 # Polish the assembly using Racon.
 %.racon.fa: %.minimap2.$(reads).paf.gz $(reads).fq.gz %.fa
 	gunzip -c $< | $(time) racon $(reads).fq.gz - $*.fa $@
+
+# ARCS
+
+# Create a graph of linked contigs using ARCS.
+%.$(lr).c$c_e$e_r$r.arcs_original.gv %.$(lr).c$c_e$e_r$r.arcs.dist.gv %.$(lr).c$c_e$e_r$r.arcs.dist.tsv: %.$(lr).bx.sortn.bam %.fa
+	arcs -s98 -c$c -l0 -z500 -m4-20000 -d0 -e$e -r$r -v \
+		-f $*.fa \
+		-b $*.$(lr).c$c_e$e_r$r.arcs \
+		-g $*.$(lr).c$c_e$e_r$r.arcs.dist.gv \
+		--tsv=$*.$(lr).c$c_e$e_r$r.arcs.dist.tsv \
+		--barcode-counts=$<.barcode-counts.tsv \
+		$<
+
+# Convert the ARCS graph to LINKS TSV format.
+%.$(lr).c$c_e$e_r$r.arcs.links.tsv: %.$(lr).c$c_e$e_r$r.arcs_original.gv %.fa
+	bin/arcs-makeTSVfile $< $@ $*.fa
+
+# Scaffold the assembly using the ARCS graph and LINKS.
+%.$(lr).c$c_e$e_r$r.arcs.a$a_l$l.links.scaffolds.fa %.$(lr).c$c_e$e_r$r.arcs.a$a_l$l.links.assembly_correspondence.tsv: %.$(lr).c$c_e$e_r$r.arcs.links.tsv %.fa
+	cp $< $*.$(lr).c$c_e$e_r$r.arcs.a$a_l$l.links.tigpair_checkpoint.tsv
+	LINKS -k20 -l$l -t2 -a$a -x1 -s /dev/null -f $*.fa -b $*.$(lr).c$c_e$e_r$r.arcs.a$a_l$l.links
+
+# Rename the scaffolds.
+%.links.fa: %.links.scaffolds.fa
+	gsed -r 's/^>scaffold([^,]*),(.*)/>\1 scaffold\1,\2/' $< >$@
 
 # Bedtools
 
