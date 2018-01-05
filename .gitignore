@@ -1,17 +1,24 @@
 *.bam
 *.bam.bai
+*.bedgraph
 *.fa
 *.fa.fai
 *.fq.gz
 *.gfa
+*.gv
+*.id
 *.log
 *.mmi
 *.orig
 *.paf.gz
+*.pdf
 *.png
 *.sam.gz
 *.svg
+*.tsv
 *.time
+data/
+notes/
 
 # BWA
 *.fa.amb
