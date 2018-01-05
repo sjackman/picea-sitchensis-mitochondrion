@@ -179,6 +179,26 @@ $(draft).%.racon.fa: $(draft).%.q.sam.gz $(draft).fa
 	| bedtools sort \
 	| bedtools genomecov -bga -g $(ref).fa.fai -i - >$@
 
+# Select putative mitochondrial contigs
+
+# Convert PAF to TSV.
+%.paf.tsv: %.paf.gz
+	gunzip -c $< \
+	| mlr --nidx --fs tab --otsvlite \
+		then rename 1,Qname,6,Tname,10,Matches,11,Length \
+		then filter '$$Matches > 5000' \
+		then stats1 -a sum -g Qname,Tname -f Matches,Length \
+		then put '$$Identity = $$Matches_sum / $$Length_sum' \
+		then sort -nr Identity >$@
+
+# Select putative mitochondrial contigs.
+%.paf.mt.id: %.paf.tsv
+	mlr --itsvlite --onidx filter '$$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
+
+# Generate a FASTA file of putative mitochondrial contigs.
+%.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.mt.fa: %.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.mt.id %.minimap2.miniasm.fa
+	samtools faidx $*.minimap2.miniasm.fa `<$<` | seqtk seq >$@
+
 # GraphViz
 
 # Render a graph to PDF using dot.
