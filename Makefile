@@ -238,6 +238,16 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 
 # GraphViz
 
+n=3
+
+# Filter scaffolds by length using gvpr.
+%.l20k.gv: %.gv
+	gvpr -i 'N[l >= 20000]' -o $@ $<
+
+# Filter edges by their attribute n.
+%.n$n.gv: %.gv
+	gvpr 'E[n >= $n]' -o $@ $<
+
 # Render a graph to PDF using dot.
 %.gv.dot.pdf: %.gv
 	dot -Tpdf -o $@ $<
