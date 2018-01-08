@@ -165,7 +165,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 
 # Create a graph of linked contigs using ARCS.
 %.$(lr).c$c_e$e_r$r.arcs_original.gv %.$(lr).c$c_e$e_r$r.arcs.dist.gv %.$(lr).c$c_e$e_r$r.arcs.dist.tsv: %.$(lr).bx.sortn.bam %.fa
-	arcs -s98 -c$c -l0 -z500 -m4-20000 -d0 -e$e -r$r -v \
+	bin/arcs -s98 -c$c -l0 -z500 -m4-20000 -d0 -e$e -r$r -v \
 		-f $*.fa \
 		-b $*.$(lr).c$c_e$e_r$r.arcs \
 		-g $*.$(lr).c$c_e$e_r$r.arcs.dist.gv \
