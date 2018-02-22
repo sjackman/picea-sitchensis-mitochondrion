@@ -1,7 +1,7 @@
 # Correct Nanopore reads using assembled contigs.
 
 # Long reads
-reads=Q903_7
+reads=Q903_8
 
 # Linked reads
 lr=HYN5VCCXX_4
@@ -13,12 +13,12 @@ t=16
 gzip=pigz -p$t
 
 # Parameters of ARCS
-c=5
-e=30000
+c=2
+e=50000
 r=0.05
 
 # Parameters of LINKS
-a=0.1
+a=0.7
 l=10
 
 # Report run time and memory usage
@@ -32,16 +32,18 @@ time=command time -v -o $@.time
 
 all: miniasm racon arcs
 
-racon: Q903_7.minimap2.miniasm.racon.racon.fa
+miniasm: \
+	Q903_8.minimap2.miniasm.gfa.png \
+	Q903_8.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.gz
 
-Q903_7.minimap2.miniasm.racon.racon.arcs.fa: Q903_7.minimap2.miniasm.racon.racon.HYN5VCCXX_4.c5_e30000_r0.05.arcs.a0.1_l10.links.fa
+racon: Q903_8.minimap2.miniasm.racon.racon.fa \
+	Q903_8.minimap2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.paf.gz \
+	Q903_8.minimap2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.sort.bam.bai
+
+Q903_8.minimap2.miniasm.racon.racon.arcs.fa: Q903_8.minimap2.miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-arcs: Q903_7.minimap2.miniasm.racon.racon.arcs.fa
-
-miniasm: \
-	Q903_7.minimap2.miniasm.gfa.png \
-	Q903_7.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.gz
+arcs: Q903_8.minimap2.miniasm.racon.racon.arcs.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -62,7 +64,7 @@ endif
 	$(gzip) -c $< >$@
 
 # Concatenate and compress the data.
-Q903_7.fq.gz: data/FAH26226-cleaned.fastq data/FAH26318-cleaned.fastq data/FAH26380-cleaned.fastq data/FAH26689-cleaned.fastq data/FAH26719-cleaned.fastq data/FAH26768-cleaned.fastq data/FAH26843-cleaned.fastq
+Q903_8.fq.gz: data/FAH26226-cleaned.fastq data/FAH26318-cleaned.fastq data/FAH26380-cleaned.fastq data/FAH26689-cleaned.fastq data/FAH26719-cleaned.fastq data/FAH26768-cleaned.fastq data/FAH26843-cleaned.fastq data/FAH44324-cleaned.fastq
 	$(gzip) -c $^ >$@
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
@@ -122,6 +124,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 # Index a FASTA file.
 %.fa.fai: %.fa
 	samtools faidx $<
+
+# Sort a query-name-sorted BAM file by target.
+%.sort.bam: %.sortn.bam
+	samtools sort -@$t -o $@ $<
 
 # Sort a SAM file and produce a sorted BAM file.
 %.sort.bam: %.sam.gz
@@ -233,12 +239,16 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 	mlr --itsvlite --onidx filter '$$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
 
 # Generate a FASTA file of putative mitochondrial contigs.
-%.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.mt.fa: %.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.mt.id %.minimap2.miniasm.fa
-	samtools faidx $*.minimap2.miniasm.fa `<$<` | seqtk seq >$@
+%.minimap2.psitchensiscpmt_8.mt.fa: %.minimap2.psitchensiscpmt_8.paf.mt.id %.fa
+	samtools faidx $*.fa `<$<` | seqtk seq >$@
 
 # GraphViz
 
 n=3
+
+# Label vertices and edges
+%.dist.label.gv: %.dist.gv
+	gvpr -c 'N{label = sprintf("%s\\n%u bp", name, l)} E{label = sprintf("n=%u", n)}' $< >$@
 
 # Filter scaffolds by length using gvpr.
 %.l20k.gv: %.gv
