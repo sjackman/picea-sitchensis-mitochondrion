@@ -78,7 +78,7 @@ Q903_9.fq.gz: data/FAH26226-cleaned.fastq data/FAH26318-cleaned.fastq data/FAH26
 	$(gzip) -c $^ >$@
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
-Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
+Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	sed 's/,/ /' $< >$@
 
 # Convert FASTA to FASTQ.
