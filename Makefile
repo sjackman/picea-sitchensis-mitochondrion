@@ -65,6 +65,10 @@ ifndef ref
 	$(MAKE) ref=Q903_ARCS $@
 endif
 
+# Separate the largest mitochondrial scaffolds from the organellar assembly.
+psitchensismt_8.fa: psitchensiscpmt_8.fa
+	seqtk seq -L150000 $< >$@
+
 # Compress the data.
 %.fq.gz: data/%-cleaned.fastq
 	$(gzip) -c $< >$@
@@ -157,6 +161,10 @@ miniasm_c=2
 	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
 
 # Bandage
+
+# Separate a GFA file of putative mitochondrial contigs.
+%.mt.gfa: %.gfa psitchensismt_8.fa
+	Bandage reduce $< $@ --scope aroundblast --query psitchensismt_8.fa
 
 # Render a GFA file to PNG using Bandage.
 %.gfa.png: %.gfa
