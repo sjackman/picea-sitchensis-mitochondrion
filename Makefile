@@ -145,9 +145,12 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 
 # Miniasm
 
+# Minimum coverage
+miniasm_c=2
+
 # Assemble reads with Miniasm
-%.minimap2.miniasm.gfa: %.fq.gz %.minimap2.paf.gz
-	$(time) miniasm -c1 -f $^ >$@
+%.minimap2.c$(miniasm_c).miniasm.gfa: %.fq.gz %.minimap2.paf.gz
+	$(time) miniasm -c$(miniasm_c) -f $^ >$@
 
 # Convert GFA to FASTA.
 %.fa: %.gfa
