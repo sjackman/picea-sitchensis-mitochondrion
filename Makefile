@@ -129,6 +129,18 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: %.rename.fa: %.fa
 %.minimap2.paf.gz: %.fq.gz
 	$(time) minimap2 -xava-ont $< $< | $(gzip) >$@
 
+# Compute the depth of coverage of each target sequence.
+%.paf.depth.tsv: %.paf.gz
+	gunzip -c $< | sed 's/Consensus_//' | \
+		mlr --nidx --fs tab --otsvlite \
+		then rename 1,Qname,6,Tname,7,Tlength,10,Matches,11,Length \
+		then filter '$$Matches >= 5000' \
+		then stats1 -a count,median,sum -g Tname -f Tlength,Length \
+		then cut -f Tname,Tlength_median,Length_count,Length_sum \
+		then rename Tlength_median,Tlength,Length_count,RC \
+		then put '$$Depth = $$Length_sum / $$Tlength' \
+		then sort -f Tname >$@
+
 # samtools
 
 # Index a FASTA file.
@@ -278,3 +290,9 @@ n=3
 # Render a graph to PDF using dot.
 %.gv.dot.pdf: %.gv
 	dot -Tpdf -o $@ $<
+
+# Miller
+
+# Convert TSV to CSV.
+%.csv: %.tsv
+	mlr --itsvlite --ocsv cat $< >$@
