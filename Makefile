@@ -12,6 +12,9 @@ t=16
 # Parallel compression with pigz.
 gzip=pigz -p$t
 
+# Parameters of Miniasm
+miniasm_c=2
+
 # Parameters of ARCS
 c=2
 e=50000
@@ -32,21 +35,21 @@ time=command time -v -o $@.time
 
 all: miniasm racon arcs
 
-miniasm: Q903_11.minimap2.c2.miniasm.gfa \
-	Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.fa
+miniasm: Q903_11.minimap2.c$(miniasm_c).miniasm.gfa \
+	Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
 
-racon: Q903_11.minimap2.c2.miniasm.racon.racon.fa
+racon: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
-Q903_11.minimap2.c2.miniasm.racon.racon.arcs.fa: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
-		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
+		Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-arcs: Q903_11.minimap2.c2.miniasm.racon.racon.arcs.fa
+arcs: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
 
-arcs_mt: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
+arcs_mt: Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -168,9 +171,6 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	samtools index $<
 
 # Miniasm
-
-# Minimum coverage
-miniasm_c=2
 
 # Assemble reads with Miniasm
 %.minimap2.c$(miniasm_c).miniasm.gfa: %.fq.gz %.minimap2.paf.gz
