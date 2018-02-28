@@ -135,7 +135,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Overlap reads with Minimap2 and produce a PAF file.
 %.minimap2.paf.gz: %.fq.gz
-	$(time) minimap2 -xava-ont $< $< | $(gzip) >$@
+	$(time) minimap2 -xava-ont -I100G $< $< | $(gzip) >$@
 
 # Compute the depth of coverage of each target sequence.
 %.paf.depth.tsv: %.paf.gz
