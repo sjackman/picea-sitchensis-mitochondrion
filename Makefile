@@ -111,31 +111,31 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Index a FASTA file.
 %.fa.mmi: %.fa
-	$(time) minimap2 -xmap-ont -d $@ $<
+	$(time) minimap2 -t$t -xmap-ont -d $@ $<
 
 # Index a FASTQ file.
 %.fq.mmi: %.fq.gz
-	$(time) minimap2 -xava-ont -d $@ $<
+	$(time) minimap2 -t$t -xava-ont -d $@ $<
 
 # Align a FASTA file to the indexed reference genome and produce a PAF file.
 %.minimap2.$(ref).paf.gz: $(ref).fa.mmi %.fa
-	$(time) minimap2 -xmap-ont $^ | $(gzip) >$@
+	$(time) minimap2 -t$t -xmap-ont $^ | $(gzip) >$@
 
 # Align a FASTA file to the indexed reference genome and produce a SAM file.
 %.minimap2.$(ref).sam.gz: $(ref).fa.mmi %.fa
-	$(time) minimap2 -xmap-ont -a $^ | $(gzip) >$@
+	$(time) minimap2 -t$t -xmap-ont -a $^ | $(gzip) >$@
 
 # Align a FASTQ file to the indexed reference genome and produce a PAF file.
 %.minimap2.$(ref).paf.gz: $(ref).fa.mmi %.fq.gz
-	$(time) minimap2 -xmap-ont -r50000 $^ | $(gzip) >$@
+	$(time) minimap2 -t$t -xmap-ont -r50000 $^ | $(gzip) >$@
 
 # Align a FASTQ file to the indexed reference genome and produce a SAM file.
 %.minimap2.$(ref).sam.gz: $(ref).fa.mmi %.fq.gz
-	$(time) minimap2 -xmap-ont -r50000 -a $^ | $(gzip) >$@
+	$(time) minimap2 -t$t -xmap-ont -r50000 -a $^ | $(gzip) >$@
 
 # Overlap reads with Minimap2 and produce a PAF file.
 %.minimap2.paf.gz: %.fq.gz
-	$(time) minimap2 -xava-ont -I100G $< $< | $(gzip) >$@
+	$(time) minimap2 -t$t -xava-ont -I100G $< $< | $(gzip) >$@
 
 # Compute the depth of coverage of each target sequence.
 %.paf.depth.tsv: %.paf.gz
