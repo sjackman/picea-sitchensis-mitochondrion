@@ -1,7 +1,7 @@
 # Correct Nanopore reads using assembled contigs.
 
 # Long reads
-reads=Q903_9
+reads=Q903_11
 
 # Linked reads
 lr=HYN5VCCXX_4
@@ -32,24 +32,21 @@ time=command time -v -o $@.time
 
 all: miniasm racon arcs
 
-miniasm: \
-	Q903_9.minimap2.miniasm.gfa.png \
-	Q903_9.minimap2.miniasm.minimap2.psitchensiscpmt_8.paf.gz
+miniasm: Q903_11.minimap2.c2.miniasm.gfa \
+	Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.fa
 
-racon: Q903_9.minimap2.miniasm.racon.racon.fa \
-	Q903_9.minimap2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.paf.gz \
-	Q903_9.minimap2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.sort.bam.bai
+racon: Q903_11.minimap2.c2.miniasm.racon.racon.fa
 
-Q903_9.minimap2.miniasm.racon.racon.arcs.fa: Q903_9.minimap2.miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_11.minimap2.c2.miniasm.racon.racon.arcs.fa: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-Q903_9.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
-		Q903_9.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
+		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-arcs: Q903_8.minimap2.c2.miniasm.racon.racon.arcs.fa
+arcs: Q903_11.minimap2.c2.miniasm.racon.racon.arcs.fa
 
-arcs_mt: Q903_9.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
+arcs_mt: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -74,7 +71,18 @@ psitchensismt_8.fa: psitchensiscpmt_8.fa
 	$(gzip) -c $< >$@
 
 # Concatenate and compress the data.
-Q903_9.fq.gz: data/FAH26226-cleaned.fastq data/FAH26318-cleaned.fastq data/FAH26380-cleaned.fastq data/FAH26689-cleaned.fastq data/FAH26719-cleaned.fastq data/FAH26768-cleaned.fastq data/FAH26843-cleaned.fastq data/FAH44324-cleaned.fastq data/FAH44332-cleaned.fastq
+Q903_11.fq.gz: \
+		data/FAH26226-cleaned.fastq \
+		data/FAH26318-cleaned.fastq \
+		data/FAH26380-cleaned.fastq \
+		data/FAH26689-cleaned.fastq \
+		data/FAH26719-cleaned.fastq \
+		data/FAH26768-cleaned.fastq \
+		data/FAH26843-cleaned.fastq \
+		data/FAH44324-cleaned.fastq \
+		data/FAH44332-cleaned.fastq \
+		data/FAH44409-cleaned.fastq \
+		data/FAH44462-cleaned.fastq
 	$(gzip) -c $^ >$@
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
