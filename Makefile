@@ -198,11 +198,11 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Align the reads to the draft genome and produce a PAF file.
 %.minimap2.$(reads).paf.gz: %.fa $(reads).fq.gz
-	$(time) minimap2 -xmap-ont -w5 $^ | $(gzip) >$@
+	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
 
 # Polish the assembly using Racon.
 %.racon.fa: %.minimap2.$(reads).paf.gz $(reads).fq.gz %.fa
-	gunzip -c $< | $(time) racon $(reads).fq.gz - $*.fa $@
+	gunzip -c $< | $(time) racon -t $t $(reads).fq.gz - $*.fa $@
 
 # ARCS
 
