@@ -279,6 +279,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.minimap2.psitchensiscpmt_8.mt.fa: %.minimap2.psitchensiscpmt_8.paf.mt.id %.fa
 	samtools faidx $*.fa `<$<` | seqtk seq >$@
 
+# Generate a FASTQ file of putative mitochondrial reads.
+%.paf.mt.fq.gz: %.paf.mt.id $(reads).fq.gz
+	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
+
 # GraphViz
 
 n=3
