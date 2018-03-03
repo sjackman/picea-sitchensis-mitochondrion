@@ -289,7 +289,7 @@ n=3
 
 # Label vertices and edges
 %.dist.label.gv: %.dist.gv
-	gvpr -c 'N{label = sprintf("%s\\n%u bp", name, l)} E{label = sprintf("n=%u", n)}' $< >$@
+	sed 's/Consensus_//g' $< | gvpr -c 'N{label = sprintf("%s\\n%u bp", name, l)} E{label = sprintf("n=%u", n)}' >$@
 
 # Filter scaffolds by length using gvpr.
 %.l20k.gv: %.gv
