@@ -295,6 +295,10 @@ n=3
 %.l20k.gv: %.gv
 	gvpr -i 'N[l >= 20000]' -o $@ $<
 
+# Filter scaffolds by length using gvpr.
+%.l50k.gv: %.gv
+	gvpr -i 'N[l >= 50000]' -o $@ $<
+
 # Filter edges by their attribute n.
 %.n$n.gv: %.gv
 	gvpr 'E[n >= $n]' -o $@ $<
