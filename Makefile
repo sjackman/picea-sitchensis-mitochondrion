@@ -201,8 +201,8 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
 
 # Polish the assembly using Racon.
-%.racon.fa: %.minimap2.$(reads).paf.gz $(reads).fq.gz %.fa
-	gunzip -c $< | $(time) racon -t $t $(reads).fq.gz - $*.fa $@
+%.racon.fa: $(reads).fq.gz %.minimap2.$(reads).paf.gz %.fa
+	$(time) racon -t $t $^ | tr '_' ' ' >$@
 
 # ARCS
 
