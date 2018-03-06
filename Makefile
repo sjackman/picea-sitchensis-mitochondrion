@@ -216,6 +216,18 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.racon.fa: %.fq.gz %.minimap2.paf.gz
 	$(time) racon -t $t -f $^ $< | tr '_' ' ' >$@
 
+# Align the reads to the Canu assembly and produce a SAM file.
+%.canu.unitigs.minimap2.reads.sam.gz: %.canu.unitigs.fa %.fq.gz
+	$(time) minimap2 -t$t -xmap-ont -w5 -a $^ | $(gzip) >$@
+
+# Align the reads to the Canu assembly and produce a PAF file.
+%.canu.unitigs.minimap2.reads.paf.gz: %.canu.unitigs.fa %.fq.gz
+	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
+
+# Polish the Canu assembly using Racon.
+%.canu.unitigs.racon.fa: %.fq.gz %.canu.unitigs.minimap2.reads.sam.gz %.canu.unitigs.fa
+	$(time) racon -t $t $^ | tr '_' ' ' >$@
+
 # Align the reads to the draft genome and produce a PAF file.
 %.minimap2.c$(miniasm_c).miniasm.minimap2.reads.paf.gz: %.minimap2.c$(miniasm_c).miniasm.fa %.fq.gz
 	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
