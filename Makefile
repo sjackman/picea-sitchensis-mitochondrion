@@ -183,7 +183,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	$(time) miniasm -c$(miniasm_c) -f $^ >$@
 
 # Convert GFA to FASTA.
-%.fa: %.gfa
+%.miniasm.fa: %.miniasm.gfa
 	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
 
 # Canu
