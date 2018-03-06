@@ -33,12 +33,12 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: miniasm racon arcs
+all: miniasm miniasm_racon miniasm_arcs canu
 
 miniasm: Q903_11.minimap2.c$(miniasm_c).miniasm.gfa \
 	Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
 
-racon: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
+miniasm_racon: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
 Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
@@ -47,9 +47,15 @@ Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon
 		Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-arcs: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
+miniasm_arcs: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
 
-arcs_mt: Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
+miniasm_arcs_mt: Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
+
+canu: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.contigs.fa
+
+canu_contigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.contigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+
+canu_unitigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.unitigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -179,6 +185,16 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Convert GFA to FASTA.
 %.fa: %.gfa
 	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+
+# Canu
+
+# Assemble reads with Canu.
+%.canu.contigs.fa: %.fq.gz
+	canu -d $*.canu -p canu genomeSize=6m -nanopore-raw $<
+	ln -sf $*.canu/canu.contigs.fasta $*.canu.contigs.fa
+	ln -sf $*.canu/canu.contigs.gfa $*.canu.contigs.gfa
+	ln -sf $*.canu/canu.unitigs.fasta $*.canu.unitigs.fa
+	ln -sf $*.canu/canu.unitigs.gfa $*.canu.unitigs.gfa
 
 # Bandage
 
