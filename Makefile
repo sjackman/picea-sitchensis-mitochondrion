@@ -57,6 +57,12 @@ canu_contigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.rac
 
 canu_unitigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.unitigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
+Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.fq.gz: \
+		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.fq.gz
+	ln -s $< $@
+
+unicycler: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.fa
+
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
 	$(MAKE) ref=psitchensiscpmt_8 $@
@@ -205,6 +211,17 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	ln -sf $*.canu/canu.contigs.gfa $*.canu.contigs.gfa
 	ln -sf $*.canu/canu.unitigs.fasta $*.canu.unitigs.fa
 	ln -sf $*.canu/canu.unitigs.gfa $*.canu.unitigs.gfa
+
+# Unicycler
+
+# Convert a BAM file to FASTQ files.
+%.1.fq.gz %.2.fq.gz %.s.fq.gz: %.bam
+	samtools sort -@16 -n -tBX $< | samtools fastq -@16 -TBX -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -
+
+# Assemble short and long reads using Unicycler.
+%.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
+	unicycler -t$t --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz
+	seqtk seq $*.unicycler/assembly.fasta >$@
 
 # Bandage
 
