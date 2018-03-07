@@ -323,7 +323,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Select putative mitochondrial contigs.
 %.paf.mt.id: %.paf.tsv
-	mlr --itsvlite --onidx filter '$$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
+	mlr --itsvlite --onidx filter '$$Matches_sum >= 20000 && $$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
 
 # Generate a FASTA file of putative mitochondrial contigs.
 %.minimap2.psitchensiscpmt_8.mt.fa: %.minimap2.psitchensiscpmt_8.paf.mt.id %.fa
@@ -332,6 +332,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Generate a FASTQ file of putative mitochondrial reads.
 %.paf.mt.fq.gz: %.paf.mt.id $(reads).fq.gz
 	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
+
+# Select putative mitochondrial reads.
+%.HYN5VCCXX_4.bx.sort.mt.bam: %.HYN5VCCXX_4.bx.sort.bam %.minimap2.psitchensiscpmt_8.paf.mt.id
+	samtools view -@$t -o $@ $< `<$*.minimap2.psitchensiscpmt_8.paf.mt.id`
 
 # GraphViz
 
