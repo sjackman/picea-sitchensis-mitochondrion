@@ -158,6 +158,12 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 		then put '$$Depth = $$Length_sum / $$Tlength' \
 		then sort -f Tname >$@
 
+# Sambamba
+
+# Filter a BAM file by alignment score and number of mismatches.
+%.as100.nm5.bam: %.bam
+	sambamba view -t $t -F '[AS] >= 100 and [NM] < 5' -fbam -o $@ $<
+
 # samtools
 
 # Index a FASTA file.
