@@ -180,7 +180,11 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Index a BAM file.
 %.bam.bai: %.bam
-	samtools index $<
+	samtools index -@$t $<
+
+# Convert a BAM file to FASTQ.
+%.bam.fq.gz: %.bam
+	samtools fastq -@16 -TBX $< | $(gzip) -p16 >$@
 
 # Miniasm
 
