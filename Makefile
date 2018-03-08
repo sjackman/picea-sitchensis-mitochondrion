@@ -225,6 +225,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Bandage
 
+# Separate the largest component of a GFA file.
+%.comp1.gfa: %.gfa
+	Bandage reduce $< $@ --scope aroundnodes --nodes 1 --distance 100
+
 # Separate a GFA file of putative mitochondrial contigs.
 %.mt.gfa: %.gfa psitchensismt_8.fa
 	Bandage reduce $< $@ --scope aroundblast --query psitchensismt_8.fa
@@ -236,6 +240,29 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Render a GFA file to SVG using Bandage.
 %.gfa.svg: %.gfa
 	Bandage image $< $@
+
+# Compute graph metrics using Bandage.
+%.gfa.info: %.gfa
+	Bandage info $< >$@
+
+# Convert plain text to TSV.
+%.gfa.info.tsv: %.gfa.info
+	sed 's/: */:/g;s/ /_/g' $< \
+	| mlr --ixtab --ips : --otsvlite put '$$Inverse_score = $$Node_count * (1 + $$Dead_ends)**2; $$Score = 1/$$Inverse_score; $$Filename = "$(*F).gfa"' >$@
+
+# Aggregate SPAdes graph metrics.
+%/assembly_graph.comp1.gfa.info.tsv: \
+		%/k025_assembly_graph.comp1.gfa.info.tsv \
+		%/k045_assembly_graph.comp1.gfa.info.tsv \
+		%/k059_assembly_graph.comp1.gfa.info.tsv \
+		%/k073_assembly_graph.comp1.gfa.info.tsv \
+		%/k085_assembly_graph.comp1.gfa.info.tsv \
+		%/k093_assembly_graph.comp1.gfa.info.tsv \
+		%/k101_assembly_graph.comp1.gfa.info.tsv \
+		%/k109_assembly_graph.comp1.gfa.info.tsv \
+		%/k115_assembly_graph.comp1.gfa.info.tsv \
+		%/k121_assembly_graph.comp1.gfa.info.tsv
+	mlr --tsvlite cat $^ >$@
 
 # Racon
 
