@@ -214,6 +214,12 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	ln -sf $*.canu/canu.unitigs.fasta $*.canu.unitigs.fa
 	ln -sf $*.canu/canu.unitigs.gfa $*.canu.unitigs.gfa
 
+# Porechop
+
+# Trim adapter sequence using Porechop.
+%.porechop.fq.gz: %.fq.gz
+	porechop -t $t -i $< -o $@
+
 # Unicycler
 
 # Convert a BAM file to FASTQ files.
