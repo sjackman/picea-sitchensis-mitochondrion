@@ -63,6 +63,8 @@ Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.fq.gz: \
 
 unicycler: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.fa
 
+unicycler_arcs: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
 	$(MAKE) ref=psitchensiscpmt_8 $@
