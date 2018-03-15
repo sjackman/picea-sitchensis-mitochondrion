@@ -4,7 +4,7 @@
 reads=Q903_12
 
 # Linked reads
-lr=HYN5VCCXX_4
+lr=HYN5VCCXX_4.trimadap
 
 # Number of threads.
 t=16
@@ -35,35 +35,37 @@ time=command time -v -o $@.time
 
 all: miniasm miniasm_racon miniasm_arcs canu
 
-miniasm: Q903_12.minimap2.c$(miniasm_c).miniasm.gfa \
-	Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
+miniasm: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.gfa \
+	Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
 
-miniasm_racon: Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
+miniasm_racon: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
-Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
-		Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
+		Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-miniasm_arcs: Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
+miniasm_arcs: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
 
-miniasm_arcs_mt: Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
+miniasm_arcs_mt: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
 
-canu: Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.fa
+canu: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.fa
 
-canu_contigs_arcs: Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_contigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-canu_unitigs_arcs: Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.unitigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_unitigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.unitigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-Q903_12.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.porechop.fq.gz: \
-		Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.porechop.fq.gz
+Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.porechop.fq.gz: \
+		Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.porechop.fq.gz
 	ln -s $< $@
 
-unicycler: Q903_12.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.fa
+unicycler: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.unicycler.fa
 
-unicycler_arcs: Q903_12.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+unicycler_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+
+unicycler_canu_arcs: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k51.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -109,6 +111,12 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Convert FASTA to FASTQ.
 %.fa.fq: %.fa
 	bioawk -cfastx '{ $$qual = $$seq; gsub(".", "I", $$qual); print "@" $$name "\n" $$seq "\n+\n" $$qual }' $< >$@
+
+# Trimadap
+
+# Trim adapter sequences using trimadap.
+%.trimadap.fq.gz: %.fq.gz
+	trimadap-mt -p$t -t1 $< | sed 's/^X$$/N/' | $(gzip) >$@
 
 # BWA
 
@@ -238,7 +246,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Assemble short and long reads with an existing long read assembly.
 %.canu.contigs.k51.unicycler.fa: \
-		Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.fa \
+		Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.fa \
 		%.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.porechop.fq.gz
 	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.canu.contigs.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz --existing_long_read_assembly $<
 	seqtk seq $*.canu.contigs.k51.unicycler/assembly.fasta >$@
@@ -398,7 +406,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
 
 # Select putative mitochondrial reads.
-%.HYN5VCCXX_4.bx.sort.mt.bam: %.HYN5VCCXX_4.bx.sort.bam %.minimap2.psitchensiscpmt_8.paf.mt.id
+%.HYN5VCCXX_4.trimadap.bx.sort.mt.bam: %.HYN5VCCXX_4.trimadap.bx.sort.bam %.minimap2.psitchensiscpmt_8.paf.mt.id
 	samtools view -@$t -o $@ $< `<$*.minimap2.psitchensiscpmt_8.paf.mt.id`
 
 # GraphViz
