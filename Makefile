@@ -233,7 +233,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Trim adapter sequence using Porechop.
 %.porechop.fq.gz: %.fq.gz
-	porechop -t $t -i $< -o $@
+	porechop -t $t -i $< | $(gzip) >$@
 
 # Unicycler
 
