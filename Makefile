@@ -35,6 +35,7 @@ time=command time -v -o $@.time
 
 all: \
 	miniasm \
+	miniasm_racon \
 	canu \
 	unicycler \
 	unicycler_canu
@@ -52,11 +53,11 @@ miniasm_racon: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
 miniasm_arcs: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
 
-canu: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.porechop.paf.mt.canu.contigs.fa
+canu: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.canu.contigs.fa
 
-canu_contigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.porechop.paf.mt.canu.contigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_contigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.canu.contigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-canu_unitigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.porechop.paf.mt.canu.unitigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_unitigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.canu.unitigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 unicycler: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.k51.unicycler.fa
 
@@ -236,13 +237,15 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Unicycler
 
+# The long reads for Unicycler
+unicycler_long=$(reads).minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.$(reads).paf.mt
+
 # Convert a BAM file to FASTQ files.
 %.1.fq.gz %.2.fq.gz %.s.fq.gz: %.bam
 	samtools sort -@16 -n -tBX $< | samtools fastq -@16 -TBX -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -
 
 # Symlink the long reads for Unicycler.
-Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq.gz: \
-		Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.porechop.paf.mt.fq.gz
+$(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq.gz: $(unicycler_long).fq.gz
 	ln -s $< $@
 
 # Assemble short and long reads using Unicycler.
@@ -255,10 +258,8 @@ Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt
 	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
 
-# Assemble short and long reads with an existing long read assembly.
-%.canu.contigs.k51.unicycler.fa: \
-		$(reads).minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.$(reads).paf.mt.canu.contigs.fa \
-		%.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
+# Assemble short and long reads with a Canu assembly of the long reads.
+%.canu.contigs.k51.unicycler.fa: $(unicycler_long).canu.contigs.fa %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
 	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.canu.contigs.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
 	seqtk seq $*.canu.contigs.k51.unicycler/assembly.fasta >$@
 
