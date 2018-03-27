@@ -231,6 +231,11 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	unicycler -t$t --mode bold --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
 
+# Assemble short and long reads using Unicycler for a fixed value of k.
+%.k51.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.porechop.fq.gz
+	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz
+	seqtk seq $*.unicycler/assembly.fasta >$@
+
 # Bandage
 
 # Separate the largest component of a GFA file.
