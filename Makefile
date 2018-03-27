@@ -236,6 +236,13 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
 
+# Assemble short and long reads with an existing long read assembly.
+%.canu.contigs.k51.unicycler.fa: \
+		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.contigs.fa \
+		%.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.porechop.fq.gz
+	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.canu.contigs.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz --existing_long_read_assembly $<
+	seqtk seq $*.canu.contigs.k51.unicycler/assembly.fasta >$@
+
 # Bandage
 
 # Separate the largest component of a GFA file.
