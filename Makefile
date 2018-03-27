@@ -1,7 +1,7 @@
 # Correct Nanopore reads using assembled contigs.
 
 # Long reads
-reads=Q903_11
+reads=Q903_12
 
 # Linked reads
 lr=HYN5VCCXX_4
@@ -35,35 +35,35 @@ time=command time -v -o $@.time
 
 all: miniasm miniasm_racon miniasm_arcs canu
 
-miniasm: Q903_11.minimap2.c$(miniasm_c).miniasm.gfa \
-	Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
+miniasm: Q903_12.minimap2.c$(miniasm_c).miniasm.gfa \
+	Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
 
-miniasm_racon: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
+miniasm_racon: Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
-Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
-		Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
+		Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 	ln -sf $< $@
 
-miniasm_arcs: Q903_11.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
+miniasm_arcs: Q903_12.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
 
-miniasm_arcs_mt: Q903_11.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
+miniasm_arcs_mt: Q903_12.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
 
-canu: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.contigs.fa
+canu: Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.fa
 
-canu_contigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.contigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_contigs_arcs: Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-canu_unitigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.unitigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_unitigs_arcs: Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.unitigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.porechop.fq.gz: \
-		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.porechop.fq.gz
+Q903_12.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.porechop.fq.gz: \
+		Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.porechop.fq.gz
 	ln -s $< $@
 
-unicycler: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.fa
+unicycler: Q903_12.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.fa
 
-unicycler_arcs: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+unicycler_arcs: Q903_12.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -88,7 +88,7 @@ psitchensismt_8.fa: psitchensiscpmt_8.fa
 	$(gzip) -c $< >$@
 
 # Concatenate and compress the data.
-Q903_11.fq.gz: \
+Q903_12.fq.gz: \
 		data/FAH26226-cleaned.fastq \
 		data/FAH26318-cleaned.fastq \
 		data/FAH26380-cleaned.fastq \
@@ -238,7 +238,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Assemble short and long reads with an existing long read assembly.
 %.canu.contigs.k51.unicycler.fa: \
-		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.contigs.fa \
+		Q903_12.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.paf.mt.canu.contigs.fa \
 		%.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.porechop.fq.gz
 	unicycler -t$t --mode bold --keep 3 --kmer_count=2 --min_kmer_frac=0.4 --max_kmer_frac=0.4 -o $*.canu.contigs.k51.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz --existing_long_read_assembly $<
 	seqtk seq $*.canu.contigs.k51.unicycler/assembly.fasta >$@
