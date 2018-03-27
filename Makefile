@@ -228,7 +228,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Assemble short and long reads using Unicycler.
 %.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.porechop.fq.gz
-	unicycler -t$t --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz
+	unicycler -t$t --mode bold --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
 
 # Bandage
