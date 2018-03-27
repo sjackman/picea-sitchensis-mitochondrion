@@ -215,12 +215,19 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Canu
 
 # Assemble reads with Canu.
-%.canu.contigs.fa: %.fq.gz
+%.canu.stamp: %.fq.gz
 	canu -d $*.canu -p canu genomeSize=6m -nanopore-raw $<
-	ln -sf $*.canu/canu.contigs.fasta $*.canu.contigs.fa
-	ln -sf $*.canu/canu.contigs.gfa $*.canu.contigs.gfa
+	touch $@
+
+# Symlink the Canu unitigs.
+%.canu.unitigs.fa: %.canu.stamp
 	ln -sf $*.canu/canu.unitigs.fasta $*.canu.unitigs.fa
 	ln -sf $*.canu/canu.unitigs.gfa $*.canu.unitigs.gfa
+
+# Symlink the Canu contigs.
+%.canu.contigs.fa: %.canu.stamp
+	ln -sf $*.canu/canu.contigs.fasta $*.canu.contigs.fa
+	ln -sf $*.canu/canu.contigs.gfa $*.canu.contigs.gfa
 
 # Porechop
 
