@@ -33,23 +33,24 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: miniasm miniasm_racon miniasm_arcs canu
+all: \
+	miniasm \
+	canu \
+	unicycler \
+	unicycler_canu
 
-miniasm: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.gfa \
-	Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.fa
+arcs: \
+	miniasm_arcs \
+	canu_contigs_arcs \
+	canu_unitigs_arcs \
+	unicycler_arcs \
+	unicycler_canu_arcs
+
+miniasm: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.gfa
 
 miniasm_racon: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
-Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
-	ln -sf $< $@
-
-Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa: \
-		Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
-	ln -sf $< $@
-
 miniasm_arcs: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
-
-miniasm_arcs_mt: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.minimap2.psitchensiscpmt_8.mt.racon.racon.arcs.fa
 
 canu: Q903_12.porechop.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_12.porechop.paf.mt.canu.contigs.fa
 
