@@ -57,8 +57,8 @@ canu_contigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.rac
 
 canu_unitigs_arcs: Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.unitigs.HYN5VCCXX_4.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.fq.gz: \
-		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.fq.gz
+Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.long.porechop.fq.gz: \
+		Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.porechop.fq.gz
 	ln -s $< $@
 
 unicycler: Q903_11.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.bx.sort.mt.unicycler.fa
@@ -227,8 +227,8 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	samtools sort -@16 -n -tBX $< | samtools fastq -@16 -TBX -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -
 
 # Assemble short and long reads using Unicycler.
-%.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
-	unicycler -t$t --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz
+%.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.porechop.fq.gz
+	unicycler -t$t --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.porechop.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
 
 # Bandage
