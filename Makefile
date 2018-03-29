@@ -409,19 +409,23 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 		then put '$$Identity = $$Matches_sum / $$Length_sum' \
 		then sort -nr Identity >$@
 
+# Select putative mitochondrial long reads.
+%.porechop.paf.mt.id: %.porechop.paf.tsv
+	mlr --itsvlite --onidx filter '$$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
+
 # Select putative mitochondrial contigs.
-%.paf.mt.id: %.paf.tsv
+%.psitchensiscpmt_8.paf.mt.id: %.psitchensiscpmt_8.paf.tsv
 	mlr --itsvlite --onidx filter '$$Matches_sum >= 20000 && $$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
 
-# Generate a FASTA file of putative mitochondrial contigs.
+# Select putative mitochondrial contigs.
 %.minimap2.psitchensiscpmt_8.mt.fa: %.minimap2.psitchensiscpmt_8.paf.mt.id %.fa
 	samtools faidx $*.fa `<$<` | seqtk seq >$@
 
-# Generate a FASTQ file of putative mitochondrial reads.
+# Select putative mitochondrial long reads.
 %.paf.mt.fq.gz: %.paf.mt.id $(reads).fq.gz
 	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
 
-# Select putative mitochondrial reads.
+# Select putative mitochondrial short reads.
 %.HYN5VCCXX_4.trimadap.bx.sort.mt.bam: %.HYN5VCCXX_4.trimadap.bx.sort.bam %.minimap2.psitchensiscpmt_8.paf.mt.id
 	samtools view -@$t -o $@ $< `<$*.minimap2.psitchensiscpmt_8.paf.mt.id`
 
