@@ -334,9 +334,13 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.minimap2.$(reads).paf.gz: %.fa $(reads).fq.gz
 	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
 
+# Align the reads to the draft genome and produce a SAM file.
+%.minimap2.$(reads).sam.gz: %.fa $(reads).fq.gz
+	$(time) minimap2 -t$t -xmap-ont -w5 -a $^ | $(gzip) >$@
+
 # Polish the assembly using Racon.
-%.racon.fa: $(reads).fq.gz %.minimap2.$(reads).paf.gz %.fa
-	$(time) racon -t $t $^ | tr '_' ' ' >$@
+%.racon.fa: $(reads).fq.gz %.minimap2.$(reads).sam.gz %.fa
+	$(time) racon -t $t $^ >$@
 
 # ARCS
 
