@@ -415,7 +415,7 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 
 # Select putative mitochondrial contigs.
 %.psitchensiscpmt_8.paf.mt.id: %.psitchensiscpmt_8.paf.tsv
-	mlr --itsvlite --onidx filter '$$Matches_sum >= 20000 && $$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
+	mlr --itsvlite --onidx filter '$$Matches_sum >= 50000 && $$Tname != "KU215903"' then cut -f Qname then uniq -f Qname then sort -f Qname $< >$@
 
 # Select putative mitochondrial contigs.
 %.minimap2.psitchensiscpmt_8.mt.fa: %.minimap2.psitchensiscpmt_8.paf.mt.id %.fa
