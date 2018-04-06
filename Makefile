@@ -426,7 +426,7 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
 
 # Select putative mitochondrial short reads.
-%.HYN5VCCXX_4.trimadap.bx.sort.mt.bam: %.HYN5VCCXX_4.trimadap.bx.sort.bam %.minimap2.psitchensiscpmt_8.paf.mt.id
+%.HYN5VCCXX_4.trimadap.bx.sort.mt.bam: %.HYN5VCCXX_4.trimadap.bx.sort.bam %.HYN5VCCXX_4.trimadap.bx.sort.bam.bai %.minimap2.psitchensiscpmt_8.paf.mt.id
 	samtools view -@$t -o $@ $< `<$*.minimap2.psitchensiscpmt_8.paf.mt.id`
 
 # GraphViz
