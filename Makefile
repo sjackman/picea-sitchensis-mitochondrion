@@ -242,7 +242,7 @@ unicycler_long=$(reads).minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt
 
 # Convert a BAM file to FASTQ files.
 %.1.fq.gz %.2.fq.gz %.s.fq.gz: %.bam
-	samtools sort -@16 -n -tBX $< | samtools fastq -@16 -TBX -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -
+	samtools sort -@$t -n -tBX $< | samtools fastq -@$t -TBX -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -
 
 # Symlink the long reads for Unicycler.
 $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq.gz: $(unicycler_long).fq.gz
