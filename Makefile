@@ -378,6 +378,10 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.links.fa: %.links.scaffolds.fa
 	gsed -r 's/^>scaffold([^,]*),(.*)/>\1 scaffold\1,\2/' $< >$@
 
+# Convert an ARCS distance estimate graph to GFA.
+%.$(lr).c$c_e$e_r$r.arcs.dist.n$n.gv.gfa: %.fa.fai %.$(lr).c$c_e$e_r$r.arcs.dist.n$n.gv
+	abyss-todot -e --gfa $^ >$@
+
 # Bedtools
 
 # Compute statistics on the depth of coverage of a BAM file.
