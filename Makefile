@@ -188,11 +188,11 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Sort a query-name-sorted BAM file by target.
 %.sort.bam: %.sortn.bam
-	samtools sort -@$t -o $@ $<
+	samtools sort -@$t -T$$(mktemp -u -t $@.XXXXXX) -o $@ $<
 
 # Sort a SAM file and produce a sorted BAM file.
 %.sort.bam: %.sam.gz
-	samtools sort -@$t -o $@ $<
+	samtools sort -@$t -T$$(mktemp -u -t $@.XXXXXX) -o $@ $<
 
 # Index a BAM file.
 %.bam.bai: %.bam
