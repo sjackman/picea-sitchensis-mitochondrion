@@ -67,6 +67,10 @@ unicycler_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.tri
 
 unicycler_canu_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k51.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
+unicycler_canu_tigmint: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k51.unicycler.tigmint.fa
+
+unicycler_canu_tigmint_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k51.unicycler.tigmint.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
 	$(MAKE) ref=psitchensiscpmt_8 $@
@@ -189,6 +193,10 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Sort a query-name-sorted BAM file by target.
 %.sort.bam: %.sortn.bam
 	samtools sort -@$t -T$$(mktemp -u -t $@.XXXXXX) -o $@ $<
+
+# Sort a query-name-sorted BAM file by BX tag.
+%.sortbx.bam: %.sortn.bam
+	samtools sort -@$t -tBX -T$$(mktemp -u -t $@.XXXXXX) -o $@ $<
 
 # Sort a SAM file and produce a sorted BAM file.
 %.sort.bam: %.sam.gz
@@ -357,6 +365,17 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 # Polish the assembly using Racon.
 %.racon.fa: $(reads).fq.gz %.minimap2.$(reads).sam.gz %.fa
 	$(time) racon -t $t $^ >$@
+
+# Tigmint
+tigmint_n=10
+
+# Correct misassemblies using Tigmint.
+%.tigmint.fa: %.fa
+	tigmint-make tigmint t=$t span=$(tigmint_n) window=1000 draft=$* reads=$(lr).bx
+
+# Convert BED to BAM.
+%.$(lr).bx.as0.65.nm5.molecule.size2000.bed.bam: %.$(lr).bx.as0.65.nm5.molecule.size2000.bed %.fa.fai
+	bedtools bedtobam -i $< -g $*.fa.fai | samtools sort -@$t -Obam -o $@
 
 # ARCS
 
