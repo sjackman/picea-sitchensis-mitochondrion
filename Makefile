@@ -285,6 +285,11 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 	unicycler -t$t --mode bold -o $*.canu.contigs.bold.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
 	seqtk seq $*.canu.contigs.bold.unicycler/assembly.fasta >$@
 
+# Assemble short and long reads with Canu contigs of the long reads for a specified value of k.
+%.canu.contigs.k$k.normal.unicycler.fa: $(unicycler_long).canu.contigs.fa %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
+	unicycler -t$t --mode normal --kmers=$k -o $*.canu.contigs.k$k.normal.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
+	seqtk seq $*.canu.contigs.k$k.normal.unicycler/assembly.fasta >$@
+
 # Assemble short and long reads with Canu unitigs of the long reads for a specified value of k.
 %.canu.unitigs.k$k.unicycler.fa: $(unicycler_long).canu.unitigs.fa %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
 	unicycler -t$t --mode bold --kmers=$k -o $*.canu.unitigs.k$k.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
