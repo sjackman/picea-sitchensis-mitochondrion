@@ -16,7 +16,7 @@ gzip=pigz -p$t
 miniasm_c=2
 
 # Parameters of Unicycler
-k=51
+k=59
 
 # Parameters of ARCS
 c=2
