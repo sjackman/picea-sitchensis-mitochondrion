@@ -510,3 +510,36 @@ n=3
 # Convert TSV to CSV.
 %.csv: %.tsv
 	mlr --itsvlite --ocsv cat $< >$@
+
+# ABySS
+
+# Calculate assembly contiguity metrics using abyss-fac.
+%.fac.tsv: %.fa
+	/gsc/btl/linuxbrew/Cellar/abyss/2.1.0_1-k128/bin/abyss-fac -t100000 -G5500000 $< >$@
+
+# Aggregate assembly contiguity metrics.
+%.fac.tsv: \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.bold.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k41.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k43.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k45.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k47.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k49.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k51.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k53.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k55.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k57.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k59.normal.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k59.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k61.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k63.unicycler.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k51.unicycler.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k53.unicycler.tigmint.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k55.unicycler.tigmint.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k57.unicycler.tigmint.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k59.unicycler.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k61.unicycler.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k61.unicycler.tigmint.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k63.unicycler.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv \
+		%.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k63.unicycler.tigmint.HYN5VCCXX_4.trimadap.c2_e50000_r0.05.arcs.a0.7_l10.links.fac.tsv
+	mlr --tsvlite cat $^ >$@
