@@ -61,7 +61,7 @@ $(name).%.sort.bam.bai: $(name).fa %.fa.gz
 
 cds_aa.orig.fa cds_na.orig.fa: %.orig.fa:
 	esearch -db nuccore -query $(edirect_query) \
-		|efetch -format fasta_$* >$@
+		| efetch -format fasta_$* >$@
 
 cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 	seqmagick -q convert \
@@ -78,17 +78,17 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 		--pattern-replace 'gene=yejV' 'gene=ccmB' \
 		--pattern-replace 'gene=18S rRNA' 'gene=40' \
 		$< - \
-	|gsed -E -e '/protein=[^]]*intron[^]]*ORF/s/gene=/gene=ymf/' \
+	| gsed -E -e '/protein=[^]]*intron[^]]*ORF/s/gene=/gene=ymf/' \
 		-e 's/^>(.*gene=([^]]*).*)$$/>\2|\1/' \
-	|seqmagick -q convert --pattern-exclude '^lcl' --deduplicate-taxa - $@
+	| seqmagick -q convert --pattern-exclude '^lcl' --deduplicate-taxa - $@
 
 # Extract accession numbers from the FASTA file
 %.id: %.orig.fa
-	gsed '/^>/!d;s/.*lcl|//;s/_prot_.*//' cds_aa.orig.fa |uniq |sort -u >$@
+	gsed '/^>/!d;s/.*lcl|//;s/_prot_.*//' cds_aa.orig.fa | uniq | sort -u >$@
 
 # Fetch the records
 %.docsum.xml: %.id
-	esearch -db nuccore -query "`<$<`" |efetch -format docsum >$@
+	esearch -db nuccore -query "`<$<`" | efetch -format docsum >$@
 
 # Convert XML to TSV
 %.docsum.tsv: %.docsum.xml
@@ -97,7 +97,7 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 
 # Fetch a taxonomy tree from a list of TaxID
 %.taxid.xml: %.docsum.tsv
-	awk 'NR>1 {print $$2}' $< |sort -u |epost -db taxonomy |efetch -format xml >$@
+	awk 'NR>1 {print $$2}' $< | sort -u | epost -db taxonomy | efetch -format xml >$@
 
 # Convert NCBI XML taxonomy to Newick
 %.taxid.tree: %.taxid.xml
@@ -109,19 +109,19 @@ NC_010303.1.json: %.json:
 
 # Extract a list of a gene names
 NC_010303.1.gff.gene: NC_010303.1.gff
-	gsed -nE 's/ND/nad/;/\tgene\t/s/.*ID=([^;]*).*/\1/p' $< |sort -u >$@
+	gsed -nE 's/ND/nad/;/\tgene\t/s/.*ID=([^;]*).*/\1/p' $< | sort -u >$@
 
 # Extract a list of tRNA gene names
 NC_010303.1.gff.tRNA: NC_010303.1.gff
 	gsed -nE '/\ttRNA\t/!d;s/.*ID=([^;]*).*codon_recognized=([^;]*).*/\1-\2/p' $< \
-		|bioawk -F- '{print $$1 "-" revcomp($$2)}' |tr T U \
-		|sort -u >$@
+		| bioawk -F- '{print $$1 "-" revcomp($$2)}' | tr T U \
+		| sort -u >$@
 
 %.uid: %.json
 	json uid <$< >$@
 
 %.fa: %.uid
-	curl http://togows.org/entry/nucleotide/`<$<`.fasta |seqtk seq >$@
+	curl http://togows.org/entry/nucleotide/`<$<`.fasta | seqtk seq >$@
 
 %.gb: %.uid
 	curl -o $@ http://togows.org/entry/nucleotide/`<$<`.gb
@@ -164,7 +164,7 @@ mitochondrion/mitochondrion.%.gz:
 
 # Convert ARAGORN output to GFF
 %.aragorn.gff: %.aragorn.tsv
-	bin/aragorn_out_to_gff3.py --full <$< |gt gff3 -sort |bin/gt-bequeath Name |grep -v trnX >$@
+	bin/aragorn_out_to_gff3.py --full <$< | gt gff3 -sort | bin/gt-bequeath Name | grep -v trnX >$@
 
 # Annotate tRNA using tRNAscan-SE
 %.trnascan.orig.tsv: %.fa
@@ -184,7 +184,7 @@ mitochondrion/mitochondrion.%.gz:
 # Convert GFF2 to GFF3
 %.rnammer.gff: %.rnammer.gff2
 	bin/convert_RNAmmer_to_gff3.pl --input=$< \
-		|gsed -E -e 's/ID=([^s]*)s_rRNA_([0-9]*)/Name=rrn\1;&/' \
+		| gsed -E -e 's/ID=([^s]*)s_rRNA_([0-9]*)/Name=rrn\1;&/' \
 			-e 's/rrn16/rrn18/g;s/rrn23/rrn26/g' >$@
 
 # MAKER
@@ -213,10 +213,10 @@ rmlib.fa: PICEAGLAUCA_rpt2.0.fa $(name).RepeatModeler.fa
 
 %.maker.gff: %.maker.orig.gff
 	gt gff3 -sort $^ \
-	|gsed -E -e '/\tintron\t/d' \
+	| gsed -E -e '/\tintron\t/d' \
 		-e 's/Name=trnascan-[^-]*-noncoding-([^-]*)-gene/Name=trn\1/g' \
 		-e '/\trRNA\t/s/ID=([^;]*)s_rRNA/Name=rrn\1;&/g' \
-	|gt gff3 -addintrons -sort - >$@
+	| gt gff3 -addintrons -sort - >$@
 
 # Add the rRNA annotations to the GFF file
 $(name).maker.gff: $(name).rnammer.gff
@@ -255,7 +255,7 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Remove mRNA and ORF annotations before converting to GBK
 %.pregbk.gff: %.gff
-	gsed -E '/\tmRNA\t|Name=orf/d;/^[0-9]\t/s/^/0/' $< |uniq >$@
+	gsed -E '/\tmRNA\t|Name=orf/d;/^[0-9]\t/s/^/0/' $< | uniq >$@
 
 # Add leading zeros to the FASTA IDs
 %.pregbk.fa: %.fa
@@ -274,18 +274,18 @@ prokka/%.gff.gene: prokka/%.gff
 # Merge MAKER and Prokka annotations using bedtools
 %.maker.prokka.gff: %.prokka.gff %.maker.gff
 	bedtools intersect -v -header -a $< -b $*.maker.gff \
-		|gsed '/tRNA-???/{N;d;}' \
-		|gt gff3 -sort $*.maker.gff - >$@
+		| gsed '/tRNA-???/{N;d;}' \
+		| gt gff3 -sort $*.maker.gff - >$@
 
 # Merge manual, MAKER and Prokka annotations using bedtools
 %.orig.gff: %.maker.prokka.gff %.manual.gff
 	bedtools intersect -v -header -a $< -b $*.manual.gff \
-		|gsed '/tRNA-???/{N;d;}' \
-		|gt gff3 -sort $*.manual.gff - >$@
+		| gsed '/tRNA-???/{N;d;}' \
+		| gt gff3 -sort $*.manual.gff - >$@
 
 # Remove contamination from the GFF file
 %.gff: %.orig.gff
-	gsed -E '/^(33|36)[[:blank:]]/d' $< |uniq >$@
+	gsed -E '/^(33|36)[[:blank:]]/d' $< | uniq >$@
 
 # OrganellarGenomeDRAW
 
@@ -305,8 +305,8 @@ prokka/%.gff.gene: prokka/%.gff
 %.gff.tsv: %.gff
 	(printf "SeqID\tSource\tType\tStart\tEnd\tStrand\tName\n"; \
 		egrep '\t(mRNA|rRNA|tRNA)\t' $< \
-		|cut -sf 1,2,3,4,5,7,9 \
-		|gsed 's/\t[^\t]*Name=/\t/;s/;.*//;s/|.*//;s/[-_].$$//;s/Prodigal:[0-9.]*/prokka/' \
+		| cut -sf 1,2,3,4,5,7,9 \
+		| gsed 's/\t[^\t]*Name=/\t/;s/;.*//;s/|.*//;s/[-_].$$//;s/Prodigal:[0-9.]*/prokka/' \
 		) >$@
 
 # Extract the names of genes from a GFF file
@@ -315,7 +315,7 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Determine unique gene names
 %.gff.uniq.gene: %.gff.gene
-	gsed '/orf/d;s/|.*//;s/[-_][0-9a-z]$$//' $< |sort -u >$@
+	gsed '/orf/d;s/|.*//;s/[-_][0-9a-z]$$//' $< | sort -u >$@
 
 # Extract DNA sequences of GFF gene features from a FASTA file
 %.gff.gene.fa: %.gff %.fa
@@ -332,7 +332,7 @@ prokka/%.gff.gene: prokka/%.gff
 # Translate protein sequences of GFF CDS features from a FASTA file
 %.aa.fa: %.fa
 	gt seqtranslate -reverse no -fastawidth 0 $< \
-	|gsed -n '/ (1+)$$/{s/ (1+)$$//;p;n;p;n;n;n;n;}' >$@
+	| gsed -n '/ (1+)$$/{s/ (1+)$$//;p;n;p;n;n;n;n;}' >$@
 
 # Extract sequences of GFF intron features
 %.gff.intron.fa: %.gff %.fa
@@ -341,10 +341,10 @@ prokka/%.gff.gene: prokka/%.gff
 # Extract sequences of GFF intron features plus flanking sequence
 %.gff.intron.flank100.fa: %.gff %.fa.fai
 	(awk '$$3 == "intron"' $<; \
-		awk '$$3 == "intron"' $< |bedtools flank -b 100 -i stdin -g $*.fa.fai) \
-	|sort -k1,1n -k4,4n - \
-	|bedtools merge -i stdin \
-	|bedtools getfasta -bed stdin -fi $*.fa -fo $@
+		awk '$$3 == "intron"' $< | bedtools flank -b 100 -i stdin -g $*.fa.fai) \
+	| sort -k1,1n -k4,4n - \
+	| bedtools merge -i stdin \
+	| bedtools getfasta -bed stdin -fi $*.fa -fo $@
 
 # Extract sequences of GFF rRNA features
 %.gff.rRNA.fa: %.gff %.fa
@@ -408,12 +408,12 @@ gbk/%.00.gbk: %.gbk
 # Extract the names of genes from MFannot annotation
 %.mfannot.gene: %.mfannot
 	gsed '/List of genes added/,/^;;$$/!d;s/^;; *//;/^-/d;/^$$/d;s/  *$$//;s/   */\n/g;s/ .*//' $< \
-		|gsed '/orf/d;s/(/-/;s/-.*/\U&/;s/)//' >$@
+		| gsed '/orf/d;s/(/-/;s/-.*/\U&/;s/)//' >$@
 
 # Remove contamination and add structured comments to the FASTA file
 %.fsa: %.fa
 	seqtk seq $< \
-		|gsed -E -e '/^>(33|36)$$/{N;d;}' \
+		| gsed -E -e '/^>(33|36)$$/{N;d;}' \
 			-e 's/^>.*/& [organism=Picea sitchensis] [location=mitochondrion] [completeness=draft] [topology=linear] [gcode=1]/' \
 			>$@
 
