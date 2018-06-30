@@ -8,6 +8,7 @@ atpB	ATP synthase CF1 beta subunit
 bla	Beta-lactamase TEM precursor
 ccmB	cytochrome c biogenesis B
 ccmC	cytochrome c biogenesis C
+ccmFC	cytochrome c biogenesis protein FC
 ccmFC1	cytochrome c biogenesis protein FC1
 ccmFC2	cytochrome c biogenesis protein FC2
 ccmFN	cytochrome c biogenesis FN
@@ -33,6 +34,7 @@ psaB	Photosystem I P700 chlorophyll a apoprotein A2
 rpl10	ribosomal protein L10
 rpl16	ribosomal protein L16
 rpl2	ribosomal protein L2
+rpl23	ribosomal protein L23
 rpl5	ribosomal protein L5
 rpo	RNA polymerase
 rps1	ribosomal protein S1
