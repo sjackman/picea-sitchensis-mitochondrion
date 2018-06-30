@@ -1,0 +1,434 @@
+---
+title: Mitochondrial gene content annotated by MAKER
+author: Shaun Jackman
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+---
+
+# Load libraries
+```{r load-libraries, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(magrittr)
+library(RColorBrewer)
+library(readr)
+library(stringr)
+library(tidyr)
+
+# Bioconductor
+library(genomeIntervals)
+```
+
+```{r knitr, include=FALSE}
+knit_print.data.frame <- function(x, ...) kable(x) %>% paste(collapse = "\n") %>% asis_output
+opts_chunk$set(tidy = FALSE, fig.width = 10, fig.height = 5)
+```
+
+# Gene families
+```{r gene-families}
+# Four shades each of blue, green, red, brown.
+family_colour <- c(
+	atp = "#B6D4E2", dpo = "#7EADBD", rpo = "#39798C", mat = "#135160",
+	rpl = "#B6E2CF", rps = "#7EBD9C", rrn = "#398C60", trn = "#136034",
+	nad = "#E2B6DB", sdh = "#BD7EB5", cob = "#8C3984", cox = "#60135B",
+	ccm = "#E2CCB5", mtt = "#BD9D7E", psa = "#8C6239", ymf = "#603813",
+	orf = "#C0C0C0", oth = "#808080") %>%
+	data_frame(Family.short = names(.), Colour = .)
+
+gene.types <- matrix(nrow = 2, data = c(
+	'atp', 'ATP synthase',
+	'ccb', 'cytochrome c biogenesis',
+	'ccm', 'cytochrome c maturation',
+	'clp', 'maturases (clp)',
+	'cob', 'complex III (ubichinol cytochrome c reductase)',
+	'cox', 'complex IV (cytochrome c oxidase)',
+	'dpo', 'DNA polymerase',
+	'mat', 'maturases',
+	'mtt', 'membrane targeting and translocation',
+	'nad', 'complex I (NADH dehydrogenase)',
+	'ori', 'origin of replication',
+	'orf', 'open reading frames',
+	'psa', 'photosystem I',
+	'rpl', 'ribosomal proteins (LSU)',
+	'rpo', 'RNA polymerase',
+	'rps', 'ribosomal proteins (SSU)',
+	'sdh', 'complex II (succinate dehydrogenase)',
+	'ymf', 'uncharacterized mitochondrial protein',
+	'oth', 'other genes',
+	'rrn', 'ribosomal RNAs',
+	'trn', 'transfer RNAs')) %>%
+	t %>% data.frame %>%
+	set_colnames(c('Family.short', 'Family')) %>%
+	right_join(family_colour, by = "Family.short") %>%
+	mutate(Family_both = paste(Family.short, Family, sep = ": "))
+```
+
+# Load data
+```{r load-data}
+gff.all <- readGff3("psitchensismt.1.gff", isRightOpen = FALSE)
+gff <- gff.all[gff.all$type %in% c('mRNA', 'rRNA', 'tRNA'),]
+
+scaffold_sizes <- read_tsv("psitchensismt.1.fa.fai",
+		col_names = c("Scaffold", "Size", "Pos", "Width", "Stride"),
+		col_types = c("ciiii")) %>%
+	transmute(Scaffold, ScaffoldSize = Size,
+		ScaffoldNameAndSize = paste(Scaffold, " ",
+			round(ScaffoldSize / 1e3), "kbp") %>% factor(., .))
+
+data <- data.frame(
+	Scaffold = gff$seq_name,
+	Strand = gff$strand,
+	Type = gff$type,
+	ID = getGffAttribute(gff, 'ID'),
+	Name = getGffAttribute(gff, 'Name'),
+	Position = as.matrix(gff)[,1],
+	Size = size(gff),
+	stringsAsFactors = FALSE)
+data$Gene <- data$Name %>% sub("[-_|].*", "", .)
+data$Family.short <- tolower(substr(data$Name, 1, 3))
+data$Family = factor(data$Family.short,
+	levels = gene.types$Family.short,
+	labels = gene.types$Family)
+data[is.na(data$Family), 'Family'] <- 'other genes'
+```
+
+# Aggregate the data
+```{r aggregate}
+data_grouped <- data %>%
+	group_by(Type, Family) %>%
+	summarise(
+		Count = n(),
+		Size = sum(Size)) %>%
+	droplevels %>%
+	right_join(gene.types, ., by = "Family")
+data_grouped_without_orf <- data_grouped %>% filter(Family.short != "orf")
+```
+
+# Tabulate genes by type
+```{r tabulate-genes-by-type}
+tab <- data %>%
+	group_by(Type) %>%
+	summarise(
+		Count = n(),
+		Size = sum(Size)) %>%
+	set_rownames(.$Type) %>%
+	select(Count, Size)
+tab['Sum',] <- colSums(tab)
+kable(tab)
+```
+
+# Tabulate genes by family
+```{r tabulate-genes-by-family}
+tab <- data_grouped %>%
+	filter(Family.short != "orf") %>%
+	set_rownames(paste(.$Family.short, .$Family)) %>%
+	ungroup %>%
+	select(Count, Size)
+tab['Sum',] <- colSums(tab)
+kable(tab)
+```
+
+# Tabulate protein-coding genes (mRNA) by family
+```{r tabulate-mrna-by-family}
+tab <- data_grouped %>%
+	filter(!Family.short %in% c("orf", "rrn", "trn")) %>%
+	set_rownames(paste(.$Family.short, .$Family)) %>%
+	ungroup %>%
+	select(Count, Size)
+tab['Sum',] <- colSums(tab)
+kable(tab)
+```
+
+# Tabulate protein-coding genes (mRNA) by gene
+```{r tabulate-mrna-by-gene}
+data %>%
+	filter(!Family.short %in% c("orf", "rrn", "trn")) %>%
+	summarize(Count = n(), Distinct = n_distinct(Gene), Size = sum(Size)) %>%
+	kable
+
+data %>%
+	filter(!Family.short %in% c("orf", "rrn", "trn")) %>%
+	group_by(Gene) %>%
+	summarize(Count = n(), Size = sum(Size)) %>%
+	kable
+```
+
+# Tabulate open reading frames (ORF)
+```{r tabulate-orf}
+data_grouped %>% filter(Family.short == "orf") %>% kable
+```
+
+# Tabulate open reading frames (ORF) at least 300 bp
+```{r tabulate-orf-300bp}
+data %>%
+	filter(Family.short == "orf" & Size >= 300) %>%
+	group_by(Type, Family) %>%
+	summarise(
+		Count = n(),
+		Size = sum(Size)) %>%
+	right_join(gene.types, ., by = "Family") %>%
+	kable
+```
+
+# List other genes
+```{r list-other-genes}
+data %>% filter(Family == "other genes") %>% kable
+```
+
+# Tabulate intons
+```{r tabulate-introns}
+introns_gff <- gff.all[gff.all$type == "intron",]
+introns <- data.frame(
+		getGffAttribute(introns_gff, 'Parent'),
+		Size = size(introns_gff),
+		stringsAsFactors = FALSE) %>%
+	left_join(data, by = c("Parent" = "ID")) %>%
+	rename(Intron_size = Size.x, Gene_size = Size.y) %>%
+	select(Type, Name, Intron_size, Gene_size) %>%
+	arrange(Type, Name) %>%
+	mutate(Name = sub('[|].*', '', Name))
+
+introns %>%
+	group_by(Type) %>%
+	summarize(Count = n(), Distinct = n_distinct(Name), Size = sum(Intron_size))
+
+introns %>%
+	group_by(Type, Name) %>%
+	summarize(Count = n(), Size = sum(Intron_size)) %>%
+	kable
+```
+
+# Tabulate intons at least 300 bp
+```{r tabulate-introns-large}
+introns_large <- introns %>% filter(Intron_size >= 300)
+
+introns_large %>%
+	group_by(Type) %>%
+	summarize(Count = n(), Distinct = n_distinct(Name), Size = sum(Intron_size))
+
+introns_large %>%
+	group_by(Type, Name) %>%
+	summarize(Count = n(), Size = sum(Intron_size)) %>%
+  ungroup()
+```
+
+# Histogram of gene size (≤ 1000 bp)
+```{r gene-size-histogram}
+ggplot(data) + theme_bw() +
+	aes(x = Size) +
+	geom_histogram(binwidth = 50) +
+	scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 100)) +
+	xlab("Size (bp)")
+```
+
+# Gene size by family
+```{r gene-size-by-family-strip}
+data %>%
+	filter(Family.short != "orf") %>%
+ggplot() + theme_bw() +
+	aes(x = Size / 1e3, y = Family, colour = Gene) +
+	geom_point() +
+	scale_colour_manual(values = rep(brewer.pal(12, "Set3"), length.out = 99)) +
+	xlab('Size (kbp)')
+```
+
+# Total gene size by family
+```{r stripplot-total-gene-size-by-family, fig.height = 9}
+data %>%
+	filter(Family.short != "orf") %>%
+	group_by(Family, Gene) %>%
+	summarize(Size = sum(Size)) %>%
+ggplot() + theme_bw() +
+	aes(x = Size / 1e3, y = Family, colour = Gene) +
+	geom_point() +
+	scale_colour_manual(values = rep(brewer.pal(12, "Set3"), length.out = 99)) +
+	xlab('Size (kbp)')
+```
+
+# Gene counts by family
+```{r gene-counts-by-family}
+data %>%
+	filter(Family.short != "orf") %>%
+ggplot() + theme_bw() +
+	aes(x = Family, fill = Gene) +
+	geom_bar(colour = "black") +
+	coord_flip() +
+	scale_fill_manual(values = rep(brewer.pal(12, "Set3"), length.out = 99))
+```
+
+# Gene size by family
+```{r gene-size-by-family, fig.width = 7, fig.height = 7, dpi = 300}
+data_barchart <- data %>%
+	filter(Family.short != "orf") %>%
+	mutate(Family = str_wrap(paste(Family.short, Family, sep = ": "), 30),
+		Gene = Gene %>% sub("trn.*", "trn*", .) %>%
+			sub("ymf.*", "ymf*", .)) %>%
+	arrange(Gene)
+ggplot(data_barchart) +
+	theme_bw() +
+	theme(legend.key = element_rect(colour = "black"),
+		legend.text = element_text(size = 10)) + 
+	aes(y = Size / 1e3, x = Family, fill = Gene) +
+	geom_bar(stat = "identity", color = "black") +
+	coord_flip() +
+	scale_fill_manual(values = rep(brewer.pal(12, "Set3"), length.out = 99)) +
+	guides(fill = guide_legend(keyheight = 0.6, override.aes = list(colour = NULL))) +
+	xlim(data_barchart$Family %>% unique %>% sort(decreasing = TRUE)) +
+	ylab('Size (kbp)')
+```
+
+# Gene size by scaffold
+```{r gene-size-by-scaffold, fig.width = 7, fig.height = 9, dpi = 300}
+data_scaffolds <- data %>%
+	filter(Family.short != "orf") %>%
+	mutate(Family = str_wrap(Family, 25))
+Family_count <- data_scaffolds$Family %>% unique %>% length
+ggplot(data_scaffolds) +
+	theme_bw() +
+	theme(legend.key = element_rect(colour = "black")) + 
+	aes(y = Size / 1e3, x = Scaffold, fill = Family,
+		label = ifelse(Size > 1000, Gene %>% as.character, "")) +
+	geom_bar(stat = "identity", color = "black") +
+	coord_flip() +
+	geom_text(position = "stack", hjust = 1.05) +
+	scale_fill_manual(values = colorRampPalette(
+		brewer.pal(12, "Set3"))(Family_count)) +
+	guides(fill = guide_legend(keyheight = 2, override.aes = list(colour = NULL))) +
+	xlim(data_scaffolds$Scaffold %>% unique %>% as.character %>% as.integer %>% sort(decreasing = TRUE) %>% as.character) +
+	ylab('Size (kbp)')
+```
+
+
+# Function to plot gene order and size
+```{r gene-order-and-size-function}
+data_genes <- data %>%
+	filter(Family.short != "orf") %>%
+	mutate(
+		Family = factor(Family.short, levels = gene.types$Family.short, labels = gene.types$Family_both),
+		Gene = Gene %>% sub("ccm.*", "ccm*", .) %>% sub("ymf.*", "ymf*", .),
+		Size = pmax(Size, 200),
+		TextSize = pmax(Size, 2000) + 100) %>%
+	replace_na(list(Family = "oth: other genes")) %>%
+	left_join(scaffold_sizes, by = "Scaffold") %>%
+	arrange(desc(ScaffoldSize)) %>%
+	mutate(ScaffoldNameAndSize = factor(ScaffoldNameAndSize, unique(ScaffoldNameAndSize))) %>%
+	group_by(Scaffold) %>%
+	mutate(x = cumsum(TextSize) - TextSize / 2) %>%
+	ungroup()
+
+plot_gene_order_and_size <- function(data)
+ggplot(data) +
+	theme_bw(base_size = 12) +
+	theme(axis.ticks.y = element_blank(),
+		axis.title.x = element_text(hjust = 0.04),
+		axis.title.y = element_text(hjust = 1),
+		legend.justification = c(1, 0),
+		legend.position = c(1, 0),
+		panel.border = element_rect(colour = NA),
+		panel.grid = element_blank(),
+		strip.text = element_text(hjust = 0),
+		strip.background = element_rect(colour = NA, fill = NA)) + 
+	aes(x = x / 1e3,
+		y = Strand,
+		width = Size / 1e3,
+		fill = Family,
+		label = Gene) +
+	facet_wrap(~ ScaffoldNameAndSize, ncol = 1) +
+	geom_tile() +
+	geom_text(size = 1.5, vjust = 2.5) +
+	geom_segment(aes(xend = (x + Size/2 + 1000)/1e3), x = 0, y = 2.5, yend = 2.5, size = 0.2) +
+	guides(fill = guide_legend(ncol = 2, override.aes = list(colour = NULL))) +
+	scale_fill_manual("", values = gene.types %$% setNames(Colour, Family_both)) +
+	scale_x_continuous("Gene size (kbp)", breaks = 0:5) +
+	ylab("") +
+	ylim("", "-", "+")
+```
+
+# Gene order and size
+```{r gene-order-and-size, fig.width = 8.5, fig.height = 14, dpi = 300}
+data_genes %>% plot_gene_order_and_size()
+```
+
+# Gene order and size (scaffolds >= 20 kbp)
+```{r gene-order-and-size-large, fig.width = 8.5, fig.height = 11, dpi = 300}
+scaffold_size_threshold <- 20000
+data_genes %>% filter(ScaffoldSize >= scaffold_size_threshold) %>% plot_gene_order_and_size()
+```
+
+# Gene order and size of scaffolds with mitochondrial genes
+```{r gene-order-and-size-mt, fig.width = 10.5, fig.height = 13, dpi = 300}
+mt_scaffolds <- data_genes %>% filter(Family != "oth: other genes") %$% unique(Scaffold)
+data_genes %>% filter(Scaffold %in% mt_scaffolds) %>% plot_gene_order_and_size() +
+	theme(legend.position = c(1, 0.65))
+```
+
+# Gene position
+```{r gene-position, fig.width = 7, fig.height = 9, dpi = 300}
+data_position <- data %>%
+	filter(Family.short != "orf") %>%
+	mutate(
+		Gene = Gene %>% sub("ccm.*", "ccm*", .) %>% sub("ymf.*", "ymf*", .),
+		StrandInt = 3 - 2 * as.integer(Strand),
+		Size = pmax(Size, 2000)) %>%
+	group_by(Scaffold) %>%
+	mutate(Rank = rank(Position) - 1) %>%
+	ungroup() %>%
+	mutate(x = Rank / max(Rank) * max(Position)) %>%
+	left_join(scaffold_sizes, by = "Scaffold")
+
+ggplot(data_position) +
+	theme_bw(base_size = 12) +
+	theme(axis.ticks.y = element_blank(),
+		axis.title.x = element_text(hjust = 0.04),
+		axis.title.y = element_text(hjust = 1),
+		legend.key = element_rect(colour = "black"),
+		legend.justification = c(1, 0),
+		legend.position = c(1, 0),
+		panel.border = element_rect(colour = NA),
+		panel.grid = element_blank(),
+		strip.text = element_text(hjust = 0),
+		strip.background = element_rect(colour = NA, fill = NA)) + 
+	facet_wrap(~ ScaffoldNameAndSize, ncol = 1) +
+	geom_tile(aes(
+			x = Position / 1e3,
+			y = 0.5 * StrandInt,
+			width = Size / 1e3,
+			fill = Family),
+		height = 1.5) +
+	geom_segment(aes(
+			x = x / 1e3,
+			xend = Position / 1e3,
+			y = 3 * StrandInt,
+			yend = 1.5 * StrandInt),
+		colour = "black",
+		size = 0.1) +
+	geom_text(aes(
+			x = x / 1e3,
+			y = 5 * StrandInt,
+			label = Gene),
+		size = 1.75) +
+	geom_segment(data = scaffold_sizes %>%
+			filter(Scaffold %in% data_position$Scaffold),
+		aes(
+			x = 0,
+			xend = ScaffoldSize / 1e3,
+			y = 0,
+			yend = 0),
+		size = 0.1) +
+	guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+	scale_fill_manual("", values = gene.types$Colour) +
+	scale_y_continuous(limits = c(-6.5, 6),
+		breaks = c(-3, 3),
+		labels = c("-", "+")) +
+	xlab("Position (kbp)") +
+	ylab("")
+```
+
+# Store the data grouped by family
+```{r write-data-by-family}
+write.table(data_grouped, 'psitchensismt.1.gff.family.tsv',
+	quote = FALSE, sep = '\t', row.names = FALSE)
+```

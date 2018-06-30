@@ -1,0 +1,103 @@
+---
+title: Mitochondrial repeat content annotated by RepeatMasker
+author: Shaun Jackman
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+---
+
+```{r Load libraries, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(lattice)
+library(magrittr)
+library(RColorBrewer)
+library(stringr)
+
+# Bioconductor
+library(genomeIntervals)
+```
+
+```{r knitr, include=FALSE}
+opts_chunk$set(fig.width = 10, fig.height = 5)
+```
+
+```{r Load data}
+genome_size <- 6017035
+gff_all <- readGff3("pg29mt-scaffolds.maker.repeat.gff", isRightOpen = FALSE)
+gff <- gff_all %>% .[.$type == "match",]
+
+data <- data.frame(
+	Name = sub('/$', '', gsub('%2F', '/', getGffAttribute(gff, 'Name'))),
+	Size = size(gff),
+	stringsAsFactors = FALSE) %>%
+	mutate(
+		Family = Name %>%
+			sub('.*genus:([^ ;]*).*', '\\1', .) %>%
+			sub("NHF", "Unknown", .) %>%
+			sub("UNK", "Unknown", .),
+		Class = factor(sub('/.*', '', Family)),
+		Family = factor(Family))
+```
+
+```{r Aggregate the data}
+data.grouped <- data %>%
+	group_by(Class, Family) %>%
+	summarise(
+		Count = n(),
+		Size = sum(Size),
+		Proportion = Size / genome_size) %>%
+	filter(Size >= 1000) %>%
+	droplevels
+
+tab <- data.grouped[c('Count', 'Size', 'Proportion')]
+rownames(tab) <- data.grouped$Family
+tab['Sum',] <- colSums(tab)
+```
+
+```{r Tabulate the data, results='asis'}
+kable(tab)
+```
+
+```{r Stripplot of repeat class vs size}
+stripplot(Family ~ Size, data,
+	subset = Family %in% data.grouped$Family,
+	jitter = TRUE)
+```
+
+# Barchart of repeat class vs size
+```{r Barchart of repeat class vs size}
+barchart(Family ~ Size / 1e3, data.grouped,
+	origin = 0,
+	xlab = 'Size (kbp)')
+
+barchart(Class ~ Size / 1e3, data.grouped, group = Family,
+	stack = TRUE, auto.key = list(reverse.rows = TRUE, space = 'right'),
+	xlab = 'Size (kbp)')
+
+barchart(~ Size / 1e3, data.grouped, group = Family,
+	stack = TRUE, auto.key = list(space = 'right'),
+	xlab = 'Size (kbp)')
+```
+
+# Barchart of repeat class vs size
+```{r barchart-class-vs-size, fig.width = 7, fig.height = 3, dpi = 300}
+ggplot(data.grouped) +
+	aes(y = Size / 1e3, x = Class, fill = Family) +
+	theme_bw() +
+	theme(legend.key = element_rect(colour = "black")) + 
+	geom_bar(stat = "identity", color = "black") +
+	coord_flip() +
+	scale_fill_brewer(type = "seq", palette = "Set3") +
+	guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+	xlim(data$Class %>% as.character %>% unique %>% sort(decreasing = TRUE)) +
+	ylab('Size (kbp)')
+```
+
+# Write the tabulated data to a file
+```{r Write the tabulated data to a file}
+write.table(data.grouped, 'pg29mt-scaffolds.repeat.gff.tsv',
+	quote = FALSE, sep = '\t', row.names = FALSE)
+```
