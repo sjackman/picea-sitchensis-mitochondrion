@@ -10,7 +10,7 @@ t=64
 # Green plant mitochondria
 edirect_query='Viridiplantae[Organism] mitochondrion[Title] (complete genome[Title] OR complete sequence[Title])'
 
-all: $(name).gff $(name).gbk $(name).gbk.png $(name).tbl $(name).sqn \
+all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 	$(name).maker.evidence.gff $(name).maker.repeat.gff \
 	$(name).maker.gff.gene $(name).prokka.gff.gene $(name).gff.gene $(name).tbl.gene \
 	genes.html repeats.html
@@ -52,6 +52,12 @@ NC_010303.1.%.blastn: %.fa NC_010303.1.fa
 $(name).%.sort.bam.bai: $(name).fa %.fa.gz
 	biomake ref=$(name) z=.gz threads=$t $@
 
+# samtools
+
+# Index a FASTA file.
+%.fa.fai: %.fa
+	samtools faidx $<
+
 # Copy local data
 
 #PICEAGLAUCA_rpt2.0.fa: /genesis/extscratch/seqdev/PG/data/PICEAGLAUCA_rpt2.0
@@ -67,11 +73,13 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 	seqmagick -q convert \
 		--pattern-exclude 'gene=orf|hypothetical|putative|unnamed' \
 		--pattern-replace 'gene=apt' 'gene=atp' \
+		--pattern-replace 'gene=ccmFc' 'gene=ccmFC' \
 		--pattern-replace 'gene=ccmFn' 'gene=ccmFN' \
 		--pattern-replace 'gene=coxIII' 'gene=cox3' \
 		--pattern-replace 'gene=coxII' 'gene=cox2' \
 		--pattern-replace 'gene=coxI' 'gene=cox1' \
 		--pattern-replace 'gene=cytb' 'gene=cob' \
+		--pattern-replace 'gene=NAD4L' 'gene=nad4L' \
 		--pattern-replace 'gene=nd(?i)' 'gene=nad' \
 		--pattern-replace 'gene=RNA_pol' 'gene=rpo' \
 		--pattern-replace 'gene=yejU' 'gene=ccmC' \
@@ -242,7 +250,6 @@ prokka/%.gff: %.fa cds_aa.prokka.fa
 # Remove the FASTA section from the Prokka GFF file
 %.prokka.gff: prokka/%.gff
 	gsed -E -e '/^##FASTA/,$$d' \
-		-e 's/gene=([^;]*)/Name=\1;&/' \
 		-e '/\tgene\t/{/gene=/!s/ID=[^_]*_([0-9]*)/Name=orf\1;&/;}' \
 		-e '/\tCDS\t/{/gene=/!s/ID=[^_]*_([0-9]*)/Name=orf\1;&/; s/CDS/mRNA/;p; s/mRNA/CDS/;s/Parent=[^;]*;//;s/ID=/Parent=/;}' \
 		$< >$@
