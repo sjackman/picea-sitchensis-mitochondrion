@@ -1,0 +1,63 @@
+---
+title: Locate the origin of replication
+author: Shaun Jackman
+---
+
+```{r setup}
+library(dplyr)
+library(ggplot2)
+library(purrr)
+library(readr)
+```
+
+# Read the FASTA file
+```{r read-fasta}
+fasta_file <- "Q903_11.minimap2.c2.miniasm.minimap2.psitchensiscpmt_8.mt.racon.minimap2.Q903_11.paf.mt.canu.unitigs.seq.fa"
+lines <- read_lines(fasta_file)
+seq <- tibble(Seq = lines) %>%
+	filter(!grepl("^>", Seq)) %>%
+	mutate(Length = nchar(Seq)) %>%
+	arrange(desc(Length)) %>%
+	mutate(Pos = cumsum(Length))
+```
+
+# Compute nucleotide skew
+```{r compute-skew}
+seq_pos <- seq %>% select(Length, Pos)
+
+circular_seq <- tibble(Base = strsplit(seq$Seq[7], "")[[1]]) %>%
+	mutate(
+		Num = ifelse(Base == "C", 1, ifelse(Base == "G", -1, 0)),
+		Skew = cumsum(Num),
+		Pos = seq_along(Skew))
+
+one_seq_to_skew <- function(x) {
+	ifelse(x == "C", 1, ifelse(x == "G", -1, 0))
+}
+
+seq_to_skew <- function(x) {
+	strsplit(x, "") %>% map(one_seq_to_skew) %>% map(cumsum)
+}
+
+skew <- seq_to_skew(seq$Seq)
+
+paste_seq <- paste0(seq$Seq, collapse = "")
+seqall <- tibble(
+		Skew = unlist(skew),
+		Pos = seq_along(Skew))
+```
+
+# Plot nucleotide skew of the circular sequence
+```{r plot-skew-circular}
+ggplot(circular_seq %>% filter(Pos %% 100 == 0)) +
+	aes(x = Pos, y = Skew) +
+	geom_line()
+```
+
+# Plot nucleotide skew
+```{r plot-skew}
+ggplot(seqall %>% filter(Pos %% 1000 == 0)) +
+	aes(x = Pos, y = Skew) +
+	geom_line() +
+	geom_vline(data = seq_pos, aes(xintercept = Pos), alpha = 0.2)
+```
