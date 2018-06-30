@@ -68,10 +68,10 @@ gene.types <- matrix(nrow = 2, data = c(
 
 # Load data
 ```{r load-data}
-gff.all <- readGff3("psitchensismt.1.gff", isRightOpen = FALSE)
+gff.all <- readGff3("psitchensismt_12.gff", isRightOpen = FALSE)
 gff <- gff.all[gff.all$type %in% c('mRNA', 'rRNA', 'tRNA'),]
 
-scaffold_sizes <- read_tsv("psitchensismt.1.fa.fai",
+scaffold_sizes <- read_tsv("psitchensismt_12.fa.fai",
 		col_names = c("Scaffold", "Size", "Pos", "Width", "Stride"),
 		col_types = c("ciiii")) %>%
 	transmute(Scaffold, ScaffoldSize = Size,
@@ -429,6 +429,6 @@ ggplot(data_position) +
 
 # Store the data grouped by family
 ```{r write-data-by-family}
-write.table(data_grouped, 'psitchensismt.1.gff.family.tsv',
+write.table(data_grouped, 'psitchensismt_12.gff.family.tsv',
 	quote = FALSE, sep = '\t', row.names = FALSE)
 ```
