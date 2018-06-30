@@ -285,7 +285,7 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Remove contamination from the GFF file
 %.gff: %.orig.gff
-	gsed -E '/^(33|36)[[:blank:]]/d' $< | uniq >$@
+	gsed -E '/^(PLACEHOLDER_FOR_CONTAMINANT_IDS)[[:blank:]]/d' $< | uniq >$@
 
 # OrganellarGenomeDRAW
 
@@ -413,7 +413,7 @@ gbk/%.00.gbk: %.gbk
 # Remove contamination and add structured comments to the FASTA file
 %.fsa: %.fa
 	seqtk seq $< \
-		| gsed -E -e '/^>(33|36)$$/{N;d;}' \
+		| gsed -E -e '/^>(PLACEHOLDER_FOR_CONTAMINANT_IDS)$$/{N;d;}' \
 			-e 's/^>.*/& [organism=Picea sitchensis] [location=mitochondrion] [completeness=draft] [topology=linear] [gcode=1]/' \
 			>$@
 
