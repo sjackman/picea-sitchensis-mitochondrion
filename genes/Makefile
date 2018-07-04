@@ -271,7 +271,7 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Add leading zeros to the FASTA IDs
 %.pregbk.fa: %.fa
-	gsed '/^>[0-9]$$/s/^>/>0/' $< >$@
+	gsed '/^>[0-9] /s/^>/>0/' $< >$@
 
 # Convert to GenBank format
 %.gb: %.pregbk.gff %.pregbk.fa
@@ -392,14 +392,8 @@ gbk/%.00.gbk: %.gbk
 		gbk/%.07.gbk.png \
 		gbk/%.08.gbk.png \
 		gbk/%.09.gbk.png \
-		gbk/%.10.gbk.png \
-		gbk/%.11.gbk.png \
-		gbk/%.15.gbk.png \
-		gbk/%.16.gbk.png \
-		gbk/%.17.gbk.png \
-		gbk/%.20.gbk.png \
-		gbk/%.23.gbk.png
-	montage -tile 3 -geometry +0+0 -units PixelsPerInch -density 1200 $^ gbk/$*.00.gbk_legend.png $@
+		gbk/%.10.gbk.png
+	montage -tile 1 -geometry +0+0 -units PixelsPerInch -density 1200 $^ gbk/$*.00.gbk_legend.png $@
 
 # GenomeTools sketch
 %.gff.png: %.gff
