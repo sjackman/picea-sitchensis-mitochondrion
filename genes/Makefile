@@ -253,6 +253,8 @@ prokka/%.gff: %.fa cds_aa.prokka.fa
 # Remove the FASTA section from the Prokka GFF file
 %.prokka.gff: prokka/%.gff
 	gsed -E -e '/^##FASTA/,$$d' \
+		-e 's/=ltrA/=ymfltrA/g' \
+		-e 's/=ndhK1/=ymfndhK/g' \
 		-e '/\tgene\t/{/gene=/!s/ID=[^_]*_([0-9]*)/Name=orf\1;&/;}' \
 		-e '/\tCDS\t/{/gene=/!s/ID=[^_]*_([0-9]*)/Name=orf\1;&/; s/CDS/mRNA/;p; s/mRNA/CDS/;s/Parent=[^;]*;//;s/ID=/Parent=/;}' \
 		$< >$@
