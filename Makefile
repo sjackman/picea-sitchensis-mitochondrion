@@ -300,6 +300,14 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 	unicycler -t$t --mode bold --kmers=$k -o $*.canu.contigs.k$k.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
 	seqtk seq $*.canu.contigs.k$k.unicycler/assembly.fasta >$@
 
+# Align the long reads to the Unicycler assembly.
+%.canu.contigs.k$k.unicycler.long.paf.gz: %.canu.contigs.k$k.unicycler.fa %.long.fq.gz
+	$(time) minimap2 -t$t -xmap-ont $^ | $(gzip) >$@
+
+# Extract reads with split alignments.
+%.canu.contigs.k$k.unicycler.long.split.fq.gz: %.canu.contigs.k$k.unicycler.long.paf.gz %.long.fq.gz
+	seqtk subseq $*.long.fq.gz <(gunzip -c $< | awk '$$10 >= 5000' | cut -f1 | uniq -d) | $(gzip) >$@
+
 # Bandage
 
 # Separate the largest component of a GFA file.
