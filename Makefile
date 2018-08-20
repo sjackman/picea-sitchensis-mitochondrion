@@ -41,7 +41,8 @@ all: \
 	miniasm_racon \
 	canu \
 	unicycler \
-	unicycler_canu
+	unicycler_canu \
+	unicycler_flye
 
 arcs: \
 	miniasm_arcs \
@@ -73,6 +74,8 @@ unicycler_canu_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_
 unicycler_canu_tigmint: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.fa
 
 unicycler_canu_tigmint_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+
+unicycler_flye: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.flye.k$k.unicycler.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -246,6 +249,26 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.canu.contigs.gfa: %.canu.stamp
 	ln -sf $*.canu/canu.contigs.gfa $@
 
+# Add the sequence to a Canu GFA file.
+%.seq.gfa: %.fa %.gfa
+	seqtk seq $< | gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); getline; x[id] = $$1; next } $$1 == "S" { $$3 = x[$$2] } 1' - $*.gfa >$@
+
+# Flye
+
+# Assemble reads with Flye.
+%.flye.fa: %.fq.gz
+	flye --version
+	flye -t$t -g6m --nano-raw=$< -o $*.flye
+	seqtk seq $*.flye/scaffolds.fasta >$@
+
+# Symlink the Flye GFA file.
+%.flye.unpolished.gfa: %.flye.fa
+	ln -s $*.flye/2-repeat/graph_final.gfa $*.flye.unpolished.gfa
+
+# Add the sequence to a Flye GFA file.
+%.flye.gfa: %.flye.fa %.flye.unpolished.gfa
+	gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); getline; x[id] = $$1; next } $$1 == "S" && x[$$2] { $$3 = x[$$2] } 1' $^ >$@
+
 # Porechop
 
 # Trim adapter sequence using Porechop.
@@ -299,6 +322,11 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.canu.contigs.k$k.unicycler.fa: $(unicycler_long).canu.contigs.fa %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
 	unicycler -t$t --mode bold --kmers=$k -o $*.canu.contigs.k$k.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
 	seqtk seq $*.canu.contigs.k$k.unicycler/assembly.fasta >$@
+
+# Assemble short and long reads with Flye contigs of the long reads for a specified value of k.
+%.flye.k$k.unicycler.fa: $(unicycler_long).flye.gfa %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
+	unicycler -t$t --mode bold --kmers=$k -o $*.flye.k$k.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz --existing_long_read_assembly $<
+	seqtk seq $*.flye.k$k.unicycler/assembly.fasta >$@
 
 # Align the long reads to the Unicycler assembly.
 %.canu.contigs.k$k.unicycler.long.paf.gz: %.canu.contigs.k$k.unicycler.fa %.long.fq.gz
