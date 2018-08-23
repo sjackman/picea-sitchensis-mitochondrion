@@ -48,6 +48,7 @@ arcs: \
 	miniasm_arcs \
 	canu_contigs_arcs \
 	canu_unitigs_arcs \
+	flye_arcs \
 	unicycler_arcs \
 	unicycler_canu_arcs
 
@@ -76,6 +77,8 @@ unicycler_canu_tigmint: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCC
 unicycler_canu_tigmint_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 unicycler_flye: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.flye.k$k.unicycler.fa
+
+flye_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -256,18 +259,52 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Flye
 
 # Assemble reads with Flye.
-%.flye.fa: %.fq.gz
+%.flye.stamp: %.fq.gz
 	flye --version
 	flye -t$t -g6m --nano-raw=$< -o $*.flye
-	seqtk seq $*.flye/scaffolds.fasta >$@
+	touch $*.flye.stamp
 
-# Symlink the Flye GFA file.
-%.flye.unpolished.gfa: %.flye.fa
-	ln -s $*.flye/2-repeat/graph_final.gfa $*.flye.unpolished.gfa
+# Copy the FASTA file of edges.
+%.flye.fa: %.flye.stamp
+	seqtk seq $*.flye/2-repeat/graph_final.fasta >$@
 
-# Add the sequence to a Flye GFA file.
-%.flye.gfa: %.flye.fa %.flye.unpolished.gfa
-	gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); getline; x[id] = $$1; next } $$1 == "S" && x[$$2] { $$3 = x[$$2] } 1' $^ >$@
+# Symlink the GFA file of edges.
+%.flye.gfa: %.flye.stamp
+	ln -sf $*.flye/2-repeat/graph_final.gfa $@
+
+# Align the long reads to the Flye assembly using minimap2.
+%.flye.minimap2.long.paf.gz: %.flye.fa %.fq.gz
+	$(time) minimap2 -t$t -xmap-ont $^ | $(gzip) >$@
+
+# Align the long reads to the Flye assembly using minimap2.
+%.flye.minimap2.long.sam.gz: %.flye.fa %.fq.gz
+	$(time) minimap2 -t$t -xmap-ont -a $^ | $(gzip) >$@
+
+# Align the long reads to the Flye assembly using unicycler_align.
+%.flye.unicycler-align.long.sam.gz: %.flye.fa %.fq.gz
+	unicycler_align --threads $t --ref $*.flye.fa --reads $*.fq.gz --sam $*.flye.unicycler-align.long.sam
+	$(gzip) $*.flye.unicycler-align.long.sam
+
+# Align the long reads to the Flye assembly graph using Bandage querypaths.
+%.flye.bandage-querypaths.long.tsv: %.flye.gfa %.fa
+	Bandage querypaths $^ $*.flye.bandage-querypaths.long
+
+# Polish the Flye assembly using Racon.
+%.flye.racon.fa: %.fq.gz %.flye.minimap2.long.sam.gz %.flye.fa
+	$(time) racon -t $t $^ >$@
+
+# Extract reads with split alignments.
+%.flye.minimap2.long.split.fa: %.flye.minimap2.long.paf.gz %.fq.gz
+	seqtk subseq $*.fq.gz <(gunzip -c $< | awk '$$10 >= 1' | cut -f1 | uniq -d) | seqtk seq -A >$@
+
+# Align reads with split alignments to the assembly using Bandage and Blast.
+%.flye.minimap2.long.split.bandage-querypaths.tsv: %.flye.gfa %.flye.minimap2.long.split.fa
+	Bandage querypaths $^ $*.flye.minimap2.long.split.bandage-querypaths
+
+# Align reads with split alignments to the assembly using unicycler_align.
+%.flye.minimap2.long.split.unicycler-align.sam.gz: %.flye.fa %.flye.minimap2.long.split.fa
+	unicycler_align --threads $t --ref $*.flye.fa --reads $*.flye.minimap2.long.split.fa --sam $*.flye.minimap2.long.split.unicycler_align.sam
+	$(gzip) $*.flye.minimap2.long.split.unicycler_align.sam
 
 # Porechop
 
