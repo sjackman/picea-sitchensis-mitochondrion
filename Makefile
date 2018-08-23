@@ -288,6 +288,11 @@ unicycler_long=$(reads).minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt
 $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq.gz: $(unicycler_long).fq.gz
 	ln -s $< $@
 
+# Assemble long reads using Unicycler.
+%.bold.unicycler.fa: %.fq.gz
+	unicycler -t$t --mode bold -o $*.unicycler -l $*.fq.gz
+	seqtk seq $*.unicycler/assembly.fasta >$@
+
 # Assemble short and long reads using Unicycler.
 %.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
 	unicycler -t$t --mode bold --keep 3 -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -l $*.long.fq.gz
