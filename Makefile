@@ -289,6 +289,22 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.flye.bandage-querypaths.long.tsv: %.flye.gfa %.fa
 	Bandage querypaths $^ $*.flye.bandage-querypaths.long
 
+# Convert a Bandage querypaths file to GraphViz format.
+%.flye.bandage-querypaths.long.gv: %.flye.bandage-querypaths.long.tsv
+	cut -f2 $< | awk 'NF == 4 { \
+			sub(",", ""); \
+			++n["\"" $$2 "\" -> \"" $$3 "\""]; \
+			++f["\"" $$2 "\" -> \"" $$3 "\""]; \
+			if (!sub("+$$", "-", $$2)) sub("-$$", "+", $$2); \
+			if (!sub("+$$", "-", $$3)) sub("-$$", "+", $$3); \
+			++n["\"" $$3 "\" -> \"" $$2 "\""] \
+			++r["\"" $$3 "\" -> \"" $$2 "\""] \
+		} \
+		END { print "digraph {"; \
+			for (e in n) { print e, "[n=" n[e], "label=\"n=" f[e] "+" r[e] "=" n[e] "\"]" }; \
+			print "}" \
+		}' >$@
+
 # Polish the Flye assembly using Racon.
 %.flye.racon.fa: %.fq.gz %.flye.minimap2.long.sam.gz %.flye.fa
 	$(time) racon -t $t $^ >$@
