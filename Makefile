@@ -327,7 +327,7 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 
 # Assemble long reads using Unicycler.
 %.bold.unicycler.fa: %.fq.gz
-	unicycler -t$t --mode bold -o $*.unicycler -l $*.fq.gz
+	unicycler -t$t --mode bold -o $*.bold.unicycler -l $*.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
 
 # Assemble short and long reads using Unicycler.
