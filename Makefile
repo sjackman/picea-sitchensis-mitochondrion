@@ -603,6 +603,32 @@ tigmint_n=10
 %.HYN5VCCXX_4.trimadap.bx.sort.mt.bam: %.HYN5VCCXX_4.trimadap.bx.sort.bam %.HYN5VCCXX_4.trimadap.bx.sort.bam.bai %.minimap2.psitchensiscpmt_8.paf.mt.id
 	samtools view -@$t -o $@ $< `<$*.minimap2.psitchensiscpmt_8.paf.mt.id`
 
+# bcftools
+
+# Call variants using samtools mpileup.
+%.HYN5VCCXX_4.trimadap.bx.vcf.gz: %.fa %.HYN5VCCXX_4.trimadap.bx.sort.bam
+	samtools mpileup -vf $^ >$@
+
+# Call variants using samtools mpileup and the quality filtered BAM file.
+%.HYN5VCCXX_4.trimadap.bx.as100.nm5.vcf.gz: %.fa %.HYN5VCCXX_4.trimadap.bx.sort.as100.nm5.bam
+	samtools mpileup -vf $^ >$@
+
+# Call genotypes.
+%.gt.vcf.gz: %.vcf.gz
+	bcftools call -mvf GQ,GP -Oz $< >$@
+
+# Filter high-quality biallelic SNV.
+%.qual.vcf.gz: %.vcf.gz
+	bcftools filter -S . -e 'QUAL < 50 || FMT/GQ < 50' $< | bcftools view -a | bcftools view -m2 -M2 -v snps -Oz >$@
+
+# Filter high-quality homozygous ALT SNV.
+%.homo.vcf.gz: %.vcf.gz
+	bcftools filter -i 'FMT/GT="1/1"' $< -Oz >$@
+
+# Compute stats of a VCF file.
+%.vcf.gz.stats: %.vcf.gz
+	bcftools stats $< >$@
+
 # GraphViz
 
 n=3
