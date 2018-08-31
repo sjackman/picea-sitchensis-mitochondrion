@@ -27,6 +27,9 @@ r=0.05
 a=0.7
 l=10
 
+# Paths to programs.
+pilon_jar=/gsc/btl/linuxbrew/Cellar/pilon/1.22/pilon-1.22.jar
+
 # Report run time and memory usage
 export SHELL=zsh -opipefail
 export REPORTTIME=1
@@ -305,9 +308,34 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 			print "}" \
 		}' >$@
 
-# Polish the Flye assembly using Racon.
+# Polish the Flye assembly with long reads using Racon.
 %.flye.racon.fa: %.fq.gz %.flye.minimap2.long.sam.gz %.flye.fa
 	$(time) racon -t $t $^ >$@
+
+# Polish the Racon-polished Flye assembly with short reads using unicycler_polish.
+# Do not correct local misassemblies.
+# The --no_fix_local option is added by PR https://github.com/rrwick/Unicycler/pull/136
+%.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish.stamp: \
+		%.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.fa \
+		%.HYN5VCCXX_4.trimadap.bx.sort.mt.1.fq.gz \
+		%.HYN5VCCXX_4.trimadap.bx.sort.mt.2.fq.gz
+	rm -rf $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish
+	mkdir $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish
+	cd $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish \
+	&& $(time) /home/sjackman/src/Unicycler/unicycler_polish-runner.py --threads $t --no_fix_local \
+		-a ../$*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.fa \
+		-1 ../$*.HYN5VCCXX_4.trimadap.bx.sort.mt.1.fq.gz \
+		-2 ../$*.HYN5VCCXX_4.trimadap.bx.sort.mt.2.fq.gz \
+		--pilon $(pilon_jar)
+	touch $@
+
+# Copy the final FASTA file from unicycler_polish.
+%.unicycler-polish.fa: %.unicycler-polish.stamp
+	seqtk seq $*.unicycler-polish/???_final_polish.fasta | sed 's/ LN:i:[0-9]*//' >$@
+
+# Create a GFA file from the polished FASTA file.
+%.racon.unicycler-polish.gfa: %.racon.unicycler-polish.fa %.gfa
+	seqtk seq $< | gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); getline; x[id] = $$1; next } $$1 == "S" { $$3 = x[$$2] } 1' - $*.gfa >$@
 
 # Extract reads with split alignments.
 %.flye.minimap2.long.split.fa: %.flye.minimap2.long.paf.gz %.fq.gz
