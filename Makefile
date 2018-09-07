@@ -148,6 +148,14 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.$(lr).bx.sortn.bam: %.fa.bwt $(lr).bx.fq.gz
 	bwa mem -t$t -pC $*.fa $(lr).bx.fq.gz | samtools view -@$t -h -F4 -o $@
 
+# EMA
+
+# Map linked reads to the draft genome using EMA.
+# Filter out reads without barcodes.
+%.$(lr).bx.ema.sortn.bam: $(lr).bx.fq.gz %.fa.bwt
+	gunzip -c $< | paste - - - - - - - - | grep "BX:Z:" | tr '\t' '\n' \
+	| $(time) ema align -t$t -r $*.fa -1 /dev/stdin | samtools view -@$t -h -F4 -o $@
+
 # minimap2
 
 # Index a FASTA file.
