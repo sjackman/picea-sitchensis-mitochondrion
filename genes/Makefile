@@ -247,7 +247,7 @@ prokka/%.gff: %.fa cds_aa.prokka.fa
 	prokka --kingdom bac --gcode 1 --addgenes --proteins cds_aa.prokka.fa --rnammer \
 		--cpus $t \
 		--genus Picea --species 'sitchensis mitochondrion' \
-		--locustag ABT39_MT \
+		--locustag ABT39MT \
 		--force --outdir prokka --prefix $* \
 		$<
 
@@ -406,7 +406,7 @@ gbk/%.00.gbk: %.gbk
 
 # Convert GFF to TBL
 %.tbl: %.gff %.product.tsv %.gff.aa.fa
-	bin/gff3-to-tbl --centre=BCGSC --locustag=ABT39_MT $^ >$@
+	bin/gff3-to-tbl --centre=BCGSC --locustag=ABT39MT $^ >$@
 
 # Extract the names of genes from a TBL file
 %.tbl.gene: %.tbl
