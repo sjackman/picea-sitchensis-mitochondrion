@@ -75,6 +75,7 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 		--pattern-replace 'gene=apt' 'gene=atp' \
 		--pattern-replace 'gene=ccmFc' 'gene=ccmFC' \
 		--pattern-replace 'gene=ccmFn' 'gene=ccmFN' \
+		--pattern-replace 'gene=COX3' 'gene=cox3' \
 		--pattern-replace 'gene=coxIII' 'gene=cox3' \
 		--pattern-replace 'gene=coxII' 'gene=cox2' \
 		--pattern-replace 'gene=coxI' 'gene=cox1' \
