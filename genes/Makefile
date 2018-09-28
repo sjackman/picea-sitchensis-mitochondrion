@@ -5,7 +5,7 @@
 name=psitchensismt_12
 
 # Number of threads
-t=64
+t=48
 
 # Green plant mitochondria
 edirect_query='Viridiplantae[Organism] mitochondrion[Title] (complete genome[Title] OR complete sequence[Title])'
