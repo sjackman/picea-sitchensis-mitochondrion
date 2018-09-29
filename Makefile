@@ -1,7 +1,7 @@
 # Correct Nanopore reads using assembled contigs.
 
 # Long reads
-reads=Q903_12.porechop
+reads=Q903_18.porechop
 
 # Linked reads
 lr=HYN5VCCXX_4.trimadap
@@ -39,7 +39,9 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: \
+all: Q903_18.porechop.minimap2.c2.miniasm.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.unicycler-polish.fa
+
+assemblies:
 	miniasm \
 	miniasm_racon \
 	canu \
@@ -55,33 +57,33 @@ arcs: \
 	unicycler_arcs \
 	unicycler_canu_arcs
 
-miniasm: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.gfa
+miniasm: Q903_18.porechop.minimap2.c$(miniasm_c).miniasm.gfa
 
-miniasm_racon: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
+miniasm_racon: Q903_18.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.fa
 
-miniasm_arcs: Q903_12.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
+miniasm_arcs: Q903_18.porechop.minimap2.c$(miniasm_c).miniasm.racon.racon.arcs.fa
 
-canu: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.canu.stamp
+canu: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.canu.stamp
 
-canu_contigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.canu.contigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_contigs_arcs: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.canu.contigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-canu_unitigs_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.canu.unitigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+canu_unitigs_arcs: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.canu.unitigs.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-unicycler: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.k$k.unicycler.fa
+unicycler: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.k$k.unicycler.fa
 
-unicycler_canu: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.fa
+unicycler_canu: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.fa
 
-unicycler_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+unicycler_arcs: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-unicycler_canu_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+unicycler_canu_arcs: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-unicycler_canu_tigmint: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.fa
+unicycler_canu_tigmint: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.fa
 
-unicycler_canu_tigmint_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+unicycler_canu_tigmint_arcs: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.canu.contigs.k$k.unicycler.tigmint.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
-unicycler_flye: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.flye.k$k.unicycler.fa
+unicycler_flye: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.flye.k$k.unicycler.fa
 
-flye_arcs: Q903_12.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
+flye_arcs: Q903_18.porechop.minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.HYN5VCCXX_4.trimadap.c$c_e$e_r$r.arcs.a$a_l$l.links.fa
 
 ifndef ref
 %.psitchensiscpmt_8.paf.gz:
@@ -106,7 +108,7 @@ psitchensismt_8.fa: psitchensiscpmt_8.fa
 	$(gzip) -c $< >$@
 
 # Concatenate and compress the data.
-Q903_12.fq.gz: \
+Q903_18.fq.gz: \
 		data/FAH26226-cleaned.fastq \
 		data/FAH26318-cleaned.fastq \
 		data/FAH26380-cleaned.fastq \
@@ -117,7 +119,14 @@ Q903_12.fq.gz: \
 		data/FAH44324-cleaned.fastq \
 		data/FAH44332-cleaned.fastq \
 		data/FAH44409-cleaned.fastq \
-		data/FAH44462-cleaned.fastq
+		data/FAH44455-cleaned.fastq \
+		data/FAH44462-cleaned.fastq \
+		data/FAH44750-cleaned.fastq \
+		data/FAJ02862-cleaned.fastq \
+		data/FAJ04671-cleaned.fastq \
+		data/FAJ04750-cleaned.fastq \
+		data/FAK02037-cleaned.fastq \
+		data/FAK02424-cleaned.fastq
 	$(gzip) -c $^ >$@
 
 # Rename scaffolds for minimap2, which requires the length is less than 255 characters.
@@ -323,15 +332,15 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Polish the Racon-polished Flye assembly with short reads using unicycler_polish.
 # Do not correct local misassemblies.
 # The --no_fix_local option is added by PR https://github.com/rrwick/Unicycler/pull/136
-%.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish.stamp: \
-		%.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.fa \
+%.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.unicycler-polish.stamp: \
+		%.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.fa \
 		%.HYN5VCCXX_4.trimadap.bx.sort.mt.1.fq.gz \
 		%.HYN5VCCXX_4.trimadap.bx.sort.mt.2.fq.gz
-	rm -rf $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish
-	mkdir $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish
-	cd $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.unicycler-polish \
-	&& $(time) /home/sjackman/src/Unicycler/unicycler_polish-runner.py --threads $t --no_fix_local \
-		-a ../$*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_12.porechop.paf.mt.flye.racon.fa \
+	rm -rf $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.unicycler-polish
+	mkdir $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.unicycler-polish
+	cd $*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.unicycler-polish \
+	&& $(time) unicycler_polish --threads $t --no_fix_local \
+		-a ../$*.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.fa \
 		-1 ../$*.HYN5VCCXX_4.trimadap.bx.sort.mt.1.fq.gz \
 		-2 ../$*.HYN5VCCXX_4.trimadap.bx.sort.mt.2.fq.gz \
 		--pilon $(pilon_jar)
