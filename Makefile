@@ -241,9 +241,13 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Miniasm
 
-# Assemble reads with Miniasm
+# Assemble long reads with Miniasm.
 %.minimap2.c$(miniasm_c).miniasm.gfa: %.fq.gz %.minimap2.paf.gz
 	$(time) miniasm -c$(miniasm_c) -f $^ >$@
+
+# Assemble long reads with Miniasm, filtering out contained reads.
+%.minimap2.Rc$(miniasm_c).miniasm.gfa: %.fq.gz %.minimap2.paf.gz
+	$(time) miniasm -R -c$(miniasm_c) -f $^ >$@
 
 # Convert GFA to FASTA.
 %.miniasm.fa: %.miniasm.gfa
