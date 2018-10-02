@@ -73,6 +73,7 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 	seqmagick -q convert \
 		--pattern-exclude 'gene=orf|hypothetical|putative|unnamed' \
 		--pattern-replace 'gene=apt' 'gene=atp' \
+		--pattern-replace 'gene=ccmc' 'gene=ccmC' \
 		--pattern-replace 'gene=ccmFc' 'gene=ccmFC' \
 		--pattern-replace 'gene=ccmFn' 'gene=ccmFN' \
 		--pattern-replace 'gene=COX3' 'gene=cox3' \
@@ -81,7 +82,7 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 		--pattern-replace 'gene=coxI' 'gene=cox1' \
 		--pattern-replace 'gene=cytb' 'gene=cob' \
 		--pattern-replace 'gene=ltrA' 'gene=ymfltrA' \
-		--pattern-replace 'gene=NAD4L' 'gene=nad4L' \
+		--pattern-replace 'gene=nad(?i)' 'gene=nad' \
 		--pattern-replace 'gene=nd(?i)' 'gene=nad' \
 		--pattern-replace 'gene=petA' 'gene=ymfpetA' \
 		--pattern-replace 'gene=RNA_pol' 'gene=rpo' \
