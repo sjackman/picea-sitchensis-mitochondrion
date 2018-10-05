@@ -746,6 +746,25 @@ n=3
 %.csv: %.tsv
 	mlr --itsvlite --ocsv cat $< >$@
 
+# BLAST
+
+# Align sequences to the nt database using blastn.
+%.nt.blastn.txt: %.fa
+	blastn -num_threads $t -db nt -query $< -out $@
+
+# Align sequences to the nt database using blastn and report TSV.
+%.nt.blastn.tsv: %.fa
+	(printf "qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore\tstaxid\tsskingdom\tssciname\tstitle\n"; \
+		blastn -num_threads $t -db nt -outfmt '7 std staxid sskingdom ssciname stitle' -query $<) >$@
+
+# Align sequences to the nt database using blastn and report SAM.
+%.nt.blastn.sam: %.fa
+	blastn -num_threads $t -db nt -outfmt 17 -query $< >$@
+
+# Align sequences to the nt database using blastn and output an organism report.
+%.nt.blastn.organism: %.fa
+	blastn -num_threads $t -db nt -outfmt 18 -query $< -out $@
+
 # ABySS
 
 # Calculate assembly contiguity metrics using abyss-fac.
