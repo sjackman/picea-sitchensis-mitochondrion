@@ -550,6 +550,14 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.minimap2.c$(miniasm_c).miniasm.racon.fa: %.fq.gz %.minimap2.c$(miniasm_c).miniasm.minimap2.reads.paf.gz %.minimap2.c$(miniasm_c).miniasm.fa
 	$(time) racon -t $t $^ | tr '_' ' ' >$@
 
+# Align the reads to the filtered miniasm assembly and produce a PAF file.
+%.minimap2.c$(miniasm_c).miniasm.l150kd1.minimap2.reads.paf.gz: %.minimap2.c$(miniasm_c).miniasm.l150kd1.fa %.fq.gz
+	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
+
+# Polish the filtered miniasm assembly using Racon.
+%.minimap2.c$(miniasm_c).miniasm.l150kd1.racon.fa: %.fq.gz %.minimap2.c$(miniasm_c).miniasm.l150kd1.minimap2.reads.paf.gz %.minimap2.c$(miniasm_c).miniasm.l150kd1.fa
+	$(time) racon -t $t $^ | tr '_' ' ' >$@
+
 # Align the reads to the draft genome and produce a PAF file.
 %.minimap2.$(reads).paf.gz: %.fa $(reads).fq.gz
 	$(time) minimap2 -t$t -xmap-ont -w5 $^ | $(gzip) >$@
