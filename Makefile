@@ -395,6 +395,19 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Unicycler
 
+# Assemble long reads using Unicycler.
+%.bold.unicycler.stamp: %.fq.gz
+	unicycler -t$t --mode bold -o $*.bold.unicycler -l $*.fq.gz
+	touch -r $*.bold.unicycler/assembly.gfa $@
+
+# Copy the FASTA file.
+%.unicycler.fa: %.unicycler.stamp
+	seqtk seq $*.unicycler/assembly.fasta >$@
+
+# Symlink the GFA file.
+%.unicycler.gfa: %.unicycler.stamp
+	ln -sf $*/assembly.gfa $@
+
 # The long reads for Unicycler
 unicycler_long=$(reads).minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.$(reads).paf.mt
 
@@ -405,11 +418,6 @@ unicycler_long=$(reads).minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt
 # Symlink the long reads for Unicycler.
 $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq.gz: $(unicycler_long).fq.gz
 	ln -s $< $@
-
-# Assemble long reads using Unicycler.
-%.bold.unicycler.fa: %.fq.gz
-	unicycler -t$t --mode bold -o $*.bold.unicycler -l $*.fq.gz
-	seqtk seq $*.unicycler/assembly.fasta >$@
 
 # Assemble short and long reads using Unicycler.
 %.unicycler.fa: %.1.fq.gz %.2.fq.gz %.s.fq.gz %.long.fq.gz
