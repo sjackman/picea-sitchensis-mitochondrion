@@ -99,6 +99,22 @@ ifndef ref
 	$(MAKE) ref=Q903_ARCS $@
 endif
 
+# NCBI
+
+# Download the Picea sitchensis plastid FASTA.
+psitchensiscp.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
+# Download the Picea glauca mitochondrion FASTA.
+pglaucamt.fa:
+	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.fsa_nt.gz | gunzip -c | seqtk seq >$@
+
+# Download the Picea glauca mitochondrion GBF (GenBank flat file).
+pglaucamt.gbf:
+	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.gbff.gz | gunzip -c >$@
+
+# Data
+
 # Separate the largest mitochondrial scaffolds from the organellar assembly.
 psitchensismt_8.fa: psitchensiscpmt_8.fa
 	seqtk seq -L150000 $< >$@
