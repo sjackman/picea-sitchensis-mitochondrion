@@ -640,6 +640,24 @@ tigmint_n=10
 	| bedtools sort \
 	| bedtools genomecov -bga -g $(ref).fa.fai -i - >$@
 
+# Filter alignments and select reads
+
+# Identify long reads with a good alignment score.
+%.paf.m2000.id: %.paf.gz
+	gunzip -c $< | awk '$$10 >= 2000 {print $$1}' | sort -u >$@
+
+# Select long reads with a good alignment score.
+%.paf.m2000.fq.gz: %.paf.m2000.id $(reads).fq.gz
+	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
+
+# Identify long reads with a good alignment score.
+%.paf.m5000.id: %.paf.gz
+	gunzip -c $< | awk '$$10 >= 5000 {print $$1}' | sort -u >$@
+
+# Select long reads with a good alignment score.
+%.paf.m5000.fq.gz: %.paf.m5000.id $(reads).fq.gz
+	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
+
 # Select putative mitochondrial contigs
 
 # Convert PAF to TSV.
