@@ -473,6 +473,22 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.comp1.gfa: %.gfa
 	Bandage reduce $< $@ --scope aroundnodes --nodes 1 --distance 100
 
+# Filter the assembly graph by segment length.
+%.l150kd1.gfa: %.gfa
+	Bandage reduce $< $@ --scope aroundnodes --distance 1 --nodes $$(awk '$$1 == "S" && length($$3) >= 150000 { printf "," $$2 }' $<)
+
+# Convert GFA to FASTA.
+%.miniasm.l150kd1.fa: %.miniasm.l150kd1.gfa
+	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+
+# Filter the assembly graph by depth of coverage.
+%.c0.6-1.2.gfa: %.gfa
+	Bandage reduce $< $@ --scope depthrange --mindepth 0.5 --maxdepth 1.2
+
+# Convert GFA to FASTA.
+%.c0.6-1.2.fa: %.c0.6-1.2.gfa
+	awk '/^S/ { print ">" $$2 " " $$4 " " $$5 "\n" $$3 }' $< >$@
+
 # Separate a GFA file of putative mitochondrial contigs.
 %.mt.gfa: %.gfa psitchensismt_8.fa
 	Bandage reduce $< $@ --scope aroundblast --query psitchensismt_8.fa
