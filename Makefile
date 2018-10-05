@@ -13,7 +13,7 @@ t=16
 gzip=pigz -p$t
 
 # Parameters of Miniasm
-miniasm_c=2
+miniasm_c=3
 
 # Parameters of Unicycler
 k=59
