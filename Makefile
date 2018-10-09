@@ -113,6 +113,10 @@ pglaucamt.fa:
 pglaucamt.gbf:
 	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.gbff.gz | gunzip -c >$@
 
+# Download the Pinus taeda mitochondrion FASTA.
+ptaedamt.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=MF991879.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
 # Data
 
 # Separate the largest mitochondrial scaffolds from the organellar assembly.
