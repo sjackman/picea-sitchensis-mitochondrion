@@ -505,6 +505,14 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.mt.gfa: %.gfa psitchensismt_8.fa
 	Bandage reduce $< $@ --scope aroundblast --query psitchensismt_8.fa
 
+# Separate a subgraph of segments that align well to Picea glauca mitochondrion.
+%.pglaucamt.gfa: %.gfa pglaucamt.fa
+	Bandage reduce $< $@ --scope aroundblast --query pglaucamt.fa --alfilter 5000
+
+# Convert GFA to FASTA.
+%.miniasm.pglaucamt.fa: %.miniasm.pglaucamt.gfa
+	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+
 # Render a GFA file to PNG using Bandage.
 %.gfa.png: %.gfa
 	Bandage image $< $@
