@@ -406,7 +406,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 
 # Symlink the GFA file.
 %.unicycler.gfa: %.unicycler.stamp
-	ln -sf $*/assembly.gfa $@
+	ln -sf $*.unicycler/assembly.gfa $@
 
 # The long reads for Unicycler
 unicycler_long=$(reads).minimap2.c2.miniasm.racon.racon.minimap2.psitchensiscpmt_8.mt.minimap2.$(reads).paf.mt
