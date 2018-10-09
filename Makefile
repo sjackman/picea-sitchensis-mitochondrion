@@ -39,7 +39,7 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: Q903_18.porechop.minimap2.c2.miniasm.racon.minimap2.psitchensiscpmt_8.mt.minimap2.Q903_18.porechop.paf.mt.flye.racon.unicycler-polish.fa
+all: Q903_18.porechop.minimap2.c3.miniasm.l150kd1.minimap2.Q903_18.porechop.paf.m2000.bold.unicycler.c0.6-1.2.minimap2.Q903_18.porechop.paf.m5000.flye.pglaucamt.gfa
 
 assemblies:
 	miniasm \
