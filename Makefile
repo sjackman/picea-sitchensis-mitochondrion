@@ -474,6 +474,14 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 	Bandage reduce $< $@ --scope aroundnodes --nodes 1 --distance 100
 
 # Filter the assembly graph by segment length.
+%.l150k.gfa: %.gfa
+	Bandage reduce $< $@ --scope aroundnodes --nodes $$(awk '$$1 == "S" && length($$3) >= 150000 { printf "," $$2 }' $<)
+
+# Convert GFA to FASTA.
+%.miniasm.l150k.fa: %.miniasm.l150k.gfa
+	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+
+# Filter the assembly graph by segment length, and retain adjacent vertices.
 %.l150kd1.gfa: %.gfa
 	Bandage reduce $< $@ --scope aroundnodes --distance 1 --nodes $$(awk '$$1 == "S" && length($$3) >= 150000 { printf "," $$2 }' $<)
 
