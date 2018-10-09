@@ -710,6 +710,14 @@ tigmint_n=10
 %.HYN5VCCXX_4.trimadap.bx.sort.mt.bam: %.HYN5VCCXX_4.trimadap.bx.sort.bam %.HYN5VCCXX_4.trimadap.bx.sort.bam.bai %.minimap2.psitchensiscpmt_8.paf.mt.id
 	samtools view -@$t -o $@ $< `<$*.minimap2.psitchensiscpmt_8.paf.mt.id`
 
+# Renumber the segments of a GFA file, sorted by length.
+%.renumber.gfa: %.gfa
+	bin/gfapy-renumber -o $@ $<
+
+# Convert GFA to FASTA.
+%.renumber.fa: %.renumber.gfa
+	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+
 # bcftools
 
 # Call variants using samtools mpileup.
