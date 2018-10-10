@@ -39,7 +39,7 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: Q903_18.porechop.minimap2.c3.miniasm.l150kd1.minimap2.Q903_18.porechop.paf.m2000.bold.unicycler.c0.6-1.2.minimap2.Q903_18.porechop.paf.m5000.flye.pglaucamt.gfa
+all: Q903_18.porechop.minimap2.c3.miniasm.l150kd1.minimap2.Q903_18.porechop.paf.m2000.bold.unicycler.c0.6-1.2.minimap2.Q903_18.porechop.paf.m5000.flye.racon.unicycler-polish.pglaucamt.gfa
 
 assemblies:
 	miniasm \
@@ -256,8 +256,8 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 	samtools index -@$t $<
 
 # Convert a BAM file to FASTQ.
-%.bam.fq.gz: %.bam
-	samtools fastq -@16 -TBX $< | $(gzip) -p16 >$@
+%.sortn.bam.fq.gz: %.sortn.bam
+	samtools fastq -@$t -TBX $< | $(gzip) -p$t >$@
 
 # Miniasm
 
@@ -370,10 +370,6 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 		--pilon $(pilon_jar)
 	touch $@
 
-# Copy the final FASTA file from unicycler_polish.
-%.unicycler-polish.fa: %.unicycler-polish.stamp
-	seqtk seq $*.unicycler-polish/???_final_polish.fasta | sed 's/ LN:i:[0-9]*//' >$@
-
 # Create a GFA file from the polished FASTA file.
 %.racon.unicycler-polish.gfa: %.racon.unicycler-polish.fa %.gfa
 	seqtk seq $< | gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); getline; x[id] = $$1; next } $$1 == "S" { $$3 = x[$$2] } 1' - $*.gfa >$@
@@ -390,6 +386,30 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.flye.minimap2.long.split.unicycler-align.sam.gz: %.flye.fa %.flye.minimap2.long.split.fa
 	unicycler_align --threads $t --ref $*.flye.fa --reads $*.flye.minimap2.long.split.fa --sam $*.flye.minimap2.long.split.unicycler_align.sam
 	$(gzip) $*.flye.minimap2.long.split.unicycler_align.sam
+
+# Unicycler-polish
+
+# Select the first read of the read pair.
+%.1.fq.gz: %.fq.gz
+	seqtk dropse $< | seqtk seq -1 | $(gzip) >$@
+
+# Select the second read of the read pair.
+%.2.fq.gz: %.fq.gz
+	seqtk dropse $< | seqtk seq -2 | $(gzip) >$@
+
+%.unicycler-polish.stamp: %.fa %.$(lr).bx.sortn.bam.1.fq.gz %.$(lr).bx.sortn.bam.2.fq.gz
+	rm -rf $*.unicycler-polish
+	mkdir $*.unicycler-polish
+	cd $*.unicycler-polish \
+	&& $(time) unicycler_polish --threads $t --no_fix_local --pilon $(pilon_jar) \
+		-a ../$*.fa \
+		-1 ../$*.$(lr).bx.sortn.bam.1.fq.gz \
+		-2 ../$*.$(lr).bx.sortn.bam.2.fq.gz
+	touch $@
+
+# Copy the final FASTA file from unicycler_polish.
+%.unicycler-polish.fa: %.unicycler-polish.stamp
+	seqtk seq $*.unicycler-polish/???_final_polish.fasta | sed 's/ LN:i:[0-9]*//' >$@
 
 # Porechop
 
