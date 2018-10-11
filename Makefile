@@ -370,8 +370,12 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 		--pilon $(pilon_jar)
 	touch $@
 
-# Create a GFA file from the polished FASTA file.
-%.racon.unicycler-polish.gfa: %.racon.unicycler-polish.fa %.gfa
+# Create a GFA file from the FASTA file polished by Racon.
+%.racon.gfa: %.racon.fa %.gfa
+	seqtk seq $< | gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); rc[id] = $$3; getline; s[id] = $$1; next } $$1 == "S" { $$3 = s[$$2]; $$4 = "LN:i:" length($$3); $$5 = rc[$$2] } /^[SL]/' - $*.gfa >$@
+
+# Create a GFA file from the FASTA file polished by Unicycler-polish.
+%.unicycler-polish.gfa: %.unicycler-polish.fa %.gfa
 	seqtk seq $< | gawk -vOFS='\t' 'ARGIND == 1 { id = substr($$1, 2); getline; x[id] = $$1; next } $$1 == "S" { $$3 = x[$$2] } 1' - $*.gfa >$@
 
 # Extract reads with split alignments.
