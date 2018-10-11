@@ -39,7 +39,9 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all: Q903_18.porechop.minimap2.c3.miniasm.l150kd1.minimap2.Q903_18.porechop.paf.m2000.bold.unicycler.c0.6-1.2.minimap2.Q903_18.porechop.paf.m5000.flye.racon.unicycler-polish.pglaucamt.gfa
+all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.gfa
+all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.gfa
+all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.HYN5VCCXX_4.trimadap.bx.sort.bam.bai
 
 assemblies:
 	miniasm \
