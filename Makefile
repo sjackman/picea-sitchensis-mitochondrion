@@ -533,9 +533,17 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.pglaucamt.gfa: %.gfa pglaucamt.fa
 	Bandage reduce $< $@ --scope aroundblast --query pglaucamt.fa --alfilter 5000
 
+# Separate a subgraph of segments that align well to Picea glauca mitochondrion.
+%.al5ki90.pglaucamt.gfa: %.gfa pglaucamt.fa
+	Bandage reduce $< $@ --scope aroundblast --query pglaucamt.fa --alfilter 5000 --ifilter 90
+
 # Convert GFA to FASTA.
-%.miniasm.pglaucamt.fa: %.miniasm.pglaucamt.gfa
+%.pglaucamt.fa: %.pglaucamt.gfa
 	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+
+# Convert GFA to FASTA.
+%.compact.fa: %.compact.gfa
+	awk '/^S/ { print ">" $$2 "\n" $$3 }' $< >$@
 
 # Render a GFA file to PNG using Bandage.
 %.gfa.png: %.gfa
@@ -740,7 +748,7 @@ tigmint_n=10
 
 # Convert GFA to FASTA.
 %.renumber.fa: %.renumber.gfa
-	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
+	awk '/^S/ { print ">" $$2 " " $$4 " " $$5 "\n" $$3 }' $< >$@
 
 # bcftools
 
