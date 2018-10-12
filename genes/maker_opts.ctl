@@ -1,5 +1,5 @@
 #-----Genome (these are always required)
-genome=psitchensismt_12.fa #genome sequence (fasta file or fasta embeded in GFF3 file)
+genome=psitchensismt_18.fa #genome sequence (fasta file or fasta embeded in GFF3 file)
 organism_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 
 #-----Protein Homology Evidence (for best results provide a file for at least one)

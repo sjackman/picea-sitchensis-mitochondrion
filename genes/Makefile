@@ -2,7 +2,7 @@
 # Copyright 2018 Shaun Jackman
 
 # Name of the assembly
-name=psitchensismt_12
+name=psitchensismt_18
 
 # Number of threads
 t=48
@@ -212,7 +212,7 @@ rmlib.fa: PICEAGLAUCA_rpt2.0.fa $(name).RepeatModeler.fa
 	cat $^ >$@
 
 %.maker.output/stamp: maker_opts.ctl %.fa cds_aa.fa
-	maker -fix_nucleotides -cpus $t
+	maker -cpus $t
 	touch $@
 
 %.maker.repeat.gff: %.maker.output/stamp
