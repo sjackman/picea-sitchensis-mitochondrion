@@ -547,6 +547,30 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.compact.fa: %.compact.gfa
 	awk '/^S/ { print ">" $$2 "\n" $$3 }' $< >$@
 
+# Extract reads with split alignments.
+%.paf.m5000.split.fa: %.paf.m5000.fq.gz %.paf.gz
+	seqtk subseq $< <(gunzip -c $*.paf.gz | awk '$$10 >= 100' | cut -f1 | uniq -d) | seqtk seq -A >$@
+
+# Align split long reads to the assembly graph using Bandage querypaths.
+%.minimap2.$(reads).paf.m5000.split.qp.tsv: %.gfa %.minimap2.$(reads).paf.m5000.split.fa
+	Bandage querypaths $^ $*.minimap2.$(reads).paf.m5000.split.qp
+
+# Convert a Bandage querypaths file to GraphViz format.
+%.qp.gv: %.qp.tsv
+	cut -f2 $< | awk 'NF == 4 { \
+			sub(",", ""); \
+			++n["\"" $$2 "\" -> \"" $$3 "\""]; \
+			++f["\"" $$2 "\" -> \"" $$3 "\""]; \
+			if (!sub("+$$", "-", $$2)) sub("-$$", "+", $$2); \
+			if (!sub("+$$", "-", $$3)) sub("-$$", "+", $$3); \
+			++n["\"" $$3 "\" -> \"" $$2 "\""] \
+			++r["\"" $$3 "\" -> \"" $$2 "\""] \
+		} \
+		END { print "digraph {"; \
+			for (e in n) { print e, "[n=" n[e], "label=\"n=" f[e] "+" r[e] "=" n[e] "\"]" }; \
+			print "}" \
+		}' >$@
+
 # Render a GFA file to PNG using Bandage.
 %.gfa.png: %.gfa
 	Bandage image $< $@
