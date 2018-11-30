@@ -308,15 +308,15 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.flye.stamp: %.fq.gz
 	flye --version
 	flye -t$t -g6m --nano-raw=$< -o $*.flye
-	touch -r $*.flye/3-polishing/polished_edges.gfa $*.flye.stamp
+	touch $*.flye.stamp
 
-# Copy the FASTA file of polished edges.
+# Copy the FASTA file of edges.
 %.flye.fa: %.flye.stamp
-	seqtk seq $*.flye/3-polishing/polished_edges.fasta >$@
+	seqtk seq $*.flye/2-repeat/graph_final.fasta >$@
 
-# Symlink the GFA file of polished edges.
+# Symlink the GFA file of edges.
 %.flye.gfa: %.flye.stamp
-	ln -sf $*.flye/3-polishing/polished_edges.gfa $@
+	ln -sf $*.flye/2-repeat/graph_final.gfa $@
 
 # Align the long reads to the Flye assembly using minimap2.
 %.flye.minimap2.long.paf.gz: %.flye.fa %.fq.gz
