@@ -5,6 +5,7 @@ atp6	ATPase subunit 6
 atp8	ATPase subunit 8
 atp9	ATPase subunit 9
 atpB	ATP synthase CF1 beta subunit
+atpE	ATP synthase CF1 epsilon subunit
 bla	Beta-lactamase TEM precursor
 ccmB	cytochrome c biogenesis B
 ccmC	cytochrome c biogenesis C
@@ -75,8 +76,9 @@ trnW	tRNA-Trp
 trnY	tRNA-Tyr
 ymf40	18S ribosomal RNA intron 1 ORF
 ymfatpA	atpA intron1 ORF
+ymfchlN	photochlorophyllide reductase subunit N
 ymfcob	cob intron3 ORF
 ymfcox1	coxI intron2 ORF
 ymfltrA	group II intron reverse transcriptase
 ymfndhK	NADH-plastoquinone oxidoreductase subunit K
-ymfpetA	apocytochrome f precursor
+ymfpetA	cytochrome f
