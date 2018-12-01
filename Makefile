@@ -308,7 +308,7 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 %.flye.stamp: %.fq.gz
 	flye --version
 	flye -t$t -g6m --nano-raw=$< -o $*.flye
-	touch $*.flye.stamp
+	touch -r $*.flye/2-repeat/graph_final.gfa $*.flye.stamp
 
 # Copy the FASTA file of edges.
 %.flye.fa: %.flye.stamp
