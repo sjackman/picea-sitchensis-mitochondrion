@@ -76,7 +76,6 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 		--pattern-replace 'gene=ccmc' 'gene=ccmC' \
 		--pattern-replace 'gene=ccmFc' 'gene=ccmFC' \
 		--pattern-replace 'gene=ccmFn' 'gene=ccmFN' \
-		--pattern-replace 'gene=chlN' 'gene=ymfchlN' \
 		--pattern-replace 'gene=cof' 'gene=ymfpetA' \
 		--pattern-replace 'gene=COX3' 'gene=cox3' \
 		--pattern-replace 'gene=coxIII' 'gene=cox3' \
@@ -257,6 +256,7 @@ prokka/%.gff: %.fa cds_aa.prokka.fa
 # Remove the FASTA section from the Prokka GFF file
 %.prokka.gff: prokka/%.gff
 	gsed -E -e '/^##FASTA/,$$d' \
+		-e 's/=chlN/=ymfchlN/g' \
 		-e 's/=ltrA/=ymfltrA/g' \
 		-e 's/=ndhK1/=ymfndhK/g' \
 		-e '/\tgene\t/{/gene=/!s/ID=[^_]*_([0-9]*)/Name=orf\1;&/;}' \
