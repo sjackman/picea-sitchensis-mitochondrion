@@ -131,6 +131,26 @@ tab['Sum',] <- colSums(tab)
 kable(tab)
 ```
 
+# Tabulate ribosomal RNA (rRNA) genes
+```{r tabulate-rrna-by-gene}
+data %>%
+	filter(Family.short == "rrn") %>%
+	group_by(Gene) %>%
+	summarize(Count = n(), Size = sum(Size)) %>%
+	kable
+```
+
+# Tabulate transfer RNA (tRNA) genes
+```{r tabulate-trna-by-gene}
+data %>%
+	filter(Family.short == "trn") %>%
+	group_by(Gene) %>%
+	summarize(Count = n(), Size = sum(Size)) %>%
+	mutate(Index = row_number()) %>%
+	select(Index, everything()) %>%
+	kable
+```
+
 # Tabulate protein-coding genes (mRNA) by family
 ```{r tabulate-mrna-by-family}
 tab <- data_grouped %>%
@@ -181,6 +201,7 @@ data %>% filter(Family == "other genes") %>% kable
 # Tabulate introns
 ```{r tabulate-introns}
 introns_gff <- gff.all[gff.all$type == "intron",]
+
 introns <- data.frame(
 		getGffAttribute(introns_gff, 'Parent'),
 		Size = size(introns_gff),
@@ -189,7 +210,9 @@ introns <- data.frame(
 	rename(Intron_size = Size.x, Gene_size = Size.y) %>%
 	select(Type, Name, Intron_size, Gene_size) %>%
 	arrange(Type, Name) %>%
-	mutate(Name = sub('[|].*', '', Name))
+	mutate(
+		Name = sub('[|].*', '', Name),
+		Intron_size_mod3 = as.character(Intron_size %% 3))
 
 introns %>%
 	group_by(Type) %>%
@@ -213,6 +236,15 @@ introns_large %>%
 	group_by(Type, Name) %>%
 	summarize(Count = n(), Size = sum(Intron_size)) %>%
   ungroup()
+```
+
+# Histogram of intron size
+```{r intron-size-histogram}
+ggplot(introns) + theme_bw() +
+	aes(x = Intron_size, fill = Intron_size_mod3, group = Intron_size_mod3) +
+	geom_histogram(binwidth = 100, boundary = 0) +
+	scale_x_continuous(name = "Size (bp)", breaks = seq(0, 5000, 500)) +
+	scale_y_continuous(name = "Count", breaks = seq(0, 20, 1))
 ```
 
 # Histogram of gene size (≤ 1000 bp)
