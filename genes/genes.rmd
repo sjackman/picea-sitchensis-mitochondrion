@@ -178,7 +178,7 @@ data %>%
 data %>% filter(Family == "other genes") %>% kable
 ```
 
-# Tabulate intons
+# Tabulate introns
 ```{r tabulate-introns}
 introns_gff <- gff.all[gff.all$type == "intron",]
 introns <- data.frame(
@@ -201,7 +201,7 @@ introns %>%
 	kable
 ```
 
-# Tabulate intons at least 300 bp
+# Tabulate introns at least 300 bp
 ```{r tabulate-introns-large}
 introns_large <- introns %>% filter(Intron_size >= 300)
 
