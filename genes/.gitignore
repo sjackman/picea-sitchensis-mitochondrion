@@ -1,0 +1,47 @@
+*.fa
+*.fai
+*.fsa
+*.gb
+*.gbf
+*.gbk
+*.gff
+*.gff.gene
+*.gff2
+*.html
+*.log
+*.maker.output
+*.md
+*.orig
+*.pdf
+*.png
+*.sqn
+*.tbl
+*.tsv
+.Rhistory
+.Rproj.user
+NC_*
+RM_*
+figure
+prokka
+
+# BWA
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
+
+# RepeatModeler
+*.nhr
+*.nin
+*.nnd
+*.nni
+*.nog
+*.nsq
+*.translation
+
+# tbl2asn
+*.discrep
+*.val
+
+20??-??-??T*
