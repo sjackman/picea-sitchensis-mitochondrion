@@ -15,7 +15,7 @@ maker_bin=/gsc/btl/linuxbrew/Cellar/maker/2.31.9_2/bin/maker
 
 all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 	$(name).maker.evidence.gff $(name).maker.repeat.gff \
-	$(name).maker.gff.gene $(name).prokka.gff.gene $(name).gff.gene $(name).tbl.gene \
+	$(name).maker.gff.known.gene $(name).prokka.gff.known.gene $(name).gff.known.gene $(name).tbl.known.gene \
 	genes.html repeats.html
 
 clean:
