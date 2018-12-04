@@ -11,7 +11,7 @@ t=48
 edirect_query='Viridiplantae[Organism] mitochondrion[Title] (complete genome[Title] OR complete sequence[Title])'
 
 # Maker
-maker_bin=/gsc/btl/linuxbrew/Cellar/maker/2.31.9_2/bin/maker
+maker_bin=/projects/btl_scratch/sjackman/brew/Cellar/maker/2.31.10/bin/maker
 
 all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 	$(name).maker.evidence.gff $(name).maker.repeat.gff \
