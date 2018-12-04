@@ -15,6 +15,7 @@ library(knitr)
 library(magrittr)
 library(RColorBrewer)
 library(readr)
+library(scales)
 library(stringr)
 library(tidyr)
 
@@ -30,15 +31,16 @@ opts_chunk$set(tidy = FALSE, fig.width = 10, fig.height = 5)
 # Gene families
 ```{r gene-families}
 # Four shades each of blue, green, red, brown.
-family_colour <- c(
-	atp = "#B6D4E2", dpo = "#7EADBD", rpo = "#39798C", mat = "#135160",
-	rpl = "#B6E2CF", rps = "#7EBD9C", rrn = "#398C60", trn = "#136034",
-	nad = "#E2B6DB", sdh = "#BD7EB5", cob = "#8C3984", cox = "#60135B",
-	ccm = "#E2CCB5", mtt = "#BD9D7E", psa = "#8C6239", ymf = "#603813",
-	orf = "#C0C0C0", oth = "#808080") %>%
-	data_frame(Family.short = names(.), Colour = .)
+family_colour <- tribble(
+	~Family.short, ~Colour,
+	"atp", "#B6D4E2", "dpo", "#7EADBD", "rpo", "#39798C", "mat", "#135160",
+	"rpl", "#B6E2CF", "rps", "#7EBD9C", "rrn", "#398C60", "trn", "#136034",
+	"nad", "#E2B6DB", "sdh", "#BD7EB5", "cob", "#8C3984", "cox", "#60135B",
+	"ccm", "#E2CCB5", "mtt", "#BD9D7E", "psa", "#8C6239", "ymf", "#603813",
+	"orf", "#C0C0C0", "oth", "#808080")
 
-gene.types <- matrix(nrow = 2, data = c(
+gene.types <- tribble(
+	~Family.short, ~Family,
 	'atp', 'ATP synthase',
 	'ccb', 'cytochrome c biogenesis',
 	'ccm', 'cytochrome c maturation',
@@ -59,16 +61,15 @@ gene.types <- matrix(nrow = 2, data = c(
 	'ymf', 'uncharacterized mitochondrial protein',
 	'oth', 'other genes',
 	'rrn', 'ribosomal RNAs',
-	'trn', 'transfer RNAs')) %>%
-	t %>% data.frame %>%
-	set_colnames(c('Family.short', 'Family')) %>%
+	'trn', 'transfer RNAs') %>%
 	right_join(family_colour, by = "Family.short") %>%
 	mutate(Family_both = paste(Family.short, Family, sep = ": "))
 ```
 
 # Load data
 ```{r load-data}
-gff.all <- readGff3("psitchensismt_18.gff", isRightOpen = FALSE)
+gff.all <- readGff3("psitchensismt_18.gff", isRightOpen = FALSE, quiet = TRUE)
+
 gff <- gff.all[gff.all$type %in% c('mRNA', 'rRNA', 'tRNA'),]
 
 scaffold_sizes <- read_tsv("psitchensismt_18.fa.fai",
@@ -78,21 +79,19 @@ scaffold_sizes <- read_tsv("psitchensismt_18.fa.fai",
 		ScaffoldNameAndSize = paste(Scaffold, " ",
 			round(ScaffoldSize / 1e3), "kbp") %>% factor(., .))
 
-data <- data.frame(
-	Scaffold = gff$seq_name,
-	Strand = gff$strand,
-	Type = gff$type,
-	ID = getGffAttribute(gff, 'ID'),
-	Name = getGffAttribute(gff, 'Name'),
-	Position = as.matrix(gff)[,1],
-	Size = size(gff),
-	stringsAsFactors = FALSE)
-data$Gene <- data$Name %>% sub("[-_|].*", "", .)
-data$Family.short <- tolower(substr(data$Name, 1, 3))
-data$Family = factor(data$Family.short,
-	levels = gene.types$Family.short,
-	labels = gene.types$Family)
-data[is.na(data$Family), 'Family'] <- 'other genes'
+data <- tibble(
+	Scaffold = as.character(gff$seq_name),
+	Strand = as.character(gff$strand),
+	Type = as.character(gff$type),
+	ID = as.character(getGffAttribute(gff, 'ID')),
+	Name = as.character(getGffAttribute(gff, 'Name')),
+	Position = as.integer(as.matrix(gff)[,1]),
+	Size = as.integer(size(gff))) %>%
+	mutate(
+		Gene =  sub("[-_|].*", "", Name),
+		Family.short = tolower(substr(Name, 1, 3))) %>%
+	left_join(gene.types, by = "Family.short") %>%
+	replace_na(list(Family = "other genes", Family_both = "oth: other genes"))
 ```
 
 # Aggregate the data
@@ -313,24 +312,28 @@ ggplot(data_barchart) +
 ```
 
 # Gene size by scaffold
-```{r gene-size-by-scaffold, fig.width = 7, fig.height = 9, dpi = 300}
+```{r gene-size-by-scaffold, fig.width = 8, fig.height = 9, dpi = 300}
 data_scaffolds <- data %>%
 	filter(Family.short != "orf") %>%
-	mutate(Family = str_wrap(Family, 25))
-Family_count <- data_scaffolds$Family %>% unique %>% length
+	mutate(Family = factor(Family.short, levels = gene.types$Family.short, labels = gene.types$Family_both))
+
+Family_count <- length(unique(data_scaffolds$Family))
+
 ggplot(data_scaffolds) +
-	theme_bw() +
-	theme(legend.key = element_rect(colour = "black")) + 
-	aes(y = Size / 1e3, x = Scaffold, fill = Family,
-		label = ifelse(Size > 1000, Gene %>% as.character, "")) +
+	aes(y = Size, x = Scaffold, fill = Family,
+		label = ifelse(Size >= 1000, Gene, "")) +
 	geom_bar(stat = "identity", color = "black") +
 	coord_flip() +
 	geom_text(position = "stack", hjust = 1.05) +
-	scale_fill_manual(values = colorRampPalette(
-		brewer.pal(12, "Set3"))(Family_count)) +
-	guides(fill = guide_legend(keyheight = 2, override.aes = list(colour = NULL))) +
-	xlim(data_scaffolds$Scaffold %>% unique %>% as.character %>% as.integer %>% sort(decreasing = TRUE) %>% as.character) +
-	ylab('Size (kbp)')
+	scale_fill_manual("", breaks = gene.types$Family_both, values = gene.types$Colour) +
+	scale_x_discrete(limits = rev(unique(data_scaffolds$Scaffold))) +
+	scale_y_continuous(labels = unit_format(unit = "kbp", scale = 1e-3)) +
+	theme_bw() +
+    theme(
+        legend.key = element_rect(colour = "black"),
+	    legend.justification = c(1, 0),
+        legend.position = c(1, 0)) +
+	guides(fill = guide_legend(ncol = 2, override.aes = list(colour = NULL)))
 ```
 
 
