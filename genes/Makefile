@@ -10,6 +10,9 @@ t=48
 # Green plant mitochondria
 edirect_query='Viridiplantae[Organism] mitochondrion[Title] (complete genome[Title] OR complete sequence[Title])'
 
+# Maker
+maker_bin=/gsc/btl/linuxbrew/Cellar/maker/2.31.9_2/bin/maker
+
 all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 	$(name).maker.evidence.gff $(name).maker.repeat.gff \
 	$(name).maker.gff.gene $(name).prokka.gff.gene $(name).gff.gene $(name).tbl.gene \
@@ -204,16 +207,16 @@ mitochondrion/mitochondrion.%.gz:
 # MAKER
 
 maker_bopts.ctl:
-	maker -BOPTS
+	$(maker_bin)/maker -BOPTS
 
 maker_exe.ctl:
-	maker -EXE
+	$(maker_bin)/maker -EXE
 
 rmlib.fa: PICEAGLAUCA_rpt2.0.fa $(name).RepeatModeler.fa
 	cat $^ >$@
 
 %.maker.output/stamp: maker_opts.ctl %.fa cds_aa.fa
-	maker -cpus $t
+	$(maker_bin)/maker -cpus $t
 	touch $@
 
 %.maker.repeat.gff: %.maker.output/stamp
