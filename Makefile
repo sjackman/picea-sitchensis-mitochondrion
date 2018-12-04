@@ -42,6 +42,7 @@ time=command time -v -o $@.time
 all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.gfa
 all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.gfa
 all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.HYN5VCCXX_4.trimadap.bx.sort.bam.bai
+all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.minimap2.Q903_18.porechop.paf.m5000.sort.bam.bai
 
 assemblies:
 	miniasm \
@@ -735,6 +736,10 @@ tigmint_n=10
 # Select long reads with a good alignment score.
 %.paf.m5000.fq.gz: %.paf.m5000.id $(reads).fq.gz
 	seqtk subseq $(reads).fq.gz $< | $(gzip) >$@
+
+# Realign long reads with a good alignment score.
+%.minimap2.Q903_18.porechop.paf.m5000.sam.gz: %.fa %.minimap2.Q903_18.porechop.paf.m5000.fq.gz
+	$(time) minimap2 -t$t -xmap-ont -a $^ | $(gzip) >$@
 
 # Select putative mitochondrial contigs
 
