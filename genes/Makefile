@@ -90,6 +90,7 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 		--pattern-replace 'gene=nd(?i)' 'gene=nad' \
 		--pattern-replace 'gene=petA' 'gene=ymfpetA' \
 		--pattern-replace 'gene=RNA_pol' 'gene=rpo' \
+		--pattern-replace 'gene=rpL2' 'gene=rpl2' \
 		--pattern-replace 'gene=sdh3b' 'gene=sdh3' \
 		--pattern-replace 'gene=yejU' 'gene=ccmC' \
 		--pattern-replace 'gene=yejV' 'gene=ccmB' \
