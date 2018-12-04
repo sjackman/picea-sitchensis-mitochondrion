@@ -329,9 +329,9 @@ prokka/%.gff.gene: prokka/%.gff
 %.gff.gene: %.gff
 	bin/gff-gene-name $< >$@
 
-# Count consecutive identical gene names.
-%.gff.uniq.gene: %.gff.gene
-	gsed '/orf/d;s/|.*//;s/[-_][0-9a-z]$$//' $< | uniq -c | awk '{print $$2 "\t" $$1 }' >$@
+# Extract the names of known genes.
+%.known.gene: %.gene
+	gsed -e '/orf/d' -e 's/|.*//;s/[-_][0-9a-z]$$//' $< >$@
 
 # Extract DNA sequences of GFF gene features from a FASTA file
 %.gff.gene.fa: %.gff %.fa
