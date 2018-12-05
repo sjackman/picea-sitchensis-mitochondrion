@@ -48,6 +48,22 @@ pglaucamt.gff:
 pglaucamt.cds.orig.fa:
 	esearch -db nuccore -query "LKAM01" | efetch -format fasta_cds_na | seqtk seq >$@
 
+# Download the Pinus taeda mitochondrion FASTA.
+ptaeda.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
+# Download the Pinus taeda mitochondrion GBF.
+ptaeda.gbf:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=gb'
+
+# Download the Pinus taeda mitochondrion TBL.
+ptaeda.tbl:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=ft'
+
+# Download the Pinus taeda mitochondrion CDS FASTA.
+ptaeda.cds.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
+
 # Rename the coding sequences.
 %.cds.fa: %.cds.orig.fa
 	gsed -E -e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=/n' \
