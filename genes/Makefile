@@ -29,6 +29,27 @@ install-deps:
 .DELETE_ON_ERROR:
 .SECONDARY:
 
+# Download the Picea glauca mitochondrion FASTA.
+pglaucamt.fa:
+	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.fsa_nt.gz | gunzip -c | seqtk seq >$@
+
+# Download the Picea glauca mitochondrion GBF (GenBank flat file).
+pglaucamt.gbf:
+	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.gbff.gz | gunzip -c >$@
+
+# Download the Picea glauca mitochondrion GFF.
+pglaucamt.gff:
+	curl https://raw.githubusercontent.com/sjackman/pgmtdna/master/pg29mt-scaffolds.gff >$@
+
+# Download the Picea glauca mitochondrion CDS FASTA.
+pglaucamt.cds.orig.fa:
+	esearch -db nuccore -query "LKAM01" | efetch -format fasta_cds_na | seqtk seq >$@
+
+# Rename the coding sequences.
+%.cds.fa: %.cds.orig.fa
+	gsed -E -e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=/n' \
+		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< >$@
+
 # Download scripts
 
 bin/convert_RNAmmer_to_gff3.pl:
