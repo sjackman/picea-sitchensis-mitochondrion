@@ -283,14 +283,14 @@ Seqdesc ::= user {
       label str "BioProject",
       num 1,
       data strs {
-        "PRJNAxxxxx"
+        "PRJNA304257"
       }
     },
     {
       label str "BioSample",
       num 1,
       data strs {
-        "SAMNxxxxxxxx"
+        "SAMN04296985"
       }
     }
   }
