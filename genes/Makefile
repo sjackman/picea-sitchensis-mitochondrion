@@ -374,6 +374,15 @@ prokka/%.gff.gene: prokka/%.gff
 %.gff.tRNA.fa: %.gff %.fa
 	gt extractfeat -type tRNA -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
 
+# RNAWeasel
+
+# Extract coordinates of group II introns (domain V) from the RNAWeasel report.
+%.rnaweasel.intron.bed: %.rnaweasel.txt
+	sed -n '/match(es) for intron II (domainV)/,/^Identified/p' $< \
+		| awk '/\|/ { sub("\\.\\.", "\t"); sub("FW", "+"); sub("RC", "-"); print $$1 "\t" $$5 "\t" $$6 "\tDV_" ++n "\t" $$3 "\t" $$7 }' \
+		| awk -F"\t" -vOFS="\t" '/:400001/ { $$2 += 400000; $$3 += 400000 } /:800001/ { $$2 += 800000; $$3 += 800000 } /:1200001/ { $$2 += 1200000; $$3 += 1200000 } { print }' \
+		| sed 's/:[0-9]*-[0-9]*//' >$@
+
 # UniqTag
 
 # Generate UniqTag from DNA or amino acid sequence
