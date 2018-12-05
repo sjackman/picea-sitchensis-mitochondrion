@@ -13,6 +13,9 @@ edirect_query='Viridiplantae[Organism] mitochondrion[Title] (complete genome[Tit
 # Maker
 maker_bin=/projects/btl_scratch/sjackman/brew/Cellar/maker/2.31.10/bin
 
+# Parallel compression with pigz.
+gzip=pigz -p$t
+
 all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 	$(name).maker.evidence.gff $(name).maker.repeat.gff \
 	$(name).maker.gff.known.gene $(name).prokka.gff.known.gene $(name).gff.known.gene $(name).tbl.known.gene \
@@ -72,15 +75,27 @@ NC_010303.1.%.blastn: %.fa NC_010303.1.fa
 
 # BWA
 
-# Align the reads to the assembled genome
-$(name).%.sort.bam.bai: $(name).fa %.fa.gz
-	biomake ref=$(name) z=.gz threads=$t $@
+# Index the target genome.
+%.fa.bwt: %.fa
+	bwa index $<
+
+# Align a FASTA file to the draft genome using BWA-MEM.
+$(name).bwa.%.sam.gz: %.fa $(name).fa.bwt
+	bwa mem $(name).fa $< | $(gzip) >$@
 
 # samtools
 
 # Index a FASTA file.
 %.fa.fai: %.fa
 	samtools faidx $<
+
+# Sort a SAM file by target position.
+%.sort.bam: %.sam.gz
+	samtools sort -@$t -T$$(mktemp -u -t $@.XXXXXX) -o $@ $<
+
+# Index a BAM file.
+%.bam.bai: %.bam
+	samtools index -@$t $<
 
 # Copy local data
 
@@ -363,7 +378,7 @@ prokka/%.gff.gene: prokka/%.gff
 	gt extractfeat -type gene -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
 
 # Extract DNA sequences of GFF CDS features from a FASTA file
-%.gff.CDS.fa: %.gff %.fa
+%.gff.cds.fa: %.gff %.fa
 	gt extractfeat -type CDS -join -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
 
 # Extract aa sequences of GFF CDS features from a FASTA file
