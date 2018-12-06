@@ -21,6 +21,13 @@ all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 	$(name).maker.gff.known.gene $(name).prokka.gff.known.gene $(name).gff.known.gene $(name).tbl.known.gene \
 	genes.html repeats.html
 
+rna: \
+	$(name).aragorn.tsv \
+	$(name).aragorn.txt \
+	$(name).trnascan.orig.tsv \
+	$(name).barrnap.gff \
+	$(name).rnammer.gff
+
 clean:
 	rm -f $(name).gb $(name).gbk $(name).gff $(name).png
 
