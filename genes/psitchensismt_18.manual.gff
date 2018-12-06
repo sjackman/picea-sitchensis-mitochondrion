@@ -1,1 +1,44 @@
 ##gff-version 3
+##sequence-region   01 1 1645232
+##sequence-region   02 1 769924
+##sequence-region   03 1 546871
+##sequence-region   04 1 521655
+##sequence-region   05 1 395627
+##sequence-region   06 1 388138
+##sequence-region   07 1 350872
+##sequence-region   08 1 331242
+##sequence-region   09 1 272355
+##sequence-region   10 1 167717
+##sequence-region   11 1 83809
+##sequence-region   12 1 27173
+##sequence-region   13 1 23538
+01	manual	gene	1167731	1167988	.	+	.	ID=gene586;Name=nad3|lcl|NC_008256.1_prot_YP_684389.1_15-gene
+01	manual	mRNA	1167731	1167988	8.25	+	.	ID=mRNA578;Parent=gene586;Name=nad3|lcl|NC_008256.1_prot_YP_684389.1_15;_AED=0.20;_eAED=0.20;_QI=0|-1|0|1|-1|0|1|0|82;exception=RNA editing;note=putative start codon created by RNA editing
+01	manual	exon	1167731	1167988	.	+	.	Parent=mRNA578
+01	manual	CDS	1167731	1167988	.	+	0	Parent=mRNA578
+###
+02	manual	gene	545279	546331	.	+	.	ID=gene1053;Name=rps4|lcl|KJ485850.1_prot_AIB08815.1_18-gene
+02	manual	mRNA	545279	546331	19.7	+	.	ID=mRNA1042;Parent=gene1053;Name=rps4|lcl|KJ485850.1_prot_AIB08815.1_18;_AED=0.02;_eAED=0.02;_QI=0|-1|0|1|-1|0|1|0|351;exception=RNA editing;note=putative start codon created by RNA editing
+02	manual	exon	545279	546331	.	+	.	Parent=mRNA1042
+02	manual	CDS	545279	546331	.	+	0	Parent=mRNA1042
+###
+06	manual	gene	106108	106857	.	-	.	ID=gene1906;Name=mttB|lcl|MF070090.1_prot_AVL84866.1_7-gene
+06	manual	mRNA	106108	106857	17.1	-	.	ID=mRNA1884;Parent=gene1906;Name=mttB|lcl|MF070090.1_prot_AVL84866.1_7;_AED=0.05;_eAED=0.05;_QI=0|-1|0|1|-1|0|1|0|248;exception=RNA editing;note=putative start codon created by RNA editing
+06	manual	exon	106108	106857	.	-	.	Parent=mRNA1884
+06	manual	CDS	106108	106857	.	-	0	Parent=mRNA1884
+###
+06	manual	gene	353989	360315	.	+	.	ID=gene2015;Name=rps3|lcl|MF991879.1_prot_AXY96129.1_26-gene
+06	manual	mRNA	353989	360315	32.3	+	.	ID=mRNA1993;Parent=gene2015;Name=rps3|lcl|MF991879.1_prot_AXY96129.1_26;_AED=0.27;_eAED=0.27;_QI=0|0|0|1|0|0|3|0|556;exception=RNA editing;note=putative start codon created by RNA editing
+06	manual	exon	353989	354062	.	+	.	Parent=mRNA1993
+06	manual	CDS	353989	354062	.	+	0	ID=CDS6;Parent=mRNA1993
+06	manual	intron	354063	356129	.	+	.	Parent=mRNA1993
+06	manual	exon	356130	356331	.	+	.	Parent=mRNA1993
+06	manual	CDS	356130	356331	.	+	1	ID=CDS6;Parent=mRNA1993
+06	manual	intron	356332	358917	.	+	.	Parent=mRNA1993
+06	manual	exon	358918	360315	.	+	.	Parent=mRNA1993
+06	manual	CDS	358918	360315	.	+	0	ID=CDS6;Parent=mRNA1993
+###
+12	maker	gene	22434	22721	.	-	.	ID=gene2617;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32-gene
+12	maker	mRNA	22434	22721	9.04	-	.	ID=mRNA2584;Parent=gene2617;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|93;exception=RNA editing;note=putative start codon created by RNA editing
+12	maker	exon	22434	22721	.	-	.	Parent=mRNA2584
+12	maker	CDS	22434	22721	.	-	0	Parent=mRNA2584
