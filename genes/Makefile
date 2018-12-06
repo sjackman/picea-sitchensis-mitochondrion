@@ -488,8 +488,9 @@ gbk/%.00.gbk: %.gbk
 # Remove contamination and add structured comments to the FASTA file
 %.fsa: %.fa
 	seqtk seq $< \
-		| gsed -E -e '/^>(PLACEHOLDER_FOR_CONTAMINANT_IDS)$$/{N;d;}' \
-			-e 's/^>.*/& [organism=Picea sitchensis] [location=mitochondrion] [completeness=draft] [topology=linear] [gcode=1]/' \
+		| gsed -E -e 's/ .*//' \
+			-e '/^>/s/$$/ [organism=Picea sitchensis] [isolate=Q903] [location=mitochondrion] [completeness=complete] [moltype=DNA] [topology=linear] [gcode=1]/' \
+			-e '/^>10 /s/linear/circular/' \
 			>$@
 
 # tbl2asn
