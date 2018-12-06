@@ -68,7 +68,7 @@ ptaeda.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=ft'
 
 # Download the Pinus taeda mitochondrion CDS FASTA.
-ptaeda.cds.fa:
+ptaeda.cds.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
 
 # Rename the coding sequences.
@@ -402,7 +402,10 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Extract DNA sequences of GFF CDS features from a FASTA file
 %.gff.cds.fa: %.gff %.fa
-	gt extractfeat -type CDS -join -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
+	bin/gt-bequeath Name <$< \
+	| gsed -E 's/Name=([^;]*)/Target=\1 0 0/' \
+	| gt extractfeat -type CDS -join -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - \
+	| gsed -E 's/>(.*target IDs ([^]|]*).*)/>\2_\1/' >$@
 
 # Extract aa sequences of GFF CDS features from a FASTA file
 %.gff.aa.fa: %.gff %.fa
