@@ -63,6 +63,10 @@ ptaeda.fa:
 ptaeda.gbf:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=gb'
 
+# Download the Pinus taeda mitochondrion GFF.
+ptaeda.gff:
+	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_039746.1'
+
 # Download the Pinus taeda mitochondrion TBL.
 ptaeda.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=ft'
@@ -73,6 +77,15 @@ ptaeda.cds.orig.fa:
 
 # Rename the coding sequences.
 %.cds.fa: %.cds.orig.fa
+	gsed -E -e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=/n' \
+		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< >$@
+
+# Download the Pinus taeda mitochondrion protein FASTA.
+ptaeda.aa.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_aa' | seqtk seq >$@
+
+# Rename the coding sequences.
+%.aa.fa: %.aa.orig.fa
 	gsed -E -e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=/n' \
 		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< >$@
 
