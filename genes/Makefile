@@ -420,6 +420,14 @@ prokka/%.gff.gene: prokka/%.gff
 	| gt extractfeat -type CDS -join -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - \
 	| gsed -E 's/>(.*target IDs ([^]|]*).*)/>\2_\1/' >$@
 
+# Extract the trans-spliced coding sequences.
+%.cds.part.fa: %.cds.fa
+	seqmagick convert --pattern-include=_part --sort=name-asc --line-wrap=0 $< $@
+
+# Splice the trans-spliced coding sequences.
+%.cds.trans.fa: %.cds.part.fa
+	sed -e 's/_part1//g' -e '/_part[2-9]/d' $< >$@
+
 # Extract aa sequences of GFF CDS features from a FASTA file
 %.gff.aa.fa: %.gff %.fa
 	gt extractfeat -type CDS -join -translate -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
