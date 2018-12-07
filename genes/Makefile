@@ -47,9 +47,16 @@ pglaucamt.fa:
 pglaucamt.gbf:
 	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.gbff.gz | gunzip -c >$@
 
-# Download the Picea glauca mitochondrion GFF.
-pglaucamt.gff:
+# Download the Picea glauca mitochondrion GFF from GitHub.
+pg29mt-scaffolds.gff:
 	curl https://raw.githubusercontent.com/sjackman/pgmtdna/master/pg29mt-scaffolds.gff >$@
+
+# Download the Picea glauca mitochondrion GFF from NCBI.
+pglaucamt.gff:
+	(echo '##gff-version 3'; \
+	for i in $$(seq -w 1 36); do \
+		curl -s "https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=LKAM010000$$i.1"; \
+	done) | sed '/^$$/d' >$@
 
 # Download the Picea glauca mitochondrion CDS FASTA.
 pglaucamt.cds.orig.fa:
