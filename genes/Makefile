@@ -84,8 +84,12 @@ ptaeda.cds.orig.fa:
 
 # Rename the coding sequences.
 %.cds.fa: %.cds.orig.fa
-	gsed -E -e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=/n' \
-		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< >$@
+	gsed -E \
+		-e 's/>(.*gene=([^]]*)].*protein_id=([^]]*)].*)/>\2_\3 \1/' -e '/gene=.*protein_id=/n' \
+		-e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=.*locus_tag=/n' \
+		-e 's/>(.*protein_id=([^]]*)].*)/>\2 \1/' -e '/protein_id=/n' \
+		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< \
+	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
 
 # Download the Pinus taeda mitochondrion protein FASTA.
 ptaeda.aa.orig.fa:
@@ -93,8 +97,22 @@ ptaeda.aa.orig.fa:
 
 # Rename the coding sequences.
 %.aa.fa: %.aa.orig.fa
-	gsed -E -e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=/n' \
-		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< >$@
+	gsed -E \
+		-e 's/>(.*gene=([^]]*)].*protein_id=([^]]*)].*)/>\2_\3 \1/' -e '/gene=.*protein_id=/n' \
+		-e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=.*locus_tag=/n' \
+		-e 's/>(.*protein_id=([^]]*)].*)/>\2 \1/' -e '/protein_id=/n' \
+		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< \
+	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
+
+# Download the Pinus strobus CDS FASTA.
+pstrobus.cds.orig.fa:
+	esearch -db nuccore -query 'Pinus strobus AND mitochondrion[filter]' \
+		| efetch -format fasta_cds_na | seqtk seq >$@
+
+# Download the Pinus strobus protein FASTA.
+pstrobus.aa.orig.fa:
+	esearch -db nuccore -query 'Pinus strobus AND mitochondrion[filter]' \
+		| efetch -format fasta_cds_aa | seqtk seq >$@
 
 # Download scripts
 
