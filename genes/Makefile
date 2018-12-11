@@ -455,7 +455,9 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Extract aa sequences of GFF CDS features from a FASTA file
 %.gff.aa.fa: %.gff %.fa
-	gt extractfeat -type CDS -join -translate -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
+	bin/gt-bequeath Name <$< \
+	| gsed -E 's/Name=([^;]*)/Target=\1 0 0/' \
+	| gt extractfeat -type CDS -join -translate -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - >$@
 
 # Translate protein sequences of GFF CDS features from a FASTA file
 %.aa.fa: %.fa
