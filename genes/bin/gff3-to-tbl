@@ -77,7 +77,8 @@ def print_mrna(f, incomplete, locus_tag, product):
 
 	for tag in "exception", "transl_except":
 		if tag in f.qualifiers:
-			print "\t\t\t%s\t%s" % (tag, f.qualifiers[tag][0])
+			for value in f.qualifiers[tag]:
+				print "\t\t\t%s\t%s" % (tag, value)
 
 def print_trna(f, locus_tag, product):
 	""" Print a tRNA gene.
@@ -96,7 +97,8 @@ def print_trna(f, locus_tag, product):
 
 	for tag in "exception":
 		if tag in f.qualifiers:
-			print "\t\t\t%s\t%s" % (tag, f.qualifiers[tag][0])
+			for value in f.qualifiers[tag]:
+				print "\t\t\t%s\t%s" % (tag, value)
 
 def print_introns(f):
 	incomplete = (False, False)
@@ -107,8 +109,7 @@ def print_introns(f):
 def trans_spliced(f):
 	""" Return whether this feature is trans-spliced.
 	"""
-	return ('exception' in f.qualifiers
-		and f.qualifiers['exception'][0] == 'trans-splicing')
+	return "exception" in f.qualifiers and "trans-splicing" in f.qualifiers["exception"]
 
 def incomplete_cds(f, translations):
 	""" Return whether this coding feature is incomplete.
@@ -120,8 +121,8 @@ def incomplete_cds(f, translations):
 			id = sf.qualifiers['ID'][0]
 			seq = translations[id]
 			# ACG codes for T and is edited to AUG, which codes for M.
-			rna_editing = seq[0] == "T" and "exception" in sf.qualifiers \
-				and sf.qualifiers["exception"][0] == "RNA editing"
+			rna_editing = seq[0] == "T" \
+				and "exception" in sf.qualifiers and "RNA editing" in sf.qualifiers["exception"]
 			return (seq[0] != "M" and not rna_editing, seq[-1] != "*")
 	return (False, False)
 
