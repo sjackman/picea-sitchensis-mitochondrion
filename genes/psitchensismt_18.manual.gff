@@ -113,3 +113,23 @@
 12	manual	exon	22434	22721	.	-	.	Parent=mRNA15
 12	manual	CDS	22434	22721	.	-	0	Parent=mRNA15
 ###
+01	manual	gene	1404526	1405682	.	+	.	ID=gene706;Name=nad7
+01	manual	mRNA	1404526	1405682	.	+	.	ID=mRNA706;Parent=gene706;Name=nad7_part1;part=1/3;exception=trans-splicing
+01	manual	exon	1404526	1404668	.	+	.	Parent=mRNA706
+01	manual	CDS	1404526	1404668	.	+	0	Parent=mRNA706
+01	manual	intron	1404669	1405613	.	+	.	Parent=mRNA706
+01	manual	exon	1405614	1405682	.	+	.	Parent=mRNA706
+01	manual	CDS	1405614	1405682	.	+	1	Parent=mRNA706
+###
+03	manual	gene	408239	410000	.	+	.	ID=gene1354;Name=nad7
+03	manual	mRNA	408239	410000	.	+	.	ID=mRNA1339;Parent=gene1354;Name=nad7_part2;part=2/3;exception=trans-splicing
+03	manual	exon	408239	408705	.	+	.	Parent=mRNA1339
+03	manual	CDS	408239	408705	.	+	1	Parent=mRNA1339
+03	manual	intron	408706	409756	.	+	.	Parent=mRNA1339
+03	manual	exon	409757	410000	.	+	.	Parent=mRNA1339
+03	manual	CDS	409757	410000	.	+	2	Parent=mRNA1339
+###
+09	manual	gene	142991	143252	.	+	.	ID=gene2417;Name=nad7
+09	manual	mRNA	142991	143252	.	+	.	ID=mRNA2387;Parent=gene2417;Name=nad7_part3;part=3/3;exception=trans-splicing
+09	manual	exon	142991	143252	.	+	.	Parent=mRNA2387
+09	manual	CDS	142991	143252	.	+	1	Parent=mRNA2387
