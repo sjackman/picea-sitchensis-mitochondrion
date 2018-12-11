@@ -92,8 +92,8 @@
 08	manual	mRNA	322540	322728	.	+	0	ID=mRNA12;Parent=gene12;Name=nad2_part3;part=3/3;exception=trans-splicing
 08	manual	CDS	322540	322728	.	+	0	Parent=mRNA12
 ###
-12	maker	gene	22434	22721	.	-	.	ID=gene13;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32-gene
-12	maker	mRNA	22434	22721	9.04	-	.	ID=mRNA13;Parent=gene13;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|93;exception=RNA editing;note=putative start codon created by RNA editing
-12	maker	exon	22434	22721	.	-	.	Parent=mRNA13
-12	maker	CDS	22434	22721	.	-	0	Parent=mRNA13
+12	manual	gene	22434	22721	.	-	.	ID=gene13;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32-gene
+12	manual	mRNA	22434	22721	9.04	-	.	ID=mRNA13;Parent=gene13;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|93;exception=RNA editing;note=putative start codon created by RNA editing
+12	manual	exon	22434	22721	.	-	.	Parent=mRNA13
+12	manual	CDS	22434	22721	.	-	0	Parent=mRNA13
 ###
