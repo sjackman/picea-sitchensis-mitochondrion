@@ -60,8 +60,10 @@ def print_mrna(f, incomplete, locus_tag, product):
 		else:
 			# Middle exon
 			print_coord(sf, (False, False))
-	name = f.qualifiers['Name'][0]
-	gene = name.partition('|')[0]
+	name = f.qualifiers["Name"][0]
+	phase = int(cds[0].qualifiers["phase"][0])
+	if phase != 0:
+		print "\t\t\tcodon_start\t%d" % (1 + phase)
 	print "\t\t\tproduct\t%s" % product
 	print "\t\t\tprotein_id\tgnl|%s|%s" % (args.centre, locus_tag)
 
