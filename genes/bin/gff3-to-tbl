@@ -123,9 +123,18 @@ def incomplete_cds(f, translations):
 			id = sf.qualifiers['ID'][0]
 			seq = translations[id]
 			# ACG codes for T and is edited to AUG, which codes for M.
-			rna_editing = seq[0] == "T" \
-				and "exception" in sf.qualifiers and "RNA editing" in sf.qualifiers["exception"]
-			return (seq[0] != "M" and not rna_editing, seq[-1] != "*")
+			acg_start = seq[0] == "T" \
+				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
+				and "RNA editing" in sf.qualifiers["exception"] \
+				and "putative start codon created by RNA editing" in sf.qualifiers["note"]
+			# CAG codes for Q and is edited to UAG, which is a stop codon.
+			cag_stop = seq[-1] == "Q" \
+				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
+				and "RNA editing" in sf.qualifiers["exception"] \
+				and "putative stop codon created by RNA editing" in sf.qualifiers["note"]
+			good_start = seq[0] == "M" or acg_start
+			good_stop = seq[-1] == "*" or cag_stop
+			return (not good_start, not good_stop)
 	return (False, False)
 
 def print_gene(f, gene_product_table, translations):
