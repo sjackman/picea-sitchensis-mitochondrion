@@ -134,6 +134,16 @@ bin/aragorn_out_to_gff3.py:
 NC_010303.1.%.blastn: %.fa NC_010303.1.fa
 	blastn -subject NC_010303.1.fa -query $< -out $@
 
+# Porechop
+
+# Trim adapter sequence using Porechop.
+%.porechop.fq.gz: %.fq.gz
+	porechop -t $t -i $< | $(gzip) >$@
+
+# Symlink the Porechopped reads.
+%.fq.gz: %.raw.porechop.fq.gz
+	ln -s $< $@
+
 # BWA
 
 # Index the target genome.
@@ -143,6 +153,12 @@ NC_010303.1.%.blastn: %.fa NC_010303.1.fa
 # Align a FASTA file to the draft genome using BWA-MEM.
 $(name).bwa.%.sam.gz: %.fa $(name).fa.bwt
 	bwa mem $(name).fa $< | $(gzip) >$@
+
+# minimap2
+
+# Align Nanopore RNA sequencing to the draft genome and produce a SAM file.
+$(name).minimap2.%.sam.gz: $(name).fa %.fq.gz
+	$(time) minimap2 -t$t -xsplice -a $^ | $(gzip) >$@
 
 # samtools
 
