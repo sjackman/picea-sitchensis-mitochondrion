@@ -127,12 +127,17 @@ def incomplete_cds(f, translations):
 				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
 				and "RNA editing" in sf.qualifiers["exception"] \
 				and "putative start codon created by RNA editing" in sf.qualifiers["note"]
+			# GCG codes for A and is edited to GUG, which codes for V, an alternative start codon.
+			gcg_start = seq[0] == "A" \
+				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
+				and "RNA editing" in sf.qualifiers["exception"] \
+				and "putative alternative GUG start codon created by RNA editing" in sf.qualifiers["note"]
 			# CAG codes for Q and is edited to UAG, which is a stop codon.
 			cag_stop = seq[-1] == "Q" \
 				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
 				and "RNA editing" in sf.qualifiers["exception"] \
 				and "putative stop codon created by RNA editing" in sf.qualifiers["note"]
-			good_start = seq[0] == "M" or acg_start
+			good_start = seq[0] == "M" or acg_start or gcg_start
 			good_stop = seq[-1] == "*" or cag_stop
 			return (not good_start, not good_stop)
 	return (False, False)
