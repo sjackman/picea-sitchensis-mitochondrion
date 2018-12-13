@@ -136,15 +136,15 @@
 06	manual	CDS	353704	353985	.	+	0	Parent=mRNA21
 ###
 06	manual	gene	353989	360315	.	+	.	ID=gene22;Name=rps3|lcl|MF991879.1_prot_AXY96129.1_26-gene
-06	manual	mRNA	353989	360315	32.3	+	.	ID=mRNA22;Parent=gene22;Name=rps3|lcl|MF991879.1_prot_AXY96129.1_26;_AED=0.27;_eAED=0.27;_QI=0|0|0|1|0|0|3|0|556;exception=RNA editing;note=putative start codon created by RNA editing
+06	manual	mRNA	353989	360315	.	+	.	ID=mRNA22;Parent=gene22;Name=rps3|lcl|MF991879.1_prot_AXY96129.1_26;_AED=0.27;_eAED=0.27;_QI=0|0|0|1|0|0|3|0|556;exception=RNA editing;note=putative start codon created by RNA editing
 06	manual	exon	353989	354062	.	+	.	Parent=mRNA22
 06	manual	CDS	353989	354062	.	+	0	ID=CDS1;Parent=mRNA22
 06	manual	intron	354063	356129	.	+	.	Parent=mRNA22
 06	manual	exon	356130	356331	.	+	.	Parent=mRNA22
-06	manual	CDS	356130	356331	.	+	1	ID=CDS1;Parent=mRNA22
-06	manual	intron	356332	358917	.	+	.	Parent=mRNA22
-06	manual	exon	358918	360315	.	+	.	Parent=mRNA22
-06	manual	CDS	358918	360315	.	+	0	ID=CDS1;Parent=mRNA22
+06	manual	CDS	356130	356322	.	+	1	ID=CDS1;Parent=mRNA22
+06	manual	intron	356323	358908	.	+	.	Parent=mRNA22
+06	manual	exon	358909	360315	.	+	.	Parent=mRNA22
+06	manual	CDS	358909	360315	.	+	0	ID=CDS1;Parent=mRNA22
 ###
 08	manual	gene	240195	242191	.	+	.	ID=gene23;Name=nad2
 08	manual	mRNA	240195	242191	.	+	.	ID=mRNA23;Parent=gene23;Name=nad2_part1;part=1/3;exception=trans-splicing
