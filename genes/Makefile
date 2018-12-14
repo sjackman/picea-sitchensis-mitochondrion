@@ -39,6 +39,16 @@ install-deps:
 .DELETE_ON_ERROR:
 .SECONDARY:
 
+# NCBI
+
+# Download the Picea sitchensis plastid FASTA.
+psitchensiscp.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
+# Combine the Picea sitchensis plastid genome and miotchondrial draft genome.
+psitchensiscpmt.fa: psitchensiscp.fa $(name).fa
+	cat $^ >$@
+
 # Download the Picea glauca mitochondrion FASTA.
 pglaucamt.fa:
 	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.fsa_nt.gz | gunzip -c | seqtk seq >$@
