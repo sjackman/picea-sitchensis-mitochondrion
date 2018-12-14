@@ -115,10 +115,10 @@
 05	maker	exon	251952	252269	.	+	.	Parent=mRNA17
 05	maker	CDS	251952	252269	.	+	2	Parent=mRNA17
 ###
-06	manual	gene	82347	84490	.	+	.	ID=gene18;Name=matR
-06	manual	mRNA	82347	84490	.	+	0	ID=mRNA18;Parent=gene18;Name=matR
-06	manual	exon	82347	82964	.	+	0	Parent=mRNA18
-06	manual	CDS	82347	82964	.	+	0	Parent=mRNA18
+06	manual	gene	82299	84490	.	+	.	ID=gene18;Name=matR
+06	manual	mRNA	82299	84490	.	+	0	ID=mRNA18;Parent=gene18;Name=matR
+06	manual	exon	82299	82964	.	+	0	Parent=mRNA18
+06	manual	CDS	82299	82964	.	+	0	Parent=mRNA18
 06	manual	exon	82964	84490	.	+	0	Parent=mRNA18
 06	manual	CDS	82964	84490	.	+	0	Parent=mRNA18
 ###
