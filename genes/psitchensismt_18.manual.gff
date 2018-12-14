@@ -221,3 +221,10 @@
 12	manual	exon	22434	22721	.	-	.	Parent=mRNA34
 12	manual	CDS	22434	22721	.	-	0	Parent=mRNA34
 ###
+03	manual	gene	105529	107123	.	-	.	ID=gene1203;Name=cox1|lcl|NC_008362.1_prot_YP_762510.1_32-gene
+03	manual	mRNA	105529	107123	.	-	.	ID=mRNA1188;Parent=gene1203;Name=cox1|lcl|NC_008362.1_prot_YP_762510.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|452
+03	manual	exon	105529	106890	.	-	.	Parent=mRNA1188
+03	manual	CDS	105529	106890	.	-	0	Parent=mRNA1188
+03	manual	exon	106890	107123	.	-	.	Parent=mRNA1188
+03	manual	CDS	106890	107123	.	-	0	Parent=mRNA1188
+###
