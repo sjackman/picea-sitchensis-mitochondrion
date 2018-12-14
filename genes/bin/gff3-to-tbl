@@ -120,7 +120,8 @@ def incomplete_cds(f, translations):
 		if sf.type == 'mRNA':
 			if not 'ID' in sf.qualifiers:
 				continue
-			id = sf.qualifiers['ID'][0]
+			name = sf.qualifiers["Name"][0]
+			id = sf.qualifiers["ID"][0]
 			seq = translations[id]
 			# ACG codes for T and is edited to AUG, which codes for M.
 			acg_start = seq[0] == "T" \
@@ -132,12 +133,14 @@ def incomplete_cds(f, translations):
 				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
 				and "RNA editing" in sf.qualifiers["exception"] \
 				and "putative alternative GUG start codon created by RNA editing" in sf.qualifiers["note"]
+			# matR starts with a GGG codon.
+			ggg_start = seq[0] == "G" and name == "matR"
 			# CAG codes for Q and is edited to UAG, which is a stop codon.
 			cag_stop = seq[-1] == "Q" \
 				and "exception" in sf.qualifiers and "note" in sf.qualifiers \
 				and "RNA editing" in sf.qualifiers["exception"] \
 				and "putative stop codon created by RNA editing" in sf.qualifiers["note"]
-			good_start = seq[0] == "M" or acg_start or gcg_start
+			good_start = seq[0] == "M" or acg_start or gcg_start or ggg_start
 			good_stop = seq[-1] == "*" or cag_stop
 			return (not good_start, not good_stop)
 	return (False, False)
