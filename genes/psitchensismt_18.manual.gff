@@ -202,57 +202,67 @@
 08	manual	exon	5146	6339	.	-	.	Parent=mRNA32
 08	manual	CDS	5146	6339	.	-	0	Parent=mRNA32
 ###
-08	manual	gene	213680	216941	.	+	.	ID=gene33;Name=ccmFC|lcl|NC_012119.1_prot_YP_002608351.1_15-gene
-08	manual	mRNA	213680	216941	.	+	.	ID=mRNA33;Parent=gene33;Name=ccmFC|lcl|NC_012119.1_prot_YP_002608351.1_15;_AED=0.15;_eAED=0.15;_QI=0|0|0|1|0|0|2|0|463
-08	manual	exon	213680	214479	.	+	.	Parent=mRNA33
-08	manual	CDS	213680	214479	.	+	0	ID=CDS2;Parent=mRNA33
-08	manual	intron	214480	216340	.	+	.	Parent=mRNA33
-08	manual	exon	216341	216941	.	+	.	Parent=mRNA33
-08	manual	CDS	216341	216941	.	+	1	ID=CDS2;Parent=mRNA33
+08	manual	gene	175362	175757	.	-	.	ID=gene33;Name=sdh4
+08	manual	mRNA	175362	175757	.	-	.	ID=mRNA33;Parent=gene33;Name=sdh4;inference=similar to AA sequence:INSD:AJP33561.1
+08	manual	exon	175362	175757	.	-	.	Parent=mRNA33
+08	manual	CDS	175362	175757	.	-	0	Parent=mRNA33
 ###
-08	manual	gene	240195	242191	.	+	.	ID=gene34;Name=nad2
-08	manual	mRNA	240195	242191	.	+	.	ID=mRNA34;Parent=gene34;Name=nad2_part1;part=1/3;exception=trans-splicing
-08	manual	exon	240195	240347	.	+	.	Parent=mRNA34
-08	manual	CDS	240195	240347	.	+	0	Parent=mRNA34
-08	manual	intron	240348	241798	.	+	.	Parent=mRNA34
-08	manual	exon	241799	242191	.	+	.	Parent=mRNA34
-08	manual	CDS	241799	242191	.	+	0	Parent=mRNA34
+08	manual	gene	175685	176482	.	-	.	ID=gene34;Name=cox3
+08	manual	mRNA	175685	176482	.	-	.	ID=mRNA34;Parent=gene34;Name=cox3;inference=similar to AA sequence:INSD:AJP33534.1
+08	manual	exon	175685	176482	.	-	.	Parent=mRNA34
+08	manual	CDS	175685	176482	.	-	0	Parent=mRNA34
 ###
-08	manual	gene	256096	256872	.	-	.	ID=gene35;Name=atp6|lcl|MF989961.1_prot_ATY70557.1_20-gene
-08	manual	mRNA	256096	256872	.	-	.	ID=mRNA35;Parent=gene35;Name=atp6|lcl|MF989961.1_prot_ATY70557.1_20;_AED=0.11;_eAED=0.11;_QI=0|-1|0|1|-1|0|1|0|242;exception=RNA editing;note=putative start codon created by RNA editing
-08	manual	exon	256096	256872	.	-	.	Parent=mRNA35
-08	manual	CDS	256096	256872	.	-	0	Parent=mRNA35
+08	manual	gene	213680	216941	.	+	.	ID=gene35;Name=ccmFC|lcl|NC_012119.1_prot_YP_002608351.1_15-gene
+08	manual	mRNA	213680	216941	.	+	.	ID=mRNA35;Parent=gene35;Name=ccmFC|lcl|NC_012119.1_prot_YP_002608351.1_15;_AED=0.15;_eAED=0.15;_QI=0|0|0|1|0|0|2|0|463
+08	manual	exon	213680	214479	.	+	.	Parent=mRNA35
+08	manual	CDS	213680	214479	.	+	0	ID=CDS2;Parent=mRNA35
+08	manual	intron	214480	216340	.	+	.	Parent=mRNA35
+08	manual	exon	216341	216941	.	+	.	Parent=mRNA35
+08	manual	CDS	216341	216941	.	+	1	ID=CDS2;Parent=mRNA35
 ###
-08	manual	gene	305244	311856	.	+	.	ID=gene36;Name=nad4
-08	manual	mRNA	305244	311856	.	+	.	ID=mRNA36;Parent=gene36;Name=nad4_part2;part=2/2;exception=trans-splicing
-08	manual	exon	305244	305758	.	+	.	Parent=mRNA36
-08	manual	CDS	305244	305758	.	+	1	Parent=mRNA36
-08	manual	intron	305759	308826	.	+	.	Parent=mRNA36
-08	manual	exon	308827	309249	.	+	.	Parent=mRNA36
-08	manual	CDS	308827	309249	.	+	2	Parent=mRNA36
-08	manual	intron	309250	311677	.	+	.	Parent=mRNA36
-08	manual	exon	311678	311856	.	+	.	Parent=mRNA36
-08	manual	CDS	311678	311856	.	+	2	Parent=mRNA36
+08	manual	gene	240195	242191	.	+	.	ID=gene36;Name=nad2
+08	manual	mRNA	240195	242191	.	+	.	ID=mRNA36;Parent=gene36;Name=nad2_part1;part=1/3;exception=trans-splicing
+08	manual	exon	240195	240347	.	+	.	Parent=mRNA36
+08	manual	CDS	240195	240347	.	+	0	Parent=mRNA36
+08	manual	intron	240348	241798	.	+	.	Parent=mRNA36
+08	manual	exon	241799	242191	.	+	.	Parent=mRNA36
+08	manual	CDS	241799	242191	.	+	0	Parent=mRNA36
 ###
-08	manual	gene	322540	322728	.	+	.	ID=gene37;Name=nad2
-08	manual	mRNA	322540	322728	.	+	0	ID=mRNA37;Parent=gene37;Name=nad2_part3;part=3/3;exception=trans-splicing
-08	manual	CDS	322540	322728	.	+	0	Parent=mRNA37
+08	manual	gene	256096	256872	.	-	.	ID=gene37;Name=atp6|lcl|MF989961.1_prot_ATY70557.1_20-gene
+08	manual	mRNA	256096	256872	.	-	.	ID=mRNA37;Parent=gene37;Name=atp6|lcl|MF989961.1_prot_ATY70557.1_20;_AED=0.11;_eAED=0.11;_QI=0|-1|0|1|-1|0|1|0|242;exception=RNA editing;note=putative start codon created by RNA editing
+08	manual	exon	256096	256872	.	-	.	Parent=mRNA37
+08	manual	CDS	256096	256872	.	-	0	Parent=mRNA37
 ###
-09	manual	gene	136617	138395	.	-	.	ID=gene38;Name=rps10
-09	manual	mRNA	136617	138395	.	-	.	ID=mRNA38;Parent=gene38;Name=rps10;exception=RNA editing;note=putative start codon created by RNA editing
-09	manual	exon	136617	136717	.	-	.	Parent=mRNA38
-09	manual	CDS	136617	136717	.	-	2	Parent=mRNA38
-09	manual	intron	136718	138154	.	-	.	Parent=mRNA38
-09	manual	exon	138155	138395	.	-	.	Parent=mRNA38
-09	manual	CDS	138155	138395	.	-	0	Parent=mRNA38
+08	manual	gene	305244	311856	.	+	.	ID=gene38;Name=nad4
+08	manual	mRNA	305244	311856	.	+	.	ID=mRNA38;Parent=gene38;Name=nad4_part2;part=2/2;exception=trans-splicing
+08	manual	exon	305244	305758	.	+	.	Parent=mRNA38
+08	manual	CDS	305244	305758	.	+	1	Parent=mRNA38
+08	manual	intron	305759	308826	.	+	.	Parent=mRNA38
+08	manual	exon	308827	309249	.	+	.	Parent=mRNA38
+08	manual	CDS	308827	309249	.	+	2	Parent=mRNA38
+08	manual	intron	309250	311677	.	+	.	Parent=mRNA38
+08	manual	exon	311678	311856	.	+	.	Parent=mRNA38
+08	manual	CDS	311678	311856	.	+	2	Parent=mRNA38
 ###
-09	manual	gene	142991	143252	.	+	.	ID=gene39;Name=nad7
-09	manual	mRNA	142991	143252	.	+	.	ID=mRNA39;Parent=gene39;Name=nad7_part3;part=3/3;exception=trans-splicing
-09	manual	exon	142991	143252	.	+	.	Parent=mRNA39
-09	manual	CDS	142991	143252	.	+	1	Parent=mRNA39
+08	manual	gene	322540	322728	.	+	.	ID=gene39;Name=nad2
+08	manual	mRNA	322540	322728	.	+	0	ID=mRNA39;Parent=gene39;Name=nad2_part3;part=3/3;exception=trans-splicing
+08	manual	CDS	322540	322728	.	+	0	Parent=mRNA39
 ###
-12	manual	gene	22434	22721	.	-	.	ID=gene40;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32-gene
-12	manual	mRNA	22434	22721	9.04	-	.	ID=mRNA40;Parent=gene40;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|93;exception=RNA editing;note=putative start codon created by RNA editing
-12	manual	exon	22434	22721	.	-	.	Parent=mRNA40
-12	manual	CDS	22434	22721	.	-	0	Parent=mRNA40
+09	manual	gene	136617	138395	.	-	.	ID=gene40;Name=rps10
+09	manual	mRNA	136617	138395	.	-	.	ID=mRNA40;Parent=gene40;Name=rps10;exception=RNA editing;note=putative start codon created by RNA editing
+09	manual	exon	136617	136717	.	-	.	Parent=mRNA40
+09	manual	CDS	136617	136717	.	-	2	Parent=mRNA40
+09	manual	intron	136718	138154	.	-	.	Parent=mRNA40
+09	manual	exon	138155	138395	.	-	.	Parent=mRNA40
+09	manual	CDS	138155	138395	.	-	0	Parent=mRNA40
+###
+09	manual	gene	142991	143252	.	+	.	ID=gene41;Name=nad7
+09	manual	mRNA	142991	143252	.	+	.	ID=mRNA41;Parent=gene41;Name=nad7_part3;part=3/3;exception=trans-splicing
+09	manual	exon	142991	143252	.	+	.	Parent=mRNA41
+09	manual	CDS	142991	143252	.	+	1	Parent=mRNA41
+###
+12	manual	gene	22434	22721	.	-	.	ID=gene42;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32-gene
+12	manual	mRNA	22434	22721	9.04	-	.	ID=mRNA42;Parent=gene42;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|93;exception=RNA editing;note=putative start codon created by RNA editing
+12	manual	exon	22434	22721	.	-	.	Parent=mRNA42
+12	manual	CDS	22434	22721	.	-	0	Parent=mRNA42
 ###
