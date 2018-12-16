@@ -501,6 +501,10 @@ prokka/%.gff.gene: prokka/%.gff
 	gt seqtranslate -reverse no -fastawidth 0 $< \
 	| gsed -n '/ (1+)$$/{s/ (1+)$$//;p;n;p;n;n;n;n;}' >$@
 
+# Discard ORFs.
+%.known.fa: %.fa
+	sed '/>orf/{N;d;}' $< >$@
+
 # Extract sequences of GFF intron features
 %.gff.intron.fa: %.gff %.fa
 	bin/gt-bequeath Name <$< | gsed -E 's/Name=([^;]*)/Target=\1 0 0/' | gt extractfeat -type intron -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - >$@
