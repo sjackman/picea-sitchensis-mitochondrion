@@ -140,13 +140,20 @@ bin/aragorn_out_to_gff3.py:
 
 # BLAST
 
-# Align the scaffolds to the nt database
-%.blastn: %.fa
-	blastn -db nt -query $< -out $@
+# Align nucleotides to the nt database and output plain text.
+%.blastn.txt: %.fa
+	blastn -remote -db nt -query $< -out $@
 
-# Align the scaffolds to Cycas taitungensis NC_010303.1
-NC_010303.1.%.blastn: %.fa NC_010303.1.fa
-	blastn -subject NC_010303.1.fa -query $< -out $@
+# Align proteins to the NR database and output TSV.
+%.blastp.tsv: %.fa
+	(printf 'qaccver\tsaccver\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore\tqlen\tslen\tqcovs\tstaxid\tstitle\n'; \
+	blastp -remote -db nr -max_target_seqs 1 -outfmt '6 std qlen slen qcovs staxid stitle' -query $<) >$@
+
+# Align proteins to the NR database and output PAF.
+%.blastp.paf.gz: %.fa
+	blastp -remote -db nr -max_target_seqs 1 -outfmt '6 qaccver qlen qstart qend sstrand saccver slen sstart send nident length evalue staxid stitle' -query $< \
+	| awk -F'\t' -vOFS='\t' '{ $$5 = "+"; $$13 = "tx:z:" $$13; $$14 = "ti:z:" $$14; print }' \
+	| $(gzip) >$@
 
 # Porechop
 
