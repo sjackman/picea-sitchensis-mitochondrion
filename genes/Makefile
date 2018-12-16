@@ -92,6 +92,10 @@ ptaeda.tbl:
 ptaeda.cds.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
 
+# Download the Cycas taitungensis mitochondrion genome FASTA.
+cycadmt.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
 # Rename the coding sequences.
 %.cds.fa: %.cds.orig.fa
 	gsed -E \
