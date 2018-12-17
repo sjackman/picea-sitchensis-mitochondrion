@@ -107,6 +107,7 @@ cycadmt.fa:
 		-e 's/>(.*protein_id=([^]]*)].*)/>\2 \1/' -e '/protein_id=/n' \
 		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< \
 	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
+	seqmagick convert --sort=name-asc --line-wrap=0 $@ $@
 
 # Download the Pinus taeda mitochondrion protein FASTA.
 ptaeda.aa.orig.fa:
@@ -120,16 +121,19 @@ ptaeda.aa.orig.fa:
 		-e 's/>(.*protein_id=([^]]*)].*)/>\2 \1/' -e '/protein_id=/n' \
 		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< \
 	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
+	seqmagick convert --sort=name-asc --line-wrap=0 $@ $@
 
 # Download the Pinus strobus CDS FASTA.
 pstrobus.cds.orig.fa:
-	esearch -db nuccore -query 'Pinus strobus AND mitochondrion[filter]' \
-		| efetch -format fasta_cds_na | seqtk seq >$@
+	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
+		| efetch -format fasta_cds_na \
+		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
 
 # Download the Pinus strobus protein FASTA.
 pstrobus.aa.orig.fa:
-	esearch -db nuccore -query 'Pinus strobus AND mitochondrion[filter]' \
-		| efetch -format fasta_cds_aa | seqtk seq >$@
+	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
+		| efetch -format fasta_cds_aa \
+		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
 
 # Download scripts
 
