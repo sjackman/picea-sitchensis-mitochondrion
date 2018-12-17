@@ -1,0 +1,84 @@
+---
+title: Plot a PAF file
+author: Shaun Jackman
+params:
+  input_paf:
+    label: "Input PAF file"
+    value: "psitchensismt_18.gff.cds.aa.known.blastp.paf.gz"
+    input: text
+---
+
+```{r setup, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+library(readr)
+library(scales)
+
+knit_print.data.frame <- function(x, ...) kable(x) %>% paste(collapse = "\n") %>% asis_output
+input_paf <- params$input_paf
+
+input_paf
+```
+
+# Read the PAF file
+```{r read-data}
+paf_orig <- read_tsv(input_paf,
+	col_names = c(
+		"Qname", "Qlength", "Qstart", "Qend","Orientation",
+		"Tname", "Tlength", "Tstart", "Tend",
+		"Matches", "Length", "Mapq"),
+	col_types = "ciiicciiiiii")
+
+paf <- paf_orig %>%
+	mutate(Identity = Matches / Length) %>%
+	group_by(Qname) %>%
+	mutate(Blocks = n(), Total_length = sum(Tend - Tstart)) %>%
+	ungroup() %>%
+	arrange(Qname, Qstart)
+```
+
+# Plot the total alignment length
+```{r plot-length}
+ggplot(paf) +
+	aes(x = Total_length, y = NA) +
+	geom_point() +
+	scale_x_continuous(name = "Length", labels = unit_format(unit = "bp")) +
+	scale_y_discrete(breaks = NULL) +
+	expand_limits(x = 0) +
+	ylab(NULL)
+```
+
+# Plot the alignment identity
+```{r plot-identity}
+ggplot(paf) +
+	aes(x = Identity, y = NA) +
+	geom_point() +
+	scale_x_continuous(labels = percent_format()) +
+	scale_y_discrete(breaks = NULL) +
+	ylab(NULL)
+```
+
+# Plot the target alignment position
+```{r plot-position, fig.width=7, fig.height=14}
+ggplot(paf) +
+	aes(x = Qname, ymin = 0, lower = Tstart, middle = (Tstart + Tend) / 2, upper = Tend, ymax = Tlength) +
+	geom_boxplot(stat = "identity") +
+	scale_x_discrete(name = "Query") +
+	scale_y_continuous(name = "Position", labels = unit_format(unit = "bp")) +
+	scale_fill_brewer(palette = "Set3") +
+	coord_flip()
+```
+
+```{r save-plot}
+ggsave(paste0(input_paf, ".pdf"), width = 7, height = 14)
+```
+
+# Histogram of the target alignment position
+```{r plot-target-position-histogram}
+ggplot(paf) +
+	aes(x = Tstart) +
+	geom_histogram(binwidth = 1, boundary = 0) +
+	scale_x_continuous(name = "Position", labels = unit_format(unit = "bp")) +
+	expand_limits(x = 0)
+```
