@@ -10,6 +10,9 @@ t=48
 # Green plant mitochondria
 edirect_query='Viridiplantae[Organism] mitochondrion[Title] (complete genome[Title] OR complete sequence[Title])'
 
+# BLAST
+export BLASTDB=/projects/btl/db/blast-20181216
+
 # Maker
 maker_bin=/projects/btl_scratch/sjackman/brew/Cellar/maker/2.31.10/bin
 
@@ -142,17 +145,17 @@ bin/aragorn_out_to_gff3.py:
 
 # Align nucleotides to the nt database and output plain text.
 %.blastn.txt: %.fa
-	blastn -remote -db nt -query $< -out $@
+	blastn -num_threads $t -db nt -query $< -out $@
 
 # Align proteins to the NR database and output TSV.
 %.blastp.tsv: %.fa
 	(printf 'qaccver\tsaccver\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore\tqlen\tslen\tqcovs\tstaxid\tstitle\n'; \
-	blastp -remote -db nr -max_target_seqs 1 -outfmt '6 std qlen slen qcovs staxid stitle' -query $<) >$@
+	blastp -num_threads $t -db nr -max_target_seqs 1 -outfmt '6 std qlen slen qcovs staxid stitle' -query $<) >$@
 
 # Align proteins to the NR database and output PAF.
 %.blastp.paf.gz: %.fa
-	blastp -remote -db nr -max_target_seqs 1 -outfmt '6 qaccver qlen qstart qend sstrand saccver slen sstart send nident length evalue staxid stitle' -query $< \
-	| awk -F'\t' -vOFS='\t' '{ $$5 = "+"; $$13 = "tx:z:" $$13; $$14 = "ti:z:" $$14; print }' \
+	blastp -num_threads $t -db nr -max_target_seqs 1 -outfmt '6 qaccver qlen qstart qend sstrand saccver slen sstart send nident length evalue staxid stitle' -query $< \
+	| awk -F'\t' -vOFS='\t' '{ $$5 = "+"; $$13 = "tx:i:" $$13; $$14 = "ti:z:" $$14; print }' \
 	| $(gzip) >$@
 
 # Porechop
