@@ -623,7 +623,13 @@ gbk/%.00.gbk: %.gbk
 	tbl2asn -a s -i $< -t $*.sbt -w $*.cmt -Z $*.discrep -Vbv
 	gsed -i 's/DEFINITION  Picea sitchensis/& mitochondrion draft genome/' $*.gbf
 
-# Render HTML from RMarkdown
+# RMarkdown
+
+# Plot a PAF file.
+%.paf.gz.pdf: %.paf.gz
+	Rscript -e 'rmarkdown::render("plot-paf.rmd", "html_document", "$*.plot-paf.html", params = list(input_paf="$<"))'
+
+# Render HTML from RMarkdown.
 %.html: %.rmd
 	Rscript -e 'rmarkdown::render("$<", output_format = "html_document")'
 	mogrify -units PixelsPerInch -density 300 $*_files/figure-html/*.png
