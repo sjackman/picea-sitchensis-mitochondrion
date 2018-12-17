@@ -162,6 +162,23 @@ bin/aragorn_out_to_gff3.py:
 	| awk -F'\t' -vOFS='\t' '{ $$5 = "+"; $$13 = "tx:i:" $$13; $$14 = "ti:z:" $$14; print }' \
 	| $(gzip) >$@
 
+# Extract the target sequence ID from the BLAST hits.
+%.blastp.id: %.blastp.paf.gz
+	gunzip -c $< | cut -f 6 | sort -u >$@
+
+# Download a reference genome for the BLAST hits.
+%.blastp.aa.orig.fa: %.blastp.id
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&retmode=text&rettype=fasta_cds_aa&id='"$$(paste -sd+ $<)" \
+	| seqtk seq >$@
+
+# Rename the sequences.
+%.blastp.aa.fa: %.blastp.aa.orig.fa
+	gsed -E \
+		-e 's/>(.*protein_id=([^]]*)].*)/>\2 \1/' -e '/protein_id=/n' \
+		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< \
+	| seqmagick convert --line-wrap=0 - $@
+	seqmagick convert --sort=name-asc --line-wrap=0 $@ $@
+
 # Porechop
 
 # Trim adapter sequence using Porechop.
