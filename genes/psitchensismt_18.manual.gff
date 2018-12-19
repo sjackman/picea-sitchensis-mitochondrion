@@ -212,13 +212,17 @@
 08	manual	exon	175685	176482	.	-	.	Parent=mRNA34
 08	manual	CDS	175685	176482	.	-	0	Parent=mRNA34
 ###
-08	manual	gene	213680	216941	.	+	.	ID=gene35;Name=ccmFC|lcl|NC_012119.1_prot_YP_002608351.1_15-gene
-08	manual	mRNA	213680	216941	.	+	.	ID=mRNA35;Parent=gene35;Name=ccmFC|lcl|NC_012119.1_prot_YP_002608351.1_15;_AED=0.15;_eAED=0.15;_QI=0|0|0|1|0|0|2|0|463
-08	manual	exon	213680	214479	.	+	.	Parent=mRNA35
-08	manual	CDS	213680	214479	.	+	0	ID=CDS2;Parent=mRNA35
+08	manual	gene	213680	216941	.	+	.	ID=gene35;Name=ccmFC
+08	manual	mRNA	213680	216941	.	+	.	ID=mRNA35;Parent=gene35;Name=ccmFC
+08	manual	exon	213680	214147	.	+	.	Parent=mRNA35
+08	manual	CDS	213680	214147	.	+	0	Parent=mRNA35
+08	manual	exon	214147	214235	.	+	.	Parent=mRNA35
+08	manual	CDS	214147	214235	.	+	0	Parent=mRNA35
+08	manual	exon	214231	214479	.	+	.	Parent=mRNA35
+08	manual	CDS	214231	214479	.	+	1	Parent=mRNA35
 08	manual	intron	214480	216340	.	+	.	Parent=mRNA35
 08	manual	exon	216341	216941	.	+	.	Parent=mRNA35
-08	manual	CDS	216341	216941	.	+	1	ID=CDS2;Parent=mRNA35
+08	manual	CDS	216341	216941	.	+	1	Parent=mRNA35
 ###
 08	manual	gene	240195	242191	.	+	.	ID=gene36;Name=nad2
 08	manual	mRNA	240195	242191	.	+	.	ID=mRNA36;Parent=gene36;Name=nad2_part1;part=1/3;exception=trans-splicing
