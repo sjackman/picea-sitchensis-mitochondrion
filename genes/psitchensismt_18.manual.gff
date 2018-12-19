@@ -213,14 +213,14 @@
 08	manual	CDS	175685	176482	.	-	0	Parent=mRNA34
 ###
 08	manual	gene	213680	216941	.	+	.	ID=gene35;Name=ccmFC
-08	manual	mRNA	213680	216941	.	+	.	ID=mRNA35;Parent=gene35;Name=ccmFC
+08	manual	mRNA	213680	216941	.	+	.	ID=mRNA35;Parent=gene35;Name=ccmFC;inference=similar to AA sequence:RefSeq:YP_009531509.1
 08	manual	exon	213680	214147	.	+	.	Parent=mRNA35
 08	manual	CDS	213680	214147	.	+	0	Parent=mRNA35
 08	manual	exon	214147	214235	.	+	.	Parent=mRNA35
 08	manual	CDS	214147	214235	.	+	0	Parent=mRNA35
 08	manual	exon	214231	214479	.	+	.	Parent=mRNA35
-08	manual	CDS	214231	214479	.	+	1	Parent=mRNA35
-08	manual	intron	214480	216340	.	+	.	Parent=mRNA35
+08	manual	CDS	214231	214470	.	+	1	Parent=mRNA35
+08	manual	intron	214471	216340	.	+	.	Parent=mRNA35
 08	manual	exon	216341	216941	.	+	.	Parent=mRNA35
 08	manual	CDS	216341	216941	.	+	1	Parent=mRNA35
 ###
