@@ -563,7 +563,9 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Extract sequences of GFF rRNA features
 %.gff.rRNA.fa: %.gff %.fa
-	gt extractfeat -type rRNA -coords -matchdescstart -retainids -seqid -seqfile $*.fa $< >$@
+	gsed -E 's/Name=([^;]*)/Target=\1 0 0/' $< \
+	| gt extractfeat -type rRNA -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - \
+	| gsed -E 's/>(.*target IDs ([^]|]*).*)/>\2_\1/' >$@
 
 # Extract sequences of GFF tRNA features
 %.gff.tRNA.fa: %.gff %.fa
