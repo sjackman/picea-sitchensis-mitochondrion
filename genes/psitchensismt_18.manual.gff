@@ -53,10 +53,10 @@
 01	manual	exon	673610	673840	.	-	.	Parent=mRNA7
 01	manual	CDS	673610	673840	.	-	0	Parent=mRNA7
 ###
-01	manual	gene	1004411	1007655	.	+	.	ID=gene8;Name=nad1
-01	manual	mRNA	1004411	1007655	.	+	.	ID=mRNA8;Parent=gene8;Name=nad1_part2;part=2/4;exception=trans-splicing
-01	manual	exon	1004411	1004491	.	+	.	Parent=mRNA8
-01	manual	CDS	1004411	1004491	.	+	0	Parent=mRNA8
+01	manual	gene	1004409	1007655	.	+	.	ID=gene8;Name=nad1
+01	manual	mRNA	1004409	1007655	.	+	.	ID=mRNA8;Parent=gene8;Name=nad1_part2;part=2/4;exception=trans-splicing
+01	manual	exon	1004409	1004491	.	+	.	Parent=mRNA8
+01	manual	CDS	1004409	1004491	.	+	2	Parent=mRNA8
 01	manual	intron	1004492	1007463	.	+	.	Parent=mRNA8
 01	manual	exon	1007464	1007655	.	+	.	Parent=mRNA8
 01	manual	CDS	1007464	1007655	.	+	0	Parent=mRNA8
@@ -132,10 +132,10 @@
 03	manual	exon	409757	410000	.	+	.	Parent=mRNA20
 03	manual	CDS	409757	410000	.	+	2	Parent=mRNA20
 ###
-05	manual	gene	222569	222955	.	-	.	ID=gene21;Name=nad1
-05	manual	mRNA	222569	222955	.	-	.	ID=mRNA21;Parent=gene21;Name=nad1_part1;part=1/4;exception=trans-splicing,RNA editing;note=putative start codon created by RNA editing
-05	manual	exon	222569	222955	.	-	.	Parent=mRNA21
-05	manual	CDS	222569	222955	.	-	0	Parent=mRNA21
+05	manual	gene	222567	222955	.	-	.	ID=gene21;Name=nad1
+05	manual	mRNA	222567	222955	.	-	.	ID=mRNA21;Parent=gene21;Name=nad1_part1;part=1/4;exception=trans-splicing,RNA editing;note=putative start codon created by RNA editing
+05	manual	exon	222567	222955	.	-	.	Parent=mRNA21
+05	manual	CDS	222567	222955	.	-	0	Parent=mRNA21
 ###
 05	maker	gene	251952	252269	.	+	.	ID=gene22;Name=cox2
 05	maker	mRNA	251952	252269	.	+	.	ID=mRNA22;Parent=gene22;Name=cox2_part2;part=2/3;exception=trans-splicing
