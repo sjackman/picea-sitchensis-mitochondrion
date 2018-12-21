@@ -99,6 +99,26 @@ ptaeda.cds.orig.fa:
 cycadmt.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
+# Download the Cycas taitungensis mitochondrion TBL.
+cycadmt.tbl:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=ft'
+
+# Download the Cycas taitungensis mitochondrion GFF.
+cycadmt.gff:
+	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_010303.1'
+
+# Download the Ginkgo biloba mitochondrion genome FASTA.
+ginkgomt.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
+# Download the Ginkgo biloba mitochondrion TBL.
+ginkgomt.tbl:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=ft'
+
+# Download the Ginkgo biloba mitochondrion GFF.
+ginkgomt.gff:
+	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_027976.1'
+
 # Rename the coding sequences.
 %.cds.fa: %.cds.orig.fa
 	gsed -E \
