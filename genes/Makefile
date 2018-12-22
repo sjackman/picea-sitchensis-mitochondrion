@@ -48,6 +48,14 @@ install-deps:
 psitchensiscp.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
+# Download the Picea sitchensis plastid TBL.
+psitchensiscp.tbl:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=ft'
+
+# Download the Picea sitchensis plastid GFF.
+psitchensiscp.gff:
+	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=KU215903.2'
+
 # Combine the Picea sitchensis plastid genome and miotchondrial draft genome.
 psitchensiscpmt.fa: psitchensiscp.fa $(name).fa
 	cat $^ >$@
