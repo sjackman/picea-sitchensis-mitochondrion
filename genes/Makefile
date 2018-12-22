@@ -252,6 +252,10 @@ $(name).bwa.%.sam.gz: %.fa $(name).fa.bwt
 
 # minimap2
 
+# Align a FASTA file to the draft genome and produce a SAM file.
+$(name).minimap2.%.sam.gz: $(name).fa %.fa
+	$(time) minimap2 -t$t -a $^ | $(gzip) >$@
+
 # Align Nanopore RNA sequencing to the draft genome and produce a SAM file.
 $(name).minimap2.%.sam.gz: $(name).fa %.fq.gz
 	$(time) minimap2 -t$t -xsplice -a $^ | $(gzip) >$@
