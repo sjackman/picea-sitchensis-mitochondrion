@@ -115,6 +115,10 @@ cycadmt.tbl:
 cycadmt.gff:
 	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_010303.1'
 
+# Download the Cycas taitungensis gene FASTA.
+cycadmt.gene.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=gene_fasta' | seqtk seq >$@
+
 # Download the Ginkgo biloba mitochondrion genome FASTA.
 ginkgomt.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
@@ -126,6 +130,16 @@ ginkgomt.tbl:
 # Download the Ginkgo biloba mitochondrion GFF.
 ginkgomt.gff:
 	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_027976.1'
+
+# Rename the genes.
+%.gene.fa: %.gene.orig.fa
+	gsed -E \
+		-e 's/>(.*gene=([^]]*)].*protein_id=([^]]*)].*)/>\2_\3 \1/' -e '/gene=.*protein_id=/n' \
+		-e 's/>(.*gene=([^]]*)].*locus_tag=([^]]*)].*)/>\2_\3 \1/' -e '/gene=.*locus_tag=/n' \
+		-e 's/>(.*protein_id=([^]]*)].*)/>\2 \1/' -e '/protein_id=/n' \
+		-e 's/>(.*locus_tag=([^]]*)].*)/>\2 \1/' $< \
+	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
+	seqmagick convert --sort=name-asc --line-wrap=0 $@ $@
 
 # Rename the coding sequences.
 %.cds.fa: %.cds.orig.fa
@@ -162,6 +176,15 @@ pstrobus.aa.orig.fa:
 	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
 		| efetch -format fasta_cds_aa \
 		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
+
+# Download the Pinus strobus gene FASTA.
+pstrobus.gene.orig.fa:
+	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
+		| efetch -format gene_fasta | seqtk seq >$@
+
+# Extract the tRNA.
+%.tRNA.fa: %.gene.fa
+	seqmagick convert --pattern-include 'trn' --line-wrap=0 $< $@
 
 # Download scripts
 
