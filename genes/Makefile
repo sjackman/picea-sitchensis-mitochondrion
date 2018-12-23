@@ -48,6 +48,10 @@ install-deps:
 psitchensiscp.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
+# Download the Picea sitchensis plastid CDS FASTA.
+psitchensiscp.cds.orig.fa:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta_cds_na'
+
 # Download the Picea sitchensis plastid TBL.
 psitchensiscp.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=ft'
@@ -142,6 +146,10 @@ ginkgomt.tbl:
 # Download the Ginkgo biloba mitochondrion GFF.
 ginkgomt.gff:
 	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_027976.1'
+
+# Download the Welwitschia mirabilis genome FASTA.
+welwitschiamt.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_029130.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
 # Download the Welwitschia mirabilis CDS FASTA.
 welwitschiamt.cds.orig.fa:
