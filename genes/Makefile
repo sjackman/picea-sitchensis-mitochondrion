@@ -84,44 +84,56 @@ pglaucamt.cds.orig.fa:
 	esearch -db nuccore -query "LKAM01" | efetch -format fasta_cds_na | seqtk seq >$@
 
 # Download the Pinus taeda mitochondrion FASTA.
-ptaeda.fa:
+ptaedamt.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
 # Download the Pinus taeda mitochondrion GBF.
-ptaeda.gbf:
+ptaedamt.gbf:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=gb'
 
 # Download the Pinus taeda mitochondrion GFF.
-ptaeda.gff:
+ptaedamt.gff:
 	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_039746.1'
 
 # Download the Pinus taeda mitochondrion TBL.
-ptaeda.tbl:
+ptaedamt.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=ft'
 
 # Download the Pinus taeda mitochondrion CDS FASTA.
-ptaeda.cds.orig.fa:
+ptaedamt.cds.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
 
+# Download the Pinus taeda mitochondrion protein FASTA.
+ptaedamt.aa.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_aa' | seqtk seq >$@
+
 # Download the Cycas taitungensis mitochondrion genome FASTA.
-cycadmt.fa:
+cycasmt.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
 # Download the Cycas taitungensis mitochondrion TBL.
-cycadmt.tbl:
+cycasmt.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=ft'
 
 # Download the Cycas taitungensis mitochondrion GFF.
-cycadmt.gff:
+cycasmt.gff:
 	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_010303.1'
 
+# Download the Cycas taitungensis CDS FASTA.
+cycasmt.cds.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
+
 # Download the Cycas taitungensis gene FASTA.
-cycadmt.gene.orig.fa:
+cycasmt.gene.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=gene_fasta' | seqtk seq >$@
 
 # Download the Ginkgo biloba mitochondrion genome FASTA.
 ginkgomt.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
+# Download the Ginkgo biloba mitochondrion CDS FASTA.
+ginkgomt.cds.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
 
 # Download the Ginkgo biloba mitochondrion TBL.
 ginkgomt.tbl:
@@ -130,6 +142,27 @@ ginkgomt.tbl:
 # Download the Ginkgo biloba mitochondrion GFF.
 ginkgomt.gff:
 	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_027976.1'
+
+# Download the Welwitschia mirabilis CDS FASTA.
+welwitschiamt.cds.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_029130.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
+
+# Download the Pinus strobus CDS FASTA.
+pstrobusmt.cds.orig.fa:
+	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
+		| efetch -format fasta_cds_na \
+		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
+
+# Download the Pinus strobus protein FASTA.
+pstrobusmt.aa.orig.fa:
+	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
+		| efetch -format fasta_cds_aa \
+		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
+
+# Download the Pinus strobus gene FASTA.
+pstrobusmt.gene.orig.fa:
+	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
+		| efetch -format gene_fasta | seqtk seq >$@
 
 # Rename the genes.
 %.gene.fa: %.gene.orig.fa
@@ -151,10 +184,6 @@ ginkgomt.gff:
 	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
 	seqmagick convert --sort=name-asc --line-wrap=0 $@ $@
 
-# Download the Pinus taeda mitochondrion protein FASTA.
-ptaeda.aa.orig.fa:
-	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_039746.1&db=nucleotide&rettype=fasta_cds_aa' | seqtk seq >$@
-
 # Rename the coding sequences.
 %.aa.fa: %.aa.orig.fa
 	gsed -E \
@@ -165,26 +194,13 @@ ptaeda.aa.orig.fa:
 	| seqmagick convert --deduplicate-sequences --line-wrap=0 - $@
 	seqmagick convert --sort=name-asc --line-wrap=0 $@ $@
 
-# Download the Pinus strobus CDS FASTA.
-pstrobus.cds.orig.fa:
-	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
-		| efetch -format fasta_cds_na \
-		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
-
-# Download the Pinus strobus protein FASTA.
-pstrobus.aa.orig.fa:
-	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
-		| efetch -format fasta_cds_aa \
-		| seqmagick convert --pattern-include 'AJP335' --line-wrap=0 - $@
-
-# Download the Pinus strobus gene FASTA.
-pstrobus.gene.orig.fa:
-	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
-		| efetch -format gene_fasta | seqtk seq >$@
-
 # Extract the tRNA.
 %.tRNA.fa: %.gene.fa
 	seqmagick convert --pattern-include 'trn' --line-wrap=0 $< $@
+
+# Concatenate the gymnosperm CDS FASTA.
+gymnospermmt.cds.fa: cycasmt.cds.fa ginkgomt.cds.fa pglaucamt.cds.fa pstrobusmt.cds.fa ptaedamt.cds.fa welwitschiamt.cds.fa
+	cat $^ >$@
 
 # Download scripts
 
