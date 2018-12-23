@@ -612,6 +612,14 @@ prokka/%.gff.gene: prokka/%.gff
 %.gff.intron.fa: %.gff %.fa
 	bin/gt-bequeath Name <$< | gsed -E 's/Name=([^;]*)/Target=\1 0 0/' | gt extractfeat -type intron -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - >$@
 
+# Extract the 5' end of the introns.
+%.intron5.fa: %.intron.fa
+	gsed -E '2~2s/^(..........).*/\1/' $< >$@
+
+# Extract the 3' end of the introns.
+%.intron3.fa: %.intron.fa
+	gsed -E '2~2s/^.*(...........)/\1/' $< >$@
+
 # Extract sequences of GFF intron features plus flanking sequence
 %.gff.intron.flank100.fa: %.gff %.fa.fai
 	(awk '$$3 == "intron"' $<; \
