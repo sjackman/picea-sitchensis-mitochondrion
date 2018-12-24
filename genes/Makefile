@@ -139,6 +139,10 @@ ginkgomt.fa:
 ginkgomt.cds.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
 
+# Download the Ginkgo biloba mitochondrion gene FASTA.
+ginkgomt.gene.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=gene_fasta' | seqtk seq >$@
+
 # Download the Ginkgo biloba mitochondrion TBL.
 ginkgomt.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_027976.1&db=nucleotide&rettype=ft'
@@ -154,6 +158,10 @@ welwitschiamt.fa:
 # Download the Welwitschia mirabilis CDS FASTA.
 welwitschiamt.cds.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_029130.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
+
+# Download the Welwitschia mirabilis gene FASTA.
+welwitschiamt.gene.orig.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_029130.1&db=nucleotide&rettype=gene_fasta' | seqtk seq >$@
 
 # Download the Pinus strobus CDS FASTA.
 pstrobusmt.cds.orig.fa:
