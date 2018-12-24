@@ -292,6 +292,14 @@ $(name).minimap2.%.sam.gz: $(name).fa %.fa
 $(name).minimap2.%.sam.gz: $(name).fa %.fq.gz
 	$(time) minimap2 -t$t -xsplice -a $^ | $(gzip) >$@
 
+# Align a FASTA file to itself.
+%.minimap2.paf.gz: %.fa
+	minimap2 -t$t -DP $< $< | $(gzip) >$@
+
+# Draw a dot plot.
+%.minidot.pdf: %.paf.gz
+	minidot -d $< | ps2pdf - >$*.minidot.pdf
+
 # samtools
 
 # Index a FASTA file.
