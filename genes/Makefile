@@ -27,7 +27,7 @@ all: $(name).gff $(name).gbk $(name).tbl $(name).sqn \
 rna: \
 	$(name).aragorn.tsv \
 	$(name).aragorn.txt \
-	$(name).trnascan.orig.tsv \
+	$(name).trnascan.bed \
 	$(name).barrnap.gff \
 	$(name).rnammer.gff
 
@@ -422,8 +422,8 @@ mitochondrion/mitochondrion.%.gz:
 	bin/aragorn_out_to_gff3.py --full <$< | gt gff3 -sort | bin/gt-bequeath Name | grep -v trnX >$@
 
 # Annotate tRNA using tRNAscan-SE
-%.trnascan.orig.tsv: %.fa
-	tRNAscan-SE -O -o $@ -f $*.trnascan.txt $<
+%.trnascan.bed: %.fa
+	tRNAscan-SE --thread $t -O -d -b $@ -o $*.trnascan.orig.tsv -f $*.trnascan.txt -a $*.trnascan.orig.fa $<
 
 # Barrnap
 
