@@ -609,6 +609,14 @@ prokka/%.gff.gene: prokka/%.gff
 %.cds.trans.fa: %.cds.part.fa
 	sed -e 's/_part1//g' -e '/_part[2-9]/d' $< >$@
 
+# Extract the coding sequences of known genes.
+%.cds.known.fa: %.cds.fa
+	seqmagick convert --sort=name-asc --line-wrap=0 \
+		 --pattern-include='atp1|atp4|atp6|atp8|atp9|ccmB|ccmC|ccmFC|ccmFN|cob|cox1|cox2|cox3|dpo|matR|mttB|nad1|nad2|nad3|nad4L|nad4|nad5|nad6|nad7|nad9|rpl10|rpl16|rpl2|rpl5|rpo|rps10|rps11|rps12|rps13|rps14|rps19|rps1|rps2|rps3|rps4|rps7|sdh3|sdh4' \
+		 $< - \
+	| sed -e 's/_part1//g' -e '/_part[2-9]/d' \
+	| seqtk seq >$@
+
 # Extract aa sequences of GFF CDS features from a FASTA file
 %.gff.aa.fa: %.gff %.fa
 	bin/gt-bequeath Name <$< \
