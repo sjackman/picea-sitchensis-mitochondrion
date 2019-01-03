@@ -65,8 +65,12 @@ psitchensiscpmt.fa: psitchensiscp.fa $(name).fa
 	cat $^ >$@
 
 # Download the Picea glauca mitochondrion FASTA.
-pglaucamt.fa:
+pglaucamt.orig.fa:
 	curl ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/LK/AM/LKAM01/LKAM01.1.fsa_nt.gz | gunzip -c | seqtk seq >$@
+
+# Rename the Picea glauca mitochondrion FASTA sequences.
+pglaucamt.fa: pglaucamt.orig.fa
+	gsed -E 's/^>(.*gb[|]([^|]*).*)[|]/>\2 \1/' $< >$@
 
 # Download the Picea glauca mitochondrion GBF (GenBank flat file).
 pglaucamt.gbf:
