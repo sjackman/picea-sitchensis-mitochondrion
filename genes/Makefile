@@ -479,11 +479,11 @@ domainV.cm:
 
 # Identify RNA families using Infernal.
 %.rfam.infernal: %.fa Rfam.clanin Rfam.cm.i1m
-	cmscan --cpu=$t --cut_ga --rfam --nohmmonly --fmt 2 --tblout $*.rfam.infernal --clanin Rfam.clanin Rfam.cm $< >$*.rfam.txt
+	cmscan --cpu=$t --mid --cut_ga --nohmmonly --fmt 2 --tblout $*.rfam.infernal --clanin Rfam.clanin Rfam.cm $< >$*.rfam.txt
 
 # Identify group II domain V motif using Infernal.
 %.domainV.infernal: %.fa domainV.cm.i1m
-	cmscan --cpu=$t --cut_ga --rfam --nohmmonly --fmt 2 --tblout $*.domainV.infernal domainV.cm $< >$*.domainV.txt
+	cmscan --cpu=$t --mid --cut_ga --nohmmonly --fmt 2 --tblout $*.domainV.infernal domainV.cm $< >$*.domainV.txt
 	gsed -i 's/ -       / RM00007 /' $@
 
 # Convert Infernal TBL format to GFF.
