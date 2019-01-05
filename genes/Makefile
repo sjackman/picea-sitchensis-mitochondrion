@@ -167,6 +167,10 @@ welwitschiamt.cds.orig.fa:
 welwitschiamt.gene.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_029130.1&db=nucleotide&rettype=gene_fasta' | seqtk seq >$@
 
+# Download the Welwitschia mirabilis mitochondrion GFF.
+welwitschiamt.gff:
+	curl -o $@ 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_029130.1'
+
 # Download the Pinus strobus CDS FASTA.
 pstrobusmt.cds.orig.fa:
 	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
