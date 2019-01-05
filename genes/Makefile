@@ -503,6 +503,24 @@ groupII.cm:
 	awk -vOFS='\t' 'BEGIN { print "##gff-version 3" } /^#/ { next } { a = $$10; b = $$11; } $$10 >= $$11 { a = $$11; b = $$10 } { print $$4, "Infernal", "match", a, b, $$17, $$12, ".", "Name=" $$2 ";Target=" $$3 " " $$8 " " $$9 ";e=" $$18 }' $< \
 	| gt gff3 -sort >$@
 
+# Extract FASTA of Infernal matches.
+%.groupII.gff.fa: %.groupII.gff %.fa
+	awk -F'\t' -vOFS='\t' '/^#/ { print; next } { print $$0 ";ID=" $$1 }' $< \
+	| gt extractfeat -type match -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - >$@
+
+# Align the Infernal matches.
+%.groupII.stk: groupII.cm %.groupII.gff.fa
+	cmalign --cpu=$t -o $@ $^
+
+# Build and calibrate a covariance model (CM) of the Infernal matches.
+%.cm: %.stk
+	cmbuild --refine=$*.cm.stk -o $*.cm.txt $@ $<
+	cmcalibrate --cpu=$t --seed=1 $@
+
+# Identify group II domains V and VI using Infernal with a custom covariance model (CM).
+%.d5d6.infernal: %.fa %.groupII.cm.i1m
+	cmscan --cpu=$t --mid --incT=20 --fmt 2 --tblout $@ $*.groupII.cm $< >$*.d5d6.txt
+
 # MAKER
 
 maker_bopts.ctl:
@@ -679,7 +697,10 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Extract sequences of GFF intron features
 %.gff.intron.fa: %.gff %.fa
-	bin/gt-bequeath Name <$< | gsed -E 's/Name=([^;]*)/Target=\1 0 0/' | gt extractfeat -type intron -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - >$@
+	bin/gt-bequeath Name <$< \
+	| gsed -E 's/Name=([^;]*)/Target=\1 0 0/' \
+	| gt extractfeat -type intron -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - \
+	| gsed -E 's/>(.*target IDs ([^]|]*).*)/>\2 \1/' >$@
 
 # Extract the 5' end of the introns.
 %.intron5.fa: %.intron.fa
