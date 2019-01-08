@@ -44,6 +44,16 @@ install-deps:
 
 # NCBI
 
+# Download Viridiplantae mitochondria CDS FASTA from RefSeq.
+greenmt.cds.orig.fa:
+	esearch -db nucleotide -query 'Viridiplantae[Organism] Mitochondrion[Filter] RefSeq[Filter]'  \
+		| efetch -format fasta_cds_na >$@
+
+# Download Viridiplantae mitochondria protein FASTA from RefSeq.
+greenmt.aa.orig.fa:
+	esearch -db nucleotide -query 'Viridiplantae[Organism] Mitochondrion[Filter] RefSeq[Filter]'  \
+		| efetch -format fasta_cds_aa >$@
+
 # Download the Picea sitchensis plastid FASTA.
 psitchensiscp.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta' | seqtk seq >$@
