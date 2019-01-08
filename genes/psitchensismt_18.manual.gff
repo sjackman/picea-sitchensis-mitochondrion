@@ -275,13 +275,13 @@
 09	manual	tRNA	143771	143844	.	+	.	ID=tRNA2;Parent=gene43;Name=trnI-CAU;product=tRNA-Met
 09	manual	exon	143771	143844	.	+	.	Parent=tRNA2;Name=trnI-CAU
 ###
-10	manual	gene	15302	16343	.	-	.	ID=gene44;Name=rpl2;pseudo=true
-10	manual	mRNA	15302	16343	.	-	.	ID=mRNA42;Parent=gene44;Name=rpl2;pseudo=true;inference=similar to AA sequence:RefSeq:YP_002905114.1
+10	manual	gene	15302	16481	.	-	.	ID=gene44;Name=rpl2;pseudo=true
+10	manual	mRNA	15302	16481	.	-	.	ID=mRNA42;Parent=gene44;Name=rpl2;pseudo=true;inference=similar to AA sequence:RefSeq:YP_009306511.1
 10	manual	exon	15302	15492	.	-	.	Parent=mRNA42;pseudo=true
 10	manual	CDS	15302	15492	.	-	2	Parent=mRNA42;pseudo=true
 10	manual	intron	15493	16159	.	-	.	Parent=mRNA42;Name=rpl2_intron1;pseudo=true
-10	manual	exon	16160	16343	.	-	.	Parent=mRNA42;pseudo=true
-10	manual	CDS	16160	16343	.	-	0	Parent=mRNA42;pseudo=true
+10	manual	exon	16160	16481	.	-	.	Parent=mRNA42;pseudo=true
+10	manual	CDS	16160	16481	.	-	0	Parent=mRNA42;pseudo=true
 ###
 12	manual	gene	22434	22721	.	-	.	ID=gene45;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32-gene
 12	manual	mRNA	22434	22721	9.04	-	.	ID=mRNA43;Parent=gene45;Name=rps7|lcl|NC_022863.1_prot_YP_008816163.1_32;_AED=0.09;_eAED=0.09;_QI=0|-1|0|1|-1|0|1|0|93;exception=RNA editing;note=putative start codon created by RNA editing
