@@ -119,6 +119,10 @@ ptaedamt.aa.orig.fa:
 cycasmt.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
+# Download the Cycas taitungensis mitochondrion GBF.
+cycasmt.gbf:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=gb'
+
 # Download the Cycas taitungensis mitochondrion TBL.
 cycasmt.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=ft'
