@@ -144,9 +144,9 @@
 ###
 06	manual	gene	79755	80329	.	+	.	ID=gene23;Name=trnV-UAC;product=tRNA-Tyr
 06	manual	tRNA	79755	80329	.	+	.	ID=tRNA1;Parent=gene23;Name=trnV-UAC;product=tRNA-Tyr
-06	manual	exon	79755	79793	.	+	.	Parent=tRNA1;Name=trnV-UAC
+06	manual	exon	79755	79793	.	+	.	Parent=tRNA1
 06	manual	intron	79794	80292	.	+	.	Parent=tRNA1;Name=trnV-UAC_intron1
-06	manual	exon	80293	80329	.	+	.	Parent=tRNA1;Name=trnV-UAC
+06	manual	exon	80293	80329	.	+	.	Parent=tRNA1
 ###
 06	manual	gene	82299	84490	.	+	.	ID=gene24;Name=matR
 06	manual	mRNA	82299	84490	.	+	0	ID=mRNA23;Parent=gene24;Name=matR
