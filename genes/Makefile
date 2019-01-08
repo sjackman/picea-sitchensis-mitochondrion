@@ -52,6 +52,10 @@ psitchensiscp.fa:
 psitchensiscp.cds.orig.fa:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta_cds_na'
 
+# Download the Picea sitchensis plastid protein FASTA.
+psitchensiscp.aa.orig.fa:
+	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=fasta_cds_aa'
+
 # Download the Picea sitchensis plastid TBL.
 psitchensiscp.tbl:
 	curl -o $@ 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=KU215903.2&db=nucleotide&rettype=ft'
