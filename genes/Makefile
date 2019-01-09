@@ -206,6 +206,14 @@ pstrobusmt.gene.orig.fa:
 	esearch -db nuccore -query 'Pinus strobus[Organism] AND mitochondrion[filter]' \
 		| efetch -format gene_fasta | seqtk seq >$@
 
+# Download the Solanum tuberosum (potato) mitochondrial tRNA trnI-L*AU.
+potatomt.trnI.gene.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=X53392.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
+# Extract the mature Solanum tuberosum (potato) mitochondrial tRNA trnI-L*AU.
+potatomt.trnI.fa: potatomt.trnI.gene.fa
+	samtools faidx -n999 $< X53392.1:97-173 | sed 's/^>/>trnI-CAU /' >$@
+
 # Rename the genes.
 %.gene.fa: %.gene.orig.fa
 	gsed -E \
