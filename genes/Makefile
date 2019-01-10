@@ -149,6 +149,12 @@ cycasmt.gff:
 cycasmt.cds.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
 
+# Download the Cycas taitungensis tRNA FASTA.
+cycasmt.tRNA.fa:
+	efetch -db nucleotide -id NC_010303.1 -format gbc \
+	| xtract -insd tRNA,mRNA gene locus_tag product transcription \
+	| awk '{ print ">" $$2 "_" $$3 " " $$4 "\n" $$5 }' >$@
+
 # Download the Cycas taitungensis gene FASTA.
 cycasmt.gene.orig.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_010303.1&db=nucleotide&rettype=gene_fasta' | seqtk seq >$@
