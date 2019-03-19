@@ -4,8 +4,8 @@
 *.gb
 *.gbf
 *.gbk
+*.gene
 *.gff
-*.gff.gene
 *.gff2
 *.html
 *.log
@@ -13,7 +13,9 @@
 *.md
 *.orig
 *.pdf
+*.pep.report
 *.png
+*.ps
 *.sqn
 *.tbl
 *.tsv
@@ -21,8 +23,10 @@
 .Rproj.user
 NC_*
 RM_*
-figure
-prokka
+blastdb
+figure/
+prokka/
+rnammer/
 
 # BWA
 *.amb
@@ -30,6 +34,24 @@ prokka
 *.bwt
 *.pac
 *.sa
+
+# GenomeTools
+*.fa.des
+*.fa.esq
+*.fa.md5
+*.fa.ois
+*.fa.sds
+*.fa.ssp
+
+# Infernal
+*.clanin
+*.cm
+*.cm.i1f
+*.cm.i1i
+*.cm.i1m
+*.cm.i1p
+*.infernal
+*.stk
 
 # RepeatModeler
 *.nhr
