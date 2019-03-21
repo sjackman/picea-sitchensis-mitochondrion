@@ -1,8 +1,8 @@
 # Annotate and visualize the Sitka spruce mitochondrial genome
-# Copyright 2018 Shaun Jackman
+# Written by Shaun Jackman
 
 # Name of the assembly
-name=psitchensismt_18
+name=psitchensismt
 
 # Number of threads
 t=48
@@ -373,6 +373,8 @@ cds_aa.fa cds_na.fa: %.fa: %.orig.fa
 		--pattern-replace 'gene=ccmFc' 'gene=ccmFC' \
 		--pattern-replace 'gene=ccmFn' 'gene=ccmFN' \
 		--pattern-replace 'gene=cof' 'gene=ymfpetA' \
+		--pattern-replace 'gene=COX1' 'gene=cox1' \
+		--pattern-replace 'gene=COX2' 'gene=cox2' \
 		--pattern-replace 'gene=COX3' 'gene=cox3' \
 		--pattern-replace 'gene=coxIII' 'gene=cox3' \
 		--pattern-replace 'gene=coxII' 'gene=cox2' \
@@ -755,9 +757,8 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Extract aa sequences of GFF CDS features from a FASTA file
 %.gff.aa.fa: %.gff %.fa
-	bin/gt-bequeath Name <$< \
-	| gsed -E 's/Name=([^;]*)/Target=\1 0 0/' \
-	| gt extractfeat -type CDS -join -translate -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa - >$@
+	gsed -E 's/^.*Parent=([^;]*).*Name=([^;]*).*/&;Target=\2_\1 0 0/' $< \
+	| gt extractfeat -type CDS -join -translate -coords -target -matchdescstart -retainids -seqid -seqfile $*.fa >$@
 
 # Translate protein sequences of GFF CDS features from a FASTA file
 %.aa.fa: %.fa
@@ -871,6 +872,17 @@ gbk/%.00.gbk: %.gbk
 			>$@
 
 # tbl2asn
+
+# Extract the IDs of protein sequences with unusual start codons.
+%.alt: %.gff
+	grep 'note=.*start codon' $< | egrep -o 'mRNA[0-9]+' >$@
+
+# Extract protein sequences with unusual start codons.
+%.pep: %.gff.aa.fa %.alt
+	seqtk subseq $^ \
+	| sed -E -e 's/^>(.*(gene[0-9]*).*)/>gnl|BCGSC|Q903MT_\2 \1/' \
+		-e 's/^T/M/' \
+		-e 's/^A/V/' >$@
 
 # Convert TBL to GBK and SQN
 %.gbf %.sqn: %.fsa %.sbt %.tbl %.cmt %.pep

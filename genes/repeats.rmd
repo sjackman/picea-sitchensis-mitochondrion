@@ -25,8 +25,8 @@ opts_chunk$set(fig.width = 10, fig.height = 5)
 ```
 
 ```{r Load data}
-genome_size <- 5524153
-gff_all <- readGff3("psitchensismt_18.maker.repeat.gff", isRightOpen = FALSE)
+genome_size <- 5524162
+gff_all <- readGff3("psitchensismt.maker.repeat.gff", isRightOpen = FALSE)
 gff <- gff_all %>% .[.$type == "match",]
 
 data <- data.frame(
@@ -98,6 +98,6 @@ ggplot(data.grouped) +
 
 # Write the tabulated data to a file
 ```{r Write the tabulated data to a file}
-write.table(data.grouped, 'psitchensismt_18.repeat.gff.tsv',
+write.table(data.grouped, 'psitchensismt.repeat.gff.tsv',
 	quote = FALSE, sep = '\t', row.names = FALSE)
 ```

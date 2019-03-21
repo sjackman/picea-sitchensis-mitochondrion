@@ -68,11 +68,11 @@ gene_types <- tribble(
 
 # Load data
 ```{r load-data}
-gff_all <- readGff3("psitchensismt_18.gff", isRightOpen = FALSE, quiet = TRUE)
+gff_all <- readGff3("psitchensismt.gff", isRightOpen = FALSE, quiet = TRUE)
 
 gff <- gff_all[gff_all$type %in% c('mRNA', 'rRNA', 'tRNA'),]
 
-scaffold_sizes <- read_tsv("psitchensismt_18.fa.fai",
+scaffold_sizes <- read_tsv("psitchensismt.fa.fai",
 		col_names = c("Scaffold", "Size", "Pos", "Width", "Stride"),
 		col_types = c("ciiii")) %>%
 	transmute(Scaffold, ScaffoldSize = Size,
@@ -451,5 +451,5 @@ ggplot(data_position) +
 
 # Store the data grouped by family
 ```{r write-data-by-family}
-write_tsv(data_grouped, "psitchensismt_18.gff.family.tsv")
+write_tsv(data_grouped, "psitchensismt.gff.family.tsv")
 ```
