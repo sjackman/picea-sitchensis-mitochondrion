@@ -1,0 +1,4 @@
+StructuredCommentPrefix	##Genome-Assembly-Data-START##
+Assembly Method	Flye v. 2.3.7
+Genome Coverage	26x Oxford Nanopore MinION; 59x Illumina HiSeq
+Sequencing Technology	Oxford Nanopore MinION; Illumina HiSeq
