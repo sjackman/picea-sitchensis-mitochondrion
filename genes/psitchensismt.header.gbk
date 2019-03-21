@@ -1,0 +1,27 @@
+LOCUS       1                    1234567 bp    DNA     linear       01-JUL-2018
+DEFINITION  Picea sitchensis mitochondrion draft genome.
+ACCESSION
+VERSION
+DBLINK      BioProject: PRJNAxxxxx
+            BioSample: SAMNxxxxxxxx
+KEYWORDS    .
+SOURCE      mitochondrion Picea sitchensis
+  ORGANISM  Picea sitchensis
+            Unclassified.
+REFERENCE   1  (bases 1 to 1234567)
+  AUTHORS   Jackman,S.D.
+  CONSRTM   SMarTForests
+  TITLE     Mitochondrial Genome of Sitka Spruce (Picea sitchensis):
+            Assembly and Annotation
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 1234567)
+  AUTHORS   Jackman,S.D.
+  CONSRTM   SMarTForests
+  TITLE     Direct Submission
+  JOURNAL   Submitted (01-JUL-2018) Bioinformatics, BC Cancer Agency Genome
+            Sciences Centre, 100-570 W 7th Ave, Vancouver, BC V5Z 4S6, Canada
+COMMENT     ##Genome-Assembly-Data-START##
+            Assembly Method       :: ABySS v. 2.1.0
+            Genome Coverage       :: 30x
+            Sequencing Technology :: Illumina HiSeq
+            ##Genome-Assembly-Data-END##
