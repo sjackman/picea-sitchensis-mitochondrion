@@ -654,9 +654,9 @@
 01	Prodigal:2.6	mRNA	124633	124788	.	+	0	ID=mRNA159;Parent=gene160;Name=orf00160;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00160;product=hypothetical protein
 01	Prodigal:2.6	CDS	124633	124788	.	+	0	Parent=mRNA159;Name=orf00160;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00160;product=hypothetical protein
 ###
-01	prokka	gene	125527	126048	.	+	.	ID=gene161;Name=psaA_1;gene=psaA_1;locus_tag=Q903MT_00161
-01	Prodigal:2.6	mRNA	125527	126048	.	+	0	ID=mRNA160;Parent=gene161;Name=psaA_1;gene=psaA_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00161;product=photosystem I P700 apoprotein A1
-01	Prodigal:2.6	CDS	125527	126048	.	+	0	Parent=mRNA160;Name=psaA_1;gene=psaA_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00161;product=photosystem I P700 apoprotein A1
+01	prokka	gene	125527	126048	.	+	.	ID=gene161;Name=ymfpsaA_1;gene=psaA_1;locus_tag=Q903MT_00161
+01	Prodigal:2.6	mRNA	125527	126048	.	+	0	ID=mRNA160;Parent=gene161;Name=ymfpsaA_1;gene=psaA_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00161;product=photosystem I P700 apoprotein A1
+01	Prodigal:2.6	CDS	125527	126048	.	+	0	Parent=mRNA160;Name=ymfpsaA_1;gene=psaA_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00161;product=photosystem I P700 apoprotein A1
 ###
 01	prokka	gene	127298	127654	.	+	.	ID=gene162;Name=orf00162;locus_tag=Q903MT_00162
 01	Prodigal:2.6	mRNA	127298	127654	.	+	0	ID=mRNA161;Parent=gene162;Name=orf00162;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00162;product=hypothetical protein
@@ -722,9 +722,9 @@
 01	Prodigal:2.6	mRNA	141221	141433	.	+	0	ID=mRNA176;Parent=gene177;Name=orf00177;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00177;product=hypothetical protein
 01	Prodigal:2.6	CDS	141221	141433	.	+	0	Parent=mRNA176;Name=orf00177;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00177;product=hypothetical protein
 ###
-01	prokka	gene	142747	142905	.	-	.	ID=gene178;Name=nad4_1;gene=nad4_1;locus_tag=Q903MT_00178
-01	Prodigal:2.6	mRNA	142747	142905	.	-	0	ID=mRNA177;Parent=gene178;Name=nad4_1;gene=nad4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|KC784957.1_prot_AGN74377.1_17;locus_tag=Q903MT_00178;product=NADH dehydrogenase subunit 4
-01	Prodigal:2.6	CDS	142747	142905	.	-	0	Parent=mRNA177;Name=nad4_1;gene=nad4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|KC784957.1_prot_AGN74377.1_17;locus_tag=Q903MT_00178;product=NADH dehydrogenase subunit 4
+01	prokka	gene	142747	142905	.	-	.	ID=gene178;Name=ymfnad4_1;gene=nad4_1;locus_tag=Q903MT_00178
+01	Prodigal:2.6	mRNA	142747	142905	.	-	0	ID=mRNA177;Parent=gene178;Name=ymfnad4_1;gene=nad4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|KC784957.1_prot_AGN74377.1_17;locus_tag=Q903MT_00178;product=NADH dehydrogenase subunit 4
+01	Prodigal:2.6	CDS	142747	142905	.	-	0	Parent=mRNA177;Name=ymfnad4_1;gene=nad4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|KC784957.1_prot_AGN74377.1_17;locus_tag=Q903MT_00178;product=NADH dehydrogenase subunit 4
 ###
 01	prokka	gene	145419	145607	.	-	.	ID=gene179;Name=orf00179;locus_tag=Q903MT_00179
 01	Prodigal:2.6	mRNA	145419	145607	.	-	0	ID=mRNA178;Parent=gene179;Name=orf00179;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00179;product=hypothetical protein
@@ -1552,13 +1552,13 @@
 01	Prodigal:2.6	mRNA	313841	314098	.	-	0	ID=mRNA383;Parent=gene384;Name=orf00384;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00384;product=hypothetical protein
 01	Prodigal:2.6	CDS	313841	314098	.	-	0	Parent=mRNA383;Name=orf00384;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00384;product=hypothetical protein
 ###
-01	prokka	gene	314415	314717	.	-	.	ID=gene385;Name=psaA_2;gene=psaA_2;locus_tag=Q903MT_00385
-01	Prodigal:2.6	mRNA	314415	314717	.	-	0	ID=mRNA384;Parent=gene385;Name=psaA_2;gene=psaA_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00385;product=photosystem I P700 apoprotein A1
-01	Prodigal:2.6	CDS	314415	314717	.	-	0	Parent=mRNA384;Name=psaA_2;gene=psaA_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00385;product=photosystem I P700 apoprotein A1
+01	prokka	gene	314415	314717	.	-	.	ID=gene385;Name=ymfpsaA_2;gene=psaA_2;locus_tag=Q903MT_00385
+01	Prodigal:2.6	mRNA	314415	314717	.	-	0	ID=mRNA384;Parent=gene385;Name=ymfpsaA_2;gene=psaA_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00385;product=photosystem I P700 apoprotein A1
+01	Prodigal:2.6	CDS	314415	314717	.	-	0	Parent=mRNA384;Name=ymfpsaA_2;gene=psaA_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00385;product=photosystem I P700 apoprotein A1
 ###
-01	prokka	gene	314732	314992	.	-	.	ID=gene386;Name=psaA_3;gene=psaA_3;locus_tag=Q903MT_00386
-01	Prodigal:2.6	mRNA	314732	314992	.	-	0	ID=mRNA385;Parent=gene386;Name=psaA_3;gene=psaA_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00386;product=photosystem I P700 apoprotein A1
-01	Prodigal:2.6	CDS	314732	314992	.	-	0	Parent=mRNA385;Name=psaA_3;gene=psaA_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00386;product=photosystem I P700 apoprotein A1
+01	prokka	gene	314732	314992	.	-	.	ID=gene386;Name=ymfpsaA_3;gene=psaA_3;locus_tag=Q903MT_00386
+01	Prodigal:2.6	mRNA	314732	314992	.	-	0	ID=mRNA385;Parent=gene386;Name=ymfpsaA_3;gene=psaA_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00386;product=photosystem I P700 apoprotein A1
+01	Prodigal:2.6	CDS	314732	314992	.	-	0	Parent=mRNA385;Name=ymfpsaA_3;gene=psaA_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|KP030753.1_prot_AJD85491.1_57;locus_tag=Q903MT_00386;product=photosystem I P700 apoprotein A1
 ###
 01	prokka	gene	315329	315562	.	-	.	ID=gene387;Name=orf00387;locus_tag=Q903MT_00387
 01	Prodigal:2.6	mRNA	315329	315562	.	-	0	ID=mRNA386;Parent=gene387;Name=orf00387;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00387;product=hypothetical protein
@@ -1970,9 +1970,9 @@
 01	manual	exon	389960	390018	.	+	.	Parent=mRNA485
 01	manual	CDS	389960	390018	.	+	0	Parent=mRNA485
 ###
-01	prokka	gene	391204	391641	.	+	.	ID=gene488;Name=matR_1;gene=matR_1;locus_tag=Q903MT_00491
-01	Prodigal:2.6	mRNA	391204	391641	.	+	0	ID=mRNA486;Parent=gene488;Name=matR_1;gene=matR_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:matR|lcl|KX171637.1_prot_AOH05915.1_19;locus_tag=Q903MT_00491;product=MatR
-01	Prodigal:2.6	CDS	391204	391641	.	+	0	Parent=mRNA486;Name=matR_1;gene=matR_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:matR|lcl|KX171637.1_prot_AOH05915.1_19;locus_tag=Q903MT_00491;product=MatR
+01	prokka	gene	391204	391641	.	+	.	ID=gene488;Name=ymfmatR_1;gene=matR_1;locus_tag=Q903MT_00491
+01	Prodigal:2.6	mRNA	391204	391641	.	+	0	ID=mRNA486;Parent=gene488;Name=ymfmatR_1;gene=matR_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:matR|lcl|KX171637.1_prot_AOH05915.1_19;locus_tag=Q903MT_00491;product=MatR
+01	Prodigal:2.6	CDS	391204	391641	.	+	0	Parent=mRNA486;Name=ymfmatR_1;gene=matR_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:matR|lcl|KX171637.1_prot_AOH05915.1_19;locus_tag=Q903MT_00491;product=MatR
 ###
 01	prokka	gene	391910	392122	.	+	.	ID=gene489;Name=orf00492;locus_tag=Q903MT_00492
 01	Prodigal:2.6	mRNA	391910	392122	.	+	0	ID=mRNA487;Parent=gene489;Name=orf00492;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00492;product=hypothetical protein
@@ -2110,9 +2110,9 @@
 01	Prodigal:2.6	mRNA	426063	426299	.	+	0	ID=mRNA520;Parent=gene522;Name=orf00525;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00525;product=hypothetical protein
 01	Prodigal:2.6	CDS	426063	426299	.	+	0	Parent=mRNA520;Name=orf00525;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00525;product=hypothetical protein
 ###
-01	prokka	gene	426619	427110	.	-	.	ID=gene523;Name=rps4_1;gene=rps4_1;locus_tag=Q903MT_00526
-01	Prodigal:2.6	mRNA	426619	427110	.	-	0	ID=mRNA521;Parent=gene523;Name=rps4_1;gene=rps4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_00526;product=ribosomal protein S4
-01	Prodigal:2.6	CDS	426619	427110	.	-	0	Parent=mRNA521;Name=rps4_1;gene=rps4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_00526;product=ribosomal protein S4
+01	prokka	gene	426619	427110	.	-	.	ID=gene523;Name=ymfrps4_1;gene=rps4_1;locus_tag=Q903MT_00526
+01	Prodigal:2.6	mRNA	426619	427110	.	-	0	ID=mRNA521;Parent=gene523;Name=ymfrps4_1;gene=rps4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_00526;product=ribosomal protein S4
+01	Prodigal:2.6	CDS	426619	427110	.	-	0	Parent=mRNA521;Name=ymfrps4_1;gene=rps4_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_00526;product=ribosomal protein S4
 ###
 01	prokka	gene	427987	428157	.	-	.	ID=gene524;Name=orf00527;locus_tag=Q903MT_00527
 01	Prodigal:2.6	mRNA	427987	428157	.	-	0	ID=mRNA522;Parent=gene524;Name=orf00527;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00527;product=hypothetical protein
@@ -2182,13 +2182,13 @@
 01	Prodigal:2.6	mRNA	438269	438553	.	+	0	ID=mRNA538;Parent=gene540;Name=orf00543;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00543;product=hypothetical protein
 01	Prodigal:2.6	CDS	438269	438553	.	+	0	Parent=mRNA538;Name=orf00543;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00543;product=hypothetical protein
 ###
-01	maker	gene	439315	439614	.	+	.	ID=gene541;Name=atp8|lcl|NC_012116.1_prot_YP_002608209.1_28-gene
-01	maker	mRNA	439315	439614	11.2	+	.	ID=mRNA539;Parent=gene541;Name=atp8|lcl|NC_012116.1_prot_YP_002608209.1_28;_AED=0.26;_eAED=1.00;_QI=0|-1|0|1|-1|0|1|0|99
+01	maker	gene	439315	439614	.	+	.	ID=gene541;Name=ymfatp8|lcl|NC_012116.1_prot_YP_002608209.1_28-gene
+01	maker	mRNA	439315	439614	11.2	+	.	ID=mRNA539;Parent=gene541;Name=ymfatp8|lcl|NC_012116.1_prot_YP_002608209.1_28;_AED=0.26;_eAED=1.00;_QI=0|-1|0|1|-1|0|1|0|99
 01	maker	exon	439315	439614	.	+	.	Parent=mRNA539
 01	maker	CDS	439315	439614	.	+	0	Parent=mRNA539
 ###
-01	maker	gene	439634	439747	.	+	.	ID=gene542;Name=atp8|lcl|MG925370.1_prot_AYV62987.1_4-gene
-01	maker	mRNA	439634	439747	12.9	+	.	ID=mRNA540;Parent=gene542;Name=atp8|lcl|MG925370.1_prot_AYV62987.1_4;_AED=0.37;_eAED=0.37;_QI=0|-1|0|1|-1|0|1|0|37
+01	maker	gene	439634	439747	.	+	.	ID=gene542;Name=ymfatp8|lcl|MG925370.1_prot_AYV62987.1_4-gene
+01	maker	mRNA	439634	439747	12.9	+	.	ID=mRNA540;Parent=gene542;Name=ymfatp8|lcl|MG925370.1_prot_AYV62987.1_4;_AED=0.37;_eAED=0.37;_QI=0|-1|0|1|-1|0|1|0|37
 01	maker	exon	439634	439747	.	+	.	Parent=mRNA540
 01	maker	CDS	439634	439747	.	+	0	Parent=mRNA540
 ###
@@ -2248,12 +2248,12 @@
 01	Prodigal:2.6	mRNA	454217	454531	.	-	0	ID=mRNA554;Parent=gene556;Name=orf00559;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00559;product=hypothetical protein
 01	Prodigal:2.6	CDS	454217	454531	.	-	0	Parent=mRNA554;Name=orf00559;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00559;product=hypothetical protein
 ###
-01	prokka	gene	455107	455724	.	+	.	ID=gene557;Name=rpo_1;gene=rpo_1;locus_tag=Q903MT_00560
-01	Prodigal:2.6	mRNA	455107	455724	.	+	0	ID=mRNA555;Parent=gene557;Name=rpo_1;gene=rpo_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|JN375330.1_prot_AEM43903.1_6;locus_tag=Q903MT_00560;product=DNA-dependent RNA polymerase
-01	Prodigal:2.6	CDS	455107	455724	.	+	0	Parent=mRNA555;Name=rpo_1;gene=rpo_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|JN375330.1_prot_AEM43903.1_6;locus_tag=Q903MT_00560;product=DNA-dependent RNA polymerase
+01	prokka	gene	455107	455724	.	+	.	ID=gene557;Name=ymfrpo_1;gene=rpo_1;locus_tag=Q903MT_00560
+01	Prodigal:2.6	mRNA	455107	455724	.	+	0	ID=mRNA555;Parent=gene557;Name=ymfrpo_1;gene=rpo_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|JN375330.1_prot_AEM43903.1_6;locus_tag=Q903MT_00560;product=DNA-dependent RNA polymerase
+01	Prodigal:2.6	CDS	455107	455724	.	+	0	Parent=mRNA555;Name=ymfrpo_1;gene=rpo_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|JN375330.1_prot_AEM43903.1_6;locus_tag=Q903MT_00560;product=DNA-dependent RNA polymerase
 ###
-01	maker	gene	456392	459205	.	+	.	ID=gene558;Name=dpo|lcl|JF750427.1_prot_AFD29780.1_18-gene
-01	maker	mRNA	456392	459205	9.92	+	.	ID=mRNA556;Parent=gene558;Name=dpo|lcl|JF750427.1_prot_AFD29780.1_18;_AED=0.26;_eAED=0.26;_QI=0|-1|0|1|-1|0|1|0|937
+01	maker	gene	456392	459205	.	+	.	ID=gene558;Name=ymfdpo|lcl|JF750427.1_prot_AFD29780.1_18-gene
+01	maker	mRNA	456392	459205	9.92	+	.	ID=mRNA556;Parent=gene558;Name=ymfdpo|lcl|JF750427.1_prot_AFD29780.1_18;_AED=0.26;_eAED=0.26;_QI=0|-1|0|1|-1|0|1|0|937
 01	maker	exon	456392	459205	.	+	.	Parent=mRNA556
 01	maker	CDS	456392	459205	.	+	0	Parent=mRNA556
 ###
@@ -2274,9 +2274,9 @@
 01	manual	exon	460999	461459	.	-	.	Parent=mRNA560
 01	manual	CDS	460999	461459	.	-	0	Parent=mRNA560
 ###
-01	prokka	gene	462364	462711	.	+	.	ID=gene563;Name=rps3_1;gene=rps3_1;locus_tag=Q903MT_00566
-01	Prodigal:2.6	mRNA	462364	462711	.	+	0	ID=mRNA561;Parent=gene563;Name=rps3_1;gene=rps3_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_009630.1_prot_YP_001315118.1_34;locus_tag=Q903MT_00566;product=ribosomal protein S3
-01	Prodigal:2.6	CDS	462364	462711	.	+	0	Parent=mRNA561;Name=rps3_1;gene=rps3_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_009630.1_prot_YP_001315118.1_34;locus_tag=Q903MT_00566;product=ribosomal protein S3
+01	prokka	gene	462364	462711	.	+	.	ID=gene563;Name=ymfrps3_1;gene=rps3_1;locus_tag=Q903MT_00566
+01	Prodigal:2.6	mRNA	462364	462711	.	+	0	ID=mRNA561;Parent=gene563;Name=ymfrps3_1;gene=rps3_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_009630.1_prot_YP_001315118.1_34;locus_tag=Q903MT_00566;product=ribosomal protein S3
+01	Prodigal:2.6	CDS	462364	462711	.	+	0	Parent=mRNA561;Name=ymfrps3_1;gene=rps3_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_009630.1_prot_YP_001315118.1_34;locus_tag=Q903MT_00566;product=ribosomal protein S3
 ###
 01	prokka	gene	465278	465466	.	+	.	ID=gene564;Name=orf00567;locus_tag=Q903MT_00567
 01	Prodigal:2.6	mRNA	465278	465466	.	+	0	ID=mRNA562;Parent=gene564;Name=orf00567;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00567;product=hypothetical protein
@@ -3391,18 +3391,18 @@
 01	Prodigal:2.6	mRNA	674116	674367	.	-	0	ID=mRNA835;Parent=gene840;Name=orf00848;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00848;product=hypothetical protein
 01	Prodigal:2.6	CDS	674116	674367	.	-	0	Parent=mRNA835;Name=orf00848;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00848;product=hypothetical protein
 ###
-01	prokka	gene	674950	675735	.	-	.	ID=gene841;Name=psaA_4;gene=psaA_4;locus_tag=Q903MT_00849
-01	Prodigal:2.6	mRNA	674950	675735	.	-	0	ID=mRNA836;Parent=gene841;Name=psaA_4;gene=psaA_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00849;product=P700 chlorophyll-a apoprotein
-01	Prodigal:2.6	CDS	674950	675735	.	-	0	Parent=mRNA836;Name=psaA_4;gene=psaA_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00849;product=P700 chlorophyll-a apoprotein
+01	prokka	gene	674950	675735	.	-	.	ID=gene841;Name=ymfpsaA_4;gene=psaA_4;locus_tag=Q903MT_00849
+01	Prodigal:2.6	mRNA	674950	675735	.	-	0	ID=mRNA836;Parent=gene841;Name=ymfpsaA_4;gene=psaA_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00849;product=P700 chlorophyll-a apoprotein
+01	Prodigal:2.6	CDS	674950	675735	.	-	0	Parent=mRNA836;Name=ymfpsaA_4;gene=psaA_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00849;product=P700 chlorophyll-a apoprotein
 ###
-01	maker	gene	675897	676490	.	-	.	ID=gene842;Name=psaA|lcl|NC_029182.1_prot_YP_009228127.1_57-gene
-01	maker	mRNA	675897	676490	10.7	-	.	ID=mRNA837;Parent=gene842;Name=psaA|lcl|NC_029182.1_prot_YP_009228127.1_57;_AED=0.40;_eAED=0.41;_QI=0|-1|0|1|-1|0|1|0|197
+01	maker	gene	675897	676490	.	-	.	ID=gene842;Name=ymfpsaA|lcl|NC_029182.1_prot_YP_009228127.1_57-gene
+01	maker	mRNA	675897	676490	10.7	-	.	ID=mRNA837;Parent=gene842;Name=ymfpsaA|lcl|NC_029182.1_prot_YP_009228127.1_57;_AED=0.40;_eAED=0.41;_QI=0|-1|0|1|-1|0|1|0|197
 01	maker	exon	675897	676490	.	-	.	Parent=mRNA837
 01	maker	CDS	675897	676490	.	-	0	Parent=mRNA837
 ###
-01	prokka	gene	676599	677063	.	-	.	ID=gene843;Name=psaA_5;gene=psaA_5;locus_tag=Q903MT_00851
-01	Prodigal:2.6	mRNA	676599	677063	.	-	0	ID=mRNA838;Parent=gene843;Name=psaA_5;gene=psaA_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00851;product=P700 chlorophyll-a apoprotein
-01	Prodigal:2.6	CDS	676599	677063	.	-	0	Parent=mRNA838;Name=psaA_5;gene=psaA_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00851;product=P700 chlorophyll-a apoprotein
+01	prokka	gene	676599	677063	.	-	.	ID=gene843;Name=ymfpsaA_5;gene=psaA_5;locus_tag=Q903MT_00851
+01	Prodigal:2.6	mRNA	676599	677063	.	-	0	ID=mRNA838;Parent=gene843;Name=ymfpsaA_5;gene=psaA_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00851;product=P700 chlorophyll-a apoprotein
+01	Prodigal:2.6	CDS	676599	677063	.	-	0	Parent=mRNA838;Name=ymfpsaA_5;gene=psaA_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_00851;product=P700 chlorophyll-a apoprotein
 ###
 01	prokka	gene	677190	677390	.	-	.	ID=gene844;Name=orf00852;locus_tag=Q903MT_00852
 01	Prodigal:2.6	mRNA	677190	677390	.	-	0	ID=mRNA839;Parent=gene844;Name=orf00852;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00852;product=hypothetical protein
@@ -4076,9 +4076,9 @@
 01	Prodigal:2.6	mRNA	795842	795949	.	+	0	ID=mRNA1004;Parent=gene1011;Name=orf01019;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01019;product=hypothetical protein
 01	Prodigal:2.6	CDS	795842	795949	.	+	0	Parent=mRNA1004;Name=orf01019;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01019;product=hypothetical protein
 ###
-01	prokka	gene	797655	798029	.	-	.	ID=gene1012;Name=cox1_1;gene=cox1_1;locus_tag=Q903MT_01020
-01	Prodigal:2.6	mRNA	797655	798029	.	-	0	ID=mRNA1005;Parent=gene1012;Name=cox1_1;gene=cox1_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_01020;product=cytochrome c oxidase subunit 1
-01	Prodigal:2.6	CDS	797655	798029	.	-	0	Parent=mRNA1005;Name=cox1_1;gene=cox1_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_01020;product=cytochrome c oxidase subunit 1
+01	prokka	gene	797655	798029	.	-	.	ID=gene1012;Name=ymfcox1_1;gene=cox1_1;locus_tag=Q903MT_01020
+01	Prodigal:2.6	mRNA	797655	798029	.	-	0	ID=mRNA1005;Parent=gene1012;Name=ymfcox1_1;gene=cox1_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_01020;product=cytochrome c oxidase subunit 1
+01	Prodigal:2.6	CDS	797655	798029	.	-	0	Parent=mRNA1005;Name=ymfcox1_1;gene=cox1_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_01020;product=cytochrome c oxidase subunit 1
 ###
 01	prokka	gene	798532	798726	.	-	.	ID=gene1013;Name=orf01021;locus_tag=Q903MT_01021
 01	Prodigal:2.6	mRNA	798532	798726	.	-	0	ID=mRNA1006;Parent=gene1013;Name=orf01021;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01021;product=hypothetical protein
@@ -4268,9 +4268,9 @@
 01	Prodigal:2.6	mRNA	838108	838350	.	+	0	ID=mRNA1052;Parent=gene1059;Name=orf01067;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01067;product=hypothetical protein
 01	Prodigal:2.6	CDS	838108	838350	.	+	0	Parent=mRNA1052;Name=orf01067;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01067;product=hypothetical protein
 ###
-01	prokka	gene	838741	838971	.	+	.	ID=gene1060;Name=ccmFN_1;gene=ccmFN_1;locus_tag=Q903MT_01068
-01	Prodigal:2.6	mRNA	838741	838971	.	+	0	ID=mRNA1053;Parent=gene1060;Name=ccmFN_1;gene=ccmFN_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmFN|lcl|NC_010303.1_prot_YP_001661407.1_14;locus_tag=Q903MT_01068;product=cytochrome c biogenesis FN
-01	Prodigal:2.6	CDS	838741	838971	.	+	0	Parent=mRNA1053;Name=ccmFN_1;gene=ccmFN_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmFN|lcl|NC_010303.1_prot_YP_001661407.1_14;locus_tag=Q903MT_01068;product=cytochrome c biogenesis FN
+01	prokka	gene	838741	838971	.	+	.	ID=gene1060;Name=ymfccmFN_1;gene=ccmFN_1;locus_tag=Q903MT_01068
+01	Prodigal:2.6	mRNA	838741	838971	.	+	0	ID=mRNA1053;Parent=gene1060;Name=ymfccmFN_1;gene=ccmFN_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmFN|lcl|NC_010303.1_prot_YP_001661407.1_14;locus_tag=Q903MT_01068;product=cytochrome c biogenesis FN
+01	Prodigal:2.6	CDS	838741	838971	.	+	0	Parent=mRNA1053;Name=ymfccmFN_1;gene=ccmFN_1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmFN|lcl|NC_010303.1_prot_YP_001661407.1_14;locus_tag=Q903MT_01068;product=cytochrome c biogenesis FN
 ###
 01	prokka	gene	839929	840177	.	+	.	ID=gene1061;Name=orf01069;locus_tag=Q903MT_01069
 01	Prodigal:2.6	mRNA	839929	840177	.	+	0	ID=mRNA1054;Parent=gene1061;Name=orf01069;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01069;product=hypothetical protein
@@ -5024,8 +5024,8 @@
 01	Prodigal:2.6	mRNA	979534	979659	.	+	0	ID=mRNA1241;Parent=gene1248;Name=orf01256;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01256;product=hypothetical protein
 01	Prodigal:2.6	CDS	979534	979659	.	+	0	Parent=mRNA1241;Name=orf01256;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01256;product=hypothetical protein
 ###
-01	maker	gene	979993	980169	.	-	.	ID=gene1249;Name=atp9|lcl|NC_005255.1_prot_NP_943666.1_4-gene
-01	maker	mRNA	979993	980169	12.3	-	.	ID=mRNA1242;Parent=gene1249;Name=atp9|lcl|NC_005255.1_prot_NP_943666.1_4;_AED=0.28;_eAED=0.30;_QI=0|-1|0|1|-1|0|1|0|58
+01	maker	gene	979993	980169	.	-	.	ID=gene1249;Name=ymfatp9|lcl|NC_005255.1_prot_NP_943666.1_4-gene
+01	maker	mRNA	979993	980169	12.3	-	.	ID=mRNA1242;Parent=gene1249;Name=ymfatp9|lcl|NC_005255.1_prot_NP_943666.1_4;_AED=0.28;_eAED=0.30;_QI=0|-1|0|1|-1|0|1|0|58
 01	maker	exon	979993	980169	.	-	.	Parent=mRNA1242
 01	maker	CDS	979993	980169	.	-	0	Parent=mRNA1242
 ###
@@ -5909,13 +5909,13 @@
 01	aragorn	tRNA	1166090	1166162	.	+	.	ID=tRNA7;Parent=gene1468;Name=trnM-CAU;product=tRNA-Met
 01	aragorn	exon	1166090	1166162	.	+	.	Parent=tRNA7;Name=trnM-CAU
 ###
-01	prokka	gene	1166918	1167106	.	+	.	ID=gene1469;Name=nad2_3;gene=nad2_3;locus_tag=Q903MT_01481
-01	Prodigal:2.6	mRNA	1166918	1167106	.	+	0	ID=mRNA1461;Parent=gene1469;Name=nad2_3;gene=nad2_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|JX315601.1_prot_AFQ93768.1_32;locus_tag=Q903MT_01481;product=NADH dehydrogenase subunit 2
-01	Prodigal:2.6	CDS	1166918	1167106	.	+	0	Parent=mRNA1461;Name=nad2_3;gene=nad2_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|JX315601.1_prot_AFQ93768.1_32;locus_tag=Q903MT_01481;product=NADH dehydrogenase subunit 2
+01	prokka	gene	1166918	1167106	.	+	.	ID=gene1469;Name=ymfnad2_3;gene=nad2_3;locus_tag=Q903MT_01481
+01	Prodigal:2.6	mRNA	1166918	1167106	.	+	0	ID=mRNA1461;Parent=gene1469;Name=ymfnad2_3;gene=nad2_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|JX315601.1_prot_AFQ93768.1_32;locus_tag=Q903MT_01481;product=NADH dehydrogenase subunit 2
+01	Prodigal:2.6	CDS	1166918	1167106	.	+	0	Parent=mRNA1461;Name=ymfnad2_3;gene=nad2_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|JX315601.1_prot_AFQ93768.1_32;locus_tag=Q903MT_01481;product=NADH dehydrogenase subunit 2
 ###
-01	prokka	gene	1167308	1167589	.	+	.	ID=gene1470;Name=nad2_4;gene=nad2_4;locus_tag=Q903MT_01482
-01	Prodigal:2.6	mRNA	1167308	1167589	.	+	0	ID=mRNA1462;Parent=gene1470;Name=nad2_4;gene=nad2_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|NC_008239.1_prot_YP_665650.1_9;locus_tag=Q903MT_01482;product=NADH dehydrogenase subunit 2
-01	Prodigal:2.6	CDS	1167308	1167589	.	+	0	Parent=mRNA1462;Name=nad2_4;gene=nad2_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|NC_008239.1_prot_YP_665650.1_9;locus_tag=Q903MT_01482;product=NADH dehydrogenase subunit 2
+01	prokka	gene	1167308	1167589	.	+	.	ID=gene1470;Name=ymfnad2_4;gene=nad2_4;locus_tag=Q903MT_01482
+01	Prodigal:2.6	mRNA	1167308	1167589	.	+	0	ID=mRNA1462;Parent=gene1470;Name=ymfnad2_4;gene=nad2_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|NC_008239.1_prot_YP_665650.1_9;locus_tag=Q903MT_01482;product=NADH dehydrogenase subunit 2
+01	Prodigal:2.6	CDS	1167308	1167589	.	+	0	Parent=mRNA1462;Name=ymfnad2_4;gene=nad2_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|NC_008239.1_prot_YP_665650.1_9;locus_tag=Q903MT_01482;product=NADH dehydrogenase subunit 2
 ###
 01	manual	gene	1167731	1167988	.	+	.	ID=gene1471;Name=nad3
 01	manual	mRNA	1167731	1167988	.	+	.	ID=mRNA1463;Parent=gene1471;Name=nad3;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33539.1
@@ -6190,9 +6190,9 @@
 01	Prodigal:2.6	mRNA	1222867	1223004	.	-	0	ID=mRNA1530;Parent=gene1538;Name=orf01550;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01550;product=hypothetical protein
 01	Prodigal:2.6	CDS	1222867	1223004	.	-	0	Parent=mRNA1530;Name=orf01550;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01550;product=hypothetical protein
 ###
-01	prokka	gene	1223424	1223690	.	+	.	ID=gene1539;Name=atp9_2;gene=atp9_2;locus_tag=Q903MT_01551
-01	Prodigal:2.6	mRNA	1223424	1223690	.	+	0	ID=mRNA1531;Parent=gene1539;Name=atp9_2;gene=atp9_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_01551;product=ATP synthase F0 subunit 9
-01	Prodigal:2.6	CDS	1223424	1223690	.	+	0	Parent=mRNA1531;Name=atp9_2;gene=atp9_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_01551;product=ATP synthase F0 subunit 9
+01	prokka	gene	1223424	1223690	.	+	.	ID=gene1539;Name=ymfatp9_2;gene=atp9_2;locus_tag=Q903MT_01551
+01	Prodigal:2.6	mRNA	1223424	1223690	.	+	0	ID=mRNA1531;Parent=gene1539;Name=ymfatp9_2;gene=atp9_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_01551;product=ATP synthase F0 subunit 9
+01	Prodigal:2.6	CDS	1223424	1223690	.	+	0	Parent=mRNA1531;Name=ymfatp9_2;gene=atp9_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_01551;product=ATP synthase F0 subunit 9
 ###
 01	prokka	gene	1224351	1225433	.	-	.	ID=gene1540;Name=orf01552;locus_tag=Q903MT_01552
 01	Prodigal:2.6	mRNA	1224351	1225433	.	-	0	ID=mRNA1532;Parent=gene1540;Name=orf01552;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01552;product=hypothetical protein
@@ -7071,9 +7071,9 @@
 01	Prodigal:2.6	mRNA	1401626	1401886	.	-	0	ID=mRNA1749;Parent=gene1758;Name=orf01771;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01771;product=hypothetical protein
 01	Prodigal:2.6	CDS	1401626	1401886	.	-	0	Parent=mRNA1749;Name=orf01771;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01771;product=hypothetical protein
 ###
-01	prokka	gene	1402529	1402774	.	+	.	ID=gene1759;Name=rps3_2;gene=rps3_2;locus_tag=Q903MT_01772
-01	Prodigal:2.6	mRNA	1402529	1402774	.	+	0	ID=mRNA1750;Parent=gene1759;Name=rps3_2;gene=rps3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_029816.1_prot_YP_009241985.1_3;locus_tag=Q903MT_01772;product=ribosomal protein S3
-01	Prodigal:2.6	CDS	1402529	1402774	.	+	0	Parent=mRNA1750;Name=rps3_2;gene=rps3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_029816.1_prot_YP_009241985.1_3;locus_tag=Q903MT_01772;product=ribosomal protein S3
+01	prokka	gene	1402529	1402774	.	+	.	ID=gene1759;Name=ymfrps3_2;gene=rps3_2;locus_tag=Q903MT_01772
+01	Prodigal:2.6	mRNA	1402529	1402774	.	+	0	ID=mRNA1750;Parent=gene1759;Name=ymfrps3_2;gene=rps3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_029816.1_prot_YP_009241985.1_3;locus_tag=Q903MT_01772;product=ribosomal protein S3
+01	Prodigal:2.6	CDS	1402529	1402774	.	+	0	Parent=mRNA1750;Name=ymfrps3_2;gene=rps3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps3|lcl|NC_029816.1_prot_YP_009241985.1_3;locus_tag=Q903MT_01772;product=ribosomal protein S3
 ###
 01	prokka	gene	1403033	1403218	.	+	.	ID=gene1760;Name=orf01773;locus_tag=Q903MT_01773
 01	Prodigal:2.6	mRNA	1403033	1403218	.	+	0	ID=mRNA1751;Parent=gene1760;Name=orf01773;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01773;product=hypothetical protein
@@ -7859,9 +7859,9 @@
 01	Prodigal:2.6	mRNA	1544614	1544820	.	+	0	ID=mRNA1945;Parent=gene1954;Name=orf01969;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01969;product=hypothetical protein
 01	Prodigal:2.6	CDS	1544614	1544820	.	+	0	Parent=mRNA1945;Name=orf01969;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01969;product=hypothetical protein
 ###
-01	prokka	gene	1545257	1545571	.	-	.	ID=gene1955;Name=cox1;gene=cox1;locus_tag=Q903MT_01970
-01	Prodigal:2.6	mRNA	1545257	1545571	.	-	0	ID=mRNA1946;Parent=gene1955;Name=cox1;gene=cox1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|NC_011033.1_prot_YP_002000592.1_45;locus_tag=Q903MT_01970;product=cytochrome c oxidase subunit1
-01	Prodigal:2.6	CDS	1545257	1545571	.	-	0	Parent=mRNA1946;Name=cox1;gene=cox1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|NC_011033.1_prot_YP_002000592.1_45;locus_tag=Q903MT_01970;product=cytochrome c oxidase subunit1
+01	prokka	gene	1545257	1545571	.	-	.	ID=gene1955;Name=ymfcox1;gene=cox1;locus_tag=Q903MT_01970
+01	Prodigal:2.6	mRNA	1545257	1545571	.	-	0	ID=mRNA1946;Parent=gene1955;Name=ymfcox1;gene=cox1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|NC_011033.1_prot_YP_002000592.1_45;locus_tag=Q903MT_01970;product=cytochrome c oxidase subunit1
+01	Prodigal:2.6	CDS	1545257	1545571	.	-	0	Parent=mRNA1946;Name=ymfcox1;gene=cox1;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|NC_011033.1_prot_YP_002000592.1_45;locus_tag=Q903MT_01970;product=cytochrome c oxidase subunit1
 ###
 01	prokka	gene	1546159	1546482	.	-	.	ID=gene1956;Name=orf01971;locus_tag=Q903MT_01971
 01	Prodigal:2.6	mRNA	1546159	1546482	.	-	0	ID=mRNA1947;Parent=gene1956;Name=orf01971;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01971;product=hypothetical protein
@@ -9140,9 +9140,9 @@
 02	Prodigal:2.6	mRNA	159850	160275	.	-	0	ID=mRNA2264;Parent=gene2274;Name=orf02289;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02289;product=hypothetical protein
 02	Prodigal:2.6	CDS	159850	160275	.	-	0	Parent=mRNA2264;Name=orf02289;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02289;product=hypothetical protein
 ###
-02	prokka	gene	160227	160529	.	-	.	ID=gene2275;Name=rps4_2;gene=rps4_2;locus_tag=Q903MT_02290
-02	Prodigal:2.6	mRNA	160227	160529	.	-	0	ID=mRNA2265;Parent=gene2275;Name=rps4_2;gene=rps4_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_02290;product=ribosomal protein S4
-02	Prodigal:2.6	CDS	160227	160529	.	-	0	Parent=mRNA2265;Name=rps4_2;gene=rps4_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_02290;product=ribosomal protein S4
+02	prokka	gene	160227	160529	.	-	.	ID=gene2275;Name=ymfrps4_2;gene=rps4_2;locus_tag=Q903MT_02290
+02	Prodigal:2.6	mRNA	160227	160529	.	-	0	ID=mRNA2265;Parent=gene2275;Name=ymfrps4_2;gene=rps4_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_02290;product=ribosomal protein S4
+02	Prodigal:2.6	CDS	160227	160529	.	-	0	Parent=mRNA2265;Name=ymfrps4_2;gene=rps4_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps4|lcl|MF991879.1_prot_AXY96123.1_20;locus_tag=Q903MT_02290;product=ribosomal protein S4
 ###
 02	prokka	gene	160728	160943	.	+	.	ID=gene2276;Name=orf02291;locus_tag=Q903MT_02291
 02	Prodigal:2.6	mRNA	160728	160943	.	+	0	ID=mRNA2266;Parent=gene2276;Name=orf02291;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02291;product=hypothetical protein
@@ -9796,9 +9796,9 @@
 02	Prodigal:2.6	mRNA	294185	294436	.	+	0	ID=mRNA2428;Parent=gene2438;Name=orf02453;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02453;product=hypothetical protein
 02	Prodigal:2.6	CDS	294185	294436	.	+	0	Parent=mRNA2428;Name=orf02453;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02453;product=hypothetical protein
 ###
-02	prokka	gene	294993	295259	.	-	.	ID=gene2439;Name=atp9_3;gene=atp9_3;locus_tag=Q903MT_02454
-02	Prodigal:2.6	mRNA	294993	295259	.	-	0	ID=mRNA2429;Parent=gene2439;Name=atp9_3;gene=atp9_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_02454;product=ATP synthase F0 subunit 9
-02	Prodigal:2.6	CDS	294993	295259	.	-	0	Parent=mRNA2429;Name=atp9_3;gene=atp9_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_02454;product=ATP synthase F0 subunit 9
+02	prokka	gene	294993	295259	.	-	.	ID=gene2439;Name=ymfatp9_3;gene=atp9_3;locus_tag=Q903MT_02454
+02	Prodigal:2.6	mRNA	294993	295259	.	-	0	ID=mRNA2429;Parent=gene2439;Name=ymfatp9_3;gene=atp9_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_02454;product=ATP synthase F0 subunit 9
+02	Prodigal:2.6	CDS	294993	295259	.	-	0	Parent=mRNA2429;Name=ymfatp9_3;gene=atp9_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_02454;product=ATP synthase F0 subunit 9
 ###
 02	prokka	gene	296363	296755	.	-	.	ID=gene2440;Name=orf02455;locus_tag=Q903MT_02455
 02	Prodigal:2.6	mRNA	296363	296755	.	-	0	ID=mRNA2430;Parent=gene2440;Name=orf02455;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02455;product=hypothetical protein
@@ -10224,9 +10224,9 @@
 02	Prodigal:2.6	mRNA	384060	384302	.	-	0	ID=mRNA2534;Parent=gene2545;Name=orf02560;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02560;product=hypothetical protein
 02	Prodigal:2.6	CDS	384060	384302	.	-	0	Parent=mRNA2534;Name=orf02560;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02560;product=hypothetical protein
 ###
-02	prokka	gene	384787	385047	.	-	.	ID=gene2546;Name=rps11_2;gene=rps11_2;locus_tag=Q903MT_02561
-02	Prodigal:2.6	mRNA	384787	385047	.	-	0	ID=mRNA2535;Parent=gene2546;Name=rps11_2;gene=rps11_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps11|lcl|MF683210.1_prot_AXV54274.1_2;locus_tag=Q903MT_02561;product=ribosomal protein S11
-02	Prodigal:2.6	CDS	384787	385047	.	-	0	Parent=mRNA2535;Name=rps11_2;gene=rps11_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps11|lcl|MF683210.1_prot_AXV54274.1_2;locus_tag=Q903MT_02561;product=ribosomal protein S11
+02	prokka	gene	384787	385047	.	-	.	ID=gene2546;Name=ymfrps11_2;gene=rps11_2;locus_tag=Q903MT_02561
+02	Prodigal:2.6	mRNA	384787	385047	.	-	0	ID=mRNA2535;Parent=gene2546;Name=ymfrps11_2;gene=rps11_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps11|lcl|MF683210.1_prot_AXV54274.1_2;locus_tag=Q903MT_02561;product=ribosomal protein S11
+02	Prodigal:2.6	CDS	384787	385047	.	-	0	Parent=mRNA2535;Name=ymfrps11_2;gene=rps11_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rps11|lcl|MF683210.1_prot_AXV54274.1_2;locus_tag=Q903MT_02561;product=ribosomal protein S11
 ###
 02	prokka	gene	385416	385595	.	-	.	ID=gene2547;Name=orf02562;locus_tag=Q903MT_02562
 02	Prodigal:2.6	mRNA	385416	385595	.	-	0	ID=mRNA2536;Parent=gene2547;Name=orf02562;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02562;product=hypothetical protein
@@ -11137,9 +11137,9 @@
 02	Prodigal:2.6	mRNA	573732	574046	.	+	0	ID=mRNA2762;Parent=gene2773;Name=orf02788;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02788;product=hypothetical protein
 02	Prodigal:2.6	CDS	573732	574046	.	+	0	Parent=mRNA2762;Name=orf02788;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02788;product=hypothetical protein
 ###
-02	prokka	gene	574861	575034	.	+	.	ID=gene2774;Name=nad4_3;gene=nad4_3;locus_tag=Q903MT_02789
-02	Prodigal:2.6	mRNA	574861	575034	.	+	0	ID=mRNA2763;Parent=gene2774;Name=nad4_3;gene=nad4_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|MF991879.1_prot_AXY96116.1_14;locus_tag=Q903MT_02789;product=NADH dehydrogenase subunit 4
-02	Prodigal:2.6	CDS	574861	575034	.	+	0	Parent=mRNA2763;Name=nad4_3;gene=nad4_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|MF991879.1_prot_AXY96116.1_14;locus_tag=Q903MT_02789;product=NADH dehydrogenase subunit 4
+02	prokka	gene	574861	575034	.	+	.	ID=gene2774;Name=ymfnad4_3;gene=nad4_3;locus_tag=Q903MT_02789
+02	Prodigal:2.6	mRNA	574861	575034	.	+	0	ID=mRNA2763;Parent=gene2774;Name=ymfnad4_3;gene=nad4_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|MF991879.1_prot_AXY96116.1_14;locus_tag=Q903MT_02789;product=NADH dehydrogenase subunit 4
+02	Prodigal:2.6	CDS	574861	575034	.	+	0	Parent=mRNA2763;Name=ymfnad4_3;gene=nad4_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4|lcl|MF991879.1_prot_AXY96116.1_14;locus_tag=Q903MT_02789;product=NADH dehydrogenase subunit 4
 ###
 02	prokka	gene	575756	575965	.	+	.	ID=gene2775;Name=orf02790;locus_tag=Q903MT_02790
 02	Prodigal:2.6	mRNA	575756	575965	.	+	0	ID=mRNA2764;Parent=gene2775;Name=orf02790;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02790;product=hypothetical protein
@@ -11847,8 +11847,8 @@
 02	Prodigal:2.6	mRNA	696713	696961	.	+	0	ID=mRNA2935;Parent=gene2949;Name=orf02966;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02966;product=hypothetical protein
 02	Prodigal:2.6	CDS	696713	696961	.	+	0	Parent=mRNA2935;Name=orf02966;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02966;product=hypothetical protein
 ###
-02	maker	gene	697364	697624	.	-	.	ID=gene2950;Name=atp8|lcl|HM367685.1_prot_ADO19901.1_26-gene
-02	maker	mRNA	697364	697624	9.59	-	.	ID=mRNA2936;Parent=gene2950;Name=atp8|lcl|HM367685.1_prot_ADO19901.1_26;_AED=0.27;_eAED=0.27;_QI=0|-1|0|1|-1|0|1|0|86
+02	maker	gene	697364	697624	.	-	.	ID=gene2950;Name=ymfatp8|lcl|HM367685.1_prot_ADO19901.1_26-gene
+02	maker	mRNA	697364	697624	9.59	-	.	ID=mRNA2936;Parent=gene2950;Name=ymfatp8|lcl|HM367685.1_prot_ADO19901.1_26;_AED=0.27;_eAED=0.27;_QI=0|-1|0|1|-1|0|1|0|86
 02	maker	exon	697364	697624	.	-	.	Parent=mRNA2936
 02	maker	CDS	697364	697624	.	-	0	Parent=mRNA2936
 ###
@@ -12739,8 +12739,8 @@
 03	Prodigal:2.6	mRNA	111985	112173	.	-	0	ID=mRNA3156;Parent=gene3171;Name=orf03191;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03191;product=hypothetical protein
 03	Prodigal:2.6	CDS	111985	112173	.	-	0	Parent=mRNA3156;Name=orf03191;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03191;product=hypothetical protein
 ###
-03	maker	gene	113035	114558	.	-	.	ID=gene3172;Name=rpo|lcl|KX028885.1_prot_AOX12937.1_10-gene
-03	maker	mRNA	113035	114558	12	-	.	ID=mRNA3157;Parent=gene3172;Name=rpo|lcl|KX028885.1_prot_AOX12937.1_10;_AED=0.03;_eAED=0.03;_QI=0|-1|0|1|-1|0|1|0|507
+03	maker	gene	113035	114558	.	-	.	ID=gene3172;Name=ymfrpo|lcl|KX028885.1_prot_AOX12937.1_10-gene
+03	maker	mRNA	113035	114558	12	-	.	ID=mRNA3157;Parent=gene3172;Name=ymfrpo|lcl|KX028885.1_prot_AOX12937.1_10;_AED=0.03;_eAED=0.03;_QI=0|-1|0|1|-1|0|1|0|507
 03	maker	exon	113035	114558	.	-	.	Parent=mRNA3157
 03	maker	CDS	113035	114558	.	-	0	Parent=mRNA3157
 ###
@@ -13129,9 +13129,9 @@
 03	Prodigal:2.6	mRNA	195999	196250	.	+	0	ID=mRNA3253;Parent=gene3268;Name=orf03289;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03289;product=hypothetical protein
 03	Prodigal:2.6	CDS	195999	196250	.	+	0	Parent=mRNA3253;Name=orf03289;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03289;product=hypothetical protein
 ###
-03	prokka	gene	197304	197471	.	-	.	ID=gene3269;Name=nad4L_2;gene=nad4L_2;locus_tag=Q903MT_03290
-03	Prodigal:2.6	mRNA	197304	197471	.	-	0	ID=mRNA3254;Parent=gene3269;Name=nad4L_2;gene=nad4L_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4L|lcl|KX028885.1_prot_AOX12949.1_22;locus_tag=Q903MT_03290;product=NADH dehydrogenase subunit 4L
-03	Prodigal:2.6	CDS	197304	197471	.	-	0	Parent=mRNA3254;Name=nad4L_2;gene=nad4L_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4L|lcl|KX028885.1_prot_AOX12949.1_22;locus_tag=Q903MT_03290;product=NADH dehydrogenase subunit 4L
+03	prokka	gene	197304	197471	.	-	.	ID=gene3269;Name=ymfnad4L_2;gene=nad4L_2;locus_tag=Q903MT_03290
+03	Prodigal:2.6	mRNA	197304	197471	.	-	0	ID=mRNA3254;Parent=gene3269;Name=ymfnad4L_2;gene=nad4L_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4L|lcl|KX028885.1_prot_AOX12949.1_22;locus_tag=Q903MT_03290;product=NADH dehydrogenase subunit 4L
+03	Prodigal:2.6	CDS	197304	197471	.	-	0	Parent=mRNA3254;Name=ymfnad4L_2;gene=nad4L_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad4L|lcl|KX028885.1_prot_AOX12949.1_22;locus_tag=Q903MT_03290;product=NADH dehydrogenase subunit 4L
 ###
 03	manual	gene	197581	198267	.	-	.	ID=gene3270;Name=rps1
 03	manual	mRNA	197581	198267	.	-	.	ID=mRNA3255;Parent=gene3270;Name=rps1;inference=similar to AA sequence:INSD:AJP33555.1
@@ -13416,9 +13416,9 @@
 03	Prodigal:2.6	mRNA	254318	254500	.	-	0	ID=mRNA3324;Parent=gene3339;Name=orf03360;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03360;product=hypothetical protein
 03	Prodigal:2.6	CDS	254318	254500	.	-	0	Parent=mRNA3324;Name=orf03360;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03360;product=hypothetical protein
 ###
-03	prokka	gene	254741	255139	.	+	.	ID=gene3340;Name=atp9_4;gene=atp9_4;locus_tag=Q903MT_03361
-03	Prodigal:2.6	mRNA	254741	255139	.	+	0	ID=mRNA3325;Parent=gene3340;Name=atp9_4;gene=atp9_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_03361;product=ATP synthase F0 subunit 9
-03	Prodigal:2.6	CDS	254741	255139	.	+	0	Parent=mRNA3325;Name=atp9_4;gene=atp9_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_03361;product=ATP synthase F0 subunit 9
+03	prokka	gene	254741	255139	.	+	.	ID=gene3340;Name=ymfatp9_4;gene=atp9_4;locus_tag=Q903MT_03361
+03	Prodigal:2.6	mRNA	254741	255139	.	+	0	ID=mRNA3325;Parent=gene3340;Name=ymfatp9_4;gene=atp9_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_03361;product=ATP synthase F0 subunit 9
+03	Prodigal:2.6	CDS	254741	255139	.	+	0	Parent=mRNA3325;Name=ymfatp9_4;gene=atp9_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atp9|lcl|JF810595.1_prot_AEH42822.1_7;locus_tag=Q903MT_03361;product=ATP synthase F0 subunit 9
 ###
 03	prokka	gene	255046	255396	.	-	.	ID=gene3341;Name=orf03362;locus_tag=Q903MT_03362
 03	Prodigal:2.6	mRNA	255046	255396	.	-	0	ID=mRNA3326;Parent=gene3341;Name=orf03362;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03362;product=hypothetical protein
@@ -13956,8 +13956,8 @@
 03	Prodigal:2.6	mRNA	358785	359021	.	-	0	ID=mRNA3459;Parent=gene3474;Name=orf03495;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03495;product=hypothetical protein
 03	Prodigal:2.6	CDS	358785	359021	.	-	0	Parent=mRNA3459;Name=orf03495;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03495;product=hypothetical protein
 ###
-03	maker	gene	360080	360286	.	+	.	ID=gene3475;Name=sdh3|lcl|KR610474.1_prot_ALL55112.1_8-gene
-03	maker	mRNA	360080	360286	9.89	+	.	ID=mRNA3460;Parent=gene3475;Name=sdh3|lcl|KR610474.1_prot_ALL55112.1_8;_AED=0.12;_eAED=0.12;_QI=0|-1|0|1|-1|0|1|0|68
+03	maker	gene	360080	360286	.	+	.	ID=gene3475;Name=ymfsdh3|lcl|KR610474.1_prot_ALL55112.1_8-gene
+03	maker	mRNA	360080	360286	9.89	+	.	ID=mRNA3460;Parent=gene3475;Name=ymfsdh3|lcl|KR610474.1_prot_ALL55112.1_8;_AED=0.12;_eAED=0.12;_QI=0|-1|0|1|-1|0|1|0|68
 03	maker	exon	360080	360286	.	+	.	Parent=mRNA3460
 03	maker	CDS	360080	360286	.	+	0	Parent=mRNA3460
 ###
@@ -14157,8 +14157,8 @@
 03	manual	exon	409758	410001	.	+	.	Parent=mRNA3508
 03	manual	CDS	409758	410001	.	+	2	Parent=mRNA3508
 ###
-03	maker	gene	410450	410626	.	+	.	ID=gene3524;Name=nad7|lcl|KX887330.1_prot_ARR27499.1_19-gene
-03	maker	mRNA	410450	410626	14.1	+	.	ID=mRNA3509;Parent=gene3524;Name=nad7|lcl|KX887330.1_prot_ARR27499.1_19;_AED=0.07;_eAED=0.18;_QI=0|-1|0|1|-1|0|1|0|58
+03	maker	gene	410450	410626	.	+	.	ID=gene3524;Name=ymfnad7|lcl|KX887330.1_prot_ARR27499.1_19-gene
+03	maker	mRNA	410450	410626	14.1	+	.	ID=mRNA3509;Parent=gene3524;Name=ymfnad7|lcl|KX887330.1_prot_ARR27499.1_19;_AED=0.07;_eAED=0.18;_QI=0|-1|0|1|-1|0|1|0|58
 03	maker	exon	410450	410626	.	+	.	Parent=mRNA3509
 03	maker	CDS	410450	410626	.	+	0	Parent=mRNA3509
 ###
@@ -15304,9 +15304,9 @@
 04	manual	exon	84177	84836	.	-	.	Parent=mRNA3794
 04	manual	CDS	84177	84836	.	-	0	Parent=mRNA3794
 ###
-04	prokka	gene	84942	85208	.	-	.	ID=gene3810;Name=nad2_5;gene=nad2_5;locus_tag=Q903MT_03833
-04	Prodigal:2.6	mRNA	84942	85208	.	-	0	ID=mRNA3795;Parent=gene3810;Name=nad2_5;gene=nad2_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|KY889142.1_prot_AUD57184.1_1;locus_tag=Q903MT_03833;product=NADH dehydrogenase subunit 2
-04	Prodigal:2.6	CDS	84942	85208	.	-	0	Parent=mRNA3795;Name=nad2_5;gene=nad2_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|KY889142.1_prot_AUD57184.1_1;locus_tag=Q903MT_03833;product=NADH dehydrogenase subunit 2
+04	prokka	gene	84942	85208	.	-	.	ID=gene3810;Name=ymfnad2_5;gene=nad2_5;locus_tag=Q903MT_03833
+04	Prodigal:2.6	mRNA	84942	85208	.	-	0	ID=mRNA3795;Parent=gene3810;Name=ymfnad2_5;gene=nad2_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|KY889142.1_prot_AUD57184.1_1;locus_tag=Q903MT_03833;product=NADH dehydrogenase subunit 2
+04	Prodigal:2.6	CDS	84942	85208	.	-	0	Parent=mRNA3795;Name=ymfnad2_5;gene=nad2_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|KY889142.1_prot_AUD57184.1_1;locus_tag=Q903MT_03833;product=NADH dehydrogenase subunit 2
 ###
 04	prokka	gene	86086	86250	.	-	.	ID=gene3811;Name=orf03834;locus_tag=Q903MT_03834
 04	Prodigal:2.6	mRNA	86086	86250	.	-	0	ID=mRNA3796;Parent=gene3811;Name=orf03834;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03834;product=hypothetical protein
@@ -16800,22 +16800,22 @@
 04	Prodigal:2.6	mRNA	368794	368985	.	-	0	ID=mRNA4167;Parent=gene4183;Name=orf04206;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_04206;product=hypothetical protein
 04	Prodigal:2.6	CDS	368794	368985	.	-	0	Parent=mRNA4167;Name=orf04206;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_04206;product=hypothetical protein
 ###
-04	prokka	gene	369856	370239	.	+	.	ID=gene4184;Name=rpo_4;gene=rpo_4;locus_tag=Q903MT_04207
-04	Prodigal:2.6	mRNA	369856	370239	.	+	0	ID=mRNA4168;Parent=gene4184;Name=rpo_4;gene=rpo_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_04207;product=DNA-dependent RNA polymerase
-04	Prodigal:2.6	CDS	369856	370239	.	+	0	Parent=mRNA4168;Name=rpo_4;gene=rpo_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_04207;product=DNA-dependent RNA polymerase
+04	prokka	gene	369856	370239	.	+	.	ID=gene4184;Name=ymfrpo_4;gene=rpo_4;locus_tag=Q903MT_04207
+04	Prodigal:2.6	mRNA	369856	370239	.	+	0	ID=mRNA4168;Parent=gene4184;Name=ymfrpo_4;gene=rpo_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_04207;product=DNA-dependent RNA polymerase
+04	Prodigal:2.6	CDS	369856	370239	.	+	0	Parent=mRNA4168;Name=ymfrpo_4;gene=rpo_4;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_04207;product=DNA-dependent RNA polymerase
 ###
-04	maker	gene	370297	372642	.	+	.	ID=gene4185;Name=rpo|lcl|KX028885.1_prot_AOX12936.1_9-gene
-04	maker	mRNA	370297	372642	13.6	+	.	ID=mRNA4169;Parent=gene4185;Name=rpo|lcl|KX028885.1_prot_AOX12936.1_9;_AED=0.24;_eAED=0.24;_QI=0|-1|0|1|-1|0|1|0|781
+04	maker	gene	370297	372642	.	+	.	ID=gene4185;Name=ymfrpo|lcl|KX028885.1_prot_AOX12936.1_9-gene
+04	maker	mRNA	370297	372642	13.6	+	.	ID=mRNA4169;Parent=gene4185;Name=ymfrpo|lcl|KX028885.1_prot_AOX12936.1_9;_AED=0.24;_eAED=0.24;_QI=0|-1|0|1|-1|0|1|0|781
 04	maker	exon	370297	372642	.	+	.	Parent=mRNA4169
 04	maker	CDS	370297	372642	.	+	0	Parent=mRNA4169
 ###
-04	prokka	gene	372645	373760	.	+	.	ID=gene4186;Name=rpo_6;gene=rpo_6;locus_tag=Q903MT_04209
-04	Prodigal:2.6	mRNA	372645	373760	.	+	0	ID=mRNA4170;Parent=gene4186;Name=rpo_6;gene=rpo_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04209;product=RNA polymerase
-04	Prodigal:2.6	CDS	372645	373760	.	+	0	Parent=mRNA4170;Name=rpo_6;gene=rpo_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04209;product=RNA polymerase
+04	prokka	gene	372645	373760	.	+	.	ID=gene4186;Name=ymfrpo_6;gene=rpo_6;locus_tag=Q903MT_04209
+04	Prodigal:2.6	mRNA	372645	373760	.	+	0	ID=mRNA4170;Parent=gene4186;Name=ymfrpo_6;gene=rpo_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04209;product=RNA polymerase
+04	Prodigal:2.6	CDS	372645	373760	.	+	0	Parent=mRNA4170;Name=ymfrpo_6;gene=rpo_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04209;product=RNA polymerase
 ###
-04	prokka	gene	373773	374438	.	+	.	ID=gene4187;Name=rpo_7;gene=rpo_7;locus_tag=Q903MT_04210
-04	Prodigal:2.6	mRNA	373773	374438	.	+	0	ID=mRNA4171;Parent=gene4187;Name=rpo_7;gene=rpo_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04210;product=RNA polymerase
-04	Prodigal:2.6	CDS	373773	374438	.	+	0	Parent=mRNA4171;Name=rpo_7;gene=rpo_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04210;product=RNA polymerase
+04	prokka	gene	373773	374438	.	+	.	ID=gene4187;Name=ymfrpo_7;gene=rpo_7;locus_tag=Q903MT_04210
+04	Prodigal:2.6	mRNA	373773	374438	.	+	0	ID=mRNA4171;Parent=gene4187;Name=ymfrpo_7;gene=rpo_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04210;product=RNA polymerase
+04	Prodigal:2.6	CDS	373773	374438	.	+	0	Parent=mRNA4171;Name=ymfrpo_7;gene=rpo_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12937.1_10;locus_tag=Q903MT_04210;product=RNA polymerase
 ###
 04	prokka	gene	375240	375413	.	-	.	ID=gene4188;Name=orf04211;locus_tag=Q903MT_04211
 04	Prodigal:2.6	mRNA	375240	375413	.	-	0	ID=mRNA4172;Parent=gene4188;Name=orf04211;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_04211;product=hypothetical protein
@@ -18577,9 +18577,9 @@
 05	Prodigal:2.6	mRNA	169254	169367	.	-	0	ID=mRNA4609;Parent=gene4627;Name=orf04650;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_04650;product=hypothetical protein
 05	Prodigal:2.6	CDS	169254	169367	.	-	0	Parent=mRNA4609;Name=orf04650;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_04650;product=hypothetical protein
 ###
-05	prokka	gene	169631	169906	.	-	.	ID=gene4628;Name=sdh3_2;gene=sdh3_2;locus_tag=Q903MT_04651
-05	Prodigal:2.6	mRNA	169631	169906	.	-	0	ID=mRNA4610;Parent=gene4628;Name=sdh3_2;gene=sdh3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:sdh3|lcl|NC_012119.1_prot_YP_002608354.1_18;locus_tag=Q903MT_04651;product=succinate dehydrogenase subunit 3
-05	Prodigal:2.6	CDS	169631	169906	.	-	0	Parent=mRNA4610;Name=sdh3_2;gene=sdh3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:sdh3|lcl|NC_012119.1_prot_YP_002608354.1_18;locus_tag=Q903MT_04651;product=succinate dehydrogenase subunit 3
+05	prokka	gene	169631	169906	.	-	.	ID=gene4628;Name=ymfsdh3_2;gene=sdh3_2;locus_tag=Q903MT_04651
+05	Prodigal:2.6	mRNA	169631	169906	.	-	0	ID=mRNA4610;Parent=gene4628;Name=ymfsdh3_2;gene=sdh3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:sdh3|lcl|NC_012119.1_prot_YP_002608354.1_18;locus_tag=Q903MT_04651;product=succinate dehydrogenase subunit 3
+05	Prodigal:2.6	CDS	169631	169906	.	-	0	Parent=mRNA4610;Name=ymfsdh3_2;gene=sdh3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:sdh3|lcl|NC_012119.1_prot_YP_002608354.1_18;locus_tag=Q903MT_04651;product=succinate dehydrogenase subunit 3
 ###
 05	prokka	gene	170389	170643	.	-	.	ID=gene4629;Name=orf04652;locus_tag=Q903MT_04652
 05	Prodigal:2.6	mRNA	170389	170643	.	-	0	ID=mRNA4611;Parent=gene4629;Name=orf04652;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_04652;product=hypothetical protein
@@ -20124,8 +20124,8 @@
 06	Prodigal:2.6	mRNA	77672	77785	.	+	0	ID=mRNA4992;Parent=gene5013;Name=orf05036;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05036;product=hypothetical protein
 06	Prodigal:2.6	CDS	77672	77785	.	+	0	Parent=mRNA4992;Name=orf05036;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05036;product=hypothetical protein
 ###
-06	maker	gene	79115	79384	.	+	.	ID=gene5014;Name=atpE|lcl|NC_023209.1_prot_YP_008992276.1_11-gene
-06	maker	mRNA	79115	79384	14.3	+	.	ID=mRNA4993;Parent=gene5014;Name=atpE|lcl|NC_023209.1_prot_YP_008992276.1_11;_AED=0.07;_eAED=0.07;_QI=0|-1|0|1|-1|0|1|0|89
+06	maker	gene	79115	79384	.	+	.	ID=gene5014;Name=ymfatpE|lcl|NC_023209.1_prot_YP_008992276.1_11-gene
+06	maker	mRNA	79115	79384	14.3	+	.	ID=mRNA4993;Parent=gene5014;Name=ymfatpE|lcl|NC_023209.1_prot_YP_008992276.1_11;_AED=0.07;_eAED=0.07;_QI=0|-1|0|1|-1|0|1|0|89
 06	maker	exon	79115	79384	.	+	.	Parent=mRNA4993
 06	maker	CDS	79115	79384	.	+	0	Parent=mRNA4993
 ###
@@ -20699,9 +20699,9 @@
 06	Prodigal:2.6	mRNA	189987	190226	.	-	0	ID=mRNA5132;Parent=gene5155;Name=orf05179;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05179;product=hypothetical protein
 06	Prodigal:2.6	CDS	189987	190226	.	-	0	Parent=mRNA5132;Name=orf05179;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05179;product=hypothetical protein
 ###
-06	prokka	gene	190296	190580	.	+	.	ID=gene5156;Name=cox1_3;gene=cox1_3;locus_tag=Q903MT_05180
-06	Prodigal:2.6	mRNA	190296	190580	.	+	0	ID=mRNA5133;Parent=gene5156;Name=cox1_3;gene=cox1_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_05180;product=cytochrome c oxidase subunit 1
-06	Prodigal:2.6	CDS	190296	190580	.	+	0	Parent=mRNA5133;Name=cox1_3;gene=cox1_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_05180;product=cytochrome c oxidase subunit 1
+06	prokka	gene	190296	190580	.	+	.	ID=gene5156;Name=ymfcox1_3;gene=cox1_3;locus_tag=Q903MT_05180
+06	Prodigal:2.6	mRNA	190296	190580	.	+	0	ID=mRNA5133;Parent=gene5156;Name=ymfcox1_3;gene=cox1_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_05180;product=cytochrome c oxidase subunit 1
+06	Prodigal:2.6	CDS	190296	190580	.	+	0	Parent=mRNA5133;Name=ymfcox1_3;gene=cox1_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox1|lcl|MF991879.1_prot_AXY96104.1_2;locus_tag=Q903MT_05180;product=cytochrome c oxidase subunit 1
 ###
 06	prokka	gene	190680	190859	.	-	.	ID=gene5157;Name=orf05181;locus_tag=Q903MT_05181
 06	Prodigal:2.6	mRNA	190680	190859	.	-	0	ID=mRNA5134;Parent=gene5157;Name=orf05181;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05181;product=hypothetical protein
@@ -21064,9 +21064,9 @@
 06	Prodigal:2.6	mRNA	262477	262767	.	-	0	ID=mRNA5223;Parent=gene5246;Name=orf05272;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05272;product=hypothetical protein
 06	Prodigal:2.6	CDS	262477	262767	.	-	0	Parent=mRNA5223;Name=orf05272;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05272;product=hypothetical protein
 ###
-06	prokka	gene	262866	263258	.	-	.	ID=gene5247;Name=nad2_6;gene=nad2_6;locus_tag=Q903MT_05273
-06	Prodigal:2.6	mRNA	262866	263258	.	-	0	ID=mRNA5224;Parent=gene5247;Name=nad2_6;gene=nad2_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|MF991879.1_prot_AXY96112.1_11;locus_tag=Q903MT_05273;product=NADH dehydrogenase subunit 2
-06	Prodigal:2.6	CDS	262866	263258	.	-	0	Parent=mRNA5224;Name=nad2_6;gene=nad2_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|MF991879.1_prot_AXY96112.1_11;locus_tag=Q903MT_05273;product=NADH dehydrogenase subunit 2
+06	prokka	gene	262866	263258	.	-	.	ID=gene5247;Name=ymfnad2_6;gene=nad2_6;locus_tag=Q903MT_05273
+06	Prodigal:2.6	mRNA	262866	263258	.	-	0	ID=mRNA5224;Parent=gene5247;Name=ymfnad2_6;gene=nad2_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|MF991879.1_prot_AXY96112.1_11;locus_tag=Q903MT_05273;product=NADH dehydrogenase subunit 2
+06	Prodigal:2.6	CDS	262866	263258	.	-	0	Parent=mRNA5224;Name=ymfnad2_6;gene=nad2_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|MF991879.1_prot_AXY96112.1_11;locus_tag=Q903MT_05273;product=NADH dehydrogenase subunit 2
 ###
 06	prokka	gene	263921	264172	.	-	.	ID=gene5248;Name=orf05274;locus_tag=Q903MT_05274
 06	Prodigal:2.6	mRNA	263921	264172	.	-	0	ID=mRNA5225;Parent=gene5248;Name=orf05274;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05274;product=hypothetical protein
@@ -21172,8 +21172,8 @@
 06	Prodigal:2.6	mRNA	277442	277606	.	-	0	ID=mRNA5250;Parent=gene5273;Name=orf05299;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05299;product=hypothetical protein
 06	Prodigal:2.6	CDS	277442	277606	.	-	0	Parent=mRNA5250;Name=orf05299;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05299;product=hypothetical protein
 ###
-06	maker	gene	278016	278603	.	+	.	ID=gene5274;Name=rps7|lcl|KC784957.1_prot_AGN74380.1_20-gene
-06	maker	mRNA	278016	278603	13.5	+	.	ID=mRNA5251;Parent=gene5274;Name=rps7|lcl|KC784957.1_prot_AGN74380.1_20;_AED=0.07;_eAED=0.07;_QI=0|-1|0|1|-1|0|1|0|195
+06	maker	gene	278016	278603	.	+	.	ID=gene5274;Name=ymfrps7|lcl|KC784957.1_prot_AGN74380.1_20-gene
+06	maker	mRNA	278016	278603	13.5	+	.	ID=mRNA5251;Parent=gene5274;Name=ymfrps7|lcl|KC784957.1_prot_AGN74380.1_20;_AED=0.07;_eAED=0.07;_QI=0|-1|0|1|-1|0|1|0|195
 06	maker	exon	278016	278603	.	+	.	Parent=mRNA5251
 06	maker	CDS	278016	278603	.	+	0	Parent=mRNA5251
 ###
@@ -21624,8 +21624,8 @@
 06	manual	exon	360335	360748	.	+	.	Parent=mRNA5360
 06	manual	CDS	360335	360748	.	+	0	Parent=mRNA5360
 ###
-06	maker	gene	361645	362001	.	+	.	ID=gene5384;Name=nad3|lcl|NC_029816.1_prot_YP_009242006.1_24-gene
-06	maker	mRNA	361645	362001	20.6	+	.	ID=mRNA5361;Parent=gene5384;Name=nad3|lcl|NC_029816.1_prot_YP_009242006.1_24;_AED=0.28;_eAED=0.28;_QI=0|-1|0|1|-1|0|1|0|118
+06	maker	gene	361645	362001	.	+	.	ID=gene5384;Name=ymfnad3|lcl|NC_029816.1_prot_YP_009242006.1_24-gene
+06	maker	mRNA	361645	362001	20.6	+	.	ID=mRNA5361;Parent=gene5384;Name=ymfnad3|lcl|NC_029816.1_prot_YP_009242006.1_24;_AED=0.28;_eAED=0.28;_QI=0|-1|0|1|-1|0|1|0|118
 06	maker	exon	361645	362001	.	+	.	Parent=mRNA5361
 06	maker	CDS	361645	362001	.	+	0	Parent=mRNA5361
 ###
@@ -21814,9 +21814,9 @@
 07	Prodigal:2.6	mRNA	19612	19827	.	+	0	ID=mRNA5407;Parent=gene5430;Name=orf05462;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05462;product=hypothetical protein
 07	Prodigal:2.6	CDS	19612	19827	.	+	0	Parent=mRNA5407;Name=orf05462;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05462;product=hypothetical protein
 ###
-07	prokka	gene	19824	20282	.	-	.	ID=gene5431;Name=psaA_6;gene=psaA_6;locus_tag=Q903MT_05463
-07	Prodigal:2.6	mRNA	19824	20282	.	-	0	ID=mRNA5408;Parent=gene5431;Name=psaA_6;gene=psaA_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_05463;product=P700 chlorophyll-a apoprotein
-07	Prodigal:2.6	CDS	19824	20282	.	-	0	Parent=mRNA5408;Name=psaA_6;gene=psaA_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_05463;product=P700 chlorophyll-a apoprotein
+07	prokka	gene	19824	20282	.	-	.	ID=gene5431;Name=ymfpsaA_6;gene=psaA_6;locus_tag=Q903MT_05463
+07	Prodigal:2.6	mRNA	19824	20282	.	-	0	ID=mRNA5408;Parent=gene5431;Name=ymfpsaA_6;gene=psaA_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_05463;product=P700 chlorophyll-a apoprotein
+07	Prodigal:2.6	CDS	19824	20282	.	-	0	Parent=mRNA5408;Name=ymfpsaA_6;gene=psaA_6;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_05463;product=P700 chlorophyll-a apoprotein
 ###
 07	prokka	gene	20732	20947	.	-	.	ID=gene5432;Name=orf05464;locus_tag=Q903MT_05464
 07	Prodigal:2.6	mRNA	20732	20947	.	-	0	ID=mRNA5409;Parent=gene5432;Name=orf05464;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05464;product=hypothetical protein
@@ -22868,9 +22868,9 @@
 07	Prodigal:2.6	mRNA	229219	229395	.	+	0	ID=mRNA5668;Parent=gene5693;Name=orf05725;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05725;product=hypothetical protein
 07	Prodigal:2.6	CDS	229219	229395	.	+	0	Parent=mRNA5668;Name=orf05725;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05725;product=hypothetical protein
 ###
-07	prokka	gene	229389	229703	.	+	.	ID=gene5694;Name=nad6_2;gene=nad6_2;locus_tag=Q903MT_05726
-07	Prodigal:2.6	mRNA	229389	229703	.	+	0	ID=mRNA5669;Parent=gene5694;Name=nad6_2;gene=nad6_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|NC_012119.1_prot_YP_002608398.1_62;locus_tag=Q903MT_05726;product=NADH dehydrogenase subunit 6
-07	Prodigal:2.6	CDS	229389	229703	.	+	0	Parent=mRNA5669;Name=nad6_2;gene=nad6_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|NC_012119.1_prot_YP_002608398.1_62;locus_tag=Q903MT_05726;product=NADH dehydrogenase subunit 6
+07	prokka	gene	229389	229703	.	+	.	ID=gene5694;Name=ymfnad6_2;gene=nad6_2;locus_tag=Q903MT_05726
+07	Prodigal:2.6	mRNA	229389	229703	.	+	0	ID=mRNA5669;Parent=gene5694;Name=ymfnad6_2;gene=nad6_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|NC_012119.1_prot_YP_002608398.1_62;locus_tag=Q903MT_05726;product=NADH dehydrogenase subunit 6
+07	Prodigal:2.6	CDS	229389	229703	.	+	0	Parent=mRNA5669;Name=ymfnad6_2;gene=nad6_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|NC_012119.1_prot_YP_002608398.1_62;locus_tag=Q903MT_05726;product=NADH dehydrogenase subunit 6
 ###
 07	prokka	gene	230983	231078	.	-	.	ID=gene5695;Name=orf05727;locus_tag=Q903MT_05727
 07	Prodigal:2.6	mRNA	230983	231078	.	-	0	ID=mRNA5670;Parent=gene5695;Name=orf05727;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05727;product=hypothetical protein
@@ -24045,9 +24045,9 @@
 08	Prodigal:2.6	mRNA	101818	101952	.	-	0	ID=mRNA5962;Parent=gene5987;Name=orf06019;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06019;product=hypothetical protein
 08	Prodigal:2.6	CDS	101818	101952	.	-	0	Parent=mRNA5962;Name=orf06019;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06019;product=hypothetical protein
 ###
-08	prokka	gene	101949	102095	.	-	.	ID=gene5988;Name=nad6_3;gene=nad6_3;locus_tag=Q903MT_06020
-08	Prodigal:2.6	mRNA	101949	102095	.	-	0	ID=mRNA5963;Parent=gene5988;Name=nad6_3;gene=nad6_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|MF991879.1_prot_AXY96127.1_24;locus_tag=Q903MT_06020;product=NADH dehydrogenase subunit 6
-08	Prodigal:2.6	CDS	101949	102095	.	-	0	Parent=mRNA5963;Name=nad6_3;gene=nad6_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|MF991879.1_prot_AXY96127.1_24;locus_tag=Q903MT_06020;product=NADH dehydrogenase subunit 6
+08	prokka	gene	101949	102095	.	-	.	ID=gene5988;Name=ymfnad6_3;gene=nad6_3;locus_tag=Q903MT_06020
+08	Prodigal:2.6	mRNA	101949	102095	.	-	0	ID=mRNA5963;Parent=gene5988;Name=ymfnad6_3;gene=nad6_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|MF991879.1_prot_AXY96127.1_24;locus_tag=Q903MT_06020;product=NADH dehydrogenase subunit 6
+08	Prodigal:2.6	CDS	101949	102095	.	-	0	Parent=mRNA5963;Name=ymfnad6_3;gene=nad6_3;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad6|lcl|MF991879.1_prot_AXY96127.1_24;locus_tag=Q903MT_06020;product=NADH dehydrogenase subunit 6
 ###
 08	prokka	gene	102113	102304	.	-	.	ID=gene5989;Name=orf06021;locus_tag=Q903MT_06021
 08	Prodigal:2.6	mRNA	102113	102304	.	-	0	ID=mRNA5964;Parent=gene5989;Name=orf06021;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06021;product=hypothetical protein
@@ -24209,9 +24209,9 @@
 08	Prodigal:2.6	mRNA	137343	137543	.	-	0	ID=mRNA6003;Parent=gene6028;Name=orf06060;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06060;product=hypothetical protein
 08	Prodigal:2.6	CDS	137343	137543	.	-	0	Parent=mRNA6003;Name=orf06060;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06060;product=hypothetical protein
 ###
-08	prokka	gene	138346	139536	.	+	.	ID=gene6029;Name=psaA_7;gene=psaA_7;locus_tag=Q903MT_06061
-08	Prodigal:2.6	mRNA	138346	139536	.	+	0	ID=mRNA6004;Parent=gene6029;Name=psaA_7;gene=psaA_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_06061;product=P700 chlorophyll-a apoprotein
-08	Prodigal:2.6	CDS	138346	139536	.	+	0	Parent=mRNA6004;Name=psaA_7;gene=psaA_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_06061;product=P700 chlorophyll-a apoprotein
+08	prokka	gene	138346	139536	.	+	.	ID=gene6029;Name=ymfpsaA_7;gene=psaA_7;locus_tag=Q903MT_06061
+08	Prodigal:2.6	mRNA	138346	139536	.	+	0	ID=mRNA6004;Parent=gene6029;Name=ymfpsaA_7;gene=psaA_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_06061;product=P700 chlorophyll-a apoprotein
+08	Prodigal:2.6	CDS	138346	139536	.	+	0	Parent=mRNA6004;Name=ymfpsaA_7;gene=psaA_7;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:psaA|lcl|MH717173.1_prot_AXY63889.1_35;locus_tag=Q903MT_06061;product=P700 chlorophyll-a apoprotein
 ###
 08	prokka	gene	139646	139813	.	-	.	ID=gene6030;Name=orf06062;locus_tag=Q903MT_06062
 08	Prodigal:2.6	mRNA	139646	139813	.	-	0	ID=mRNA6005;Parent=gene6030;Name=orf06062;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06062;product=hypothetical protein
@@ -24301,8 +24301,8 @@
 08	Prodigal:2.6	mRNA	159463	159588	.	+	0	ID=mRNA6026;Parent=gene6051;Name=orf06083;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06083;product=hypothetical protein
 08	Prodigal:2.6	CDS	159463	159588	.	+	0	Parent=mRNA6026;Name=orf06083;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06083;product=hypothetical protein
 ###
-08	maker	gene	160032	160208	.	+	.	ID=gene6052;Name=atp9|lcl|NC_005255.1_prot_NP_943666.1_4-gene
-08	maker	mRNA	160032	160208	12.3	+	.	ID=mRNA6027;Parent=gene6052;Name=atp9|lcl|NC_005255.1_prot_NP_943666.1_4;_AED=0.28;_eAED=0.32;_QI=0|-1|0|1|-1|0|1|0|58
+08	maker	gene	160032	160208	.	+	.	ID=gene6052;Name=ymfatp9|lcl|NC_005255.1_prot_NP_943666.1_4-gene
+08	maker	mRNA	160032	160208	12.3	+	.	ID=mRNA6027;Parent=gene6052;Name=ymfatp9|lcl|NC_005255.1_prot_NP_943666.1_4;_AED=0.28;_eAED=0.32;_QI=0|-1|0|1|-1|0|1|0|58
 08	maker	exon	160032	160208	.	+	.	Parent=mRNA6027
 08	maker	CDS	160032	160208	.	+	0	Parent=mRNA6027
 ###
@@ -25021,9 +25021,9 @@
 08	Prodigal:2.6	mRNA	301448	301552	.	-	0	ID=mRNA6202;Parent=gene6228;Name=orf06269;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06269;product=hypothetical protein
 08	Prodigal:2.6	CDS	301448	301552	.	-	0	Parent=mRNA6202;Name=orf06269;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06269;product=hypothetical protein
 ###
-08	prokka	gene	302463	302711	.	+	.	ID=gene6229;Name=atpF;gene=atpF;locus_tag=Q903MT_06270
-08	Prodigal:2.6	mRNA	302463	302711	.	+	0	ID=mRNA6203;Parent=gene6229;Name=atpF;dbxref=COG:COG0711;gene=atpF;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:UniProtKB:Q8DLP5;locus_tag=Q903MT_06270;product=ATP synthase subunit b
-08	Prodigal:2.6	CDS	302463	302711	.	+	0	Parent=mRNA6203;Name=atpF;dbxref=COG:COG0711;gene=atpF;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:UniProtKB:Q8DLP5;locus_tag=Q903MT_06270;product=ATP synthase subunit b
+08	prokka	gene	302463	302711	.	+	.	ID=gene6229;Name=ymfatpF;gene=atpF;locus_tag=Q903MT_06270
+08	Prodigal:2.6	mRNA	302463	302711	.	+	0	ID=mRNA6203;Parent=gene6229;Name=ymfatpF;dbxref=COG:COG0711;gene=atpF;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:UniProtKB:Q8DLP5;locus_tag=Q903MT_06270;product=ATP synthase subunit b
+08	Prodigal:2.6	CDS	302463	302711	.	+	0	Parent=mRNA6203;Name=ymfatpF;dbxref=COG:COG0711;gene=atpF;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:UniProtKB:Q8DLP5;locus_tag=Q903MT_06270;product=ATP synthase subunit b
 ###
 08	prokka	gene	303128	303319	.	-	.	ID=gene6230;Name=orf06271;locus_tag=Q903MT_06271
 08	Prodigal:2.6	mRNA	303128	303319	.	-	0	ID=mRNA6204;Parent=gene6230;Name=orf06271;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06271;product=hypothetical protein
@@ -25360,8 +25360,8 @@
 09	aragorn	tRNA	28590	28662	.	-	.	ID=tRNA22;Parent=gene6311;Name=trnP-AGG;product=tRNA-Pro
 09	aragorn	exon	28590	28662	.	-	.	Parent=tRNA22;Name=trnP-AGG
 ###
-09	maker	gene	28842	29237	.	-	.	ID=gene6312;Name=ccmB|lcl|KM506905.1_prot_AIY51504.1_6-gene
-09	maker	mRNA	28842	29237	13.2	-	.	ID=mRNA6284;Parent=gene6312;Name=ccmB|lcl|KM506905.1_prot_AIY51504.1_6;_AED=0.19;_eAED=0.24;_QI=0|-1|0|1|-1|0|1|0|131
+09	maker	gene	28842	29237	.	-	.	ID=gene6312;Name=ymfccmB|lcl|KM506905.1_prot_AIY51504.1_6-gene
+09	maker	mRNA	28842	29237	13.2	-	.	ID=mRNA6284;Parent=gene6312;Name=ymfccmB|lcl|KM506905.1_prot_AIY51504.1_6;_AED=0.19;_eAED=0.24;_QI=0|-1|0|1|-1|0|1|0|131
 09	maker	exon	28842	29237	.	-	.	Parent=mRNA6284
 09	maker	CDS	28842	29237	.	-	0	Parent=mRNA6284
 ###
@@ -25597,9 +25597,9 @@
 09	Prodigal:2.6	mRNA	69215	69448	.	-	0	ID=mRNA6340;Parent=gene6370;Name=orf06420;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06420;product=hypothetical protein
 09	Prodigal:2.6	CDS	69215	69448	.	-	0	Parent=mRNA6340;Name=orf06420;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06420;product=hypothetical protein
 ###
-09	prokka	gene	69623	70093	.	-	.	ID=gene6371;Name=ccmC_2;gene=ccmC_2;locus_tag=Q903MT_06421
-09	Prodigal:2.6	mRNA	69623	70093	.	-	0	ID=mRNA6341;Parent=gene6371;Name=ccmC_2;gene=ccmC_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmC|lcl|NC_027976.1_prot_YP_009167263.1_23;locus_tag=Q903MT_06421;product=cytochrome c biogenesis C
-09	Prodigal:2.6	CDS	69623	70093	.	-	0	Parent=mRNA6341;Name=ccmC_2;gene=ccmC_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmC|lcl|NC_027976.1_prot_YP_009167263.1_23;locus_tag=Q903MT_06421;product=cytochrome c biogenesis C
+09	prokka	gene	69623	70093	.	-	.	ID=gene6371;Name=ymfccmC_2;gene=ccmC_2;locus_tag=Q903MT_06421
+09	Prodigal:2.6	mRNA	69623	70093	.	-	0	ID=mRNA6341;Parent=gene6371;Name=ymfccmC_2;gene=ccmC_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmC|lcl|NC_027976.1_prot_YP_009167263.1_23;locus_tag=Q903MT_06421;product=cytochrome c biogenesis C
+09	Prodigal:2.6	CDS	69623	70093	.	-	0	Parent=mRNA6341;Name=ymfccmC_2;gene=ccmC_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:ccmC|lcl|NC_027976.1_prot_YP_009167263.1_23;locus_tag=Q903MT_06421;product=cytochrome c biogenesis C
 ###
 09	prokka	gene	70204	70611	.	-	.	ID=gene6372;Name=orf06422;locus_tag=Q903MT_06422
 09	Prodigal:2.6	mRNA	70204	70611	.	-	0	ID=mRNA6342;Parent=gene6372;Name=orf06422;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06422;product=hypothetical protein
@@ -26898,8 +26898,8 @@
 10	Prodigal:2.6	mRNA	73051	73320	.	+	0	ID=mRNA6660;Parent=gene6693;Name=orf06748;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06748;product=hypothetical protein
 10	Prodigal:2.6	CDS	73051	73320	.	+	0	Parent=mRNA6660;Name=orf06748;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06748;product=hypothetical protein
 ###
-10	maker	gene	73522	74867	.	-	.	ID=gene6694;Name=nad5|lcl|KX887331.1_prot_ARR27553.1_1-gene
-10	maker	mRNA	73522	74867	21.6	-	.	ID=mRNA6661;Parent=gene6694;Name=nad5|lcl|KX887331.1_prot_ARR27553.1_1;_AED=0.06;_eAED=0.06;_QI=0|0|0|1|0|0|2|0|135
+10	maker	gene	73522	74867	.	-	.	ID=gene6694;Name=ymfnad5|lcl|KX887331.1_prot_ARR27553.1_1-gene
+10	maker	mRNA	73522	74867	21.6	-	.	ID=mRNA6661;Parent=gene6694;Name=ymfnad5|lcl|KX887331.1_prot_ARR27553.1_1;_AED=0.06;_eAED=0.06;_QI=0|0|0|1|0|0|2|0|135
 10	maker	exon	73522	73671	.	-	.	Parent=mRNA6661
 10	maker	CDS	73522	73671	.	-	0	ID=CDS1;Parent=mRNA6661
 10	.	intron	73672	74609	.	-	.	Parent=mRNA6661
@@ -27042,9 +27042,9 @@
 10	Prodigal:2.6	mRNA	102286	102543	.	+	0	ID=mRNA6695;Parent=gene6728;Name=orf06782;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06782;product=hypothetical protein
 10	Prodigal:2.6	CDS	102286	102543	.	+	0	Parent=mRNA6695;Name=orf06782;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06782;product=hypothetical protein
 ###
-10	prokka	gene	102831	103001	.	-	.	ID=gene6729;Name=atpB;gene=atpB;locus_tag=Q903MT_06783
-10	Prodigal:2.6	mRNA	102831	103001	.	-	0	ID=mRNA6696;Parent=gene6729;Name=atpB;gene=atpB;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atpB|lcl|MF683210.1_prot_AXV54284.1_12;locus_tag=Q903MT_06783;product=ATP synthase CF1 beta subunit
-10	Prodigal:2.6	CDS	102831	103001	.	-	0	Parent=mRNA6696;Name=atpB;gene=atpB;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atpB|lcl|MF683210.1_prot_AXV54284.1_12;locus_tag=Q903MT_06783;product=ATP synthase CF1 beta subunit
+10	prokka	gene	102831	103001	.	-	.	ID=gene6729;Name=ymfatpB;gene=atpB;locus_tag=Q903MT_06783
+10	Prodigal:2.6	mRNA	102831	103001	.	-	0	ID=mRNA6696;Parent=gene6729;Name=ymfatpB;gene=atpB;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atpB|lcl|MF683210.1_prot_AXV54284.1_12;locus_tag=Q903MT_06783;product=ATP synthase CF1 beta subunit
+10	Prodigal:2.6	CDS	102831	103001	.	-	0	Parent=mRNA6696;Name=ymfatpB;gene=atpB;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:atpB|lcl|MF683210.1_prot_AXV54284.1_12;locus_tag=Q903MT_06783;product=ATP synthase CF1 beta subunit
 ###
 10	prokka	gene	103019	103363	.	-	.	ID=gene6730;Name=orf06784;locus_tag=Q903MT_06784
 10	Prodigal:2.6	mRNA	103019	103363	.	-	0	ID=mRNA6697;Parent=gene6730;Name=orf06784;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06784;product=hypothetical protein
@@ -27686,9 +27686,9 @@
 11	Prodigal:2.6	mRNA	56711	56914	.	-	0	ID=mRNA6856;Parent=gene6889;Name=orf06943;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06943;product=hypothetical protein
 11	Prodigal:2.6	CDS	56711	56914	.	-	0	Parent=mRNA6856;Name=orf06943;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06943;product=hypothetical protein
 ###
-11	prokka	gene	57204	57458	.	-	.	ID=gene6890;Name=cox3_2;gene=cox3_2;locus_tag=Q903MT_06944
-11	Prodigal:2.6	mRNA	57204	57458	.	-	0	ID=mRNA6857;Parent=gene6890;Name=cox3_2;gene=cox3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox3|lcl|JQ002659.1_prot_AEV55704.1_77;locus_tag=Q903MT_06944;product=cytochrome c oxidase subunit 3
-11	Prodigal:2.6	CDS	57204	57458	.	-	0	Parent=mRNA6857;Name=cox3_2;gene=cox3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox3|lcl|JQ002659.1_prot_AEV55704.1_77;locus_tag=Q903MT_06944;product=cytochrome c oxidase subunit 3
+11	prokka	gene	57204	57458	.	-	.	ID=gene6890;Name=ymfcox3_2;gene=cox3_2;locus_tag=Q903MT_06944
+11	Prodigal:2.6	mRNA	57204	57458	.	-	0	ID=mRNA6857;Parent=gene6890;Name=ymfcox3_2;gene=cox3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox3|lcl|JQ002659.1_prot_AEV55704.1_77;locus_tag=Q903MT_06944;product=cytochrome c oxidase subunit 3
+11	Prodigal:2.6	CDS	57204	57458	.	-	0	Parent=mRNA6857;Name=ymfcox3_2;gene=cox3_2;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:cox3|lcl|JQ002659.1_prot_AEV55704.1_77;locus_tag=Q903MT_06944;product=cytochrome c oxidase subunit 3
 ###
 11	prokka	gene	57485	57679	.	+	.	ID=gene6891;Name=orf06945;locus_tag=Q903MT_06945
 11	Prodigal:2.6	mRNA	57485	57679	.	+	0	ID=mRNA6858;Parent=gene6891;Name=orf06945;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06945;product=hypothetical protein
@@ -27838,13 +27838,13 @@
 12	Prodigal:2.6	mRNA	1528	1800	.	-	0	ID=mRNA6894;Parent=gene6927;Name=orf06981;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06981;product=hypothetical protein
 12	Prodigal:2.6	CDS	1528	1800	.	-	0	Parent=mRNA6894;Name=orf06981;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06981;product=hypothetical protein
 ###
-12	prokka	gene	2310	3254	.	+	.	ID=gene6928;Name=rpo_8;gene=rpo_8;locus_tag=Q903MT_06982
-12	Prodigal:2.6	mRNA	2310	3254	.	+	0	ID=mRNA6895;Parent=gene6928;Name=rpo_8;gene=rpo_8;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12936.1_9;locus_tag=Q903MT_06982;product=DNA-dependent RNA polymerase
-12	Prodigal:2.6	CDS	2310	3254	.	+	0	Parent=mRNA6895;Name=rpo_8;gene=rpo_8;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12936.1_9;locus_tag=Q903MT_06982;product=DNA-dependent RNA polymerase
+12	prokka	gene	2310	3254	.	+	.	ID=gene6928;Name=ymfrpo_8;gene=rpo_8;locus_tag=Q903MT_06982
+12	Prodigal:2.6	mRNA	2310	3254	.	+	0	ID=mRNA6895;Parent=gene6928;Name=ymfrpo_8;gene=rpo_8;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12936.1_9;locus_tag=Q903MT_06982;product=DNA-dependent RNA polymerase
+12	Prodigal:2.6	CDS	2310	3254	.	+	0	Parent=mRNA6895;Name=ymfrpo_8;gene=rpo_8;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|KX028885.1_prot_AOX12936.1_9;locus_tag=Q903MT_06982;product=DNA-dependent RNA polymerase
 ###
-12	prokka	gene	3296	4978	.	+	.	ID=gene6929;Name=rpo_9;gene=rpo_9;locus_tag=Q903MT_06983
-12	Prodigal:2.6	mRNA	3296	4978	.	+	0	ID=mRNA6896;Parent=gene6929;Name=rpo_9;gene=rpo_9;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_06983;product=DNA-dependent RNA polymerase
-12	Prodigal:2.6	CDS	3296	4978	.	+	0	Parent=mRNA6896;Name=rpo_9;gene=rpo_9;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_06983;product=DNA-dependent RNA polymerase
+12	prokka	gene	3296	4978	.	+	.	ID=gene6929;Name=ymfrpo_9;gene=rpo_9;locus_tag=Q903MT_06983
+12	Prodigal:2.6	mRNA	3296	4978	.	+	0	ID=mRNA6896;Parent=gene6929;Name=ymfrpo_9;gene=rpo_9;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_06983;product=DNA-dependent RNA polymerase
+12	Prodigal:2.6	CDS	3296	4978	.	+	0	Parent=mRNA6896;Name=ymfrpo_9;gene=rpo_9;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:rpo|lcl|NC_012119.1_prot_YP_002608352.1_16;locus_tag=Q903MT_06983;product=DNA-dependent RNA polymerase
 ###
 12	prokka	gene	5685	6002	.	+	.	ID=gene6930;Name=orf06984;locus_tag=Q903MT_06984
 12	Prodigal:2.6	mRNA	5685	6002	.	+	0	ID=mRNA6897;Parent=gene6930;Name=orf06984;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06984;product=hypothetical protein
