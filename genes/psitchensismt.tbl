@@ -961,10 +961,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene160
 125527	126048	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene161
 125527	126048	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene161
 			inference	similar to AA sequence:INSD:AJD85491.1
 127298	127654	gene
@@ -1064,10 +1064,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene177
 142905	142747	gene
-			gene	nad4
+			gene	ymfnad4
 			locus_tag	Q903MT_gene178
 142905	142747	CDS
-			product	NADH dehydrogenase subunit 4
+			product	putative NADH dehydrogenase subunit 4
 			protein_id	gnl|BCGSC|Q903MT_gene178
 			inference	similar to AA sequence:INSD:AGN74377.1
 145607	145419	gene
@@ -2309,17 +2309,17 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene384
 314717	314415	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene385
 314717	314415	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene385
 			inference	similar to AA sequence:INSD:AJD85491.1
 314992	314732	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene386
 314992	314732	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene386
 			inference	similar to AA sequence:INSD:AJD85491.1
 315562	315329	gene
@@ -2938,10 +2938,10 @@
 			inference	similar to AA sequence:INSD:AJP33537.1
 			exception	trans-splicing
 391204	391641	gene
-			gene	matR
+			gene	ymfmatR
 			locus_tag	Q903MT_gene488
 391204	391641	CDS
-			product	maturase
+			product	putative maturase
 			protein_id	gnl|BCGSC|Q903MT_gene488
 			inference	similar to AA sequence:INSD:AOH05915.1
 391910	392122	gene
@@ -3149,10 +3149,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene522
 427110	426619	gene
-			gene	rps4
+			gene	ymfrps4
 			locus_tag	Q903MT_gene523
 427110	426619	CDS
-			product	ribosomal protein S4
+			product	putative ribosomal protein S4
 			protein_id	gnl|BCGSC|Q903MT_gene523
 			inference	similar to AA sequence:INSD:AXY96123.1
 428157	427987	gene
@@ -3258,17 +3258,17 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene540
 439315	439614	gene
-			gene	atp8
+			gene	ymfatp8
 			locus_tag	Q903MT_gene541
 439315	439614	CDS
-			product	ATPase subunit 8
+			product	putative ATPase subunit 8
 			protein_id	gnl|BCGSC|Q903MT_gene541
 			inference	similar to AA sequence:RefSeq:YP_002608209.1
 439634	439747	gene
-			gene	atp8
+			gene	ymfatp8
 			locus_tag	Q903MT_gene542
 439634	439747	CDS
-			product	ATPase subunit 8
+			product	putative ATPase subunit 8
 			protein_id	gnl|BCGSC|Q903MT_gene542
 			inference	similar to AA sequence:INSD:AYV62987.1
 442774	442962	gene
@@ -3356,17 +3356,17 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene556
 455107	455724	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene557
 455107	455724	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene557
 			inference	similar to AA sequence:INSD:AEM43903.1
 456392	459205	gene
-			gene	dpo
+			gene	ymfdpo
 			locus_tag	Q903MT_gene558
 456392	459205	CDS
-			product	DNA polymerase
+			product	putative DNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene558
 			inference	similar to AA sequence:INSD:AFD29780.1
 459538	459245	gene
@@ -3396,10 +3396,10 @@
 			inference	similar to AA sequence:INSD:AJP33540.1
 			exception	trans-splicing
 462364	462711	gene
-			gene	rps3
+			gene	ymfrps3
 			locus_tag	Q903MT_gene563
 462364	462711	CDS
-			product	ribosomal protein S3
+			product	putative ribosomal protein S3
 			protein_id	gnl|BCGSC|Q903MT_gene563
 			inference	similar to AA sequence:RefSeq:YP_001315118.1
 465278	465466	gene
@@ -4098,7 +4098,7 @@
 			gene	ymfltrA
 			locus_tag	Q903MT_gene679
 562770	564200	CDS
-			product	group II intron reverse transcriptase
+			product	putative group II intron reverse transcriptase
 			protein_id	gnl|BCGSC|Q903MT_gene679
 			inference	similar to AA sequence:INSD:ART30625.1
 565391	565651	gene
@@ -5071,24 +5071,24 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene840
 675735	674950	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene841
 675735	674950	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene841
 			inference	similar to AA sequence:INSD:AXY63889.1
 <676490	675897	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene842
 <676490	675897	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene842
 			inference	similar to AA sequence:RefSeq:YP_009228127.1
 677063	676599	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene843
 677063	676599	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene843
 			inference	similar to AA sequence:INSD:AXY63889.1
 677390	677190	gene
@@ -6100,10 +6100,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene1011
 798029	797655	gene
-			gene	cox1
+			gene	ymfcox1
 			locus_tag	Q903MT_gene1012
 798029	797655	CDS
-			product	cytochrome c oxidase subunit 1
+			product	coxI intron2 ORF
 			protein_id	gnl|BCGSC|Q903MT_gene1012
 			inference	similar to AA sequence:INSD:AXY96104.1
 798726	798532	gene
@@ -6389,10 +6389,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene1059
 838741	838971	gene
-			gene	ccmFN
+			gene	ymfccmFN
 			locus_tag	Q903MT_gene1060
 838741	838971	CDS
-			product	cytochrome c biogenesis FN
+			product	putative cytochrome c biogenesis FN
 			protein_id	gnl|BCGSC|Q903MT_gene1060
 			inference	similar to AA sequence:RefSeq:YP_001661407.1
 839929	840177	gene
@@ -7524,10 +7524,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene1248
 980169	979993	gene
-			gene	atp9
+			gene	ymfatp9
 			locus_tag	Q903MT_gene1249
 980169	979993	CDS
-			product	ATPase subunit 9
+			product	putative ATPase subunit 9
 			protein_id	gnl|BCGSC|Q903MT_gene1249
 			inference	similar to AA sequence:RefSeq:NP_943666.1
 980758	980949	gene
@@ -8849,17 +8849,17 @@
 			product	tRNA-Met
 			note	anticodon:CAU
 1166918	1167106	gene
-			gene	nad2
+			gene	ymfnad2
 			locus_tag	Q903MT_gene1469
 1166918	1167106	CDS
-			product	NADH dehydrogenase subunit 2
+			product	putative NADH dehydrogenase subunit 2
 			protein_id	gnl|BCGSC|Q903MT_gene1469
 			inference	similar to AA sequence:INSD:AFQ93768.1
 1167308	1167589	gene
-			gene	nad2
+			gene	ymfnad2
 			locus_tag	Q903MT_gene1470
 1167308	1167589	CDS
-			product	NADH dehydrogenase subunit 2
+			product	putative NADH dehydrogenase subunit 2
 			protein_id	gnl|BCGSC|Q903MT_gene1470
 			inference	similar to AA sequence:RefSeq:YP_665650.1
 1167731	1167988	gene
@@ -9274,10 +9274,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene1538
 1223424	1223690	gene
-			gene	atp9
+			gene	ymfatp9
 			locus_tag	Q903MT_gene1539
 1223424	1223690	CDS
-			product	ATPase subunit 9
+			product	putative ATPase subunit 9
 			protein_id	gnl|BCGSC|Q903MT_gene1539
 			inference	similar to AA sequence:INSD:AEH42822.1
 1225433	1224351	gene
@@ -10596,10 +10596,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene1758
 1402529	1402774	gene
-			gene	rps3
+			gene	ymfrps3
 			locus_tag	Q903MT_gene1759
 1402529	1402774	CDS
-			product	ribosomal protein S3
+			product	putative ribosomal protein S3
 			protein_id	gnl|BCGSC|Q903MT_gene1759
 			inference	similar to AA sequence:RefSeq:YP_009241985.1
 1403033	1403218	gene
@@ -11660,7 +11660,7 @@
 			gene	ymfndhK
 			locus_tag	Q903MT_gene1935
 1534063	1533932	CDS
-			product	NADH-plastoquinone oxidoreductase subunit K
+			product	putative NADH-plastoquinone oxidoreductase subunit K
 			protein_id	gnl|BCGSC|Q903MT_gene1935
 			inference	similar to AA sequence:UniProtKB:P19050
 1534732	1534517	gene
@@ -11778,10 +11778,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene1954
 1545571	1545257	gene
-			gene	cox1
+			gene	ymfcox1
 			locus_tag	Q903MT_gene1955
 1545571	1545257	CDS
-			product	cytochrome c oxidase subunit 1
+			product	coxI intron2 ORF
 			protein_id	gnl|BCGSC|Q903MT_gene1955
 			inference	similar to AA sequence:RefSeq:YP_002000592.1
 1546482	1546159	gene
@@ -13701,10 +13701,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene2274
 160529	160227	gene
-			gene	rps4
+			gene	ymfrps4
 			locus_tag	Q903MT_gene2275
 160529	160227	CDS
-			product	ribosomal protein S4
+			product	putative ribosomal protein S4
 			protein_id	gnl|BCGSC|Q903MT_gene2275
 			inference	similar to AA sequence:INSD:AXY96123.1
 160728	160943	gene
@@ -14686,10 +14686,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene2438
 295259	294993	gene
-			gene	atp9
+			gene	ymfatp9
 			locus_tag	Q903MT_gene2439
 295259	294993	CDS
-			product	ATPase subunit 9
+			product	putative ATPase subunit 9
 			protein_id	gnl|BCGSC|Q903MT_gene2439
 			inference	similar to AA sequence:INSD:AEH42822.1
 296755	296363	gene
@@ -15328,10 +15328,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene2545
 385047	384787	gene
-			gene	rps11
+			gene	ymfrps11
 			locus_tag	Q903MT_gene2546
 385047	384787	CDS
-			product	ribosomal protein S11
+			product	putative ribosomal protein S11
 			protein_id	gnl|BCGSC|Q903MT_gene2546
 			inference	similar to AA sequence:INSD:AXV54274.1
 385595	385416	gene
@@ -16700,10 +16700,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene2773
 574861	575034	gene
-			gene	nad4
+			gene	ymfnad4
 			locus_tag	Q903MT_gene2774
 574861	575034	CDS
-			product	NADH dehydrogenase subunit 4
+			product	putative NADH dehydrogenase subunit 4
 			protein_id	gnl|BCGSC|Q903MT_gene2774
 			inference	similar to AA sequence:INSD:AXY96116.1
 575756	575965	gene
@@ -17764,10 +17764,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene2949
 697624	697364	gene
-			gene	atp8
+			gene	ymfatp8
 			locus_tag	Q903MT_gene2950
 697624	697364	CDS
-			product	ATPase subunit 8
+			product	putative ATPase subunit 8
 			protein_id	gnl|BCGSC|Q903MT_gene2950
 			inference	similar to AA sequence:INSD:ADO19901.1
 697891	698145	gene
@@ -19103,10 +19103,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene3171
 <114558	113035	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene3172
 <114558	113035	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene3172
 			inference	similar to AA sequence:INSD:AOX12937.1
 114885	114700	gene
@@ -19688,10 +19688,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene3268
 197471	197304	gene
-			gene	nad4L
+			gene	ymfnad4L
 			locus_tag	Q903MT_gene3269
 197471	197304	CDS
-			product	NADH dehydrogenase subunit 4L
+			product	putative NADH dehydrogenase subunit 4L
 			protein_id	gnl|BCGSC|Q903MT_gene3269
 			inference	similar to AA sequence:INSD:AOX12949.1
 198267	197581	gene
@@ -20122,10 +20122,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene3339
 254741	255139	gene
-			gene	atp9
+			gene	ymfatp9
 			locus_tag	Q903MT_gene3340
 254741	255139	CDS
-			product	ATPase subunit 9
+			product	putative ATPase subunit 9
 			protein_id	gnl|BCGSC|Q903MT_gene3340
 			inference	similar to AA sequence:INSD:AEH42822.1
 255396	255046	gene
@@ -20933,10 +20933,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene3474
 <360080	360286	gene
-			gene	sdh3
+			gene	ymfsdh3
 			locus_tag	Q903MT_gene3475
 <360080	360286	CDS
-			product	succinate dehydrogenase subunit 3
+			product	putative succinate dehydrogenase subunit 3
 			protein_id	gnl|BCGSC|Q903MT_gene3475
 			inference	similar to AA sequence:INSD:ALL55112.1
 360394	360822	gene
@@ -21233,10 +21233,10 @@
 			exception	trans-splicing
 408707	409757	intron
 410450	410626	gene
-			gene	nad7
+			gene	ymfnad7
 			locus_tag	Q903MT_gene3524
 410450	410626	CDS
-			product	NADH dehydrogenase subunit 7
+			product	putative NADH dehydrogenase subunit 7
 			protein_id	gnl|BCGSC|Q903MT_gene3524
 			inference	similar to AA sequence:INSD:ARR27499.1
 411217	411690	gene
@@ -21771,7 +21771,7 @@
 			gene	ymfltrA
 			locus_tag	Q903MT_gene3613
 478482	479075	CDS
-			product	group II intron reverse transcriptase
+			product	putative group II intron reverse transcriptase
 			protein_id	gnl|BCGSC|Q903MT_gene3613
 			inference	similar to AA sequence:INSD:ART30625.1
 479068	479409	gene
@@ -22954,10 +22954,10 @@
 			protein_id	gnl|BCGSC|Q903MT_gene3809
 			inference	similar to AA sequence:RefSeq:YP_009531513.1
 85208	84942	gene
-			gene	nad2
+			gene	ymfnad2
 			locus_tag	Q903MT_gene3810
 85208	84942	CDS
-			product	NADH dehydrogenase subunit 2
+			product	putative NADH dehydrogenase subunit 2
 			protein_id	gnl|BCGSC|Q903MT_gene3810
 			inference	similar to AA sequence:INSD:AUD57184.1
 86250	86086	gene
@@ -23480,7 +23480,7 @@
 			gene	ymfltrA
 			locus_tag	Q903MT_gene3897
 152399	152076	CDS
-			product	group II intron reverse transcriptase
+			product	putative group II intron reverse transcriptase
 			protein_id	gnl|BCGSC|Q903MT_gene3897
 			inference	similar to AA sequence:UniProtKB:P0A3U0
 153376	153846	gene
@@ -25200,31 +25200,31 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene4183
 369856	370239	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene4184
 369856	370239	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene4184
 			inference	similar to AA sequence:RefSeq:YP_002608352.1
 370297	372642	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene4185
 370297	372642	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene4185
 			inference	similar to AA sequence:INSD:AOX12936.1
 372645	373760	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene4186
 372645	373760	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene4186
 			inference	similar to AA sequence:INSD:AOX12937.1
 373773	374438	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene4187
 373773	374438	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene4187
 			inference	similar to AA sequence:INSD:AOX12937.1
 375413	375240	gene
@@ -25945,7 +25945,7 @@
 			gene	ymfchlN
 			locus_tag	Q903MT_gene4307
 466302	466625	CDS
-			product	photochlorophyllide reductase subunit N
+			product	putative photochlorophyllide reductase subunit N
 			protein_id	gnl|BCGSC|Q903MT_gene4307
 			inference	similar to AA sequence:UniProtKB:Q8DGH2
 466800	466558	gene
@@ -27870,10 +27870,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene4627
 169906	169631	gene
-			gene	sdh3
+			gene	ymfsdh3
 			locus_tag	Q903MT_gene4628
 169906	169631	CDS
-			product	succinate dehydrogenase subunit 3
+			product	putative succinate dehydrogenase subunit 3
 			protein_id	gnl|BCGSC|Q903MT_gene4628
 			inference	similar to AA sequence:RefSeq:YP_002608354.1
 170643	170389	gene
@@ -30195,10 +30195,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5013
 79115	79384	gene
-			gene	atpE
+			gene	ymfatpE
 			locus_tag	Q903MT_gene5014
 79115	79384	CDS
-			product	ATP synthase CF1 epsilon subunit
+			product	putative ATP synthase CF1 epsilon subunit
 			protein_id	gnl|BCGSC|Q903MT_gene5014
 			inference	similar to AA sequence:RefSeq:YP_008992276.1
 79565	79493	gene
@@ -31059,10 +31059,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5155
 190296	190580	gene
-			gene	cox1
+			gene	ymfcox1
 			locus_tag	Q903MT_gene5156
 190296	190580	CDS
-			product	cytochrome c oxidase subunit 1
+			product	coxI intron2 ORF
 			protein_id	gnl|BCGSC|Q903MT_gene5156
 			inference	similar to AA sequence:INSD:AXY96104.1
 190859	190680	gene
@@ -31297,7 +31297,7 @@
 			gene	ymfpetA
 			locus_tag	Q903MT_gene5195
 219648	220049	CDS
-			product	cytochrome f
+			product	putative cytochrome f
 			protein_id	gnl|BCGSC|Q903MT_gene5195
 			inference	similar to AA sequence:RefSeq:YP_002608340.1
 220417	220686	gene
@@ -31607,10 +31607,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5246
 263258	262866	gene
-			gene	nad2
+			gene	ymfnad2
 			locus_tag	Q903MT_gene5247
 263258	262866	CDS
-			product	NADH dehydrogenase subunit 2
+			product	putative NADH dehydrogenase subunit 2
 			protein_id	gnl|BCGSC|Q903MT_gene5247
 			inference	similar to AA sequence:INSD:AXY96112.1
 264172	263921	gene
@@ -31770,10 +31770,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5273
 278016	278603	gene
-			gene	rps7
+			gene	ymfrps7
 			locus_tag	Q903MT_gene5274
 278016	278603	CDS
-			product	ribosomal protein S7
+			product	putative ribosomal protein S7
 			protein_id	gnl|BCGSC|Q903MT_gene5274
 			inference	similar to AA sequence:INSD:AGN74380.1
 280641	280835	gene
@@ -32450,10 +32450,10 @@
 			inference	similar to AA sequence:INSD:AJP33547.1
 			note	putative alternative GUG start codon
 361645	362001	gene
-			gene	nad3
+			gene	ymfnad3
 			locus_tag	Q903MT_gene5384
 361645	362001	CDS
-			product	NADH dehydrogenase subunit 3
+			product	putative NADH dehydrogenase subunit 3
 			protein_id	gnl|BCGSC|Q903MT_gene5384
 			inference	similar to AA sequence:RefSeq:YP_009242006.1
 362049	362588	gene
@@ -32735,10 +32735,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5430
 20282	19824	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene5431
 20282	19824	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene5431
 			inference	similar to AA sequence:INSD:AXY63889.1
 20947	20732	gene
@@ -33670,7 +33670,7 @@
 			gene	ymfltrA
 			locus_tag	Q903MT_gene5586
 137898	137440	CDS
-			product	group II intron reverse transcriptase
+			product	putative group II intron reverse transcriptase
 			protein_id	gnl|BCGSC|Q903MT_gene5586
 			inference	similar to AA sequence:INSD:ART30625.1
 138089	137883	gene
@@ -34316,10 +34316,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5693
 229389	229703	gene
-			gene	nad6
+			gene	ymfnad6
 			locus_tag	Q903MT_gene5694
 229389	229703	CDS
-			product	NADH dehydrogenase subunit 6
+			product	putative NADH dehydrogenase subunit 6
 			protein_id	gnl|BCGSC|Q903MT_gene5694
 			inference	similar to AA sequence:RefSeq:YP_002608398.1
 231078	230983	gene
@@ -35492,7 +35492,7 @@
 			gene	ymfltrA
 			locus_tag	Q903MT_gene5889
 32773	32282	CDS
-			product	group II intron reverse transcriptase
+			product	putative group II intron reverse transcriptase
 			protein_id	gnl|BCGSC|Q903MT_gene5889
 			inference	similar to AA sequence:INSD:ART30625.1
 33761	33663	gene
@@ -36084,10 +36084,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene5987
 102095	101949	gene
-			gene	nad6
+			gene	ymfnad6
 			locus_tag	Q903MT_gene5988
 102095	101949	CDS
-			product	NADH dehydrogenase subunit 6
+			product	putative NADH dehydrogenase subunit 6
 			protein_id	gnl|BCGSC|Q903MT_gene5988
 			inference	similar to AA sequence:INSD:AXY96127.1
 102304	102113	gene
@@ -36331,10 +36331,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6028
 138346	139536	gene
-			gene	psaA
+			gene	ymfpsaA
 			locus_tag	Q903MT_gene6029
 138346	139536	CDS
-			product	Photosystem I P700 chlorophyll a apoprotein A1
+			product	putative Photosystem I P700 chlorophyll a apoprotein A1
 			protein_id	gnl|BCGSC|Q903MT_gene6029
 			inference	similar to AA sequence:INSD:AXY63889.1
 139813	139646	gene
@@ -36470,10 +36470,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6051
 160032	160208	gene
-			gene	atp9
+			gene	ymfatp9
 			locus_tag	Q903MT_gene6052
 160032	160208	CDS
-			product	ATPase subunit 9
+			product	putative ATPase subunit 9
 			protein_id	gnl|BCGSC|Q903MT_gene6052
 			inference	similar to AA sequence:RefSeq:NP_943666.1
 160511	160230	gene
@@ -37545,10 +37545,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6228
 302463	302711	gene
-			gene	atpF
+			gene	ymfatpF
 			locus_tag	Q903MT_gene6229
 302463	302711	CDS
-			product	ATP synthase CF0 B subunit
+			product	putative ATP synthase CF0 B subunit
 			protein_id	gnl|BCGSC|Q903MT_gene6229
 			inference	similar to AA sequence:UniProtKB:Q8DLP5
 303319	303128	gene
@@ -38055,10 +38055,10 @@
 			product	tRNA-Pro
 			note	anticodon:AGG
 29237	28842	gene
-			gene	ccmB
+			gene	ymfccmB
 			locus_tag	Q903MT_gene6312
 29237	28842	CDS
-			product	cytochrome c biogenesis B
+			product	putative cytochrome c biogenesis B
 			protein_id	gnl|BCGSC|Q903MT_gene6312
 			inference	similar to AA sequence:INSD:AIY51504.1
 30249	30413	gene
@@ -38410,10 +38410,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6370
 70093	69623	gene
-			gene	ccmC
+			gene	ymfccmC
 			locus_tag	Q903MT_gene6371
 70093	69623	CDS
-			product	cytochrome c biogenesis C
+			product	putative cytochrome c biogenesis C
 			protein_id	gnl|BCGSC|Q903MT_gene6371
 			inference	similar to AA sequence:RefSeq:YP_009167263.1
 70611	70204	gene
@@ -40365,11 +40365,11 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6693
 <74867	73522	gene
-			gene	nad5
+			gene	ymfnad5
 			locus_tag	Q903MT_gene6694
 <74867	74610	CDS
 73671	73522
-			product	NADH dehydrogenase subunit 5
+			product	putative NADH dehydrogenase subunit 5
 			protein_id	gnl|BCGSC|Q903MT_gene6694
 			inference	similar to AA sequence:INSD:ARR27553.1
 74609	73672	intron
@@ -40578,10 +40578,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6728
 103001	102831	gene
-			gene	atpB
+			gene	ymfatpB
 			locus_tag	Q903MT_gene6729
 103001	102831	CDS
-			product	ATP synthase CF1 beta subunit
+			product	putative ATP synthase CF1 beta subunit
 			protein_id	gnl|BCGSC|Q903MT_gene6729
 			inference	similar to AA sequence:INSD:AXV54284.1
 103363	103019	gene
@@ -41546,10 +41546,10 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6889
 57458	57204	gene
-			gene	cox3
+			gene	ymfcox3
 			locus_tag	Q903MT_gene6890
 57458	57204	CDS
-			product	cytochrome c oxidase subunit 3
+			product	putative cytochrome c oxidase subunit 3
 			protein_id	gnl|BCGSC|Q903MT_gene6890
 			inference	similar to AA sequence:INSD:AEV55704.1
 57485	57679	gene
@@ -41776,17 +41776,17 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6927
 2310	3254	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene6928
 2310	3254	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene6928
 			inference	similar to AA sequence:INSD:AOX12936.1
 3296	4978	gene
-			gene	rpo
+			gene	ymfrpo
 			locus_tag	Q903MT_gene6929
 3296	4978	CDS
-			product	RNA polymerase
+			product	putative RNA polymerase
 			protein_id	gnl|BCGSC|Q903MT_gene6929
 			inference	similar to AA sequence:RefSeq:YP_002608352.1
 5685	6002	gene
