@@ -413,10 +413,10 @@
 01	Prodigal:2.6	mRNA	73925	74194	.	+	0	ID=mRNA100;Parent=gene100;Name=orf00100;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00100;product=hypothetical protein
 01	Prodigal:2.6	CDS	73925	74194	.	+	0	Parent=mRNA100;Name=orf00100;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00100;product=hypothetical protein
 ###
-01	maker	gene	75074	75583	.	-	.	ID=gene101;Name=sdh3|lcl|NC_012119.1_prot_YP_002608354.1_18-gene
-01	maker	mRNA	75074	75583	10.7	-	.	ID=mRNA101;Parent=gene101;Name=sdh3|lcl|NC_012119.1_prot_YP_002608354.1_18;_AED=0.03;_eAED=0.03;_QI=0|-1|0|1|-1|0|1|0|169
-01	maker	exon	75074	75583	.	-	.	Parent=mRNA101
-01	maker	CDS	75074	75583	.	-	0	Parent=mRNA101
+01	manual	gene	75074	75583	.	-	.	ID=gene101;Name=sdh3
+01	manual	mRNA	75074	75583	.	-	.	ID=mRNA101;Parent=gene101;Name=sdh3;inference=similar to AA sequence:INSD:KUM49920.1
+01	manual	exon	75074	75583	.	-	.	Parent=mRNA101
+01	manual	CDS	75074	75583	.	-	0	Parent=mRNA101
 ###
 01	aragorn	gene	75608	75682	.	-	.	ID=gene102;Name=trnP-UGG;product=tRNA-Pro
 01	aragorn	tRNA	75608	75682	.	-	.	ID=tRNA1;Parent=gene102;Name=trnP-UGG;product=tRNA-Pro
@@ -1170,19 +1170,19 @@
 01	Prodigal:2.6	mRNA	242624	242929	.	+	0	ID=mRNA288;Parent=gene289;Name=orf00289;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00289;product=hypothetical protein
 01	Prodigal:2.6	CDS	242624	242929	.	+	0	Parent=mRNA288;Name=orf00289;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00289;product=hypothetical protein
 ###
-01	maker	gene	243005	243487	.	-	.	ID=gene290;Name=rpl10|lcl|JF973314.1_prot_AEH99666.1_17-gene
-01	maker	mRNA	243005	243487	11.8	-	.	ID=mRNA289;Parent=gene290;Name=rpl10|lcl|JF973314.1_prot_AEH99666.1_17;_AED=0.00;_eAED=0.00;_QI=0|-1|0|1|-1|0|1|0|160
-01	maker	exon	243005	243487	.	-	.	Parent=mRNA289
-01	maker	CDS	243005	243487	.	-	0	Parent=mRNA289
+01	manual	gene	243005	243487	.	-	.	ID=gene290;Name=rpl10
+01	manual	mRNA	243005	243487	.	-	.	ID=mRNA289;Parent=gene290;Name=rpl10;inference=similar to AA sequence:INSD:AJP33546.1
+01	manual	exon	243005	243487	.	-	.	Parent=mRNA289
+01	manual	CDS	243005	243487	.	-	0	Parent=mRNA289
 ###
 01	prokka	gene	243723	243917	.	+	.	ID=gene291;Name=orf00291;locus_tag=Q903MT_00291
 01	Prodigal:2.6	mRNA	243723	243917	.	+	0	ID=mRNA290;Parent=gene291;Name=orf00291;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00291;product=hypothetical protein
 01	Prodigal:2.6	CDS	243723	243917	.	+	0	Parent=mRNA290;Name=orf00291;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00291;product=hypothetical protein
 ###
-01	maker	gene	244166	244885	.	-	.	ID=gene292;Name=ccmC|lcl|NC_039660.1_prot_YP_009526590.1_77-gene
-01	maker	mRNA	244166	244885	18.8	-	.	ID=mRNA291;Parent=gene292;Name=ccmC|lcl|NC_039660.1_prot_YP_009526590.1_77;_AED=0.14;_eAED=0.14;_QI=0|-1|0|1|-1|0|1|0|239
-01	maker	exon	244166	244885	.	-	.	Parent=mRNA291
-01	maker	CDS	244166	244885	.	-	0	Parent=mRNA291
+01	manual	gene	244166	244885	.	-	.	ID=gene292;Name=ccmC
+01	manual	mRNA	244166	244885	.	-	.	ID=mRNA291;Parent=gene292;Name=ccmC;inference=similar to AA sequence:INSD:AJP33528.1
+01	manual	exon	244166	244885	.	-	.	Parent=mRNA291
+01	manual	CDS	244166	244885	.	-	0	Parent=mRNA291
 ###
 01	prokka	gene	245584	245784	.	+	.	ID=gene293;Name=orf00293;locus_tag=Q903MT_00293
 01	Prodigal:2.6	mRNA	245584	245784	.	+	0	ID=mRNA292;Parent=gene293;Name=orf00293;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_00293;product=hypothetical protein
@@ -6554,10 +6554,10 @@
 01	Prodigal:2.6	mRNA	1297392	1297724	.	-	0	ID=mRNA1620;Parent=gene1629;Name=orf01641;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01641;product=hypothetical protein
 01	Prodigal:2.6	CDS	1297392	1297724	.	-	0	Parent=mRNA1620;Name=orf01641;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01641;product=hypothetical protein
 ###
-01	maker	gene	1297738	1298250	.	+	.	ID=gene1630;Name=rps11|lcl|NC_010303.1_prot_YP_001661419.1_26-gene
-01	maker	mRNA	1297738	1298250	26.3	+	.	ID=mRNA1621;Parent=gene1630;Name=rps11|lcl|NC_010303.1_prot_YP_001661419.1_26;_AED=0.05;_eAED=0.05;_QI=0|-1|0|1|-1|0|1|0|170
-01	maker	exon	1297738	1298250	.	+	.	Parent=mRNA1621
-01	maker	CDS	1297738	1298250	.	+	0	Parent=mRNA1621
+01	manual	gene	1297738	1298250	.	+	.	ID=gene1630;Name=rps11
+01	manual	mRNA	1297738	1298250	.	+	.	ID=mRNA1621;Parent=gene1630;Name=rps11;inference=similar to AA sequence:INSD:AJP33551.1
+01	manual	exon	1297738	1298250	.	+	.	Parent=mRNA1621
+01	manual	CDS	1297738	1298250	.	+	0	Parent=mRNA1621
 ###
 01	prokka	gene	1298998	1299174	.	+	.	ID=gene1631;Name=orf01644;locus_tag=Q903MT_01644
 01	Prodigal:2.6	mRNA	1298998	1299174	.	+	0	ID=mRNA1622;Parent=gene1631;Name=orf01644;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_01644;product=hypothetical protein
@@ -8839,10 +8839,10 @@
 02	Prodigal:2.6	mRNA	96656	96817	.	+	0	ID=mRNA2189;Parent=gene2199;Name=orf02214;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02214;product=hypothetical protein
 02	Prodigal:2.6	CDS	96656	96817	.	+	0	Parent=mRNA2189;Name=orf02214;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02214;product=hypothetical protein
 ###
-02	maker	gene	98378	98875	.	+	.	ID=gene2200;Name=nad4L|lcl|KU189740.1_prot_AML80593.1_16-gene
-02	maker	mRNA	98378	98875	10.4	+	.	ID=mRNA2190;Parent=gene2200;Name=nad4L|lcl|KU189740.1_prot_AML80593.1_16;_AED=0.23;_eAED=0.23;_QI=0|-1|0|1|-1|0|1|0|165
-02	maker	exon	98378	98875	.	+	.	Parent=mRNA2190
-02	maker	CDS	98378	98875	.	+	0	Parent=mRNA2190
+02	manual	gene	98378	98875	.	+	.	ID=gene2200;Name=nad4L
+02	manual	mRNA	98378	98875	.	+	.	ID=mRNA2190;Parent=gene2200;Name=nad4L;inference=similar to AA sequence:INSD:KUM50609.1
+02	manual	exon	98378	98875	.	+	.	Parent=mRNA2190
+02	manual	CDS	98378	98875	.	+	0	Parent=mRNA2190
 ###
 02	prokka	gene	99021	99455	.	-	.	ID=gene2201;Name=orf02216;locus_tag=Q903MT_02216
 02	Prodigal:2.6	mRNA	99021	99455	.	-	0	ID=mRNA2191;Parent=gene2201;Name=orf02216;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02216;product=hypothetical protein
@@ -11494,10 +11494,10 @@
 02	Prodigal:2.6	mRNA	631539	631730	.	-	0	ID=mRNA2847;Parent=gene2861;Name=orf02878;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02878;product=hypothetical protein
 02	Prodigal:2.6	CDS	631539	631730	.	-	0	Parent=mRNA2847;Name=orf02878;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02878;product=hypothetical protein
 ###
-02	maker	gene	632486	634009	.	-	.	ID=gene2862;Name=atp1-b|lcl|DQ984517.1_prot_ABI74636.1_22-gene
-02	maker	mRNA	632486	634009	18.5	-	.	ID=mRNA2848;Parent=gene2862;Name=atp1-b|lcl|DQ984517.1_prot_ABI74636.1_22;_AED=0.02;_eAED=0.02;_QI=0|-1|0|1|-1|0|1|0|507
-02	maker	exon	632486	634009	.	-	.	Parent=mRNA2848
-02	maker	CDS	632486	634009	.	-	0	Parent=mRNA2848
+02	manual	gene	632486	634009	.	-	.	ID=gene2862;Name=atp1
+02	manual	mRNA	632486	634009	.	-	.	ID=mRNA2848;Parent=gene2862;Name=atp1;inference=similar to AA sequence:INSD:AJP33522.1
+02	manual	exon	632486	634009	.	-	.	Parent=mRNA2848
+02	manual	CDS	632486	634009	.	-	0	Parent=mRNA2848
 ###
 02	prokka	gene	634460	634666	.	-	.	ID=gene2863;Name=orf02880;locus_tag=Q903MT_02880
 02	Prodigal:2.6	mRNA	634460	634666	.	-	0	ID=mRNA2849;Parent=gene2863;Name=orf02880;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_02880;product=hypothetical protein
@@ -12544,10 +12544,10 @@
 03	Prodigal:2.6	mRNA	73017	73190	.	+	0	ID=mRNA3109;Parent=gene3123;Name=orf03142;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03142;product=hypothetical protein
 03	Prodigal:2.6	CDS	73017	73190	.	+	0	Parent=mRNA3109;Name=orf03142;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03142;product=hypothetical protein
 ###
-03	maker	gene	75225	75944	.	-	.	ID=gene3124;Name=rps2|lcl|GU985444.1_prot_ADE08092.1_41-gene
-03	maker	mRNA	75225	75944	9.9	-	.	ID=mRNA3110;Parent=gene3124;Name=rps2|lcl|GU985444.1_prot_ADE08092.1_41;_AED=0.01;_eAED=0.01;_QI=0|-1|0|1|-1|0|1|0|239
-03	maker	exon	75225	75944	.	-	.	Parent=mRNA3110
-03	maker	CDS	75225	75944	.	-	0	Parent=mRNA3110
+03	manual	gene	75225	75944	.	-	.	ID=gene3124;Name=rps2
+03	manual	mRNA	75225	75944	.	-	.	ID=mRNA3110;Parent=gene3124;Name=rps2;inference=similar to AA sequence:RefSeq:YP_009531498.1
+03	manual	exon	75225	75944	.	-	.	Parent=mRNA3110
+03	manual	CDS	75225	75944	.	-	0	Parent=mRNA3110
 ###
 03	prokka	gene	77639	77845	.	+	.	ID=gene3125;Name=orf03145;locus_tag=Q903MT_03145
 03	Prodigal:2.6	mRNA	77639	77845	.	+	0	ID=mRNA3111;Parent=gene3125;Name=orf03145;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03145;product=hypothetical protein
@@ -14954,10 +14954,10 @@
 04	Prodigal:2.6	mRNA	20534	20773	.	-	0	ID=mRNA3707;Parent=gene3722;Name=orf03745;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03745;product=hypothetical protein
 04	Prodigal:2.6	CDS	20534	20773	.	-	0	Parent=mRNA3707;Name=orf03745;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03745;product=hypothetical protein
 ###
-04	maker	gene	21499	21747	.	+	.	ID=gene3723;Name=atp9|lcl|MF401630.1_prot_ASZ80275.1_36-gene
-04	maker	mRNA	21499	21747	16.5	+	.	ID=mRNA3708;Parent=gene3723;Name=atp9|lcl|MF401630.1_prot_ASZ80275.1_36;_AED=0.18;_eAED=0.18;_QI=0|-1|0|1|-1|0|1|0|82
-04	maker	exon	21499	21747	.	+	.	Parent=mRNA3708
-04	maker	CDS	21499	21747	.	+	0	Parent=mRNA3708
+04	manual	gene	21499	21747	.	+	.	ID=gene3723;Name=atp9
+04	manual	mRNA	21499	21747	.	+	.	ID=mRNA3708;Parent=gene3723;Name=atp9;inference=similar to AA sequence:INSD:AJP33526.1
+04	manual	exon	21499	21747	.	+	.	Parent=mRNA3708
+04	manual	CDS	21499	21747	.	+	0	Parent=mRNA3708
 ###
 04	prokka	gene	21902	22126	.	+	.	ID=gene3724;Name=orf03747;locus_tag=Q903MT_03747
 04	Prodigal:2.6	mRNA	21902	22126	.	+	0	ID=mRNA3709;Parent=gene3724;Name=orf03747;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03747;product=hypothetical protein
@@ -15299,10 +15299,10 @@
 04	Prodigal:2.6	mRNA	83527	83820	.	-	0	ID=mRNA3793;Parent=gene3808;Name=orf03831;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03831;product=hypothetical protein
 04	Prodigal:2.6	CDS	83527	83820	.	-	0	Parent=mRNA3793;Name=orf03831;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_03831;product=hypothetical protein
 ###
-04	maker	gene	84177	84836	.	-	.	ID=gene3809;Name=ccmB|lcl|NC_001660.1_prot_NP_054465.1_71-gene
-04	maker	mRNA	84177	84836	15.3	-	.	ID=mRNA3794;Parent=gene3809;Name=ccmB|lcl|NC_001660.1_prot_NP_054465.1_71;_AED=0.02;_eAED=0.02;_QI=0|-1|0|1|-1|0|1|0|219
-04	maker	exon	84177	84836	.	-	.	Parent=mRNA3794
-04	maker	CDS	84177	84836	.	-	0	Parent=mRNA3794
+04	manual	gene	84177	84836	.	-	.	ID=gene3809;Name=ccmB
+04	manual	mRNA	84177	84836	.	-	.	ID=mRNA3794;Parent=gene3809;Name=ccmB;inference=similar to AA sequence:RefSeq:YP_009531513.1
+04	manual	exon	84177	84836	.	-	.	Parent=mRNA3794
+04	manual	CDS	84177	84836	.	-	0	Parent=mRNA3794
 ###
 04	prokka	gene	84942	85208	.	-	.	ID=gene3810;Name=nad2_5;gene=nad2_5;locus_tag=Q903MT_03833
 04	Prodigal:2.6	mRNA	84942	85208	.	-	0	ID=mRNA3795;Parent=gene3810;Name=nad2_5;gene=nad2_5;inference=ab initio prediction:Prodigal:2.6,similar to AA sequence:cds_aa.prokka.fa:nad2|lcl|KY889142.1_prot_AUD57184.1_1;locus_tag=Q903MT_03833;product=NADH dehydrogenase subunit 2
@@ -20087,10 +20087,10 @@
 06	Prodigal:2.6	mRNA	71828	72019	.	-	0	ID=mRNA4983;Parent=gene5004;Name=orf05027;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05027;product=hypothetical protein
 06	Prodigal:2.6	CDS	71828	72019	.	-	0	Parent=mRNA4983;Name=orf05027;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05027;product=hypothetical protein
 ###
-06	maker	gene	73275	73694	.	-	.	ID=gene5005;Name=rps13|lcl|NC_010303.1_prot_YP_001661427.1_34-gene
-06	maker	mRNA	73275	73694	23.5	-	.	ID=mRNA4984;Parent=gene5005;Name=rps13|lcl|NC_010303.1_prot_YP_001661427.1_34;_AED=0.01;_eAED=0.01;_QI=0|-1|0|1|-1|0|1|0|139
-06	maker	exon	73275	73694	.	-	.	Parent=mRNA4984
-06	maker	CDS	73275	73694	.	-	0	Parent=mRNA4984
+06	manual	gene	73275	73694	.	-	.	ID=gene5005;Name=rps13
+06	manual	mRNA	73275	73694	.	-	.	ID=mRNA4984;Parent=gene5005;Name=rps13;inference=similar to AA sequence:INSD:AJP33553.1
+06	manual	exon	73275	73694	.	-	.	Parent=mRNA4984
+06	manual	CDS	73275	73694	.	-	0	Parent=mRNA4984
 ###
 06	prokka	gene	73734	73916	.	+	.	ID=gene5006;Name=orf05029;locus_tag=Q903MT_05029
 06	Prodigal:2.6	mRNA	73734	73916	.	+	0	ID=mRNA4985;Parent=gene5006;Name=orf05029;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05029;product=hypothetical protein
@@ -21629,10 +21629,10 @@
 06	maker	exon	361645	362001	.	+	.	Parent=mRNA5361
 06	maker	CDS	361645	362001	.	+	0	Parent=mRNA5361
 ###
-06	maker	gene	362049	362588	.	+	.	ID=gene5385;Name=rps12|lcl|KY702722.1_prot_ASN73927.1_4-gene
-06	maker	mRNA	362049	362588	14	+	.	ID=mRNA5362;Parent=gene5385;Name=rps12|lcl|KY702722.1_prot_ASN73927.1_4;_AED=0.42;_eAED=0.42;_QI=0|-1|0|1|-1|0|1|0|179
-06	maker	exon	362049	362588	.	+	.	Parent=mRNA5362
-06	maker	CDS	362049	362588	.	+	0	Parent=mRNA5362
+06	manual	gene	362049	362588	.	+	.	ID=gene5385;Name=rps12
+06	manual	mRNA	362049	362588	.	+	.	ID=mRNA5362;Parent=gene5385;Name=rps12;inference=similar to AA sequence:INSD:KUM48432.1
+06	manual	exon	362049	362588	.	+	.	Parent=mRNA5362
+06	manual	CDS	362049	362588	.	+	0	Parent=mRNA5362
 ###
 06	prokka	gene	362794	363027	.	+	.	ID=gene5386;Name=orf05418;locus_tag=Q903MT_05418
 06	Prodigal:2.6	mRNA	362794	363027	.	+	0	ID=mRNA5363;Parent=gene5386;Name=orf05418;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05418;product=hypothetical protein
@@ -22214,15 +22214,15 @@
 07	Prodigal:2.6	mRNA	97670	97885	.	+	0	ID=mRNA5506;Parent=gene5530;Name=orf05562;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05562;product=hypothetical protein
 07	Prodigal:2.6	CDS	97670	97885	.	+	0	Parent=mRNA5506;Name=orf05562;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05562;product=hypothetical protein
 ###
-07	maker	gene	98056	98631	.	+	.	ID=gene5531;Name=rpl5|lcl|MF683210.1_prot_AXV54346.1_74-gene
-07	maker	mRNA	98056	98631	15.5	+	.	ID=mRNA5507;Parent=gene5531;Name=rpl5|lcl|MF683210.1_prot_AXV54346.1_74;_AED=0.20;_eAED=0.20;_QI=0|-1|0|1|-1|0|1|0|191
-07	maker	exon	98056	98631	.	+	.	Parent=mRNA5507
-07	maker	CDS	98056	98631	.	+	0	Parent=mRNA5507
+07	manual	gene	98056	98631	.	+	.	ID=gene5531;Name=rpl5
+07	manual	mRNA	98056	98631	.	+	.	ID=mRNA5507;Parent=gene5531;Name=rpl5;inference=similar to AA sequence:INSD:AJP33549.1
+07	manual	exon	98056	98631	.	+	.	Parent=mRNA5507
+07	manual	CDS	98056	98631	.	+	0	Parent=mRNA5507
 ###
-07	maker	gene	98636	98938	.	+	.	ID=gene5532;Name=rps14|lcl|MF579563.1_prot_ASZ83465.1_11-gene
-07	maker	mRNA	98636	98938	20.7	+	.	ID=mRNA5508;Parent=gene5532;Name=rps14|lcl|MF579563.1_prot_ASZ83465.1_11;_AED=0.34;_eAED=0.35;_QI=0|-1|0|1|-1|0|1|0|100
-07	maker	exon	98636	98938	.	+	.	Parent=mRNA5508
-07	maker	CDS	98636	98938	.	+	0	Parent=mRNA5508
+07	manual	gene	98636	98938	.	+	.	ID=gene5532;Name=rps14
+07	manual	mRNA	98636	98938	.	+	.	ID=mRNA5508;Parent=gene5532;Name=rps14;inference=similar to AA sequence:RefSeq:YP_009531527.1
+07	manual	exon	98636	98938	.	+	.	Parent=mRNA5508
+07	manual	CDS	98636	98938	.	+	0	Parent=mRNA5508
 ###
 07	prokka	gene	99132	99350	.	+	.	ID=gene5533;Name=orf05565;locus_tag=Q903MT_05565
 07	Prodigal:2.6	mRNA	99132	99350	.	+	0	ID=mRNA5509;Parent=gene5533;Name=orf05565;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_05565;product=hypothetical protein
@@ -26654,11 +26654,11 @@
 10	Prodigal:2.6	mRNA	14703	14855	.	-	0	ID=mRNA6600;Parent=gene6633;Name=orf06687;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06687;product=hypothetical protein
 10	Prodigal:2.6	CDS	14703	14855	.	-	0	Parent=mRNA6600;Name=orf06687;inference=ab initio prediction:Prodigal:2.6;locus_tag=Q903MT_06687;product=hypothetical protein
 ###
-10	manual	gene	15302	16481	.	-	.	ID=gene6634;Name=rpl2
-10	manual	mRNA	15302	16481	.	-	.	ID=mRNA6601;Parent=gene6634;Name=rpl2;inference=similar to AA sequence:RefSeq:YP_009306511.1
+10	manual	gene	15302	16481	.	-	.	ID=gene6634;Name=ymfrpl2
+10	manual	mRNA	15302	16481	.	-	.	ID=mRNA6601;Parent=gene6634;Name=ymfrpl2;inference=similar to AA sequence:RefSeq:YP_009306511.1
 10	manual	exon	15302	15492	.	-	.	Parent=mRNA6601
 10	manual	CDS	15302	15492	.	-	2	Parent=mRNA6601
-10	manual	intron	15493	16159	.	-	.	Parent=mRNA6601;Name=rpl2_intron1
+10	manual	intron	15493	16159	.	-	.	Parent=mRNA6601;Name=ymfrpl2_intron1
 10	manual	exon	16160	16481	.	-	.	Parent=mRNA6601
 10	manual	CDS	16160	16481	.	-	0	Parent=mRNA6601
 ###
