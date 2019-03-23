@@ -7,7 +7,7 @@ Submit-block ::= {
         initials "S.D.",
       },
       affil std {
-        affil "BC Cancer Agency Genome Sciences Centre",
+        affil "BC Cancer Genome Sciences Centre",
         div "Bioinformatics",
         city "Vancouver",
         sub "BC",
@@ -32,6 +32,13 @@ Submit-block ::= {
         },
         {
           name name {
+            last "Coombe",
+            first "Lauren",
+            initials "L.",
+          }
+        },
+        {
+          name name {
             last "Warren",
             first "Rene",
             initials "R.",
@@ -39,37 +46,23 @@ Submit-block ::= {
         },
         {
           name name {
-            last "Gibb",
-            first "Ewan",
-            initials "E.",
-          }
-        },
-        {
-          name name {
-            last "Vandervalk",
-            first "Benjamin",
-            initials "B.P.",
-          }
-        },
-        {
-          name name {
-            last "Mohamadi",
-            first "Hamid",
+            last "Kirk",
+            first "Heather",
             initials "H.",
           }
         },
         {
           name name {
-            last "Chu",
-            first "Justin",
-            initials "J.",
+            last "Trinh",
+            first "Eva",
+            initials "E.",
           }
         },
         {
           name name {
-            last "Raymond",
-            first "Anthony",
-            initials "A.",
+            last "McLeod",
+            first "Tina",
+            initials "T.",
           }
         },
         {
@@ -81,23 +74,23 @@ Submit-block ::= {
         },
         {
           name name {
+            last "Pandoh",
+            first "Pawan",
+            initials "P.",
+          }
+        },
+        {
+          name name {
+            last "Zhao",
+            first "Yongjun",
+            initials "Y.",
+          }
+        },
+        {
+          name name {
             last "Coope",
             first "Robin",
             initials "R.",
-          }
-        },
-        {
-          name name {
-            last "Wildung",
-            first "Mark",
-            initials "M.R.",
-          }
-        },
-        {
-          name name {
-            last "Ritland",
-            first "Carol",
-            initials "C.E.",
           }
         },
         {
@@ -109,16 +102,16 @@ Submit-block ::= {
         },
         {
           name name {
-            last "Jones",
-            first "Steven",
-            initials "S.J.M.",
+            last "Bohlmann",
+            first "Joerg",
+            initials "J.C.",
           }
         },
         {
           name name {
-            last "Bohlmann",
-            first "Joerg",
-            initials "J.C.",
+            last "Jones",
+            first "Steven",
+            initials "S.J.M.",
           }
         },
         {
@@ -127,13 +120,10 @@ Submit-block ::= {
             first "Inanc",
             initials "I.",
           }
-        },
-        {
-          name consortium "SMarTForests"
         }
       },
       affil std {
-        affil "BC Cancer Agency Genome Sciences Centre",
+        affil "BC Cancer Genome Sciences Centre",
         div "Bioinformatics",
         city "Vancouver",
         sub "BC",
@@ -161,6 +151,13 @@ Seqdesc ::= pub {
           },
           {
             name name {
+              last "Coombe",
+              first "Lauren",
+              initials "L.",
+            }
+          },
+          {
+            name name {
               last "Warren",
               first "Rene",
               initials "R.",
@@ -168,37 +165,23 @@ Seqdesc ::= pub {
           },
           {
             name name {
-              last "Gibb",
-              first "Ewan",
-              initials "E.",
-            }
-          },
-          {
-            name name {
-              last "Vandervalk",
-              first "Benjamin",
-              initials "B.P.",
-            }
-          },
-          {
-            name name {
-              last "Mohamadi",
-              first "Hamid",
+              last "Kirk",
+              first "Heather",
               initials "H.",
             }
           },
           {
             name name {
-              last "Chu",
-              first "Justin",
-              initials "J.",
+              last "Trinh",
+              first "Eva",
+              initials "E.",
             }
           },
           {
             name name {
-              last "Raymond",
-              first "Anthony",
-              initials "A.",
+              last "McLeod",
+              first "Tina",
+              initials "T.",
             }
           },
           {
@@ -210,23 +193,23 @@ Seqdesc ::= pub {
           },
           {
             name name {
+              last "Pandoh",
+              first "Pawan",
+              initials "P.",
+            }
+          },
+          {
+            name name {
+              last "Zhao",
+              first "Yongjun",
+              initials "Y.",
+            }
+          },
+          {
+            name name {
               last "Coope",
               first "Robin",
               initials "R.",
-            }
-          },
-          {
-            name name {
-              last "Wildung",
-              first "Mark",
-              initials "M.R.",
-            }
-          },
-          {
-            name name {
-              last "Ritland",
-              first "Carol",
-              initials "C.E.",
             }
           },
           {
@@ -238,16 +221,16 @@ Seqdesc ::= pub {
           },
           {
             name name {
-              last "Jones",
-              first "Steven",
-              initials "S.J.M.",
+              last "Bohlmann",
+              first "Joerg",
+              initials "J.C.",
             }
           },
           {
             name name {
-              last "Bohlmann",
-              first "Joerg",
-              initials "J.C.",
+              last "Jones",
+              first "Steven",
+              initials "S.J.M.",
             }
           },
           {
@@ -256,13 +239,10 @@ Seqdesc ::= pub {
               first "Inanc",
               initials "I.",
             }
-          },
-          {
-            name consortium "SMarTForests"
           }
         },
         affil std {
-          affil "BC Cancer Agency Genome Sciences Centre",
+          affil "BC Cancer Genome Sciences Centre",
           div "Bioinformatics",
           city "Vancouver",
           sub "BC",
@@ -271,7 +251,7 @@ Seqdesc ::= pub {
           postal-code "V5Z 4S6"
         }
       },
-      title "Organellar Genomes of Sitka Spruce (Picea sitchensis): Assembly and Annotation"
+      title "Largest Complete Mitochondrial Genome of a Gymnosperm, Sitka Spruce (Picea sitchensis), Indicates Complex Physical Structure"
     }
   }
 }
