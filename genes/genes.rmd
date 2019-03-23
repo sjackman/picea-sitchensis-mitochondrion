@@ -340,7 +340,7 @@ ggplot(data_scaffolds) +
 # Function to plot gene order and size
 ```{r gene-order-and-size-function}
 data_genes <- data %>%
-	filter(Family_short != "orf") %>%
+	filter(Family_short != "orf", Family_short != "ymf") %>%
 	mutate(
 		Family = factor(Family_short, levels = gene_types$Family_short, labels = gene_types$Family_both),
 		Gene = sub("ymf.*", "ymf*", Gene),
