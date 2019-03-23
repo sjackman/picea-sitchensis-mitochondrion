@@ -605,7 +605,7 @@
 75583	75074	CDS
 			product	succinate dehydrogenase subunit 3
 			protein_id	gnl|BCGSC|Q903MT_gene101
-			inference	similar to AA sequence:RefSeq:YP_002608354.1
+			inference	similar to AA sequence:INSD:KUM49920.1
 75682	75608	gene
 			gene	trnP-UGG
 			locus_tag	Q903MT_gene102
@@ -1742,7 +1742,7 @@
 243487	243005	CDS
 			product	ribosomal protein L10
 			protein_id	gnl|BCGSC|Q903MT_gene290
-			inference	similar to AA sequence:INSD:AEH99666.1
+			inference	similar to AA sequence:INSD:AJP33546.1
 243723	243917	gene
 			gene	orf00291
 			locus_tag	Q903MT_gene291
@@ -1755,7 +1755,7 @@
 244885	244166	CDS
 			product	cytochrome c biogenesis C
 			protein_id	gnl|BCGSC|Q903MT_gene292
-			inference	similar to AA sequence:RefSeq:YP_009526590.1
+			inference	similar to AA sequence:INSD:AJP33528.1
 245584	245784	gene
 			gene	orf00293
 			locus_tag	Q903MT_gene293
@@ -9826,7 +9826,7 @@
 1297738	1298250	CDS
 			product	ribosomal protein S11
 			protein_id	gnl|BCGSC|Q903MT_gene1630
-			inference	similar to AA sequence:RefSeq:YP_001661419.1
+			inference	similar to AA sequence:INSD:AJP33551.1
 1298998	1299174	gene
 			gene	orf01644
 			locus_tag	Q903MT_gene1631
@@ -13255,7 +13255,7 @@
 98378	98875	CDS
 			product	NADH dehydrogenase subunit 4L
 			protein_id	gnl|BCGSC|Q903MT_gene2200
-			inference	similar to AA sequence:INSD:AML80593.1
+			inference	similar to AA sequence:INSD:KUM50609.1
 99455	99021	gene
 			gene	orf02216
 			locus_tag	Q903MT_gene2201
@@ -17235,12 +17235,12 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene2861
 634009	632486	gene
-			gene	atp1-b
+			gene	atp1
 			locus_tag	Q903MT_gene2862
 634009	632486	CDS
 			product	ATPase subunit 1
 			protein_id	gnl|BCGSC|Q903MT_gene2862
-			inference	similar to AA sequence:INSD:ABI74636.1
+			inference	similar to AA sequence:INSD:AJP33522.1
 634666	634460	gene
 			gene	orf02880
 			locus_tag	Q903MT_gene2863
@@ -18815,7 +18815,7 @@
 75944	75225	CDS
 			product	ribosomal protein S2
 			protein_id	gnl|BCGSC|Q903MT_gene3124
-			inference	similar to AA sequence:INSD:ADE08092.1
+			inference	similar to AA sequence:RefSeq:YP_009531498.1
 77639	77845	gene
 			gene	orf03145
 			locus_tag	Q903MT_gene3125
@@ -22435,7 +22435,7 @@
 21499	21747	CDS
 			product	ATPase subunit 9
 			protein_id	gnl|BCGSC|Q903MT_gene3723
-			inference	similar to AA sequence:INSD:ASZ80275.1
+			inference	similar to AA sequence:INSD:AJP33526.1
 21902	22126	gene
 			gene	orf03747
 			locus_tag	Q903MT_gene3724
@@ -22952,7 +22952,7 @@
 84836	84177	CDS
 			product	cytochrome c biogenesis B
 			protein_id	gnl|BCGSC|Q903MT_gene3809
-			inference	similar to AA sequence:RefSeq:NP_054465.1
+			inference	similar to AA sequence:RefSeq:YP_009531513.1
 85208	84942	gene
 			gene	nad2
 			locus_tag	Q903MT_gene3810
@@ -30145,7 +30145,7 @@
 73694	73275	CDS
 			product	ribosomal protein S13
 			protein_id	gnl|BCGSC|Q903MT_gene5005
-			inference	similar to AA sequence:RefSeq:YP_001661427.1
+			inference	similar to AA sequence:INSD:AJP33553.1
 73734	73916	gene
 			gene	orf05029
 			locus_tag	Q903MT_gene5006
@@ -32462,7 +32462,7 @@
 362049	362588	CDS
 			product	ribosomal protein S12
 			protein_id	gnl|BCGSC|Q903MT_gene5385
-			inference	similar to AA sequence:INSD:ASN73927.1
+			inference	similar to AA sequence:INSD:KUM48432.1
 362794	363027	gene
 			gene	orf05418
 			locus_tag	Q903MT_gene5386
@@ -33340,14 +33340,14 @@
 98056	98631	CDS
 			product	ribosomal protein L5
 			protein_id	gnl|BCGSC|Q903MT_gene5531
-			inference	similar to AA sequence:INSD:AXV54346.1
+			inference	similar to AA sequence:INSD:AJP33549.1
 98636	98938	gene
 			gene	rps14
 			locus_tag	Q903MT_gene5532
 98636	98938	CDS
 			product	ribosomal protein S14
 			protein_id	gnl|BCGSC|Q903MT_gene5532
-			inference	similar to AA sequence:INSD:ASZ83465.1
+			inference	similar to AA sequence:RefSeq:YP_009531527.1
 99132	99350	gene
 			gene	orf05565
 			locus_tag	Q903MT_gene5533
@@ -40002,11 +40002,11 @@
 			product	hypothetical protein
 			protein_id	gnl|BCGSC|Q903MT_gene6633
 <16481	>15302	gene
-			gene	rpl2
+			gene	ymfrpl2
 			locus_tag	Q903MT_gene6634
 <16481	16160	CDS
 15492	>15302
-			product	ribosomal protein L2
+			product	partial ribosomal protein L2
 			protein_id	gnl|BCGSC|Q903MT_gene6634
 			inference	similar to AA sequence:RefSeq:YP_009306511.1
 16159	15493	intron
