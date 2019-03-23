@@ -688,8 +688,12 @@ prokka/%.gff.gene: prokka/%.gff
 		| gsed '/tRNA-???/{N;d;}' \
 		| gt gff3 -sort $*.maker.gff - >$@
 
+# Add a ymf prefix to genes discovered by MAKER and Prokka.
+%.maker.prokka.ymf.gff: %.maker.prokka.gff
+	gsed -E '/rrn|trn|orf|ymf/!s/Name=/Name=ymf/g' $< >$@
+
 # Merge manual, MAKER and Prokka annotations using bedtools
-%.orig.gff: %.maker.prokka.gff %.manual.gff
+%.orig.gff: %.maker.prokka.ymf.gff %.manual.gff
 	bedtools intersect -v -header -a $< -b $*.manual.gff \
 		| gsed '/tRNA-???/{N;d;}' \
 		| gt gff3 -sort $*.manual.gff - >$@
