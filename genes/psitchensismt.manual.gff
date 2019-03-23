@@ -330,11 +330,11 @@
 09	manual	tRNA	143771	143844	.	+	.	ID=tRNA2;Parent=gene56;Name=trnI-CAU;product=tRNA-Ile;exception=RNA editing;note=C assumed to be post-transcriptionally modified to lysidine%2C which pairs with A rather than G;inference=similar to DNA sequence:INSD:X53392.1
 09	manual	exon	143771	143844	.	+	.	Parent=tRNA2
 ###
-10	manual	gene	15302	16481	.	-	.	ID=gene57;Name=rpl2
-10	manual	mRNA	15302	16481	.	-	.	ID=mRNA55;Parent=gene57;Name=rpl2;inference=similar to AA sequence:RefSeq:YP_009306511.1
+10	manual	gene	15302	16481	.	-	.	ID=gene57;Name=ymfrpl2
+10	manual	mRNA	15302	16481	.	-	.	ID=mRNA55;Parent=gene57;Name=ymfrpl2;inference=similar to AA sequence:RefSeq:YP_009306511.1
 10	manual	exon	15302	15492	.	-	.	Parent=mRNA55
 10	manual	CDS	15302	15492	.	-	2	Parent=mRNA55
-10	manual	intron	15493	16159	.	-	.	Parent=mRNA55;Name=rpl2_intron1
+10	manual	intron	15493	16159	.	-	.	Parent=mRNA55;Name=ymfrpl2_intron1
 10	manual	exon	16160	16481	.	-	.	Parent=mRNA55
 10	manual	CDS	16160	16481	.	-	0	Parent=mRNA55
 ###
