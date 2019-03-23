@@ -17,328 +17,329 @@
 01	manual	exon	72493	72975	.	-	.	Parent=mRNA1
 01	manual	CDS	72493	72975	.	-	0	Parent=mRNA1
 ###
-01	manual	gene	359996	360377	.	+	.	ID=gene2;Name=cox2
-01	manual	mRNA	359996	360377	.	+	.	ID=mRNA2;Parent=gene2;Name=cox2_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33533.1
-01	manual	exon	359996	360377	.	+	.	Parent=mRNA2
-01	manual	CDS	359996	360377	.	+	0	Parent=mRNA2
+01	manual	gene	75074	75583	.	-	.	ID=gene2;Name=sdh3
+01	manual	mRNA	75074	75583	.	-	.	ID=mRNA2;Parent=gene2;Name=sdh3;inference=similar to AA sequence:INSD:KUM49920.1
+01	manual	exon	75074	75583	.	-	.	Parent=mRNA2
+01	manual	CDS	75074	75583	.	-	0	Parent=mRNA2
 ###
-01	manual	gene	362108	364276	.	+	.	ID=gene3;Name=nad2
-01	manual	mRNA	362108	364276	.	+	.	ID=mRNA3;Parent=gene3;Name=nad2_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33538.1
-01	manual	exon	362108	362274	.	+	.	Parent=mRNA3
-01	manual	CDS	362108	362274	.	+	1	Parent=mRNA3
-01	manual	intron	362275	363703	.	+	.	Parent=mRNA3;Name=nad2_part2_intron3
-01	manual	exon	363704	364276	.	+	.	Parent=mRNA3
-01	manual	CDS	363704	364276	.	+	2	Parent=mRNA3
+01	manual	gene	243005	243487	.	-	.	ID=gene3;Name=rpl10
+01	manual	mRNA	243005	243487	.	-	.	ID=mRNA3;Parent=gene3;Name=rpl10;inference=similar to AA sequence:INSD:AJP33546.1
+01	manual	exon	243005	243487	.	-	.	Parent=mRNA3
+01	manual	CDS	243005	243487	.	-	0	Parent=mRNA3
 ###
-01	manual	gene	389960	390018	.	+	.	ID=gene4;Name=nad1
-01	manual	mRNA	389960	390018	.	+	.	ID=mRNA4;Parent=gene4;Name=nad1_part3;part=3/4;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33537.1
-01	manual	exon	389960	390018	.	+	.	Parent=mRNA4
-01	manual	CDS	389960	390018	.	+	0	Parent=mRNA4
+01	manual	gene	244166	244885	.	-	.	ID=gene4;Name=ccmC
+01	manual	mRNA	244166	244885	.	-	.	ID=mRNA4;Parent=gene4;Name=ccmC;inference=similar to AA sequence:INSD:AJP33528.1
+01	manual	exon	244166	244885	.	-	.	Parent=mRNA4
+01	manual	CDS	244166	244885	.	-	0	Parent=mRNA4
 ###
-01	manual	gene	460999	461459	.	-	.	ID=gene5;Name=nad4
-01	manual	mRNA	460999	461459	.	-	.	ID=mRNA5;Parent=gene5;Name=nad4_part1;part=1/2;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33540.1
-01	manual	exon	460999	461459	.	-	.	Parent=mRNA5
-01	manual	CDS	460999	461459	.	-	0	Parent=mRNA5
+01	manual	gene	359996	360377	.	+	.	ID=gene5;Name=cox2
+01	manual	mRNA	359996	360377	.	+	.	ID=mRNA5;Parent=gene5;Name=cox2_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33533.1
+01	manual	exon	359996	360377	.	+	.	Parent=mRNA5
+01	manual	CDS	359996	360377	.	+	0	Parent=mRNA5
 ###
-01	manual	gene	560554	560958	.	+	.	ID=gene6;Name=rpl16
-01	manual	mRNA	560554	560958	.	+	.	ID=mRNA6;Parent=gene6;Name=rpl16;note=putative alternative GUG start codon;inference=similar to AA sequence:INSD:AJP33547.1
-01	manual	exon	560554	560958	.	+	.	Parent=mRNA6
-01	manual	CDS	560554	560958	.	+	0	Parent=mRNA6
+01	manual	gene	362108	364276	.	+	.	ID=gene6;Name=nad2
+01	manual	mRNA	362108	364276	.	+	.	ID=mRNA6;Parent=gene6;Name=nad2_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33538.1
+01	manual	exon	362108	362274	.	+	.	Parent=mRNA6
+01	manual	CDS	362108	362274	.	+	1	Parent=mRNA6
+01	manual	intron	362275	363703	.	+	.	Parent=mRNA6;Name=nad2_part2_intron3
+01	manual	exon	363704	364276	.	+	.	Parent=mRNA6
+01	manual	CDS	363704	364276	.	+	2	Parent=mRNA6
 ###
-01	manual	gene	671405	673840	.	-	.	ID=gene7;Name=nad5
-01	manual	mRNA	671405	673840	.	-	.	ID=mRNA7;Parent=gene7;Name=nad5_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33542.1
-01	manual	exon	671405	672628	.	-	.	Parent=mRNA7
-01	manual	CDS	671405	672628	.	-	0	Parent=mRNA7
-01	manual	intron	672629	673609	.	-	.	Parent=mRNA7;Name=nad5_part1_intron1
-01	manual	exon	673610	673840	.	-	.	Parent=mRNA7
-01	manual	CDS	673610	673840	.	-	0	Parent=mRNA7
+01	manual	gene	389960	390018	.	+	.	ID=gene7;Name=nad1
+01	manual	mRNA	389960	390018	.	+	.	ID=mRNA7;Parent=gene7;Name=nad1_part3;part=3/4;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33537.1
+01	manual	exon	389960	390018	.	+	.	Parent=mRNA7
+01	manual	CDS	389960	390018	.	+	0	Parent=mRNA7
 ###
-01	manual	gene	1004411	1007655	.	+	.	ID=gene8;Name=nad1
-01	manual	mRNA	1004411	1007655	.	+	.	ID=mRNA8;Parent=gene8;Name=nad1_part2;part=2/4;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33537.1
-01	manual	exon	1004411	1004491	.	+	.	Parent=mRNA8
-01	manual	CDS	1004411	1004491	.	+	0	Parent=mRNA8
-01	manual	intron	1004492	1007463	.	+	.	Parent=mRNA8;Name=nad1_part2_intron2
-01	manual	exon	1007464	1007655	.	+	.	Parent=mRNA8
-01	manual	CDS	1007464	1007655	.	+	0	Parent=mRNA8
+01	manual	gene	460999	461459	.	-	.	ID=gene8;Name=nad4
+01	manual	mRNA	460999	461459	.	-	.	ID=mRNA8;Parent=gene8;Name=nad4_part1;part=1/2;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33540.1
+01	manual	exon	460999	461459	.	-	.	Parent=mRNA8
+01	manual	CDS	460999	461459	.	-	0	Parent=mRNA8
 ###
-01	manual	gene	1167731	1167988	.	+	.	ID=gene9;Name=nad3
-01	manual	mRNA	1167731	1167988	.	+	.	ID=mRNA9;Parent=gene9;Name=nad3;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33539.1
-01	manual	exon	1167731	1167988	.	+	.	Parent=mRNA9
-01	manual	CDS	1167731	1167988	.	+	0	Parent=mRNA9
+01	manual	gene	560554	560958	.	+	.	ID=gene9;Name=rpl16
+01	manual	mRNA	560554	560958	.	+	.	ID=mRNA9;Parent=gene9;Name=rpl16;note=putative alternative GUG start codon;inference=similar to AA sequence:INSD:AJP33547.1
+01	manual	exon	560554	560958	.	+	.	Parent=mRNA9
+01	manual	CDS	560554	560958	.	+	0	Parent=mRNA9
 ###
-01	manual	gene	1404526	1405682	.	+	.	ID=gene10;Name=nad7
-01	manual	mRNA	1404526	1405682	.	+	.	ID=mRNA10;Parent=gene10;Name=nad7_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33544.1
-01	manual	exon	1404526	1404668	.	+	.	Parent=mRNA10
-01	manual	CDS	1404526	1404668	.	+	0	Parent=mRNA10
-01	manual	intron	1404669	1405613	.	+	.	Parent=mRNA10;Name=nad7_part1_intron1
-01	manual	exon	1405614	1405682	.	+	.	Parent=mRNA10
-01	manual	CDS	1405614	1405682	.	+	1	Parent=mRNA10
+01	manual	gene	671405	673840	.	-	.	ID=gene10;Name=nad5
+01	manual	mRNA	671405	673840	.	-	.	ID=mRNA10;Parent=gene10;Name=nad5_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33542.1
+01	manual	exon	671405	672628	.	-	.	Parent=mRNA10
+01	manual	CDS	671405	672628	.	-	0	Parent=mRNA10
+01	manual	intron	672629	673609	.	-	.	Parent=mRNA10;Name=nad5_part1_intron1
+01	manual	exon	673610	673840	.	-	.	Parent=mRNA10
+01	manual	CDS	673610	673840	.	-	0	Parent=mRNA10
 ###
-02	manual	gene	545279	546331	.	+	.	ID=gene11;Name=rps4
-02	manual	mRNA	545279	546331	.	+	.	ID=mRNA11;Parent=gene11;Name=rps4;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33558.1
-02	manual	exon	545279	546331	.	+	.	Parent=mRNA11
-02	manual	CDS	545279	546331	.	+	0	Parent=mRNA11
+01	manual	gene	1004411	1007655	.	+	.	ID=gene11;Name=nad1
+01	manual	mRNA	1004411	1007655	.	+	.	ID=mRNA11;Parent=gene11;Name=nad1_part2;part=2/4;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33537.1
+01	manual	exon	1004411	1004491	.	+	.	Parent=mRNA11
+01	manual	CDS	1004411	1004491	.	+	0	Parent=mRNA11
+01	manual	intron	1004492	1007463	.	+	.	Parent=mRNA11;Name=nad1_part2_intron2
+01	manual	exon	1007464	1007655	.	+	.	Parent=mRNA11
+01	manual	CDS	1007464	1007655	.	+	0	Parent=mRNA11
 ###
-02	manual	gene	577253	578626	.	+	.	ID=gene12;Name=nad5
-02	manual	mRNA	577253	578626	.	+	.	ID=mRNA12;Parent=gene12;Name=nad5_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33542.1
-02	manual	exon	577253	577647	.	+	.	Parent=mRNA12
-02	manual	CDS	577253	577647	.	+	2	Parent=mRNA12
-02	manual	intron	577648	578494	.	+	.	Parent=mRNA12;Name=nad5_part3_intron4
-02	manual	exon	578495	578626	.	+	.	Parent=mRNA12
-02	manual	CDS	578495	578626	.	+	0	Parent=mRNA12
+01	manual	gene	1167731	1167988	.	+	.	ID=gene12;Name=nad3
+01	manual	mRNA	1167731	1167988	.	+	.	ID=mRNA12;Parent=gene12;Name=nad3;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33539.1
+01	manual	exon	1167731	1167988	.	+	.	Parent=mRNA12
+01	manual	CDS	1167731	1167988	.	+	0	Parent=mRNA12
 ###
-02	manual	gene	600173	600194	.	+	.	ID=gene13;Name=nad5
-02	manual	mRNA	600173	600194	.	+	.	ID=mRNA13;Parent=gene13;Name=nad5_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33542.1
-02	manual	exon	600173	600194	.	+	.	Parent=mRNA13
-02	manual	CDS	600173	600194	.	+	0	Parent=mRNA13
+01	manual	gene	1297738	1298250	.	+	.	ID=gene13;Name=rps11
+01	manual	mRNA	1297738	1298250	.	+	.	ID=mRNA13;Parent=gene13;Name=rps11;inference=similar to AA sequence:INSD:AJP33551.1
+01	manual	exon	1297738	1298250	.	+	.	Parent=mRNA13
+01	manual	CDS	1297738	1298250	.	+	0	Parent=mRNA13
 ###
-03	manual	gene	80041	80631	.	+	.	ID=gene14;Name=nad9
-03	manual	mRNA	80041	80631	.	+	.	ID=mRNA14;Parent=gene14;Name=nad9;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33545.1
-03	manual	exon	80041	80631	.	+	.	Parent=mRNA14
-03	manual	CDS	80041	80631	.	+	0	Parent=mRNA14
+01	manual	gene	1404526	1405682	.	+	.	ID=gene14;Name=nad7
+01	manual	mRNA	1404526	1405682	.	+	.	ID=mRNA14;Parent=gene14;Name=nad7_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33544.1
+01	manual	exon	1404526	1404668	.	+	.	Parent=mRNA14
+01	manual	CDS	1404526	1404668	.	+	0	Parent=mRNA14
+01	manual	intron	1404669	1405613	.	+	.	Parent=mRNA14;Name=nad7_part1_intron1
+01	manual	exon	1405614	1405682	.	+	.	Parent=mRNA14
+01	manual	CDS	1405614	1405682	.	+	1	Parent=mRNA14
 ###
-03	manual	gene	105529	107124	.	-	.	ID=gene15;Name=cox1
-03	manual	mRNA	105529	107124	.	-	.	ID=mRNA15;Parent=gene15;Name=cox1;inference=similar to AA sequence:INSD:AJP33532.1
-03	manual	exon	105529	107124	.	-	.	Parent=mRNA15
-03	manual	CDS	105529	107124	.	-	0	Parent=mRNA15
+02	manual	gene	98378	98875	.	+	.	ID=gene15;Name=nad4L
+02	manual	mRNA	98378	98875	.	+	.	ID=mRNA15;Parent=gene15;Name=nad4L;inference=similar to AA sequence:INSD:KUM50609.1
+02	manual	exon	98378	98875	.	+	.	Parent=mRNA15
+02	manual	CDS	98378	98875	.	+	0	Parent=mRNA15
 ###
-03	manual	gene	153312	154034	.	+	.	ID=gene16;Name=rpl2
-03	manual	mRNA	153312	154034	.	+	.	ID=mRNA16;Parent=gene16;Name=rpl2_part1;part=1/2;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33548.1
-03	manual	exon	153312	154034	.	+	.	Parent=mRNA16
-03	manual	CDS	153312	154034	.	+	0	Parent=mRNA16
+02	manual	gene	545279	546331	.	+	.	ID=gene16;Name=rps4
+02	manual	mRNA	545279	546331	.	+	.	ID=mRNA16;Parent=gene16;Name=rps4;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33558.1
+02	manual	exon	545279	546331	.	+	.	Parent=mRNA16
+02	manual	CDS	545279	546331	.	+	0	Parent=mRNA16
 ###
-03	manual	gene	197581	198267	.	-	.	ID=gene17;Name=rps1
-03	manual	mRNA	197581	198267	.	-	.	ID=mRNA17;Parent=gene17;Name=rps1;inference=similar to AA sequence:INSD:AJP33555.1
-03	manual	exon	197581	198267	.	-	.	Parent=mRNA17
-03	manual	CDS	197581	198267	.	-	0	Parent=mRNA17
+02	manual	gene	577253	578626	.	+	.	ID=gene17;Name=nad5
+02	manual	mRNA	577253	578626	.	+	.	ID=mRNA17;Parent=gene17;Name=nad5_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33542.1
+02	manual	exon	577253	577647	.	+	.	Parent=mRNA17
+02	manual	CDS	577253	577647	.	+	2	Parent=mRNA17
+02	manual	intron	577648	578494	.	+	.	Parent=mRNA17;Name=nad5_part3_intron4
+02	manual	exon	578495	578626	.	+	.	Parent=mRNA17
+02	manual	CDS	578495	578626	.	+	0	Parent=mRNA17
 ###
-03	manual	gene	212424	213062	.	-	.	ID=gene18;Name=atp4
-03	manual	mRNA	212424	213062	.	-	.	ID=mRNA18;Parent=gene18;Name=atp4;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33523.1
-03	manual	exon	212424	213062	.	-	.	Parent=mRNA18
-03	manual	CDS	212424	213062	.	-	0	Parent=mRNA18
+02	manual	gene	600173	600194	.	+	.	ID=gene18;Name=nad5
+02	manual	mRNA	600173	600194	.	+	.	ID=mRNA18;Parent=gene18;Name=nad5_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33542.1
+02	manual	exon	600173	600194	.	+	.	Parent=mRNA18
+02	manual	CDS	600173	600194	.	+	0	Parent=mRNA18
 ###
-03	manual	gene	213388	213473	.	-	.	ID=gene19;Name=cox2
-03	manual	mRNA	213388	213473	.	-	.	ID=mRNA19;Parent=gene19;Name=cox2_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33533.1
-03	manual	exon	213388	213473	.	-	.	Parent=mRNA19
-03	manual	CDS	213388	213473	.	-	2	Parent=mRNA19
+02	manual	gene	632486	634009	.	-	.	ID=gene19;Name=atp1
+02	manual	mRNA	632486	634009	.	-	.	ID=mRNA19;Parent=gene19;Name=atp1;inference=similar to AA sequence:INSD:AJP33522.1
+02	manual	exon	632486	634009	.	-	.	Parent=mRNA19
+02	manual	CDS	632486	634009	.	-	0	Parent=mRNA19
 ###
-03	manual	gene	408240	410001	.	+	.	ID=gene20;Name=nad7
-03	manual	mRNA	408240	410001	.	+	.	ID=mRNA20;Parent=gene20;Name=nad7_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33544.1
-03	manual	exon	408240	408706	.	+	.	Parent=mRNA20
-03	manual	CDS	408240	408706	.	+	1	Parent=mRNA20
-03	manual	intron	408707	409757	.	+	.	Parent=mRNA20;Name=nad7_part2_intron3
-03	manual	exon	409758	410001	.	+	.	Parent=mRNA20
-03	manual	CDS	409758	410001	.	+	2	Parent=mRNA20
+03	manual	gene	75225	75944	.	-	.	ID=gene20;Name=rps2
+03	manual	mRNA	75225	75944	.	-	.	ID=mRNA20;Parent=gene20;Name=rps2;inference=similar to AA sequence:RefSeq:YP_009531498.1
+03	manual	exon	75225	75944	.	-	.	Parent=mRNA20
+03	manual	CDS	75225	75944	.	-	0	Parent=mRNA20
 ###
-05	manual	gene	222569	222955	.	-	.	ID=gene21;Name=nad1
-05	manual	mRNA	222569	222955	.	-	.	ID=mRNA21;Parent=gene21;Name=nad1_part1;part=1/4;exception=trans-splicing,RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33537.1
-05	manual	exon	222569	222955	.	-	.	Parent=mRNA21
-05	manual	CDS	222569	222955	.	-	0	Parent=mRNA21
+03	manual	gene	80041	80631	.	+	.	ID=gene21;Name=nad9
+03	manual	mRNA	80041	80631	.	+	.	ID=mRNA21;Parent=gene21;Name=nad9;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33545.1
+03	manual	exon	80041	80631	.	+	.	Parent=mRNA21
+03	manual	CDS	80041	80631	.	+	0	Parent=mRNA21
 ###
-05	manual	gene	251952	252269	.	+	.	ID=gene22;Name=cox2
-05	manual	mRNA	251952	252269	.	+	.	ID=mRNA22;Parent=gene22;Name=cox2_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33533.1
-05	manual	exon	251952	252269	.	+	.	Parent=mRNA22
-05	manual	CDS	251952	252269	.	+	2	Parent=mRNA22
+03	manual	gene	105529	107124	.	-	.	ID=gene22;Name=cox1
+03	manual	mRNA	105529	107124	.	-	.	ID=mRNA22;Parent=gene22;Name=cox1;inference=similar to AA sequence:INSD:AJP33532.1
+03	manual	exon	105529	107124	.	-	.	Parent=mRNA22
+03	manual	CDS	105529	107124	.	-	0	Parent=mRNA22
 ###
-06	manual	gene	79755	80329	.	+	.	ID=gene23;Name=trnV-UAC;product=tRNA-Tyr
-06	manual	tRNA	79755	80329	.	+	.	ID=tRNA1;Parent=gene23;Name=trnV-UAC;product=tRNA-Tyr;te=similar to DNA sequence:RefSeq:NC_010303.1:GeneID:5867575:locus_tag:CyTaMpt24
+03	manual	gene	153312	154034	.	+	.	ID=gene23;Name=rpl2
+03	manual	mRNA	153312	154034	.	+	.	ID=mRNA23;Parent=gene23;Name=rpl2_part1;part=1/2;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33548.1
+03	manual	exon	153312	154034	.	+	.	Parent=mRNA23
+03	manual	CDS	153312	154034	.	+	0	Parent=mRNA23
+###
+03	manual	gene	197581	198267	.	-	.	ID=gene24;Name=rps1
+03	manual	mRNA	197581	198267	.	-	.	ID=mRNA24;Parent=gene24;Name=rps1;inference=similar to AA sequence:INSD:AJP33555.1
+03	manual	exon	197581	198267	.	-	.	Parent=mRNA24
+03	manual	CDS	197581	198267	.	-	0	Parent=mRNA24
+###
+03	manual	gene	212424	213062	.	-	.	ID=gene25;Name=atp4
+03	manual	mRNA	212424	213062	.	-	.	ID=mRNA25;Parent=gene25;Name=atp4;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33523.1
+03	manual	exon	212424	213062	.	-	.	Parent=mRNA25
+03	manual	CDS	212424	213062	.	-	0	Parent=mRNA25
+###
+03	manual	gene	213388	213473	.	-	.	ID=gene26;Name=cox2
+03	manual	mRNA	213388	213473	.	-	.	ID=mRNA26;Parent=gene26;Name=cox2_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33533.1
+03	manual	exon	213388	213473	.	-	.	Parent=mRNA26
+03	manual	CDS	213388	213473	.	-	2	Parent=mRNA26
+###
+03	manual	gene	408240	410001	.	+	.	ID=gene27;Name=nad7
+03	manual	mRNA	408240	410001	.	+	.	ID=mRNA27;Parent=gene27;Name=nad7_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33544.1
+03	manual	exon	408240	408706	.	+	.	Parent=mRNA27
+03	manual	CDS	408240	408706	.	+	1	Parent=mRNA27
+03	manual	intron	408707	409757	.	+	.	Parent=mRNA27;Name=nad7_part2_intron3
+03	manual	exon	409758	410001	.	+	.	Parent=mRNA27
+03	manual	CDS	409758	410001	.	+	2	Parent=mRNA27
+###
+04	manual	gene	21499	21747	.	+	.	ID=gene28;Name=atp9
+04	manual	mRNA	21499	21747	.	+	.	ID=mRNA28;Parent=gene28;Name=atp9;inference=similar to AA sequence:INSD:AJP33526.1
+04	manual	exon	21499	21747	.	+	.	Parent=mRNA28
+04	manual	CDS	21499	21747	.	+	0	Parent=mRNA28
+###
+04	manual	gene	84177	84836	.	-	.	ID=gene29;Name=ccmB
+04	manual	mRNA	84177	84836	.	-	.	ID=mRNA29;Parent=gene29;Name=ccmB;inference=similar to AA sequence:RefSeq:YP_009531513.1
+04	manual	exon	84177	84836	.	-	.	Parent=mRNA29
+04	manual	CDS	84177	84836	.	-	0	Parent=mRNA29
+###
+05	manual	gene	222569	222955	.	-	.	ID=gene30;Name=nad1
+05	manual	mRNA	222569	222955	.	-	.	ID=mRNA30;Parent=gene30;Name=nad1_part1;part=1/4;exception=trans-splicing,RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33537.1
+05	manual	exon	222569	222955	.	-	.	Parent=mRNA30
+05	manual	CDS	222569	222955	.	-	0	Parent=mRNA30
+###
+05	manual	gene	251952	252269	.	+	.	ID=gene31;Name=cox2
+05	manual	mRNA	251952	252269	.	+	.	ID=mRNA31;Parent=gene31;Name=cox2_part2;part=2/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33533.1
+05	manual	exon	251952	252269	.	+	.	Parent=mRNA31
+05	manual	CDS	251952	252269	.	+	2	Parent=mRNA31
+###
+06	manual	gene	73275	73694	.	-	.	ID=gene32;Name=rps13
+06	manual	mRNA	73275	73694	.	-	.	ID=mRNA32;Parent=gene32;Name=rps13;inference=similar to AA sequence:INSD:AJP33553.1
+06	manual	exon	73275	73694	.	-	.	Parent=mRNA32
+06	manual	CDS	73275	73694	.	-	0	Parent=mRNA32
+###
+06	manual	gene	79755	80329	.	+	.	ID=gene33;Name=trnV-UAC;product=tRNA-Tyr
+06	manual	tRNA	79755	80329	.	+	.	ID=tRNA1;Parent=gene33;Name=trnV-UAC;product=tRNA-Tyr;te=similar to DNA sequence:RefSeq:NC_010303.1:GeneID:5867575:locus_tag:CyTaMpt24
 06	manual	exon	79755	79793	.	+	.	Parent=tRNA1
 06	manual	intron	79794	80292	.	+	.	Parent=tRNA1;Name=trnV-UAC_intron1
 06	manual	exon	80293	80329	.	+	.	Parent=tRNA1
 ###
-06	manual	gene	82299	84491	.	+	.	ID=gene24;Name=matR
-06	manual	mRNA	82299	84491	.	+	.	ID=mRNA23;Parent=gene24;Name=matR;note=putative alternative GGG start codon;inference=similar to AA sequence:INSD:AJP33535.1
-06	manual	exon	82299	84491	.	+	.	Parent=mRNA23
-06	manual	CDS	82299	84491	.	+	0	Parent=mRNA23
+06	manual	gene	82299	84491	.	+	.	ID=gene34;Name=matR
+06	manual	mRNA	82299	84491	.	+	.	ID=mRNA33;Parent=gene34;Name=matR;note=putative alternative GGG start codon;inference=similar to AA sequence:INSD:AJP33535.1
+06	manual	exon	82299	84491	.	+	.	Parent=mRNA33
+06	manual	CDS	82299	84491	.	+	0	Parent=mRNA33
 ###
-06	manual	gene	84807	85068	.	+	.	ID=gene25;Name=nad1
-06	manual	mRNA	84807	85068	.	+	.	ID=mRNA24;Parent=gene25;Name=nad1_part4;part=4/4;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33537.1
-06	manual	exon	84807	85068	.	+	.	Parent=mRNA24
-06	manual	CDS	84807	85068	.	+	1	Parent=mRNA24
+06	manual	gene	84807	85068	.	+	.	ID=gene35;Name=nad1
+06	manual	mRNA	84807	85068	.	+	.	ID=mRNA34;Parent=gene35;Name=nad1_part4;part=4/4;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33537.1
+06	manual	exon	84807	85068	.	+	.	Parent=mRNA34
+06	manual	CDS	84807	85068	.	+	1	Parent=mRNA34
 ###
-06	manual	gene	106109	106858	.	-	.	ID=gene26;Name=mttB
-06	manual	mRNA	106109	106858	.	-	.	ID=mRNA25;Parent=gene26;Name=mttB;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33536.1
-06	manual	exon	106109	106858	.	-	.	Parent=mRNA25
-06	manual	CDS	106109	106858	.	-	0	Parent=mRNA25
+06	manual	gene	106109	106858	.	-	.	ID=gene36;Name=mttB
+06	manual	mRNA	106109	106858	.	-	.	ID=mRNA35;Parent=gene36;Name=mttB;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33536.1
+06	manual	exon	106109	106858	.	-	.	Parent=mRNA35
+06	manual	CDS	106109	106858	.	-	0	Parent=mRNA35
 ###
-06	manual	gene	128030	129793	.	+	.	ID=gene27;Name=ccmFN
-06	manual	mRNA	128030	129793	.	+	.	ID=mRNA26;Parent=gene27;Name=ccmFN;inference=similar to AA sequence:INSD:AJP33530.1
-06	manual	exon	128030	129793	.	+	.	Parent=mRNA26
-06	manual	CDS	128030	129793	.	+	0	Parent=mRNA26
+06	manual	gene	128030	129793	.	+	.	ID=gene37;Name=ccmFN
+06	manual	mRNA	128030	129793	.	+	.	ID=mRNA36;Parent=gene37;Name=ccmFN;inference=similar to AA sequence:INSD:AJP33530.1
+06	manual	exon	128030	129793	.	+	.	Parent=mRNA36
+06	manual	CDS	128030	129793	.	+	0	Parent=mRNA36
 ###
-06	manual	gene	313121	313735	.	+	.	ID=gene28;Name=nad6
-06	manual	mRNA	313121	313735	.	+	.	ID=mRNA27;Parent=gene28;Name=nad6;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33543.1
-06	manual	exon	313121	313735	.	+	.	Parent=mRNA27
-06	manual	CDS	313121	313735	.	+	0	Parent=mRNA27
+06	manual	gene	313121	313735	.	+	.	ID=gene38;Name=nad6
+06	manual	mRNA	313121	313735	.	+	.	ID=mRNA37;Parent=gene38;Name=nad6;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33543.1
+06	manual	exon	313121	313735	.	+	.	Parent=mRNA37
+06	manual	CDS	313121	313735	.	+	0	Parent=mRNA37
 ###
-06	manual	gene	352998	353702	.	+	.	ID=gene29;Name=rpl2
-06	manual	mRNA	352998	353702	.	+	.	ID=mRNA28;Parent=gene29;Name=rpl2_part2;part=2/2;exception=trans-splicing,RNA editing;note=putative stop codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33548.1
-06	manual	exon	352998	353702	.	+	.	Parent=mRNA28
-06	manual	CDS	352998	353702	.	+	0	Parent=mRNA28
+06	manual	gene	352998	353702	.	+	.	ID=gene39;Name=rpl2
+06	manual	mRNA	352998	353702	.	+	.	ID=mRNA38;Parent=gene39;Name=rpl2_part2;part=2/2;exception=trans-splicing,RNA editing;note=putative stop codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33548.1
+06	manual	exon	352998	353702	.	+	.	Parent=mRNA38
+06	manual	CDS	352998	353702	.	+	0	Parent=mRNA38
 ###
-06	manual	gene	353706	353987	.	+	.	ID=gene30;Name=rps19
-06	manual	mRNA	353706	353987	.	+	.	ID=mRNA29;Parent=gene30;Name=rps19;exception=RNA editing;note=putative alternative GUG start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33554.1
-06	manual	exon	353706	353987	.	+	.	Parent=mRNA29
-06	manual	CDS	353706	353987	.	+	0	Parent=mRNA29
+06	manual	gene	353706	353987	.	+	.	ID=gene40;Name=rps19
+06	manual	mRNA	353706	353987	.	+	.	ID=mRNA39;Parent=gene40;Name=rps19;exception=RNA editing;note=putative alternative GUG start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33554.1
+06	manual	exon	353706	353987	.	+	.	Parent=mRNA39
+06	manual	CDS	353706	353987	.	+	0	Parent=mRNA39
 ###
-06	manual	gene	353991	360317	.	+	.	ID=gene31;Name=rps3
-06	manual	mRNA	353991	360317	.	+	.	ID=mRNA30;Parent=gene31;Name=rps3;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33557.1
-06	manual	exon	353991	354064	.	+	.	Parent=mRNA30
-06	manual	CDS	353991	354064	.	+	0	Parent=mRNA30
-06	manual	intron	354065	356131	.	+	.	Parent=mRNA30;Name=rps3_intron1
-06	manual	CDS	356132	356324	.	+	1	Parent=mRNA30
-06	manual	exon	356132	356333	.	+	.	Parent=mRNA30
-06	manual	intron	356325	358910	.	+	.	Parent=mRNA30;Name=rps3_intron2
-06	manual	exon	358911	360317	.	+	.	Parent=mRNA30
-06	manual	CDS	358911	360317	.	+	0	Parent=mRNA30
+06	manual	gene	353991	360317	.	+	.	ID=gene41;Name=rps3
+06	manual	mRNA	353991	360317	.	+	.	ID=mRNA40;Parent=gene41;Name=rps3;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33557.1
+06	manual	exon	353991	354064	.	+	.	Parent=mRNA40
+06	manual	CDS	353991	354064	.	+	0	Parent=mRNA40
+06	manual	intron	354065	356131	.	+	.	Parent=mRNA40;Name=rps3_intron1
+06	manual	CDS	356132	356324	.	+	1	Parent=mRNA40
+06	manual	exon	356132	356333	.	+	.	Parent=mRNA40
+06	manual	intron	356325	358910	.	+	.	Parent=mRNA40;Name=rps3_intron2
+06	manual	exon	358911	360317	.	+	.	Parent=mRNA40
+06	manual	CDS	358911	360317	.	+	0	Parent=mRNA40
 ###
-06	manual	gene	360335	360748	.	+	.	ID=gene32;Name=rpl16
-06	manual	mRNA	360335	360748	.	+	.	ID=mRNA31;Parent=gene32;Name=rpl16;note=putative alternative GUG start codon;inference=similar to AA sequence:INSD:AJP33547.1
-06	manual	exon	360335	360748	.	+	.	Parent=mRNA31
-06	manual	CDS	360335	360748	.	+	0	Parent=mRNA31
+06	manual	gene	360335	360748	.	+	.	ID=gene42;Name=rpl16
+06	manual	mRNA	360335	360748	.	+	.	ID=mRNA41;Parent=gene42;Name=rpl16;note=putative alternative GUG start codon;inference=similar to AA sequence:INSD:AJP33547.1
+06	manual	exon	360335	360748	.	+	.	Parent=mRNA41
+06	manual	CDS	360335	360748	.	+	0	Parent=mRNA41
 ###
-08	manual	gene	5146	6339	.	-	.	ID=gene33;Name=cob
-08	manual	mRNA	5146	6339	.	-	.	ID=mRNA32;Parent=gene33;Name=cob;inference=similar to AA sequence:INSD:AJP33531.1
-08	manual	exon	5146	6339	.	-	.	Parent=mRNA32
-08	manual	CDS	5146	6339	.	-	0	Parent=mRNA32
+06	manual	gene	362049	362588	.	+	.	ID=gene43;Name=rps12
+06	manual	mRNA	362049	362588	.	+	.	ID=mRNA42;Parent=gene43;Name=rps12;inference=similar to AA sequence:INSD:KUM48432.1
+06	manual	exon	362049	362588	.	+	.	Parent=mRNA42
+06	manual	CDS	362049	362588	.	+	0	Parent=mRNA42
 ###
-08	manual	gene	175362	175757	.	-	.	ID=gene34;Name=sdh4
-08	manual	mRNA	175362	175757	.	-	.	ID=mRNA33;Parent=gene34;Name=sdh4;inference=similar to AA sequence:INSD:AJP33561.1
-08	manual	exon	175362	175757	.	-	.	Parent=mRNA33
-08	manual	CDS	175362	175757	.	-	0	Parent=mRNA33
+07	manual	gene	98056	98631	.	+	.	ID=gene44;Name=rpl5
+07	manual	mRNA	98056	98631	.	+	.	ID=mRNA43;Parent=gene44;Name=rpl5;inference=similar to AA sequence:INSD:AJP33549.1
+07	manual	exon	98056	98631	.	+	.	Parent=mRNA43
+07	manual	CDS	98056	98631	.	+	0	Parent=mRNA43
 ###
-08	manual	gene	175685	176482	.	-	.	ID=gene35;Name=cox3
-08	manual	mRNA	175685	176482	.	-	.	ID=mRNA34;Parent=gene35;Name=cox3;inference=similar to AA sequence:INSD:AJP33534.1
-08	manual	exon	175685	176482	.	-	.	Parent=mRNA34
-08	manual	CDS	175685	176482	.	-	0	Parent=mRNA34
+07	manual	gene	98636	98938	.	+	.	ID=gene45;Name=rps14
+07	manual	mRNA	98636	98938	.	+	.	ID=mRNA44;Parent=gene45;Name=rps14;inference=similar to AA sequence:RefSeq:YP_009531527.1
+07	manual	exon	98636	98938	.	+	.	Parent=mRNA44
+07	manual	CDS	98636	98938	.	+	0	Parent=mRNA44
 ###
-08	manual	gene	213680	216947	.	+	.	ID=gene36;Name=ccmFC
-08	manual	mRNA	213680	216947	.	+	.	ID=mRNA35;Parent=gene36;Name=ccmFC;inference=similar to AA sequence:INSD:AJP33529.1
-08	manual	exon	213680	214476	.	+	.	Parent=mRNA35
-08	manual	CDS	213680	214476	.	+	0	Parent=mRNA35
-08	manual	intron	214477	216346	.	+	.	Parent=mRNA35;Name=ccmFC_intron1
-08	manual	exon	216347	216947	.	+	.	Parent=mRNA35
-08	manual	CDS	216347	216947	.	+	1	Parent=mRNA35
+08	manual	gene	5146	6339	.	-	.	ID=gene46;Name=cob
+08	manual	mRNA	5146	6339	.	-	.	ID=mRNA45;Parent=gene46;Name=cob;inference=similar to AA sequence:INSD:AJP33531.1
+08	manual	exon	5146	6339	.	-	.	Parent=mRNA45
+08	manual	CDS	5146	6339	.	-	0	Parent=mRNA45
 ###
-08	manual	gene	240201	242196	.	+	.	ID=gene37;Name=nad2
-08	manual	mRNA	240201	242196	.	+	.	ID=mRNA36;Parent=gene37;Name=nad2_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33538.1
-08	manual	exon	240201	240353	.	+	.	Parent=mRNA36
-08	manual	CDS	240201	240353	.	+	0	Parent=mRNA36
-08	manual	intron	240354	241804	.	+	.	Parent=mRNA36;Name=nad2_part1_intron1
-08	manual	exon	241805	242196	.	+	.	Parent=mRNA36
-08	manual	CDS	241805	242196	.	+	0	Parent=mRNA36
+08	manual	gene	175362	175757	.	-	.	ID=gene47;Name=sdh4
+08	manual	mRNA	175362	175757	.	-	.	ID=mRNA46;Parent=gene47;Name=sdh4;inference=similar to AA sequence:INSD:AJP33561.1
+08	manual	exon	175362	175757	.	-	.	Parent=mRNA46
+08	manual	CDS	175362	175757	.	-	0	Parent=mRNA46
 ###
-08	manual	gene	256102	256878	.	-	.	ID=gene38;Name=atp6
-08	manual	mRNA	256102	256878	.	-	.	ID=mRNA37;Parent=gene38;Name=atp6;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33524.1
-08	manual	exon	256102	256878	.	-	.	Parent=mRNA37
-08	manual	CDS	256102	256878	.	-	0	Parent=mRNA37
+08	manual	gene	175685	176482	.	-	.	ID=gene48;Name=cox3
+08	manual	mRNA	175685	176482	.	-	.	ID=mRNA47;Parent=gene48;Name=cox3;inference=similar to AA sequence:INSD:AJP33534.1
+08	manual	exon	175685	176482	.	-	.	Parent=mRNA47
+08	manual	CDS	175685	176482	.	-	0	Parent=mRNA47
 ###
-08	manual	gene	305250	311862	.	+	.	ID=gene39;Name=nad4
-08	manual	mRNA	305250	311862	.	+	.	ID=mRNA38;Parent=gene39;Name=nad4_part2;part=2/2;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33540.1
-08	manual	exon	305250	305764	.	+	.	Parent=mRNA38
-08	manual	CDS	305250	305764	.	+	1	Parent=mRNA38
-08	manual	intron	305765	308832	.	+	.	Parent=mRNA38;Name=nad4_part2_intron2
-08	manual	exon	308833	309255	.	+	.	Parent=mRNA38
-08	manual	CDS	308833	309255	.	+	2	Parent=mRNA38
-08	manual	intron	309256	311683	.	+	.	Parent=mRNA38;Name=nad4_part2_intron3
-08	manual	exon	311684	311862	.	+	.	Parent=mRNA38
-08	manual	CDS	311684	311862	.	+	2	Parent=mRNA38
+08	manual	gene	213680	216947	.	+	.	ID=gene49;Name=ccmFC
+08	manual	mRNA	213680	216947	.	+	.	ID=mRNA48;Parent=gene49;Name=ccmFC;inference=similar to AA sequence:INSD:AJP33529.1
+08	manual	exon	213680	214476	.	+	.	Parent=mRNA48
+08	manual	CDS	213680	214476	.	+	0	Parent=mRNA48
+08	manual	intron	214477	216346	.	+	.	Parent=mRNA48;Name=ccmFC_intron1
+08	manual	exon	216347	216947	.	+	.	Parent=mRNA48
+08	manual	CDS	216347	216947	.	+	1	Parent=mRNA48
 ###
-08	manual	gene	322547	322734	.	+	.	ID=gene40;Name=nad2
-08	manual	mRNA	322547	322734	.	+	.	ID=mRNA39;Parent=gene40;Name=nad2_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33538.1
-08	manual	CDS	322547	322734	.	+	2	Parent=mRNA39
+08	manual	gene	240201	242196	.	+	.	ID=gene50;Name=nad2
+08	manual	mRNA	240201	242196	.	+	.	ID=mRNA49;Parent=gene50;Name=nad2_part1;part=1/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33538.1
+08	manual	exon	240201	240353	.	+	.	Parent=mRNA49
+08	manual	CDS	240201	240353	.	+	0	Parent=mRNA49
+08	manual	intron	240354	241804	.	+	.	Parent=mRNA49;Name=nad2_part1_intron1
+08	manual	exon	241805	242196	.	+	.	Parent=mRNA49
+08	manual	CDS	241805	242196	.	+	0	Parent=mRNA49
 ###
-09	manual	gene	136617	138395	.	-	.	ID=gene41;Name=rps10
-09	manual	mRNA	136617	138395	.	-	.	ID=mRNA40;Parent=gene41;Name=rps10;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33550.1
-09	manual	exon	136617	136717	.	-	.	Parent=mRNA40
-09	manual	CDS	136617	136717	.	-	2	Parent=mRNA40
-09	manual	intron	136718	138154	.	-	.	Parent=mRNA40;Name=rps10_intron1
-09	manual	exon	138155	138395	.	-	.	Parent=mRNA40
-09	manual	CDS	138155	138395	.	-	0	Parent=mRNA40
+08	manual	gene	256102	256878	.	-	.	ID=gene51;Name=atp6
+08	manual	mRNA	256102	256878	.	-	.	ID=mRNA50;Parent=gene51;Name=atp6;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33524.1
+08	manual	exon	256102	256878	.	-	.	Parent=mRNA50
+08	manual	CDS	256102	256878	.	-	0	Parent=mRNA50
 ###
-09	manual	gene	142991	143252	.	+	.	ID=gene42;Name=nad7
-09	manual	mRNA	142991	143252	.	+	.	ID=mRNA41;Parent=gene42;Name=nad7_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33544.1
-09	manual	exon	142991	143252	.	+	.	Parent=mRNA41
-09	manual	CDS	142991	143252	.	+	1	Parent=mRNA41
+08	manual	gene	305250	311862	.	+	.	ID=gene52;Name=nad4
+08	manual	mRNA	305250	311862	.	+	.	ID=mRNA51;Parent=gene52;Name=nad4_part2;part=2/2;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33540.1
+08	manual	exon	305250	305764	.	+	.	Parent=mRNA51
+08	manual	CDS	305250	305764	.	+	1	Parent=mRNA51
+08	manual	intron	305765	308832	.	+	.	Parent=mRNA51;Name=nad4_part2_intron2
+08	manual	exon	308833	309255	.	+	.	Parent=mRNA51
+08	manual	CDS	308833	309255	.	+	2	Parent=mRNA51
+08	manual	intron	309256	311683	.	+	.	Parent=mRNA51;Name=nad4_part2_intron3
+08	manual	exon	311684	311862	.	+	.	Parent=mRNA51
+08	manual	CDS	311684	311862	.	+	2	Parent=mRNA51
 ###
-09	manual	gene	143771	143844	.	+	.	ID=gene43;Name=trnI-CAU;product=tRNA-Ile
-09	manual	tRNA	143771	143844	.	+	.	ID=tRNA2;Parent=gene43;Name=trnI-CAU;product=tRNA-Ile;exception=RNA editing;note=C assumed to be post-transcriptionally modified to lysidine%2C which pairs with A rather than G;inference=similar to DNA sequence:INSD:X53392.1
+08	manual	gene	322547	322734	.	+	.	ID=gene53;Name=nad2
+08	manual	mRNA	322547	322734	.	+	.	ID=mRNA52;Parent=gene53;Name=nad2_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33538.1
+08	manual	CDS	322547	322734	.	+	2	Parent=mRNA52
+###
+09	manual	gene	136617	138395	.	-	.	ID=gene54;Name=rps10
+09	manual	mRNA	136617	138395	.	-	.	ID=mRNA53;Parent=gene54;Name=rps10;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33550.1
+09	manual	exon	136617	136717	.	-	.	Parent=mRNA53
+09	manual	CDS	136617	136717	.	-	2	Parent=mRNA53
+09	manual	intron	136718	138154	.	-	.	Parent=mRNA53;Name=rps10_intron1
+09	manual	exon	138155	138395	.	-	.	Parent=mRNA53
+09	manual	CDS	138155	138395	.	-	0	Parent=mRNA53
+###
+09	manual	gene	142991	143252	.	+	.	ID=gene55;Name=nad7
+09	manual	mRNA	142991	143252	.	+	.	ID=mRNA54;Parent=gene55;Name=nad7_part3;part=3/3;exception=trans-splicing;inference=similar to AA sequence:INSD:AJP33544.1
+09	manual	exon	142991	143252	.	+	.	Parent=mRNA54
+09	manual	CDS	142991	143252	.	+	1	Parent=mRNA54
+###
+09	manual	gene	143771	143844	.	+	.	ID=gene56;Name=trnI-CAU;product=tRNA-Ile
+09	manual	tRNA	143771	143844	.	+	.	ID=tRNA2;Parent=gene56;Name=trnI-CAU;product=tRNA-Ile;exception=RNA editing;note=C assumed to be post-transcriptionally modified to lysidine%2C which pairs with A rather than G;inference=similar to DNA sequence:INSD:X53392.1
 09	manual	exon	143771	143844	.	+	.	Parent=tRNA2
 ###
-10	manual	gene	15302	16481	.	-	.	ID=gene44;Name=rpl2
-10	manual	mRNA	15302	16481	.	-	.	ID=mRNA42;Parent=gene44;Name=rpl2;inference=similar to AA sequence:RefSeq:YP_009306511.1
-10	manual	exon	15302	15492	.	-	.	Parent=mRNA42
-10	manual	CDS	15302	15492	.	-	2	Parent=mRNA42
-10	manual	intron	15493	16159	.	-	.	Parent=mRNA42;Name=rpl2_intron1
-10	manual	exon	16160	16481	.	-	.	Parent=mRNA42
-10	manual	CDS	16160	16481	.	-	0	Parent=mRNA42
+10	manual	gene	15302	16481	.	-	.	ID=gene57;Name=rpl2
+10	manual	mRNA	15302	16481	.	-	.	ID=mRNA55;Parent=gene57;Name=rpl2;inference=similar to AA sequence:RefSeq:YP_009306511.1
+10	manual	exon	15302	15492	.	-	.	Parent=mRNA55
+10	manual	CDS	15302	15492	.	-	2	Parent=mRNA55
+10	manual	intron	15493	16159	.	-	.	Parent=mRNA55;Name=rpl2_intron1
+10	manual	exon	16160	16481	.	-	.	Parent=mRNA55
+10	manual	CDS	16160	16481	.	-	0	Parent=mRNA55
 ###
-12	manual	gene	22434	22721	.	-	.	ID=gene45;Name=rps7
-12	manual	mRNA	22434	22721	.	-	.	ID=mRNA43;Parent=gene45;Name=rps7;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33559.1
-12	manual	exon	22434	22721	.	-	.	Parent=mRNA43
-12	manual	CDS	22434	22721	.	-	0	Parent=mRNA43
+12	manual	gene	22434	22721	.	-	.	ID=gene58;Name=rps7
+12	manual	mRNA	22434	22721	.	-	.	ID=mRNA56;Parent=gene58;Name=rps7;exception=RNA editing;note=putative start codon created by RNA editing;inference=similar to AA sequence:INSD:AJP33559.1
+12	manual	exon	22434	22721	.	-	.	Parent=mRNA56
+12	manual	CDS	22434	22721	.	-	0	Parent=mRNA56
 ###
-02	manual	gene	632486	634009	.	-	.	ID=gene2862;Name=atp1
-02	manual	mRNA	632486	634009	.	-	.	ID=mRNA2848;Parent=gene2862;Name=atp1;inference=similar to AA sequence:INSD:AJP33522.1
-02	manual	exon	632486	634009	.	-	.	Parent=mRNA2848
-02	manual	CDS	632486	634009	.	-	0	Parent=mRNA2848
-###
-04	manual	gene	21499	21747	.	+	.	ID=gene3723;Name=atp9
-04	manual	mRNA	21499	21747	.	+	.	ID=mRNA3708;Parent=gene3723;Name=atp9;inference=similar to AA sequence:INSD:AJP33526.1
-04	manual	exon	21499	21747	.	+	.	Parent=mRNA3708
-04	manual	CDS	21499	21747	.	+	0	Parent=mRNA3708
-###
-04	manual	gene	84177	84836	.	-	.	ID=gene3809;Name=ccmB
-04	manual	mRNA	84177	84836	.	-	.	ID=mRNA3794;Parent=gene3809;Name=ccmB;inference=similar to AA sequence:RefSeq:YP_009531513.1
-04	manual	exon	84177	84836	.	-	.	Parent=mRNA3794
-04	manual	CDS	84177	84836	.	-	0	Parent=mRNA3794
-###
-01	manual	gene	244166	244885	.	-	.	ID=gene292;Name=ccmC
-01	manual	mRNA	244166	244885	.	-	.	ID=mRNA291;Parent=gene292;Name=ccmC;inference=similar to AA sequence:INSD:AJP33528.1
-01	manual	exon	244166	244885	.	-	.	Parent=mRNA291
-01	manual	CDS	244166	244885	.	-	0	Parent=mRNA291
-###
-02	manual	gene	98378	98875	.	+	.	ID=gene2200;Name=nad4L
-02	manual	mRNA	98378	98875	.	+	.	ID=mRNA2190;Parent=gene2200;Name=nad4L;inference=similar to AA sequence:INSD:KUM50609.1
-02	manual	exon	98378	98875	.	+	.	Parent=mRNA2190
-02	manual	CDS	98378	98875	.	+	0	Parent=mRNA2190
-###
-01	manual	gene	243005	243487	.	-	.	ID=gene290;Name=rpl10
-01	manual	mRNA	243005	243487	.	-	.	ID=mRNA289;Parent=gene290;Name=rpl10;inference=similar to AA sequence:INSD:AJP33546.1
-01	manual	exon	243005	243487	.	-	.	Parent=mRNA289
-01	manual	CDS	243005	243487	.	-	0	Parent=mRNA289
-###
-07	manual	gene	98056	98631	.	+	.	ID=gene5531;Name=rpl5
-07	manual	mRNA	98056	98631	.	+	.	ID=mRNA5507;Parent=gene5531;Name=rpl5;inference=similar to AA sequence:INSD:AJP33549.1
-07	manual	exon	98056	98631	.	+	.	Parent=mRNA5507
-07	manual	CDS	98056	98631	.	+	0	Parent=mRNA5507
-###
-01	manual	gene	1297738	1298250	.	+	.	ID=gene1630;Name=rps11
-01	manual	mRNA	1297738	1298250	.	+	.	ID=mRNA1621;Parent=gene1630;Name=rps11;inference=similar to AA sequence:INSD:AJP33551.1
-01	manual	exon	1297738	1298250	.	+	.	Parent=mRNA1621
-01	manual	CDS	1297738	1298250	.	+	0	Parent=mRNA1621
-###
-06	manual	gene	362049	362588	.	+	.	ID=gene5385;Name=rps12
-06	manual	mRNA	362049	362588	.	+	.	ID=mRNA5362;Parent=gene5385;Name=rps12;inference=similar to AA sequence:INSD:KUM48432.1
-06	manual	exon	362049	362588	.	+	.	Parent=mRNA5362
-06	manual	CDS	362049	362588	.	+	0	Parent=mRNA5362
-###
-06	manual	gene	73275	73694	.	-	.	ID=gene5005;Name=rps13
-06	manual	mRNA	73275	73694	.	-	.	ID=mRNA4984;Parent=gene5005;Name=rps13;inference=similar to AA sequence:INSD:AJP33553.1
-06	manual	exon	73275	73694	.	-	.	Parent=mRNA4984
-06	manual	CDS	73275	73694	.	-	0	Parent=mRNA4984
-###
-03	manual	gene	75225	75944	.	-	.	ID=gene3124;Name=rps2
-03	manual	mRNA	75225	75944	.	-	.	ID=mRNA3110;Parent=gene3124;Name=rps2;inference=similar to AA sequence:RefSeq:YP_009531498.1
-03	manual	exon	75225	75944	.	-	.	Parent=mRNA3110
-03	manual	CDS	75225	75944	.	-	0	Parent=mRNA3110
-###
-07	manual	gene	98636	98938	.	+	.	ID=gene5532;Name=rps14
-07	manual	mRNA	98636	98938	.	+	.	ID=mRNA5508;Parent=gene5532;Name=rps14;inference=similar to AA sequence:RefSeq:YP_009531527.1
-07	manual	exon	98636	98938	.	+	.	Parent=mRNA5508
-07	manual	CDS	98636	98938	.	+	0	Parent=mRNA5508
-###
-01	manual	gene	75074	75583	.	-	.	ID=gene101;Name=sdh3
-01	manual	mRNA	75074	75583	.	-	.	ID=mRNA101;Parent=gene101;Name=sdh3;inference=similar to AA sequence:INSD:KUM49920.1
-01	manual	exon	75074	75583	.	-	.	Parent=mRNA101
-01	manual	CDS	75074	75583	.	-	0	Parent=mRNA101
