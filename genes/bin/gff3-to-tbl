@@ -66,6 +66,8 @@ def print_mrna(f, incomplete, locus_tag, product):
 		print "\t\t\tcodon_start\t%d" % (1 + phase)
 	print "\t\t\tproduct\t%s" % product
 	print "\t\t\tprotein_id\tgnl|%s|%s" % (args.centre, locus_tag)
+	if "part" in f.qualifiers:
+		print "\t\t\tnote\tpart=%s" % f.qualifiers["part"][0]
 
 	# Check whether inference or Name contains evidence of a similar protein.
 	inference = f.qualifiers["inference"][-1] if "inference" in f.qualifiers else name
