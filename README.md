@@ -4,8 +4,10 @@ Assemble and annotate the mitochondrial genome of Sitka spruce (*Picea sitchensi
 
 # Data
 
-- Nanopore sequencing `/projects/spruceup_scratch/psitchensis/Q903/data/reads/nanopore/*-cleaned.fastq`
-- Nuclear genome `/projects/btl_scratch/hackathons/october2017/scaffolding/abyss-longscaff/abyss-longScaffold/Q903-ARCS_c4_l4_a0.5-8.fa`
+- Nanopore sequencing [SRX5081713](https://www.ncbi.nlm.nih.gov/sra/SRX5081713)
+- Illumina sequencing [SRR5028199](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5028199)
+
+## Nanopore sequencing
 
 | Run | Flowcell |
 |----:|----------|
