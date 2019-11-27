@@ -745,11 +745,11 @@ prokka/%.gff.gene: prokka/%.gff
 
 # Extract the trans-spliced coding sequences.
 %.cds.part.fa: %.cds.fa
-	seqmagick convert --pattern-include=_part --sort=name-asc --line-wrap=0 $< $@
+	seqmagick convert --pattern-include='-e[0-9]' --sort=name-asc --line-wrap=0 $< $@
 
 # Splice the trans-spliced coding sequences.
 %.cds.trans.fa: %.cds.part.fa
-	sed -e 's/_part1//g' -e '/_part[2-9]/d' $< >$@
+	sed -e 's/-e1[2-9]*//g' -e '/-e[2-9]/d' $< >$@
 
 # Extract the coding sequences of known genes.
 %.cds.known.fa: %.cds.fa
