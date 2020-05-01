@@ -1,0 +1,63 @@
+digraph {
+    node [shape="rectangle" width=3]
+
+    subgraph cluster_miniasm {
+        graph [label="Miniasm + Racon", labeljust="r", style=dotted]
+
+        pglauca [label="White spruce mitochondrial genome (FASTA)", style="rounded"]
+        reads [label="Nanopore sequencing (FASTQ)", style="rounded"]
+        porechop [label="Porechop (FASTQ)"]
+        miniasm [label="Miniasm (GFA)"]
+        miniasm_racon [label="Racon (FASTA)"]
+        miniasm_racon_pglauca [label="BLASTN run by Bandage(GFA)\nContigs with alignment score &ge; 5000\nto the white spruce mtDNA"]
+
+        reads -> porechop
+        porechop -> miniasm
+        miniasm -> miniasm_racon
+        miniasm_racon -> miniasm_racon_pglauca
+        pglauca -> miniasm_racon_pglauca
+    }
+
+    subgraph cluster_unicycler {
+        graph [label="Unicycler", labeljust="r", style=dotted]
+
+        miniasm_racon_pglauca_reads [label="Minimap2 (FASTQ)\nReads with alignment score &ge; 5000\nto the Miniasm assembly"]
+        unicycler [label="Unicycler (GFA)"]
+
+        miniasm_racon_pglauca -> miniasm_racon_pglauca_reads
+        miniasm_racon_pglauca_reads -> unicycler
+    }
+
+    subgraph cluster_flye {
+        graph [label="Flye + Racon", labeljust="r", style=dotted]
+
+        unicycler_reads [label="Minimap2 (FASTQ)\nReads with alignment score &ge; 5000\nto the Unicycler assembly"]
+        flye [label="Flye (GFA)"]
+        flye_racon [label="Racon (FASTA)"]
+        flye_racon_pglauca [label="BLASTN run by Bandage (GFA)\nContigs with alignment score &ge; 5000\nand percent identity &ge; 90%\nto the white spruce mtDNA"]
+
+        unicycler -> unicycler_reads
+        unicycler_reads -> flye
+        flye -> flye_racon
+        flye_racon -> flye_racon_pglauca
+        pglauca -> flye_racon_pglauca
+    }
+
+    subgraph cluster_unicycler_polish {
+        graph [label="Unicycler Polish", labeljust="r", style=dotted]
+
+        linked_reads [label="Linked reads (FASTQ)", style="rounded"]
+        trimadap [label="Trimadap (FASTQ)"]
+        longranger_basic [label="Long Ranger Basic (FASTQ)"]
+        unicycler_polish [label="Unicycler Polish (GFA)"]
+
+        linked_reads -> trimadap
+        trimadap -> longranger_basic
+        flye_racon_pglauca -> unicycler_polish
+        longranger_basic -> unicycler_polish
+    }
+
+    assembly [label="Sitka spruce mitochondrial genome (GFA)", style="rounded"]
+
+    unicycler_polish -> assembly
+}
