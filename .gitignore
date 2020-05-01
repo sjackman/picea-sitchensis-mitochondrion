@@ -42,3 +42,12 @@ notes/
 *.fa.bwt
 *.fa.pac
 *.fa.sa
+
+!Makefile.gv
+!Makefile.gv.pdf
+!Makefile.gv.png
+!Makefile.gv.svg
+!pipeline.gv
+!pipeline.gv.pdf
+!pipeline.gv.png
+!pipeline.gv.svg
