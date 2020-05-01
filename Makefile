@@ -39,10 +39,12 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
+all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.gfa
 all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.gfa
 all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.gfa
-all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.HYN5VCCXX_4.trimadap.bx.sort.bam.bai
-all: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.minimap2.Q903_18.porechop.paf.m5000.sort.bam.bai
+
+bam: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.HYN5VCCXX_4.trimadap.bx.sort.bam.bai
+bam: Q903_18.porechop.minimap2.c3.miniasm.racon.pglaucamt.minimap2.Q903_18.porechop.paf.m5000.bold.unicycler.minimap2.Q903_18.porechop.paf.m5000.flye.racon.al5ki90.pglaucamt.compact.renumber.unicycler-polish.minimap2.Q903_18.porechop.paf.m5000.sort.bam.bai
 
 assemblies:
 	miniasm \
@@ -101,6 +103,12 @@ ifndef ref
 %.Q903_ARCS.sam.gz:
 	$(MAKE) ref=Q903_ARCS $@
 endif
+
+# makefile2graph
+
+# Render a figure of this pipeline
+Makefile.gv: Makefile
+	make -Bdn | make2graph >Makefile.gv
 
 # NCBI
 
@@ -165,6 +173,18 @@ Q903-ARCS_c4_l4_a0.5-8.rename.fa: Q903-ARCS_c4_l4_a0.5-8.fa
 # Trim adapter sequences using trimadap.
 %.trimadap.fq.gz: %.fq.gz
 	trimadap-mt -p$t -t1 $< | sed 's/^X$$/N/' | $(gzip) >$@
+
+# Longranger
+
+# Extract 10x Chromium barcodes using longranger basic.
+%_lrbasic/outs/barcoded.fastq.gz: %.fq.gz
+	mkdir -p $*
+	ln -s ../$< $*/
+	longranger basic --id=$*_lrbasic --fastqs=$*
+
+# Symlink the longranger basic FASTQ file.
+%.bx.fq.gz: %_lrbasic/outs/barcoded.fastq.gz
+	ln -sf $< $@
 
 # BWA
 
@@ -544,6 +564,15 @@ $(reads).minimap2.c2.miniasm.racon.racon.HYN5VCCXX_4.trimadap.bx.sort.mt.long.fq
 %.pglaucamt.fa: %.pglaucamt.gfa
 	awk '/^S/ { print ">" $$2 " " $$4 "\n" $$3 }' $< >$@
 
+# Compact a GFA file using Bandage.
+%.compact.gfa: %.gfa
+	echo "Use Bandage to compact the graph by selecting"
+	echo "Edit:Merge all possible nodes"
+	echo "Output:Save Entire Graph to GFA"
+	echo "$@"
+	Bandage load $<
+	test $@ -nt $<
+
 # Convert GFA to FASTA.
 %.compact.fa: %.compact.gfa
 	awk '/^S/ { print ">" $$2 "\n" $$3 }' $< >$@
@@ -828,8 +857,16 @@ n=3
 	gvpr 'E[n >= $n]' -o $@ $<
 
 # Render a graph to PDF using dot.
-%.gv.dot.pdf: %.gv
+%.gv.pdf: %.gv
 	dot -Tpdf -o $@ $<
+
+# Render a graph to PNG using dot.
+%.gv.png: %.gv
+	dot -Tpng -o $@ $<
+
+# Render a graph to SVG using dot.
+%.gv.svg: %.gv
+	dot -Tsvg -o $@ $<
 
 # Miller
 
