@@ -29,3 +29,11 @@ Assemble and annotate the mitochondrial genome of Sitka spruce (*Picea sitchensi
 |  16 | FAH44750 |
 |  17 | FAK02037 |
 |  18 | FAK02424 |
+
+# Pipeline
+
+[![Pipeline flowchart diagram](pipeline.gv.png)](pipeline.gv.pdf)
+
+# Makefile
+
+[![Makefile flowchart diagram](Makefile.gv.png)](Makefile.gv.pdf)
